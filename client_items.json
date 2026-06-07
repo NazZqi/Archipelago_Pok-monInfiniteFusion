@@ -1,0 +1,18 @@
+{
+    "2660000": {"name": "Boulder Badge", "type": "badge", "badge_id": 0},
+    "2660001": {"name": "Cascade Badge", "type": "badge", "badge_id": 1},
+    "2660002": {"name": "Thunder Badge", "type": "badge", "badge_id": 2},
+    "2660003": {"name": "Rainbow Badge", "type": "badge", "badge_id": 3},
+    "2660004": {"name": "Soul Badge", "type": "badge", "badge_id": 4},
+    "2660005": {"name": "Marsh Badge", "type": "badge", "badge_id": 5},
+    "2660006": {"name": "Volcano Badge", "type": "badge", "badge_id": 6},
+    "2660007": {"name": "Earth Badge", "type": "badge", "badge_id": 7},
+    "2660100": {"name": "HM01 Cut", "type": "item", "game_id": "HM01"},
+    "2660101": {"name": "HM02 Fly", "type": "item", "game_id": "HM02"},
+    "2660102": {"name": "HM03 Surf", "type": "item", "game_id": "HM03"},
+    "2660103": {"name": "HM04 Strength", "type": "item", "game_id": "HM04"},
+    "2660104": {"name": "HM05 Flash", "type": "item", "game_id": "HM05"},
+    "2660200": {"name": "Potion", "type": "item", "game_id": "POTION"},
+    "2660201": {"name": "Poke Ball", "type": "item", "game_id": "POKEBALL"},
+    "2660202": {"name": "Rare Candy", "type": "item", "game_id": "RARECANDY"}
+}
