@@ -1,46 +1,31 @@
 import json
 import os
 
-JSON_PATH = r"c:\Users\mendo\Documents\PokemonIF_AP\infinitefusion-e18\ap_locations.json"
+ITEMS_JSON_PATH = r"c:\Users\mendo\Documents\PokemonIF_AP\infinitefusion-e18\ap_items_dump.json"
 OUTPUT_DIR = r"c:\Users\mendo\Documents\PokemonIF_AP\apworld_dev\pokemon_infinite_fusion"
 
 def generate():
-    print("Cargando ubicaciones...")
-    with open(JSON_PATH, "r", encoding="utf-8") as f:
-        raw_data = json.load(f)
-
-    # Filtrar duplicados usando (map_id, event_id)
-    unique_locations = {}
-    for loc in raw_data:
-        key = (loc["map_id"], loc["event_id"])
-        # Ignorar eventos sin nombre o problemáticos
-        if key not in unique_locations:
-            unique_locations[key] = loc
-
-    locations_list = list(unique_locations.values())
-    print(f"Ubicaciones únicas encontradas: {len(locations_list)}")
-
-    # 1. Generar locations.py
-    locations_py = os.path.join(OUTPUT_DIR, "locations.py")
-    with open(locations_py, "w", encoding="utf-8") as f:
-        f.write('from typing import Dict, NamedTuple\n\n')
-        f.write('class IFLocationData(NamedTuple):\n')
-        f.write('    code: int\n')
-        f.write('    region: str\n\n')
-        f.write('location_table: Dict[str, IFLocationData] = {\n')
+    # GENERATE ITEMS
+    print("Cargando objetos desde el dump del juego...")
+    with open(ITEMS_JSON_PATH, "r", encoding="utf-8") as f:
+        raw_items = json.load(f)
         
-        base_id = 2560000
-        for i, loc in enumerate(locations_list):
-            loc_name = f"{loc['map_name']} - Event {loc['event_id']}"
-            code = base_id + i
-            # Evitar nombres duplicados si dos mapas se llaman igual
-            f.write(f'    "{loc_name} (Map {loc["map_id"]})": IFLocationData({code}, "{loc["map_name"]}"),\n')
+    # Filtrar IDs numéricos y objetos sin nombre (dejamos solo los IDs simbólicos reales)
+    real_items = []
+    seen_ids = set()
+    for item in raw_items:
+        if item["id"].isdigit(): continue
+        if item["id"] in seen_ids: continue
+        # Ignore strange blank names
+        if not item["name"] or item["name"] == "Unnamed": continue
+        real_items.append(item)
+        seen_ids.add(item["id"])
         
-        f.write('}\n')
-    print(f"Generado {locations_py}")
+    print(f"Objetos reales únicos encontrados: {len(real_items)}")
 
-    # 2. Generar items.py básico
     items_py = os.path.join(OUTPUT_DIR, "items.py")
+    client_items_dict = {}
+    
     with open(items_py, "w", encoding="utf-8") as f:
         f.write('from BaseClasses import ItemClassification\n')
         f.write('from typing import Dict, NamedTuple\n\n')
@@ -49,38 +34,42 @@ def generate():
         f.write('    classification: ItemClassification\n\n')
         f.write('item_table: Dict[str, IFItemData] = {\n')
         
-        # Medallas
+        # Medallas (Manuales, porque no existen en el dump como items)
         base_item_id = 2660000
         badges = [
             "Boulder Badge", "Cascade Badge", "Thunder Badge", "Rainbow Badge",
             "Soul Badge", "Marsh Badge", "Volcano Badge", "Earth Badge"
         ]
         for i, badge in enumerate(badges):
-            f.write(f'    "{badge}": IFItemData({base_item_id + i}, ItemClassification.progression),\n')
+            code = base_item_id + i
+            f.write(f'    "{badge}": IFItemData({code}, ItemClassification.progression),\n')
+            client_items_dict[str(code)] = {
+                "name": badge,
+                "type": "badge",
+                "badge_id": i
+            }
             
-        # HMs
-        hms = ["HM01 Cut", "HM02 Fly", "HM03 Surf", "HM04 Strength", "HM05 Flash"]
-        for i, hm in enumerate(hms):
-            f.write(f'    "{hm}": IFItemData({base_item_id + 100 + i}, ItemClassification.progression),\n')
-            
-        # Filler
-        f.write(f'    "Potion": IFItemData({base_item_id + 200}, ItemClassification.filler),\n')
-        f.write(f'    "Poke Ball": IFItemData({base_item_id + 201}, ItemClassification.filler),\n')
-        f.write(f'    "Rare Candy": IFItemData({base_item_id + 202}, ItemClassification.useful),\n')
+        # Objetos del juego (ap_items_dump)
+        current_id = 2660100
+        for item in real_items:
+            classification = f"ItemClassification.{item['classification']}"
+            f.write(f'    "{item["name"]}": IFItemData({current_id}, {classification}),\n')
+            client_items_dict[str(current_id)] = {
+                "name": item["name"],
+                "type": "item",
+                "game_id": item["id"] # Simbólico como "POTION"
+            }
+            current_id += 1
         
         f.write('}\n')
     print(f"Generado {items_py}")
-
-    # 3. Generar mapeo para el cliente
-    mapping_path = r"c:\Users\mendo\Documents\PokemonIF_AP\client_mapping.json"
-    mapping_data = {}
-    for i, loc in enumerate(locations_list):
-        key = f"{loc['map_id']}_{loc['event_id']}"
-        mapping_data[key] = base_id + i
-        
-    with open(mapping_path, "w", encoding="utf-8") as f:
-        json.dump(mapping_data, f, indent=4)
-    print(f"Generado {mapping_path}")
+    
+    client_items_path = r"c:\Users\mendo\Documents\PokemonIF_AP\client_items.json"
+    with open(client_items_path, "w", encoding="utf-8") as f:
+        json.dump(client_items_dict, f, indent=4)
+    print(f"Generado {client_items_path}")
 
 if __name__ == "__main__":
     generate()
+
+

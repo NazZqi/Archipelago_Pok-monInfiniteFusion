@@ -1,0 +1,3532 @@
+{
+    "2660000": {
+        "name": "Boulder Badge",
+        "type": "badge",
+        "badge_id": 0
+    },
+    "2660001": {
+        "name": "Cascade Badge",
+        "type": "badge",
+        "badge_id": 1
+    },
+    "2660002": {
+        "name": "Thunder Badge",
+        "type": "badge",
+        "badge_id": 2
+    },
+    "2660003": {
+        "name": "Rainbow Badge",
+        "type": "badge",
+        "badge_id": 3
+    },
+    "2660004": {
+        "name": "Soul Badge",
+        "type": "badge",
+        "badge_id": 4
+    },
+    "2660005": {
+        "name": "Marsh Badge",
+        "type": "badge",
+        "badge_id": 5
+    },
+    "2660006": {
+        "name": "Volcano Badge",
+        "type": "badge",
+        "badge_id": 6
+    },
+    "2660007": {
+        "name": "Earth Badge",
+        "type": "badge",
+        "badge_id": 7
+    },
+    "2660100": {
+        "name": "Repel",
+        "type": "item",
+        "game_id": "REPEL"
+    },
+    "2660101": {
+        "name": "Super Repel",
+        "type": "item",
+        "game_id": "SUPERREPEL"
+    },
+    "2660102": {
+        "name": "Max Repel",
+        "type": "item",
+        "game_id": "MAXREPEL"
+    },
+    "2660103": {
+        "name": "Black Flute",
+        "type": "item",
+        "game_id": "BLACKFLUTE"
+    },
+    "2660104": {
+        "name": "White Flute",
+        "type": "item",
+        "game_id": "WHITEFLUTE"
+    },
+    "2660105": {
+        "name": "Honey",
+        "type": "item",
+        "game_id": "HONEY"
+    },
+    "2660106": {
+        "name": "Escape Rope",
+        "type": "item",
+        "game_id": "ESCAPEROPE"
+    },
+    "2660107": {
+        "name": "Red Shard",
+        "type": "item",
+        "game_id": "REDSHARD"
+    },
+    "2660108": {
+        "name": "Yellow Shard",
+        "type": "item",
+        "game_id": "YELLOWSHARD"
+    },
+    "2660109": {
+        "name": "Blue Shard",
+        "type": "item",
+        "game_id": "BLUESHARD"
+    },
+    "2660110": {
+        "name": "Green Shard",
+        "type": "item",
+        "game_id": "GREENSHARD"
+    },
+    "2660111": {
+        "name": "Fire Stone",
+        "type": "item",
+        "game_id": "FIRESTONE"
+    },
+    "2660112": {
+        "name": "Thunder Stone",
+        "type": "item",
+        "game_id": "THUNDERSTONE"
+    },
+    "2660113": {
+        "name": "Water Stone",
+        "type": "item",
+        "game_id": "WATERSTONE"
+    },
+    "2660114": {
+        "name": "Leaf Stone",
+        "type": "item",
+        "game_id": "LEAFSTONE"
+    },
+    "2660115": {
+        "name": "Moon Stone",
+        "type": "item",
+        "game_id": "MOONSTONE"
+    },
+    "2660116": {
+        "name": "Sun Stone",
+        "type": "item",
+        "game_id": "SUNSTONE"
+    },
+    "2660117": {
+        "name": "Dusk Stone",
+        "type": "item",
+        "game_id": "DUSKSTONE"
+    },
+    "2660118": {
+        "name": "Dawn Stone",
+        "type": "item",
+        "game_id": "DAWNSTONE"
+    },
+    "2660119": {
+        "name": "Shiny Stone",
+        "type": "item",
+        "game_id": "SHINYSTONE"
+    },
+    "2660120": {
+        "name": "Red Apricorn",
+        "type": "item",
+        "game_id": "REDAPRICORN"
+    },
+    "2660121": {
+        "name": "Yellow Apricorn",
+        "type": "item",
+        "game_id": "YELLOWAPRICORN"
+    },
+    "2660122": {
+        "name": "Blue Apricorn",
+        "type": "item",
+        "game_id": "BLUEAPRICORN"
+    },
+    "2660123": {
+        "name": "Green Apricorn",
+        "type": "item",
+        "game_id": "GREENAPRICORN"
+    },
+    "2660124": {
+        "name": "Pink Apricorn",
+        "type": "item",
+        "game_id": "PINKAPRICORN"
+    },
+    "2660125": {
+        "name": "White Apricorn",
+        "type": "item",
+        "game_id": "WHITEAPRICORN"
+    },
+    "2660126": {
+        "name": "Black Apricorn",
+        "type": "item",
+        "game_id": "BLACKAPRICORN"
+    },
+    "2660127": {
+        "name": "Helix Fossil",
+        "type": "item",
+        "game_id": "HELIXFOSSIL"
+    },
+    "2660128": {
+        "name": "Dome Fossil",
+        "type": "item",
+        "game_id": "DOMEFOSSIL"
+    },
+    "2660129": {
+        "name": "Old Amber",
+        "type": "item",
+        "game_id": "OLDAMBER"
+    },
+    "2660130": {
+        "name": "Root Fossil",
+        "type": "item",
+        "game_id": "ROOTFOSSIL"
+    },
+    "2660131": {
+        "name": "Claw Fossil",
+        "type": "item",
+        "game_id": "CLAWFOSSIL"
+    },
+    "2660132": {
+        "name": "Skull Fossil",
+        "type": "item",
+        "game_id": "SKULLFOSSIL"
+    },
+    "2660133": {
+        "name": "Armor Fossil",
+        "type": "item",
+        "game_id": "ARMORFOSSIL"
+    },
+    "2660134": {
+        "name": "unknown_item",
+        "type": "item",
+        "game_id": "COVERFOSSIL"
+    },
+    "2660135": {
+        "name": "unknown_item",
+        "type": "item",
+        "game_id": "PLUMEFOSSIL"
+    },
+    "2660136": {
+        "name": "Pretty Wing",
+        "type": "item",
+        "game_id": "PRETTYWING"
+    },
+    "2660137": {
+        "name": "Tiny Mushroom",
+        "type": "item",
+        "game_id": "TINYMUSHROOM"
+    },
+    "2660138": {
+        "name": "Big Mushroom",
+        "type": "item",
+        "game_id": "BIGMUSHROOM"
+    },
+    "2660139": {
+        "name": "Balm Mushroom",
+        "type": "item",
+        "game_id": "BALMMUSHROOM"
+    },
+    "2660140": {
+        "name": "Pearl",
+        "type": "item",
+        "game_id": "PEARL"
+    },
+    "2660141": {
+        "name": "Big Pearl",
+        "type": "item",
+        "game_id": "BIGPEARL"
+    },
+    "2660142": {
+        "name": "Pearl String",
+        "type": "item",
+        "game_id": "PEARLSTRING"
+    },
+    "2660143": {
+        "name": "Stardust",
+        "type": "item",
+        "game_id": "STARDUST"
+    },
+    "2660144": {
+        "name": "Star Piece",
+        "type": "item",
+        "game_id": "STARPIECE"
+    },
+    "2660145": {
+        "name": "Comet Shard",
+        "type": "item",
+        "game_id": "COMETSHARD"
+    },
+    "2660146": {
+        "name": "Nugget",
+        "type": "item",
+        "game_id": "NUGGET"
+    },
+    "2660147": {
+        "name": "Big Nugget",
+        "type": "item",
+        "game_id": "BIGNUGGET"
+    },
+    "2660148": {
+        "name": "Heart Scale",
+        "type": "item",
+        "game_id": "HEARTSCALE"
+    },
+    "2660149": {
+        "name": "Slowpoke Tail",
+        "type": "item",
+        "game_id": "SLOWPOKETAIL"
+    },
+    "2660150": {
+        "name": "Rare Bone",
+        "type": "item",
+        "game_id": "RAREBONE"
+    },
+    "2660151": {
+        "name": "Relic Copper",
+        "type": "item",
+        "game_id": "RELICCOPPER"
+    },
+    "2660152": {
+        "name": "Relic Silver",
+        "type": "item",
+        "game_id": "RELICSILVER"
+    },
+    "2660153": {
+        "name": "Relic Gold",
+        "type": "item",
+        "game_id": "RELICGOLD"
+    },
+    "2660154": {
+        "name": "Relic Vase",
+        "type": "item",
+        "game_id": "RELICVASE"
+    },
+    "2660155": {
+        "name": "Relic Band",
+        "type": "item",
+        "game_id": "RELICBAND"
+    },
+    "2660156": {
+        "name": "Relic Statue",
+        "type": "item",
+        "game_id": "RELICSTATUE"
+    },
+    "2660157": {
+        "name": "Relic Crown",
+        "type": "item",
+        "game_id": "RELICCROWN"
+    },
+    "2660158": {
+        "name": "Growth Mulch",
+        "type": "item",
+        "game_id": "GROWTHMULCH"
+    },
+    "2660159": {
+        "name": "Damp Mulch",
+        "type": "item",
+        "game_id": "DAMPMULCH"
+    },
+    "2660160": {
+        "name": "Stable Mulch",
+        "type": "item",
+        "game_id": "STABLEMULCH"
+    },
+    "2660161": {
+        "name": "Gooey Mulch",
+        "type": "item",
+        "game_id": "GOOEYMULCH"
+    },
+    "2660162": {
+        "name": "Shoal Salt",
+        "type": "item",
+        "game_id": "SHOALSALT"
+    },
+    "2660163": {
+        "name": "Shoal Shell",
+        "type": "item",
+        "game_id": "SHOALSHELL"
+    },
+    "2660164": {
+        "name": "Odd Keystone",
+        "type": "item",
+        "game_id": "ODDKEYSTONE"
+    },
+    "2660165": {
+        "name": "Air Balloon",
+        "type": "item",
+        "game_id": "AIRBALLOON"
+    },
+    "2660166": {
+        "name": "Bright Powder",
+        "type": "item",
+        "game_id": "BRIGHTPOWDER"
+    },
+    "2660167": {
+        "name": "Eviolite",
+        "type": "item",
+        "game_id": "EVIOLITE"
+    },
+    "2660168": {
+        "name": "Float Stone",
+        "type": "item",
+        "game_id": "FLOATSTONE"
+    },
+    "2660169": {
+        "name": "Destiny Knot",
+        "type": "item",
+        "game_id": "DESTINYKNOT"
+    },
+    "2660170": {
+        "name": "Rocky Helmet",
+        "type": "item",
+        "game_id": "ROCKYHELMET"
+    },
+    "2660171": {
+        "name": "Eject Button",
+        "type": "item",
+        "game_id": "EJECTBUTTON"
+    },
+    "2660172": {
+        "name": "Red Card",
+        "type": "item",
+        "game_id": "REDCARD"
+    },
+    "2660173": {
+        "name": "Shed Shell",
+        "type": "item",
+        "game_id": "SHEDSHELL"
+    },
+    "2660174": {
+        "name": "Smoke Ball",
+        "type": "item",
+        "game_id": "SMOKEBALL"
+    },
+    "2660175": {
+        "name": "Lucky Egg",
+        "type": "item",
+        "game_id": "LUCKYEGG"
+    },
+    "2660176": {
+        "name": "Exp. Share",
+        "type": "item",
+        "game_id": "EXPSHARE"
+    },
+    "2660177": {
+        "name": "Amulet Coin",
+        "type": "item",
+        "game_id": "AMULETCOIN"
+    },
+    "2660178": {
+        "name": "Soothe Bell",
+        "type": "item",
+        "game_id": "SOOTHEBELL"
+    },
+    "2660179": {
+        "name": "Cleanse Tag",
+        "type": "item",
+        "game_id": "CLEANSETAG"
+    },
+    "2660180": {
+        "name": "Choice Band",
+        "type": "item",
+        "game_id": "CHOICEBAND"
+    },
+    "2660181": {
+        "name": "Choice Specs",
+        "type": "item",
+        "game_id": "CHOICESPECS"
+    },
+    "2660182": {
+        "name": "Choice Scarf",
+        "type": "item",
+        "game_id": "CHOICESCARF"
+    },
+    "2660183": {
+        "name": "Heat Rock",
+        "type": "item",
+        "game_id": "HEATROCK"
+    },
+    "2660184": {
+        "name": "Damp Rock",
+        "type": "item",
+        "game_id": "DAMPROCK"
+    },
+    "2660185": {
+        "name": "Smooth Rock",
+        "type": "item",
+        "game_id": "SMOOTHROCK"
+    },
+    "2660186": {
+        "name": "Icy Rock",
+        "type": "item",
+        "game_id": "ICYROCK"
+    },
+    "2660187": {
+        "name": "Light Clay",
+        "type": "item",
+        "game_id": "LIGHTCLAY"
+    },
+    "2660188": {
+        "name": "Grip Claw",
+        "type": "item",
+        "game_id": "GRIPCLAW"
+    },
+    "2660189": {
+        "name": "Binding Band",
+        "type": "item",
+        "game_id": "BINDINGBAND"
+    },
+    "2660190": {
+        "name": "Big Root",
+        "type": "item",
+        "game_id": "BIGROOT"
+    },
+    "2660191": {
+        "name": "Black Sludge",
+        "type": "item",
+        "game_id": "BLACKSLUDGE"
+    },
+    "2660192": {
+        "name": "Leftovers",
+        "type": "item",
+        "game_id": "LEFTOVERS"
+    },
+    "2660193": {
+        "name": "Shell Bell",
+        "type": "item",
+        "game_id": "SHELLBELL"
+    },
+    "2660194": {
+        "name": "Mental Herb",
+        "type": "item",
+        "game_id": "MENTALHERB"
+    },
+    "2660195": {
+        "name": "White Herb",
+        "type": "item",
+        "game_id": "WHITEHERB"
+    },
+    "2660196": {
+        "name": "Power Herb",
+        "type": "item",
+        "game_id": "POWERHERB"
+    },
+    "2660197": {
+        "name": "Absorb Bulb",
+        "type": "item",
+        "game_id": "ABSORBBULB"
+    },
+    "2660198": {
+        "name": "Cell Battery",
+        "type": "item",
+        "game_id": "CELLBATTERY"
+    },
+    "2660199": {
+        "name": "Life Orb",
+        "type": "item",
+        "game_id": "LIFEORB"
+    },
+    "2660200": {
+        "name": "Expert Belt",
+        "type": "item",
+        "game_id": "EXPERTBELT"
+    },
+    "2660201": {
+        "name": "Metronome",
+        "type": "item",
+        "game_id": "METRONOME"
+    },
+    "2660202": {
+        "name": "Muscle Band",
+        "type": "item",
+        "game_id": "MUSCLEBAND"
+    },
+    "2660203": {
+        "name": "Wise Glasses",
+        "type": "item",
+        "game_id": "WISEGLASSES"
+    },
+    "2660204": {
+        "name": "Razor Claw",
+        "type": "item",
+        "game_id": "RAZORCLAW"
+    },
+    "2660205": {
+        "name": "Scope Lens",
+        "type": "item",
+        "game_id": "SCOPELENS"
+    },
+    "2660206": {
+        "name": "Wide Lens",
+        "type": "item",
+        "game_id": "WIDELENS"
+    },
+    "2660207": {
+        "name": "Zoom Lens",
+        "type": "item",
+        "game_id": "ZOOMLENS"
+    },
+    "2660208": {
+        "name": "King's Rock",
+        "type": "item",
+        "game_id": "KINGSROCK"
+    },
+    "2660209": {
+        "name": "Razor Fang",
+        "type": "item",
+        "game_id": "RAZORFANG"
+    },
+    "2660210": {
+        "name": "Lagging Tail",
+        "type": "item",
+        "game_id": "LAGGINGTAIL"
+    },
+    "2660211": {
+        "name": "Quick Claw",
+        "type": "item",
+        "game_id": "QUICKCLAW"
+    },
+    "2660212": {
+        "name": "Focus Band",
+        "type": "item",
+        "game_id": "FOCUSBAND"
+    },
+    "2660213": {
+        "name": "Focus Sash",
+        "type": "item",
+        "game_id": "FOCUSSASH"
+    },
+    "2660214": {
+        "name": "Flame Orb",
+        "type": "item",
+        "game_id": "FLAMEORB"
+    },
+    "2660215": {
+        "name": "Toxic Orb",
+        "type": "item",
+        "game_id": "TOXICORB"
+    },
+    "2660216": {
+        "name": "Sticky Barb",
+        "type": "item",
+        "game_id": "STICKYBARB"
+    },
+    "2660217": {
+        "name": "Iron Ball",
+        "type": "item",
+        "game_id": "IRONBALL"
+    },
+    "2660218": {
+        "name": "Ring Target",
+        "type": "item",
+        "game_id": "RINGTARGET"
+    },
+    "2660219": {
+        "name": "Macho Brace",
+        "type": "item",
+        "game_id": "MACHOBRACE"
+    },
+    "2660220": {
+        "name": "Power Weight",
+        "type": "item",
+        "game_id": "POWERWEIGHT"
+    },
+    "2660221": {
+        "name": "Power Bracer",
+        "type": "item",
+        "game_id": "POWERBRACER"
+    },
+    "2660222": {
+        "name": "Power Belt",
+        "type": "item",
+        "game_id": "POWERBELT"
+    },
+    "2660223": {
+        "name": "Power Lens",
+        "type": "item",
+        "game_id": "POWERLENS"
+    },
+    "2660224": {
+        "name": "Power Band",
+        "type": "item",
+        "game_id": "POWERBAND"
+    },
+    "2660225": {
+        "name": "Power Anklet",
+        "type": "item",
+        "game_id": "POWERANKLET"
+    },
+    "2660226": {
+        "name": "Lax Incense",
+        "type": "item",
+        "game_id": "LAXINCENSE"
+    },
+    "2660227": {
+        "name": "Full Incense",
+        "type": "item",
+        "game_id": "FULLINCENSE"
+    },
+    "2660228": {
+        "name": "Luck Incense",
+        "type": "item",
+        "game_id": "LUCKINCENSE"
+    },
+    "2660229": {
+        "name": "Pure Incense",
+        "type": "item",
+        "game_id": "PUREINCENSE"
+    },
+    "2660230": {
+        "name": "Sea Incense",
+        "type": "item",
+        "game_id": "SEAINCENSE"
+    },
+    "2660231": {
+        "name": "Wave Incense",
+        "type": "item",
+        "game_id": "WAVEINCENSE"
+    },
+    "2660232": {
+        "name": "Rose Incense",
+        "type": "item",
+        "game_id": "ROSEINCENSE"
+    },
+    "2660233": {
+        "name": "Odd Incense",
+        "type": "item",
+        "game_id": "ODDINCENSE"
+    },
+    "2660234": {
+        "name": "Rock Incense",
+        "type": "item",
+        "game_id": "ROCKINCENSE"
+    },
+    "2660235": {
+        "name": "Charcoal",
+        "type": "item",
+        "game_id": "CHARCOAL"
+    },
+    "2660236": {
+        "name": "Mystic Water",
+        "type": "item",
+        "game_id": "MYSTICWATER"
+    },
+    "2660237": {
+        "name": "Magnet",
+        "type": "item",
+        "game_id": "MAGNET"
+    },
+    "2660238": {
+        "name": "Miracle Seed",
+        "type": "item",
+        "game_id": "MIRACLESEED"
+    },
+    "2660239": {
+        "name": "Never-Melt Ice",
+        "type": "item",
+        "game_id": "NEVERMELTICE"
+    },
+    "2660240": {
+        "name": "Black Belt",
+        "type": "item",
+        "game_id": "BLACKBELT"
+    },
+    "2660241": {
+        "name": "Poison Barb",
+        "type": "item",
+        "game_id": "POISONBARB"
+    },
+    "2660242": {
+        "name": "Soft Sand",
+        "type": "item",
+        "game_id": "SOFTSAND"
+    },
+    "2660243": {
+        "name": "Sharp Beak",
+        "type": "item",
+        "game_id": "SHARPBEAK"
+    },
+    "2660244": {
+        "name": "Twisted Spoon",
+        "type": "item",
+        "game_id": "TWISTEDSPOON"
+    },
+    "2660245": {
+        "name": "Silver Powder",
+        "type": "item",
+        "game_id": "SILVERPOWDER"
+    },
+    "2660246": {
+        "name": "Hard Stone",
+        "type": "item",
+        "game_id": "HARDSTONE"
+    },
+    "2660247": {
+        "name": "Spell Tag",
+        "type": "item",
+        "game_id": "SPELLTAG"
+    },
+    "2660248": {
+        "name": "Dragon Fang",
+        "type": "item",
+        "game_id": "DRAGONFANG"
+    },
+    "2660249": {
+        "name": "Black Glasses",
+        "type": "item",
+        "game_id": "BLACKGLASSES"
+    },
+    "2660250": {
+        "name": "Metal Coat",
+        "type": "item",
+        "game_id": "METALCOAT"
+    },
+    "2660251": {
+        "name": "Silk Scarf",
+        "type": "item",
+        "game_id": "SILKSCARF"
+    },
+    "2660252": {
+        "name": "Flame Plate",
+        "type": "item",
+        "game_id": "FLAMEPLATE"
+    },
+    "2660253": {
+        "name": "Splash Plate",
+        "type": "item",
+        "game_id": "SPLASHPLATE"
+    },
+    "2660254": {
+        "name": "Zap Plate",
+        "type": "item",
+        "game_id": "ZAPPLATE"
+    },
+    "2660255": {
+        "name": "Meadow Plate",
+        "type": "item",
+        "game_id": "MEADOWPLATE"
+    },
+    "2660256": {
+        "name": "Icicle Plate",
+        "type": "item",
+        "game_id": "ICICLEPLATE"
+    },
+    "2660257": {
+        "name": "Fist Plate",
+        "type": "item",
+        "game_id": "FISTPLATE"
+    },
+    "2660258": {
+        "name": "Toxic Plate",
+        "type": "item",
+        "game_id": "TOXICPLATE"
+    },
+    "2660259": {
+        "name": "Earth Plate",
+        "type": "item",
+        "game_id": "EARTHPLATE"
+    },
+    "2660260": {
+        "name": "Sky Plate",
+        "type": "item",
+        "game_id": "SKYPLATE"
+    },
+    "2660261": {
+        "name": "Mind Plate",
+        "type": "item",
+        "game_id": "MINDPLATE"
+    },
+    "2660262": {
+        "name": "Insect Plate",
+        "type": "item",
+        "game_id": "INSECTPLATE"
+    },
+    "2660263": {
+        "name": "Stone Plate",
+        "type": "item",
+        "game_id": "STONEPLATE"
+    },
+    "2660264": {
+        "name": "Spooky Plate",
+        "type": "item",
+        "game_id": "SPOOKYPLATE"
+    },
+    "2660265": {
+        "name": "Draco Plate",
+        "type": "item",
+        "game_id": "DRACOPLATE"
+    },
+    "2660266": {
+        "name": "Dread Plate",
+        "type": "item",
+        "game_id": "DREADPLATE"
+    },
+    "2660267": {
+        "name": "Iron Plate",
+        "type": "item",
+        "game_id": "IRONPLATE"
+    },
+    "2660268": {
+        "name": "Fire Gem",
+        "type": "item",
+        "game_id": "FIREGEM"
+    },
+    "2660269": {
+        "name": "Water Gem",
+        "type": "item",
+        "game_id": "WATERGEM"
+    },
+    "2660270": {
+        "name": "Electric Gem",
+        "type": "item",
+        "game_id": "ELECTRICGEM"
+    },
+    "2660271": {
+        "name": "Grass Gem",
+        "type": "item",
+        "game_id": "GRASSGEM"
+    },
+    "2660272": {
+        "name": "Ice Gem",
+        "type": "item",
+        "game_id": "ICEGEM"
+    },
+    "2660273": {
+        "name": "Fighting Gem",
+        "type": "item",
+        "game_id": "FIGHTINGGEM"
+    },
+    "2660274": {
+        "name": "Poison Gem",
+        "type": "item",
+        "game_id": "POISONGEM"
+    },
+    "2660275": {
+        "name": "Ground Gem",
+        "type": "item",
+        "game_id": "GROUNDGEM"
+    },
+    "2660276": {
+        "name": "Flying Gem",
+        "type": "item",
+        "game_id": "FLYINGGEM"
+    },
+    "2660277": {
+        "name": "Psychic Gem",
+        "type": "item",
+        "game_id": "PSYCHICGEM"
+    },
+    "2660278": {
+        "name": "Bug Gem",
+        "type": "item",
+        "game_id": "BUGGEM"
+    },
+    "2660279": {
+        "name": "Rock Gem",
+        "type": "item",
+        "game_id": "ROCKGEM"
+    },
+    "2660280": {
+        "name": "Ghost Gem",
+        "type": "item",
+        "game_id": "GHOSTGEM"
+    },
+    "2660281": {
+        "name": "Dragon Gem",
+        "type": "item",
+        "game_id": "DRAGONGEM"
+    },
+    "2660282": {
+        "name": "Dark Gem",
+        "type": "item",
+        "game_id": "DARKGEM"
+    },
+    "2660283": {
+        "name": "Steel Gem",
+        "type": "item",
+        "game_id": "STEELGEM"
+    },
+    "2660284": {
+        "name": "Normal Gem",
+        "type": "item",
+        "game_id": "NORMALGEM"
+    },
+    "2660285": {
+        "name": "Light Ball",
+        "type": "item",
+        "game_id": "LIGHTBALL"
+    },
+    "2660286": {
+        "name": "Lucky Punch",
+        "type": "item",
+        "game_id": "LUCKYPUNCH"
+    },
+    "2660287": {
+        "name": "Metal Powder",
+        "type": "item",
+        "game_id": "METALPOWDER"
+    },
+    "2660288": {
+        "name": "Quick Powder",
+        "type": "item",
+        "game_id": "QUICKPOWDER"
+    },
+    "2660289": {
+        "name": "Thick Club",
+        "type": "item",
+        "game_id": "THICKCLUB"
+    },
+    "2660290": {
+        "name": "Stick",
+        "type": "item",
+        "game_id": "STICK"
+    },
+    "2660291": {
+        "name": "Soul Dew",
+        "type": "item",
+        "game_id": "SOULDEW"
+    },
+    "2660292": {
+        "name": "Deep Sea Tooth",
+        "type": "item",
+        "game_id": "DEEPSEATOOTH"
+    },
+    "2660293": {
+        "name": "Deep Sea Scale",
+        "type": "item",
+        "game_id": "DEEPSEASCALE"
+    },
+    "2660294": {
+        "name": "Adamant Orb",
+        "type": "item",
+        "game_id": "ADAMANTORB"
+    },
+    "2660295": {
+        "name": "Lustrous Orb",
+        "type": "item",
+        "game_id": "LUSTROUSORB"
+    },
+    "2660296": {
+        "name": "Griseous Orb",
+        "type": "item",
+        "game_id": "GRISEOUSORB"
+    },
+    "2660297": {
+        "name": "Douse Drive",
+        "type": "item",
+        "game_id": "DOUSEDRIVE"
+    },
+    "2660298": {
+        "name": "Shock Drive",
+        "type": "item",
+        "game_id": "SHOCKDRIVE"
+    },
+    "2660299": {
+        "name": "Burn Drive",
+        "type": "item",
+        "game_id": "BURNDRIVE"
+    },
+    "2660300": {
+        "name": "Chill Drive",
+        "type": "item",
+        "game_id": "CHILLDRIVE"
+    },
+    "2660301": {
+        "name": "Everstone",
+        "type": "item",
+        "game_id": "EVERSTONE"
+    },
+    "2660302": {
+        "name": "Dragon Scale",
+        "type": "item",
+        "game_id": "DRAGONSCALE"
+    },
+    "2660303": {
+        "name": "Upgrade",
+        "type": "item",
+        "game_id": "UPGRADE"
+    },
+    "2660304": {
+        "name": "Dubious Disc",
+        "type": "item",
+        "game_id": "DUBIOUSDISC"
+    },
+    "2660305": {
+        "name": "Protector",
+        "type": "item",
+        "game_id": "PROTECTOR"
+    },
+    "2660306": {
+        "name": "Electirizer",
+        "type": "item",
+        "game_id": "ELECTIRIZER"
+    },
+    "2660307": {
+        "name": "Magmarizer",
+        "type": "item",
+        "game_id": "MAGMARIZER"
+    },
+    "2660308": {
+        "name": "Reaper Cloth",
+        "type": "item",
+        "game_id": "REAPERCLOTH"
+    },
+    "2660309": {
+        "name": "Prism Scale",
+        "type": "item",
+        "game_id": "PRISMSCALE"
+    },
+    "2660310": {
+        "name": "Oval Stone",
+        "type": "item",
+        "game_id": "OVALSTONE"
+    },
+    "2660311": {
+        "name": "Red Scarf",
+        "type": "item",
+        "game_id": "REDSCARF"
+    },
+    "2660312": {
+        "name": "Blue Scarf",
+        "type": "item",
+        "game_id": "BLUESCARF"
+    },
+    "2660313": {
+        "name": "Pink Scarf",
+        "type": "item",
+        "game_id": "PINKSCARF"
+    },
+    "2660314": {
+        "name": "Green Scarf",
+        "type": "item",
+        "game_id": "GREENSCARF"
+    },
+    "2660315": {
+        "name": "Yellow Scarf",
+        "type": "item",
+        "game_id": "YELLOWSCARF"
+    },
+    "2660316": {
+        "name": "Potion",
+        "type": "item",
+        "game_id": "POTION"
+    },
+    "2660317": {
+        "name": "Super Potion",
+        "type": "item",
+        "game_id": "SUPERPOTION"
+    },
+    "2660318": {
+        "name": "Hyper Potion",
+        "type": "item",
+        "game_id": "HYPERPOTION"
+    },
+    "2660319": {
+        "name": "Max Potion",
+        "type": "item",
+        "game_id": "MAXPOTION"
+    },
+    "2660320": {
+        "name": "Full Restore",
+        "type": "item",
+        "game_id": "FULLRESTORE"
+    },
+    "2660321": {
+        "name": "Sacred Ash",
+        "type": "item",
+        "game_id": "SACREDASH"
+    },
+    "2660322": {
+        "name": "Awakening",
+        "type": "item",
+        "game_id": "AWAKENING"
+    },
+    "2660323": {
+        "name": "Antidote",
+        "type": "item",
+        "game_id": "ANTIDOTE"
+    },
+    "2660324": {
+        "name": "Burn Heal",
+        "type": "item",
+        "game_id": "BURNHEAL"
+    },
+    "2660325": {
+        "name": "Paralyze Heal",
+        "type": "item",
+        "game_id": "PARLYZHEAL"
+    },
+    "2660326": {
+        "name": "Ice Heal",
+        "type": "item",
+        "game_id": "ICEHEAL"
+    },
+    "2660327": {
+        "name": "Full Heal",
+        "type": "item",
+        "game_id": "FULLHEAL"
+    },
+    "2660328": {
+        "name": "Lava Cookie",
+        "type": "item",
+        "game_id": "LAVACOOKIE"
+    },
+    "2660329": {
+        "name": "Old Gateau",
+        "type": "item",
+        "game_id": "OLDGATEAU"
+    },
+    "2660330": {
+        "name": "Casteliacone",
+        "type": "item",
+        "game_id": "CASTELIACONE"
+    },
+    "2660331": {
+        "name": "Revive",
+        "type": "item",
+        "game_id": "REVIVE"
+    },
+    "2660332": {
+        "name": "Max Revive",
+        "type": "item",
+        "game_id": "MAXREVIVE"
+    },
+    "2660333": {
+        "name": "Berry Juice",
+        "type": "item",
+        "game_id": "BERRYJUICE"
+    },
+    "2660334": {
+        "name": "Rage Candy Bar",
+        "type": "item",
+        "game_id": "RAGECANDYBAR"
+    },
+    "2660335": {
+        "name": "Sweet Heart",
+        "type": "item",
+        "game_id": "SWEETHEART"
+    },
+    "2660336": {
+        "name": "Fresh Water",
+        "type": "item",
+        "game_id": "FRESHWATER"
+    },
+    "2660337": {
+        "name": "Soda Pop",
+        "type": "item",
+        "game_id": "SODAPOP"
+    },
+    "2660338": {
+        "name": "Lemonade",
+        "type": "item",
+        "game_id": "LEMONADE"
+    },
+    "2660339": {
+        "name": "Moomoo Milk",
+        "type": "item",
+        "game_id": "MOOMOOMILK"
+    },
+    "2660340": {
+        "name": "Energy Powder",
+        "type": "item",
+        "game_id": "ENERGYPOWDER"
+    },
+    "2660341": {
+        "name": "Energy Root",
+        "type": "item",
+        "game_id": "ENERGYROOT"
+    },
+    "2660342": {
+        "name": "Heal Powder",
+        "type": "item",
+        "game_id": "HEALPOWDER"
+    },
+    "2660343": {
+        "name": "Revival Herb",
+        "type": "item",
+        "game_id": "REVIVALHERB"
+    },
+    "2660344": {
+        "name": "Ether",
+        "type": "item",
+        "game_id": "ETHER"
+    },
+    "2660345": {
+        "name": "Max Ether",
+        "type": "item",
+        "game_id": "MAXETHER"
+    },
+    "2660346": {
+        "name": "Elixir",
+        "type": "item",
+        "game_id": "ELIXIR"
+    },
+    "2660347": {
+        "name": "Max Elixir",
+        "type": "item",
+        "game_id": "MAXELIXIR"
+    },
+    "2660348": {
+        "name": "PP Up",
+        "type": "item",
+        "game_id": "PPUP"
+    },
+    "2660349": {
+        "name": "PP Max",
+        "type": "item",
+        "game_id": "PPMAX"
+    },
+    "2660350": {
+        "name": "HP Up",
+        "type": "item",
+        "game_id": "HPUP"
+    },
+    "2660351": {
+        "name": "Protein",
+        "type": "item",
+        "game_id": "PROTEIN"
+    },
+    "2660352": {
+        "name": "Iron",
+        "type": "item",
+        "game_id": "IRON"
+    },
+    "2660353": {
+        "name": "Calcium",
+        "type": "item",
+        "game_id": "CALCIUM"
+    },
+    "2660354": {
+        "name": "Zinc",
+        "type": "item",
+        "game_id": "ZINC"
+    },
+    "2660355": {
+        "name": "Carbos",
+        "type": "item",
+        "game_id": "CARBOS"
+    },
+    "2660356": {
+        "name": "Health Wing",
+        "type": "item",
+        "game_id": "HEALTHWING"
+    },
+    "2660357": {
+        "name": "Muscle Wing",
+        "type": "item",
+        "game_id": "MUSCLEWING"
+    },
+    "2660358": {
+        "name": "Resist Wing",
+        "type": "item",
+        "game_id": "RESISTWING"
+    },
+    "2660359": {
+        "name": "Genius Wing",
+        "type": "item",
+        "game_id": "GENIUSWING"
+    },
+    "2660360": {
+        "name": "Clever Wing",
+        "type": "item",
+        "game_id": "CLEVERWING"
+    },
+    "2660361": {
+        "name": "Swift Wing",
+        "type": "item",
+        "game_id": "SWIFTWING"
+    },
+    "2660362": {
+        "name": "Rare Candy",
+        "type": "item",
+        "game_id": "RARECANDY"
+    },
+    "2660363": {
+        "name": "Master Ball",
+        "type": "item",
+        "game_id": "MASTERBALL"
+    },
+    "2660364": {
+        "name": "Ultra Ball",
+        "type": "item",
+        "game_id": "ULTRABALL"
+    },
+    "2660365": {
+        "name": "Great Ball",
+        "type": "item",
+        "game_id": "GREATBALL"
+    },
+    "2660366": {
+        "name": "Pok\u00e9 Ball",
+        "type": "item",
+        "game_id": "POKEBALL"
+    },
+    "2660367": {
+        "name": "Safari Ball",
+        "type": "item",
+        "game_id": "SAFARIBALL"
+    },
+    "2660368": {
+        "name": "Sport Ball",
+        "type": "item",
+        "game_id": "SPORTBALL"
+    },
+    "2660369": {
+        "name": "Net Ball",
+        "type": "item",
+        "game_id": "NETBALL"
+    },
+    "2660370": {
+        "name": "Dive Ball",
+        "type": "item",
+        "game_id": "DIVEBALL"
+    },
+    "2660371": {
+        "name": "Nest Ball",
+        "type": "item",
+        "game_id": "NESTBALL"
+    },
+    "2660372": {
+        "name": "Repeat Ball",
+        "type": "item",
+        "game_id": "REPEATBALL"
+    },
+    "2660373": {
+        "name": "Timer Ball",
+        "type": "item",
+        "game_id": "TIMERBALL"
+    },
+    "2660374": {
+        "name": "Luxury Ball",
+        "type": "item",
+        "game_id": "LUXURYBALL"
+    },
+    "2660375": {
+        "name": "Premier Ball",
+        "type": "item",
+        "game_id": "PREMIERBALL"
+    },
+    "2660376": {
+        "name": "Dusk Ball",
+        "type": "item",
+        "game_id": "DUSKBALL"
+    },
+    "2660377": {
+        "name": "Heal Ball",
+        "type": "item",
+        "game_id": "HEALBALL"
+    },
+    "2660378": {
+        "name": "Quick Ball",
+        "type": "item",
+        "game_id": "QUICKBALL"
+    },
+    "2660379": {
+        "name": "Cherish Ball",
+        "type": "item",
+        "game_id": "CHERISHBALL"
+    },
+    "2660380": {
+        "name": "Fast Ball",
+        "type": "item",
+        "game_id": "FASTBALL"
+    },
+    "2660381": {
+        "name": "Level Ball",
+        "type": "item",
+        "game_id": "LEVELBALL"
+    },
+    "2660382": {
+        "name": "Lure Ball",
+        "type": "item",
+        "game_id": "LUREBALL"
+    },
+    "2660383": {
+        "name": "Heavy Ball",
+        "type": "item",
+        "game_id": "HEAVYBALL"
+    },
+    "2660384": {
+        "name": "Love Ball",
+        "type": "item",
+        "game_id": "LOVEBALL"
+    },
+    "2660385": {
+        "name": "Friend Ball",
+        "type": "item",
+        "game_id": "FRIENDBALL"
+    },
+    "2660386": {
+        "name": "Moon Ball",
+        "type": "item",
+        "game_id": "MOONBALL"
+    },
+    "2660387": {
+        "name": "TM01",
+        "type": "item",
+        "game_id": "TM01"
+    },
+    "2660388": {
+        "name": "TM02",
+        "type": "item",
+        "game_id": "TM02"
+    },
+    "2660389": {
+        "name": "TM03",
+        "type": "item",
+        "game_id": "TM03"
+    },
+    "2660390": {
+        "name": "TM04",
+        "type": "item",
+        "game_id": "TM04"
+    },
+    "2660391": {
+        "name": "TM05",
+        "type": "item",
+        "game_id": "TM05"
+    },
+    "2660392": {
+        "name": "TM06",
+        "type": "item",
+        "game_id": "TM06"
+    },
+    "2660393": {
+        "name": "TM07",
+        "type": "item",
+        "game_id": "TM07"
+    },
+    "2660394": {
+        "name": "TM08",
+        "type": "item",
+        "game_id": "TM08"
+    },
+    "2660395": {
+        "name": "TM09",
+        "type": "item",
+        "game_id": "TM09"
+    },
+    "2660396": {
+        "name": "TM10",
+        "type": "item",
+        "game_id": "TM10"
+    },
+    "2660397": {
+        "name": "TM11",
+        "type": "item",
+        "game_id": "TM11"
+    },
+    "2660398": {
+        "name": "TM12",
+        "type": "item",
+        "game_id": "TM12"
+    },
+    "2660399": {
+        "name": "TM13",
+        "type": "item",
+        "game_id": "TM13"
+    },
+    "2660400": {
+        "name": "TM14",
+        "type": "item",
+        "game_id": "TM14"
+    },
+    "2660401": {
+        "name": "TM15",
+        "type": "item",
+        "game_id": "TM15"
+    },
+    "2660402": {
+        "name": "TM16",
+        "type": "item",
+        "game_id": "TM16"
+    },
+    "2660403": {
+        "name": "TM17",
+        "type": "item",
+        "game_id": "TM17"
+    },
+    "2660404": {
+        "name": "TM18",
+        "type": "item",
+        "game_id": "TM18"
+    },
+    "2660405": {
+        "name": "TM19",
+        "type": "item",
+        "game_id": "TM19"
+    },
+    "2660406": {
+        "name": "TM20",
+        "type": "item",
+        "game_id": "TM20"
+    },
+    "2660407": {
+        "name": "TM21",
+        "type": "item",
+        "game_id": "TM21"
+    },
+    "2660408": {
+        "name": "TM22",
+        "type": "item",
+        "game_id": "TM22"
+    },
+    "2660409": {
+        "name": "TM23",
+        "type": "item",
+        "game_id": "TM23"
+    },
+    "2660410": {
+        "name": "TM24",
+        "type": "item",
+        "game_id": "TM24"
+    },
+    "2660411": {
+        "name": "TM25",
+        "type": "item",
+        "game_id": "TM25"
+    },
+    "2660412": {
+        "name": "TM26",
+        "type": "item",
+        "game_id": "TM26"
+    },
+    "2660413": {
+        "name": "TM27",
+        "type": "item",
+        "game_id": "TM27"
+    },
+    "2660414": {
+        "name": "TM28",
+        "type": "item",
+        "game_id": "TM28"
+    },
+    "2660415": {
+        "name": "TM29",
+        "type": "item",
+        "game_id": "TM29"
+    },
+    "2660416": {
+        "name": "TM30",
+        "type": "item",
+        "game_id": "TM30"
+    },
+    "2660417": {
+        "name": "TM31",
+        "type": "item",
+        "game_id": "TM31"
+    },
+    "2660418": {
+        "name": "TM32",
+        "type": "item",
+        "game_id": "TM32"
+    },
+    "2660419": {
+        "name": "TM33",
+        "type": "item",
+        "game_id": "TM33"
+    },
+    "2660420": {
+        "name": "TM34",
+        "type": "item",
+        "game_id": "TM34"
+    },
+    "2660421": {
+        "name": "TM35",
+        "type": "item",
+        "game_id": "TM35"
+    },
+    "2660422": {
+        "name": "TM36",
+        "type": "item",
+        "game_id": "TM36"
+    },
+    "2660423": {
+        "name": "TM37",
+        "type": "item",
+        "game_id": "TM37"
+    },
+    "2660424": {
+        "name": "TM38",
+        "type": "item",
+        "game_id": "TM38"
+    },
+    "2660425": {
+        "name": "TM39",
+        "type": "item",
+        "game_id": "TM39"
+    },
+    "2660426": {
+        "name": "TM40",
+        "type": "item",
+        "game_id": "TM40"
+    },
+    "2660427": {
+        "name": "TM41",
+        "type": "item",
+        "game_id": "TM41"
+    },
+    "2660428": {
+        "name": "TM42",
+        "type": "item",
+        "game_id": "TM42"
+    },
+    "2660429": {
+        "name": "TM43",
+        "type": "item",
+        "game_id": "TM43"
+    },
+    "2660430": {
+        "name": "TM44",
+        "type": "item",
+        "game_id": "TM44"
+    },
+    "2660431": {
+        "name": "TM45",
+        "type": "item",
+        "game_id": "TM45"
+    },
+    "2660432": {
+        "name": "TM46",
+        "type": "item",
+        "game_id": "TM46"
+    },
+    "2660433": {
+        "name": "TM47",
+        "type": "item",
+        "game_id": "TM47"
+    },
+    "2660434": {
+        "name": "TM48",
+        "type": "item",
+        "game_id": "TM48"
+    },
+    "2660435": {
+        "name": "TM49",
+        "type": "item",
+        "game_id": "TM49"
+    },
+    "2660436": {
+        "name": "TM50",
+        "type": "item",
+        "game_id": "TM50"
+    },
+    "2660437": {
+        "name": "TM51",
+        "type": "item",
+        "game_id": "TM51"
+    },
+    "2660438": {
+        "name": "TM52",
+        "type": "item",
+        "game_id": "TM52"
+    },
+    "2660439": {
+        "name": "TM53",
+        "type": "item",
+        "game_id": "TM53"
+    },
+    "2660440": {
+        "name": "TM54",
+        "type": "item",
+        "game_id": "TM54"
+    },
+    "2660441": {
+        "name": "TM55",
+        "type": "item",
+        "game_id": "TM55"
+    },
+    "2660442": {
+        "name": "TM56",
+        "type": "item",
+        "game_id": "TM56"
+    },
+    "2660443": {
+        "name": "TM57",
+        "type": "item",
+        "game_id": "TM57"
+    },
+    "2660444": {
+        "name": "TM58",
+        "type": "item",
+        "game_id": "TM58"
+    },
+    "2660445": {
+        "name": "TM59",
+        "type": "item",
+        "game_id": "TM59"
+    },
+    "2660446": {
+        "name": "TM60",
+        "type": "item",
+        "game_id": "TM60"
+    },
+    "2660447": {
+        "name": "TM61",
+        "type": "item",
+        "game_id": "TM61"
+    },
+    "2660448": {
+        "name": "TM62",
+        "type": "item",
+        "game_id": "TM62"
+    },
+    "2660449": {
+        "name": "TM63",
+        "type": "item",
+        "game_id": "TM63"
+    },
+    "2660450": {
+        "name": "TM64",
+        "type": "item",
+        "game_id": "TM64"
+    },
+    "2660451": {
+        "name": "TM65",
+        "type": "item",
+        "game_id": "TM65"
+    },
+    "2660452": {
+        "name": "TM66",
+        "type": "item",
+        "game_id": "TM66"
+    },
+    "2660453": {
+        "name": "TM67",
+        "type": "item",
+        "game_id": "TM67"
+    },
+    "2660454": {
+        "name": "TM68",
+        "type": "item",
+        "game_id": "TM68"
+    },
+    "2660455": {
+        "name": "TM69",
+        "type": "item",
+        "game_id": "TM69"
+    },
+    "2660456": {
+        "name": "TM70",
+        "type": "item",
+        "game_id": "TM70"
+    },
+    "2660457": {
+        "name": "TM71",
+        "type": "item",
+        "game_id": "TM71"
+    },
+    "2660458": {
+        "name": "TM72",
+        "type": "item",
+        "game_id": "TM72"
+    },
+    "2660459": {
+        "name": "TM73",
+        "type": "item",
+        "game_id": "TM73"
+    },
+    "2660460": {
+        "name": "TM74",
+        "type": "item",
+        "game_id": "TM74"
+    },
+    "2660461": {
+        "name": "TM75",
+        "type": "item",
+        "game_id": "TM75"
+    },
+    "2660462": {
+        "name": "TM76",
+        "type": "item",
+        "game_id": "TM76"
+    },
+    "2660463": {
+        "name": "TM77",
+        "type": "item",
+        "game_id": "TM77"
+    },
+    "2660464": {
+        "name": "TM78",
+        "type": "item",
+        "game_id": "TM78"
+    },
+    "2660465": {
+        "name": "TM79",
+        "type": "item",
+        "game_id": "TM79"
+    },
+    "2660466": {
+        "name": "TM80",
+        "type": "item",
+        "game_id": "TM80"
+    },
+    "2660467": {
+        "name": "TM81",
+        "type": "item",
+        "game_id": "TM81"
+    },
+    "2660468": {
+        "name": "TM82",
+        "type": "item",
+        "game_id": "TM82"
+    },
+    "2660469": {
+        "name": "TM83",
+        "type": "item",
+        "game_id": "TM83"
+    },
+    "2660470": {
+        "name": "TM84",
+        "type": "item",
+        "game_id": "TM84"
+    },
+    "2660471": {
+        "name": "TM85",
+        "type": "item",
+        "game_id": "TM85"
+    },
+    "2660472": {
+        "name": "TM86",
+        "type": "item",
+        "game_id": "TM86"
+    },
+    "2660473": {
+        "name": "TM87",
+        "type": "item",
+        "game_id": "TM87"
+    },
+    "2660474": {
+        "name": "TM88",
+        "type": "item",
+        "game_id": "TM88"
+    },
+    "2660475": {
+        "name": "TM89",
+        "type": "item",
+        "game_id": "TM89"
+    },
+    "2660476": {
+        "name": "TM90",
+        "type": "item",
+        "game_id": "TM90"
+    },
+    "2660477": {
+        "name": "TM91",
+        "type": "item",
+        "game_id": "TM91"
+    },
+    "2660478": {
+        "name": "TM92",
+        "type": "item",
+        "game_id": "TM92"
+    },
+    "2660479": {
+        "name": "TM93",
+        "type": "item",
+        "game_id": "TM93"
+    },
+    "2660480": {
+        "name": "TM94",
+        "type": "item",
+        "game_id": "TM94"
+    },
+    "2660481": {
+        "name": "TM95",
+        "type": "item",
+        "game_id": "TM95"
+    },
+    "2660482": {
+        "name": "HM01",
+        "type": "item",
+        "game_id": "HM01"
+    },
+    "2660483": {
+        "name": "HM02",
+        "type": "item",
+        "game_id": "HM02"
+    },
+    "2660484": {
+        "name": "HM03",
+        "type": "item",
+        "game_id": "HM03"
+    },
+    "2660485": {
+        "name": "HM04",
+        "type": "item",
+        "game_id": "HM04"
+    },
+    "2660486": {
+        "name": "HM05",
+        "type": "item",
+        "game_id": "HM05"
+    },
+    "2660487": {
+        "name": "HM06",
+        "type": "item",
+        "game_id": "HM06"
+    },
+    "2660488": {
+        "name": "Cheri Berry",
+        "type": "item",
+        "game_id": "CHERIBERRY"
+    },
+    "2660489": {
+        "name": "Chesto Berry",
+        "type": "item",
+        "game_id": "CHESTOBERRY"
+    },
+    "2660490": {
+        "name": "Pecha Berry",
+        "type": "item",
+        "game_id": "PECHABERRY"
+    },
+    "2660491": {
+        "name": "Rawst Berry",
+        "type": "item",
+        "game_id": "RAWSTBERRY"
+    },
+    "2660492": {
+        "name": "Aspear Berry",
+        "type": "item",
+        "game_id": "ASPEARBERRY"
+    },
+    "2660493": {
+        "name": "Leppa Berry",
+        "type": "item",
+        "game_id": "LEPPABERRY"
+    },
+    "2660494": {
+        "name": "Oran Berry",
+        "type": "item",
+        "game_id": "ORANBERRY"
+    },
+    "2660495": {
+        "name": "Persim Berry",
+        "type": "item",
+        "game_id": "PERSIMBERRY"
+    },
+    "2660496": {
+        "name": "Lum Berry",
+        "type": "item",
+        "game_id": "LUMBERRY"
+    },
+    "2660497": {
+        "name": "Sitrus Berry",
+        "type": "item",
+        "game_id": "SITRUSBERRY"
+    },
+    "2660498": {
+        "name": "Figy Berry",
+        "type": "item",
+        "game_id": "FIGYBERRY"
+    },
+    "2660499": {
+        "name": "Wiki Berry",
+        "type": "item",
+        "game_id": "WIKIBERRY"
+    },
+    "2660500": {
+        "name": "Mago Berry",
+        "type": "item",
+        "game_id": "MAGOBERRY"
+    },
+    "2660501": {
+        "name": "Aguav Berry",
+        "type": "item",
+        "game_id": "AGUAVBERRY"
+    },
+    "2660502": {
+        "name": "Iapapa Berry",
+        "type": "item",
+        "game_id": "IAPAPABERRY"
+    },
+    "2660503": {
+        "name": "Razz Berry",
+        "type": "item",
+        "game_id": "RAZZBERRY"
+    },
+    "2660504": {
+        "name": "Bluk Berry",
+        "type": "item",
+        "game_id": "BLUKBERRY"
+    },
+    "2660505": {
+        "name": "Nanab Berry",
+        "type": "item",
+        "game_id": "NANABBERRY"
+    },
+    "2660506": {
+        "name": "Wepear Berry",
+        "type": "item",
+        "game_id": "WEPEARBERRY"
+    },
+    "2660507": {
+        "name": "Pinap Berry",
+        "type": "item",
+        "game_id": "PINAPBERRY"
+    },
+    "2660508": {
+        "name": "Pomeg Berry",
+        "type": "item",
+        "game_id": "POMEGBERRY"
+    },
+    "2660509": {
+        "name": "Kelpsy Berry",
+        "type": "item",
+        "game_id": "KELPSYBERRY"
+    },
+    "2660510": {
+        "name": "Qualot Berry",
+        "type": "item",
+        "game_id": "QUALOTBERRY"
+    },
+    "2660511": {
+        "name": "Hondew Berry",
+        "type": "item",
+        "game_id": "HONDEWBERRY"
+    },
+    "2660512": {
+        "name": "Grepa Berry",
+        "type": "item",
+        "game_id": "GREPABERRY"
+    },
+    "2660513": {
+        "name": "Tamato Berry",
+        "type": "item",
+        "game_id": "TAMATOBERRY"
+    },
+    "2660514": {
+        "name": "Cornn Berry",
+        "type": "item",
+        "game_id": "CORNNBERRY"
+    },
+    "2660515": {
+        "name": "Magost Berry",
+        "type": "item",
+        "game_id": "MAGOSTBERRY"
+    },
+    "2660516": {
+        "name": "Rabuta Berry",
+        "type": "item",
+        "game_id": "RABUTABERRY"
+    },
+    "2660517": {
+        "name": "Nomel Berry",
+        "type": "item",
+        "game_id": "NOMELBERRY"
+    },
+    "2660518": {
+        "name": "Spelon Berry",
+        "type": "item",
+        "game_id": "SPELONBERRY"
+    },
+    "2660519": {
+        "name": "Pamtre Berry",
+        "type": "item",
+        "game_id": "PAMTREBERRY"
+    },
+    "2660520": {
+        "name": "Watmel Berry",
+        "type": "item",
+        "game_id": "WATMELBERRY"
+    },
+    "2660521": {
+        "name": "Durin Berry",
+        "type": "item",
+        "game_id": "DURINBERRY"
+    },
+    "2660522": {
+        "name": "Belue Berry",
+        "type": "item",
+        "game_id": "BELUEBERRY"
+    },
+    "2660523": {
+        "name": "Occa Berry",
+        "type": "item",
+        "game_id": "OCCABERRY"
+    },
+    "2660524": {
+        "name": "Passho Berry",
+        "type": "item",
+        "game_id": "PASSHOBERRY"
+    },
+    "2660525": {
+        "name": "Wacan Berry",
+        "type": "item",
+        "game_id": "WACANBERRY"
+    },
+    "2660526": {
+        "name": "Rindo Berry",
+        "type": "item",
+        "game_id": "RINDOBERRY"
+    },
+    "2660527": {
+        "name": "Yache Berry",
+        "type": "item",
+        "game_id": "YACHEBERRY"
+    },
+    "2660528": {
+        "name": "Chople Berry",
+        "type": "item",
+        "game_id": "CHOPLEBERRY"
+    },
+    "2660529": {
+        "name": "Kebia Berry",
+        "type": "item",
+        "game_id": "KEBIABERRY"
+    },
+    "2660530": {
+        "name": "Shuca Berry",
+        "type": "item",
+        "game_id": "SHUCABERRY"
+    },
+    "2660531": {
+        "name": "Coba Berry",
+        "type": "item",
+        "game_id": "COBABERRY"
+    },
+    "2660532": {
+        "name": "Payapa Berry",
+        "type": "item",
+        "game_id": "PAYAPABERRY"
+    },
+    "2660533": {
+        "name": "Tanga Berry",
+        "type": "item",
+        "game_id": "TANGABERRY"
+    },
+    "2660534": {
+        "name": "Charti Berry",
+        "type": "item",
+        "game_id": "CHARTIBERRY"
+    },
+    "2660535": {
+        "name": "Kasib Berry",
+        "type": "item",
+        "game_id": "KASIBBERRY"
+    },
+    "2660536": {
+        "name": "Haban Berry",
+        "type": "item",
+        "game_id": "HABANBERRY"
+    },
+    "2660537": {
+        "name": "Colbur Berry",
+        "type": "item",
+        "game_id": "COLBURBERRY"
+    },
+    "2660538": {
+        "name": "Babiri Berry",
+        "type": "item",
+        "game_id": "BABIRIBERRY"
+    },
+    "2660539": {
+        "name": "Chilan Berry",
+        "type": "item",
+        "game_id": "CHILANBERRY"
+    },
+    "2660540": {
+        "name": "Liechi Berry",
+        "type": "item",
+        "game_id": "LIECHIBERRY"
+    },
+    "2660541": {
+        "name": "Ganlon Berry",
+        "type": "item",
+        "game_id": "GANLONBERRY"
+    },
+    "2660542": {
+        "name": "Salac Berry",
+        "type": "item",
+        "game_id": "SALACBERRY"
+    },
+    "2660543": {
+        "name": "Petaya Berry",
+        "type": "item",
+        "game_id": "PETAYABERRY"
+    },
+    "2660544": {
+        "name": "Apicot Berry",
+        "type": "item",
+        "game_id": "APICOTBERRY"
+    },
+    "2660545": {
+        "name": "Lansat Berry",
+        "type": "item",
+        "game_id": "LANSATBERRY"
+    },
+    "2660546": {
+        "name": "Starf Berry",
+        "type": "item",
+        "game_id": "STARFBERRY"
+    },
+    "2660547": {
+        "name": "Enigma Berry",
+        "type": "item",
+        "game_id": "ENIGMABERRY"
+    },
+    "2660548": {
+        "name": "Micle Berry",
+        "type": "item",
+        "game_id": "MICLEBERRY"
+    },
+    "2660549": {
+        "name": "Custap Berry",
+        "type": "item",
+        "game_id": "CUSTAPBERRY"
+    },
+    "2660550": {
+        "name": "Jaboca Berry",
+        "type": "item",
+        "game_id": "JABOCABERRY"
+    },
+    "2660551": {
+        "name": "Rowap Berry",
+        "type": "item",
+        "game_id": "ROWAPBERRY"
+    },
+    "2660552": {
+        "name": "Grass Mail",
+        "type": "item",
+        "game_id": "GRASSMAIL"
+    },
+    "2660553": {
+        "name": "Flame Mail",
+        "type": "item",
+        "game_id": "FLAMEMAIL"
+    },
+    "2660554": {
+        "name": "Bubble Mail",
+        "type": "item",
+        "game_id": "BUBBLEMAIL"
+    },
+    "2660555": {
+        "name": "Bloom Mail",
+        "type": "item",
+        "game_id": "BLOOMMAIL"
+    },
+    "2660556": {
+        "name": "Tunnel Mail",
+        "type": "item",
+        "game_id": "TUNNELMAIL"
+    },
+    "2660557": {
+        "name": "Steel Mail",
+        "type": "item",
+        "game_id": "STEELMAIL"
+    },
+    "2660558": {
+        "name": "Heart Mail",
+        "type": "item",
+        "game_id": "HEARTMAIL"
+    },
+    "2660559": {
+        "name": "Snow Mail",
+        "type": "item",
+        "game_id": "SNOWMAIL"
+    },
+    "2660560": {
+        "name": "Space Mail",
+        "type": "item",
+        "game_id": "SPACEMAIL"
+    },
+    "2660561": {
+        "name": "Air Mail",
+        "type": "item",
+        "game_id": "AIRMAIL"
+    },
+    "2660562": {
+        "name": "Mosaic Mail",
+        "type": "item",
+        "game_id": "MOSAICMAIL"
+    },
+    "2660563": {
+        "name": "Brick Mail",
+        "type": "item",
+        "game_id": "BRICKMAIL"
+    },
+    "2660564": {
+        "name": "X Attack",
+        "type": "item",
+        "game_id": "XATTACK"
+    },
+    "2660565": {
+        "name": "XX Attack",
+        "type": "item",
+        "game_id": "XATTACK2"
+    },
+    "2660566": {
+        "name": "XXX Attack",
+        "type": "item",
+        "game_id": "XATTACK3"
+    },
+    "2660567": {
+        "name": "XXXX Attack",
+        "type": "item",
+        "game_id": "XATTACK6"
+    },
+    "2660568": {
+        "name": "X Defense",
+        "type": "item",
+        "game_id": "XDEFENSE"
+    },
+    "2660569": {
+        "name": "XX Defense",
+        "type": "item",
+        "game_id": "XDEFENSE2"
+    },
+    "2660570": {
+        "name": "XXX Defense",
+        "type": "item",
+        "game_id": "XDEFENSE3"
+    },
+    "2660571": {
+        "name": "XXXX Defense",
+        "type": "item",
+        "game_id": "XDEFENSE6"
+    },
+    "2660572": {
+        "name": "X Sp. Atk",
+        "type": "item",
+        "game_id": "XSPATK"
+    },
+    "2660573": {
+        "name": "XX Sp. Atk",
+        "type": "item",
+        "game_id": "XSPATK2"
+    },
+    "2660574": {
+        "name": "XXX Sp. Atk",
+        "type": "item",
+        "game_id": "XSPATK3"
+    },
+    "2660575": {
+        "name": "XXXX Sp. Atk",
+        "type": "item",
+        "game_id": "XSPATK6"
+    },
+    "2660576": {
+        "name": "X Sp. Def",
+        "type": "item",
+        "game_id": "XSPDEF"
+    },
+    "2660577": {
+        "name": "XX Sp. Def",
+        "type": "item",
+        "game_id": "XSPDEF2"
+    },
+    "2660578": {
+        "name": "XXX Sp. Def",
+        "type": "item",
+        "game_id": "XSPDEF3"
+    },
+    "2660579": {
+        "name": "XXXX Sp. Def",
+        "type": "item",
+        "game_id": "XSPDEF6"
+    },
+    "2660580": {
+        "name": "X Speed",
+        "type": "item",
+        "game_id": "XSPEED"
+    },
+    "2660581": {
+        "name": "XX Speed",
+        "type": "item",
+        "game_id": "XSPEED2"
+    },
+    "2660582": {
+        "name": "XXX Speed",
+        "type": "item",
+        "game_id": "XSPEED3"
+    },
+    "2660583": {
+        "name": "XXXX Speed",
+        "type": "item",
+        "game_id": "XSPEED6"
+    },
+    "2660584": {
+        "name": "X Accuracy",
+        "type": "item",
+        "game_id": "XACCURACY"
+    },
+    "2660585": {
+        "name": "XX Accuracy",
+        "type": "item",
+        "game_id": "XACCURACY2"
+    },
+    "2660586": {
+        "name": "XXX Accuracy",
+        "type": "item",
+        "game_id": "XACCURACY3"
+    },
+    "2660587": {
+        "name": "XXXX Accuracy",
+        "type": "item",
+        "game_id": "XACCURACY6"
+    },
+    "2660588": {
+        "name": "Dire Hit",
+        "type": "item",
+        "game_id": "DIREHIT"
+    },
+    "2660589": {
+        "name": "Super Dire Hit",
+        "type": "item",
+        "game_id": "DIREHIT2"
+    },
+    "2660590": {
+        "name": "Hyper Dire Hit",
+        "type": "item",
+        "game_id": "DIREHIT3"
+    },
+    "2660591": {
+        "name": "Guard Spec.",
+        "type": "item",
+        "game_id": "GUARDSPEC"
+    },
+    "2660592": {
+        "name": "Reset Urge",
+        "type": "item",
+        "game_id": "RESETURGE"
+    },
+    "2660593": {
+        "name": "Ability Urge",
+        "type": "item",
+        "game_id": "ABILITYURGE"
+    },
+    "2660594": {
+        "name": "Item Urge",
+        "type": "item",
+        "game_id": "ITEMURGE"
+    },
+    "2660595": {
+        "name": "Item Drop",
+        "type": "item",
+        "game_id": "ITEMDROP"
+    },
+    "2660596": {
+        "name": "Blue Flute",
+        "type": "item",
+        "game_id": "BLUEFLUTE"
+    },
+    "2660597": {
+        "name": "Yellow Flute",
+        "type": "item",
+        "game_id": "YELLOWFLUTE"
+    },
+    "2660598": {
+        "name": "Red Flute",
+        "type": "item",
+        "game_id": "REDFLUTE"
+    },
+    "2660599": {
+        "name": "Pok\u00e9 Doll",
+        "type": "item",
+        "game_id": "POKEDOLL"
+    },
+    "2660600": {
+        "name": "Fluffy Tail",
+        "type": "item",
+        "game_id": "FLUFFYTAIL"
+    },
+    "2660601": {
+        "name": "Pok\u00e9 Toy",
+        "type": "item",
+        "game_id": "POKETOY"
+    },
+    "2660602": {
+        "name": "Bicycle",
+        "type": "item",
+        "game_id": "BICYCLE"
+    },
+    "2660603": {
+        "name": "Old Rod",
+        "type": "item",
+        "game_id": "OLDROD"
+    },
+    "2660604": {
+        "name": "Good Rod",
+        "type": "item",
+        "game_id": "GOODROD"
+    },
+    "2660605": {
+        "name": "Super Rod",
+        "type": "item",
+        "game_id": "SUPERROD"
+    },
+    "2660606": {
+        "name": "Itemfinder",
+        "type": "item",
+        "game_id": "ITEMFINDER"
+    },
+    "2660607": {
+        "name": "Dowsing Machine",
+        "type": "item",
+        "game_id": "DOWSINGMACHINE"
+    },
+    "2660608": {
+        "name": "Pok\u00e9 Radar",
+        "type": "item",
+        "game_id": "POKERADAR"
+    },
+    "2660609": {
+        "name": "Town Map",
+        "type": "item",
+        "game_id": "TOWNMAP"
+    },
+    "2660610": {
+        "name": "Pok\u00e9 Flute",
+        "type": "item",
+        "game_id": "POKEFLUTE"
+    },
+    "2660611": {
+        "name": "Coin Case",
+        "type": "item",
+        "game_id": "COINCASE"
+    },
+    "2660612": {
+        "name": "Soot Sack",
+        "type": "item",
+        "game_id": "SOOTSACK"
+    },
+    "2660613": {
+        "name": "Silph Scope",
+        "type": "item",
+        "game_id": "SILPHSCOPE"
+    },
+    "2660614": {
+        "name": "Quest Journal",
+        "type": "item",
+        "game_id": "DEVONSCOPE"
+    },
+    "2660615": {
+        "name": "Squirtbottle",
+        "type": "item",
+        "game_id": "SQUIRTBOTTLE"
+    },
+    "2660616": {
+        "name": "Mareanie Doll",
+        "type": "item",
+        "game_id": "SPRAYDUCK"
+    },
+    "2660617": {
+        "name": "Golbat Boots",
+        "type": "item",
+        "game_id": "WAILMERPAIL"
+    },
+    "2660618": {
+        "name": "Spaceship Part",
+        "type": "item",
+        "game_id": "GRACIDEA"
+    },
+    "2660619": {
+        "name": "Navel Ticket",
+        "type": "item",
+        "game_id": "AURORATICKET"
+    },
+    "2660620": {
+        "name": "Old Sea Map",
+        "type": "item",
+        "game_id": "OLDSEAMAP"
+    },
+    "2660621": {
+        "name": "DNA Splicers",
+        "type": "item",
+        "game_id": "DNASPLICERS"
+    },
+    "2660622": {
+        "name": "Weather Tracker",
+        "type": "item",
+        "game_id": "REVEALGLASS"
+    },
+    "2660623": {
+        "name": "Oval Charm",
+        "type": "item",
+        "game_id": "OVALCHARM"
+    },
+    "2660624": {
+        "name": "Shiny Charm",
+        "type": "item",
+        "game_id": "SHINYCHARM"
+    },
+    "2660625": {
+        "name": "Fusion Incense",
+        "type": "item",
+        "game_id": "FUSIONREPEL"
+    },
+    "2660626": {
+        "name": "S.S.Ticket",
+        "type": "item",
+        "game_id": "SSTICKET"
+    },
+    "2660627": {
+        "name": "Coffee",
+        "type": "item",
+        "game_id": "COFFEE"
+    },
+    "2660628": {
+        "name": "Latte",
+        "type": "item",
+        "game_id": "SKINNYLATTE"
+    },
+    "2660629": {
+        "name": "HM07",
+        "type": "item",
+        "game_id": "HM07"
+    },
+    "2660630": {
+        "name": "HM08",
+        "type": "item",
+        "game_id": "HM08"
+    },
+    "2660631": {
+        "name": "Krabby Legs",
+        "type": "item",
+        "game_id": "KRABBYLEGS"
+    },
+    "2660632": {
+        "name": "Love Letter",
+        "type": "item",
+        "game_id": "LOVELETTER"
+    },
+    "2660633": {
+        "name": "Master Ball",
+        "type": "item",
+        "game_id": "MASTERBALLPROTO"
+    },
+    "2660634": {
+        "name": "TM96",
+        "type": "item",
+        "game_id": "TM96"
+    },
+    "2660635": {
+        "name": "Shears",
+        "type": "item",
+        "game_id": "MACHETE"
+    },
+    "2660636": {
+        "name": "Pickaxe",
+        "type": "item",
+        "game_id": "PICKAXE"
+    },
+    "2660637": {
+        "name": "Lantern",
+        "type": "item",
+        "game_id": "LANTERN"
+    },
+    "2660638": {
+        "name": "Surfboard",
+        "type": "item",
+        "game_id": "SURFBOARD"
+    },
+    "2660639": {
+        "name": "Teleporter",
+        "type": "item",
+        "game_id": "TELEPORTER"
+    },
+    "2660640": {
+        "name": "Scuba Gear",
+        "type": "item",
+        "game_id": "SCUBAGEAR"
+    },
+    "2660641": {
+        "name": "Dolly",
+        "type": "item",
+        "game_id": "LEVER"
+    },
+    "2660642": {
+        "name": "Debugger",
+        "type": "item",
+        "game_id": "DEBUGGER"
+    },
+    "2660643": {
+        "name": "Wooden Planks",
+        "type": "item",
+        "game_id": "WOODENPLANKS"
+    },
+    "2660644": {
+        "name": "Bricks",
+        "type": "item",
+        "game_id": "BRICKS"
+    },
+    "2660645": {
+        "name": "Team Rocket ID",
+        "type": "item",
+        "game_id": "ROCKETID"
+    },
+    "2660646": {
+        "name": "Beer",
+        "type": "item",
+        "game_id": "BEER"
+    },
+    "2660647": {
+        "name": "Tequila",
+        "type": "item",
+        "game_id": "SHOOTER"
+    },
+    "2660648": {
+        "name": "Super Splicers",
+        "type": "item",
+        "game_id": "SUPERSPLICERS"
+    },
+    "2660649": {
+        "name": "Safari Souvenir",
+        "type": "item",
+        "game_id": "SAFARISOUVENIR"
+    },
+    "2660650": {
+        "name": "Pok\u00e9Dex",
+        "type": "item",
+        "game_id": "POKEDEX"
+    },
+    "2660651": {
+        "name": "Card Key",
+        "type": "item",
+        "game_id": "CARDKEY"
+    },
+    "2660652": {
+        "name": "Pizza",
+        "type": "item",
+        "game_id": "PIZZA"
+    },
+    "2660653": {
+        "name": "Captain's Key",
+        "type": "item",
+        "game_id": "CAPTAINSKEY"
+    },
+    "2660654": {
+        "name": "Gender Ball",
+        "type": "item",
+        "game_id": "GENDERBALL"
+    },
+    "2660655": {
+        "name": "Boost Ball",
+        "type": "item",
+        "game_id": "TRADEBALL"
+    },
+    "2660656": {
+        "name": "Ability Ball",
+        "type": "item",
+        "game_id": "ABILITYBALL"
+    },
+    "2660657": {
+        "name": "Virus Ball",
+        "type": "item",
+        "game_id": "VIRUSBALL"
+    },
+    "2660658": {
+        "name": "Glitter Ball",
+        "type": "item",
+        "game_id": "SHINYBALL"
+    },
+    "2660659": {
+        "name": "Perfect Ball",
+        "type": "item",
+        "game_id": "PERFECTBALL"
+    },
+    "2660660": {
+        "name": "Old Boot",
+        "type": "item",
+        "game_id": "OLDBOOT"
+    },
+    "2660661": {
+        "name": "Infinite Splicers",
+        "type": "item",
+        "game_id": "INFINITESPLICERS"
+    },
+    "2660662": {
+        "name": "Exp. All",
+        "type": "item",
+        "game_id": "EXPALL"
+    },
+    "2660663": {
+        "name": "Parcel",
+        "type": "item",
+        "game_id": "OAKSPARCEL"
+    },
+    "2660664": {
+        "name": "Power Plant Key",
+        "type": "item",
+        "game_id": "POWERPLANTKEY"
+    },
+    "2660665": {
+        "name": "unknown_item",
+        "type": "item",
+        "game_id": "DAMAGEUP"
+    },
+    "2660666": {
+        "name": "unknown_item",
+        "type": "item",
+        "game_id": "ACCURACYUP"
+    },
+    "2660667": {
+        "name": "Mist Stone",
+        "type": "item",
+        "game_id": "MISTSTONE"
+    },
+    "2660668": {
+        "name": "Devolution Spray",
+        "type": "item",
+        "game_id": "DEVOLUTIONSPRAY"
+    },
+    "2660669": {
+        "name": "Gender Stone",
+        "type": "item",
+        "game_id": "TRANSGENDERSTONE"
+    },
+    "2660670": {
+        "name": "White Flag",
+        "type": "item",
+        "game_id": "WHITEFLAG"
+    },
+    "2660671": {
+        "name": "Fairy Gem",
+        "type": "item",
+        "game_id": "FAIRYGEM"
+    },
+    "2660672": {
+        "name": "Dream Ball",
+        "type": "item",
+        "game_id": "DREAMBALL"
+    },
+    "2660673": {
+        "name": "Toxic Ball",
+        "type": "item",
+        "game_id": "TOXICBALL"
+    },
+    "2660674": {
+        "name": "Spark Ball",
+        "type": "item",
+        "game_id": "SPARKBALL"
+    },
+    "2660675": {
+        "name": "Scorch Ball",
+        "type": "item",
+        "game_id": "SCORCHBALL"
+    },
+    "2660676": {
+        "name": "Frost Ball",
+        "type": "item",
+        "game_id": "FROSTBALL"
+    },
+    "2660677": {
+        "name": "Pure Ball",
+        "type": "item",
+        "game_id": "PUREBALL"
+    },
+    "2660678": {
+        "name": "Status Ball",
+        "type": "item",
+        "game_id": "STATUSBALL"
+    },
+    "2660679": {
+        "name": "Candy Ball",
+        "type": "item",
+        "game_id": "CANDYBALL"
+    },
+    "2660680": {
+        "name": "DNA Reverser",
+        "type": "item",
+        "game_id": "DNAREVERSER"
+    },
+    "2660681": {
+        "name": "Rocket Meal",
+        "type": "item",
+        "game_id": "ROCKETMEAL"
+    },
+    "2660682": {
+        "name": "Fancy Meal",
+        "type": "item",
+        "game_id": "FANCYMEAL"
+    },
+    "2660683": {
+        "name": "Super Incubator",
+        "type": "item",
+        "game_id": "INCUBATOR"
+    },
+    "2660684": {
+        "name": "Firecracker",
+        "type": "item",
+        "game_id": "FIRECRACKER"
+    },
+    "2660685": {
+        "name": "Seagallop Pass",
+        "type": "item",
+        "game_id": "MANSIONKEY"
+    },
+    "2660686": {
+        "name": "PoisonMushroom",
+        "type": "item",
+        "game_id": "POISONMUSHROOM"
+    },
+    "2660687": {
+        "name": "Exp. All",
+        "type": "item",
+        "game_id": "EXPALLOFF"
+    },
+    "2660688": {
+        "name": "Gas Mask",
+        "type": "item",
+        "game_id": "GASMASK"
+    },
+    "2660689": {
+        "name": "Mankey Paw",
+        "type": "item",
+        "game_id": "MANKEYPAW"
+    },
+    "2660690": {
+        "name": "Ice Pick",
+        "type": "item",
+        "game_id": "ICEPICK"
+    },
+    "2660691": {
+        "name": "Racing Bicycle",
+        "type": "item",
+        "game_id": "RACEBIKE"
+    },
+    "2660692": {
+        "name": "Diamond",
+        "type": "item",
+        "game_id": "DIAMOND"
+    },
+    "2660693": {
+        "name": "Diamond Necklace",
+        "type": "item",
+        "game_id": "DIAMONDNECKLACE"
+    },
+    "2660694": {
+        "name": "Gold Ring",
+        "type": "item",
+        "game_id": "GOLDRING"
+    },
+    "2660695": {
+        "name": "Seadra Fin",
+        "type": "item",
+        "game_id": "SEADRAFIN"
+    },
+    "2660696": {
+        "name": "Secret Potion",
+        "type": "item",
+        "game_id": "SACREDPOTION"
+    },
+    "2660697": {
+        "name": "Ability Capsule",
+        "type": "item",
+        "game_id": "ABILITYCAPSULE"
+    },
+    "2660698": {
+        "name": "Magic Boots",
+        "type": "item",
+        "game_id": "MAGICBOOTS"
+    },
+    "2660699": {
+        "name": "unknown_item",
+        "type": "item",
+        "game_id": "ANCIENTSTONE"
+    },
+    "2660700": {
+        "name": "Ice Stone",
+        "type": "item",
+        "game_id": "ICESTONE"
+    },
+    "2660701": {
+        "name": "GS Ball",
+        "type": "item",
+        "game_id": "GSBALL"
+    },
+    "2660702": {
+        "name": "Train Pass",
+        "type": "item",
+        "game_id": "MAGNETPASS"
+    },
+    "2660703": {
+        "name": "Secret Capsule",
+        "type": "item",
+        "game_id": "SECRETCAPSULE"
+    },
+    "2660704": {
+        "name": "unknown_item",
+        "type": "item",
+        "game_id": "ODDKEYSTONE_FULL"
+    },
+    "2660705": {
+        "name": "Dynamite",
+        "type": "item",
+        "game_id": "DYNAMITE"
+    },
+    "2660706": {
+        "name": "Berserk Gene",
+        "type": "item",
+        "game_id": "BERSERKGENE"
+    },
+    "2660707": {
+        "name": "Azure Flute",
+        "type": "item",
+        "game_id": "AZUREFLUTE"
+    },
+    "2660708": {
+        "name": "Magnet Stone",
+        "type": "item",
+        "game_id": "MAGNETSTONE"
+    },
+    "2660709": {
+        "name": "Pixie Plate",
+        "type": "item",
+        "game_id": "PIXIEPLATE"
+    },
+    "2660710": {
+        "name": "Old Pendant",
+        "type": "item",
+        "game_id": "OLDPENDANT"
+    },
+    "2660711": {
+        "name": "Bellsprout Statues",
+        "type": "item",
+        "game_id": "BELLSPROUTSTATUE"
+    },
+    "2660712": {
+        "name": "TM97",
+        "type": "item",
+        "game_id": "TM97"
+    },
+    "2660713": {
+        "name": "TM98",
+        "type": "item",
+        "game_id": "TM98"
+    },
+    "2660714": {
+        "name": "TM99",
+        "type": "item",
+        "game_id": "TM99"
+    },
+    "2660715": {
+        "name": "TM100",
+        "type": "item",
+        "game_id": "TM100"
+    },
+    "2660716": {
+        "name": "TM101",
+        "type": "item",
+        "game_id": "TM101"
+    },
+    "2660717": {
+        "name": "TM102",
+        "type": "item",
+        "game_id": "TM102"
+    },
+    "2660718": {
+        "name": "TM103",
+        "type": "item",
+        "game_id": "TM103"
+    },
+    "2660719": {
+        "name": "TM104",
+        "type": "item",
+        "game_id": "TM104"
+    },
+    "2660720": {
+        "name": "TM105",
+        "type": "item",
+        "game_id": "TM105"
+    },
+    "2660721": {
+        "name": "TM108",
+        "type": "item",
+        "game_id": "TM108"
+    },
+    "2660722": {
+        "name": "Rocket Ball",
+        "type": "item",
+        "game_id": "ROCKETBALL"
+    },
+    "2660723": {
+        "name": "Fusion Ball",
+        "type": "item",
+        "game_id": "FUSIONBALL"
+    },
+    "2660724": {
+        "name": "TM106",
+        "type": "item",
+        "game_id": "TM106"
+    },
+    "2660725": {
+        "name": "TM107",
+        "type": "item",
+        "game_id": "TM107"
+    },
+    "2660726": {
+        "name": "Ruby",
+        "type": "item",
+        "game_id": "RUBY"
+    },
+    "2660727": {
+        "name": "Sapphire",
+        "type": "item",
+        "game_id": "SAPPHIRE"
+    },
+    "2660728": {
+        "name": "Emerald",
+        "type": "item",
+        "game_id": "EMERALD"
+    },
+    "2660729": {
+        "name": "Network Adapter",
+        "type": "item",
+        "game_id": "NETWORKCHIP"
+    },
+    "2660730": {
+        "name": "Banana",
+        "type": "item",
+        "game_id": "BANANA"
+    },
+    "2660731": {
+        "name": "Golden Banana",
+        "type": "item",
+        "game_id": "GOLDENBANANA"
+    },
+    "2660732": {
+        "name": "Dem's Badge",
+        "type": "item",
+        "game_id": "DEMHARDMODE"
+    },
+    "2660733": {
+        "name": "Light Stone",
+        "type": "item",
+        "game_id": "LIGHTSTONE"
+    },
+    "2660734": {
+        "name": "Dark Stone",
+        "type": "item",
+        "game_id": "DARKSTONE"
+    },
+    "2660735": {
+        "name": "Bronze emblem",
+        "type": "item",
+        "game_id": "BRONZEEMBLEM"
+    },
+    "2660736": {
+        "name": "Silver emblem",
+        "type": "item",
+        "game_id": "SILVEREMBLEM"
+    },
+    "2660737": {
+        "name": "Gold emblem",
+        "type": "item",
+        "game_id": "GOLDEMBLEM"
+    },
+    "2660738": {
+        "name": "HM09",
+        "type": "item",
+        "game_id": "HM09"
+    },
+    "2660739": {
+        "name": "HM10",
+        "type": "item",
+        "game_id": "HM10"
+    },
+    "2660740": {
+        "name": "Climbing Gear",
+        "type": "item",
+        "game_id": "CLIMBINGGEAR"
+    },
+    "2660741": {
+        "name": "Incubator",
+        "type": "item",
+        "game_id": "INCUBATOR_NORMAL"
+    },
+    "2660742": {
+        "name": "Jetpack",
+        "type": "item",
+        "game_id": "JETPACK"
+    },
+    "2660743": {
+        "name": "Infinite Reversers",
+        "type": "item",
+        "game_id": "INFINITEREVERSERS"
+    },
+    "2660744": {
+        "name": "Infinite Splicers",
+        "type": "item",
+        "game_id": "INFINITESPLICERS2"
+    },
+    "2660745": {
+        "name": "TM109",
+        "type": "item",
+        "game_id": "TM109"
+    },
+    "2660746": {
+        "name": "TM110",
+        "type": "item",
+        "game_id": "TM110"
+    },
+    "2660747": {
+        "name": "TM111",
+        "type": "item",
+        "game_id": "TM111"
+    },
+    "2660748": {
+        "name": "TM112",
+        "type": "item",
+        "game_id": "TM112"
+    },
+    "2660749": {
+        "name": "TM113",
+        "type": "item",
+        "game_id": "TM113"
+    },
+    "2660750": {
+        "name": "TM114",
+        "type": "item",
+        "game_id": "TM114"
+    },
+    "2660751": {
+        "name": "TM115",
+        "type": "item",
+        "game_id": "TM115"
+    },
+    "2660752": {
+        "name": "TM116",
+        "type": "item",
+        "game_id": "TM116"
+    },
+    "2660753": {
+        "name": "TM117",
+        "type": "item",
+        "game_id": "TM117"
+    },
+    "2660754": {
+        "name": "TM118",
+        "type": "item",
+        "game_id": "TM118"
+    },
+    "2660755": {
+        "name": "TM119",
+        "type": "item",
+        "game_id": "TM119"
+    },
+    "2660756": {
+        "name": "TM120",
+        "type": "item",
+        "game_id": "TM120"
+    },
+    "2660757": {
+        "name": "TM00",
+        "type": "item",
+        "game_id": "TM00"
+    },
+    "2660758": {
+        "name": "TM121",
+        "type": "item",
+        "game_id": "TM121"
+    },
+    "2660759": {
+        "name": "Linking Cord",
+        "type": "item",
+        "game_id": "LINKINGCORD"
+    },
+    "2660760": {
+        "name": "Invisiball",
+        "type": "item",
+        "game_id": "INVISIBALL"
+    },
+    "2660761": {
+        "name": "Dream Mirror",
+        "type": "item",
+        "game_id": "DREAMMIRROR"
+    },
+    "2660762": {
+        "name": "Box Link",
+        "type": "item",
+        "game_id": "BOXLINK"
+    },
+    "2660763": {
+        "name": "Jaw Fossil",
+        "type": "item",
+        "game_id": "JAWFOSSIL"
+    },
+    "2660764": {
+        "name": "Assault Vest",
+        "type": "item",
+        "game_id": "ASSAULTVEST"
+    },
+    "2660765": {
+        "name": "Safety Goggles",
+        "type": "item",
+        "game_id": "SAFETYGOGGLES"
+    },
+    "2660766": {
+        "name": "Protective Pads",
+        "type": "item",
+        "game_id": "PROTECTIVEPADS"
+    },
+    "2660767": {
+        "name": "Terrain Extender",
+        "type": "item",
+        "game_id": "TERRAINEXTENDER"
+    },
+    "2660768": {
+        "name": "Electric Seed",
+        "type": "item",
+        "game_id": "ELECTRICSEED"
+    },
+    "2660769": {
+        "name": "Psychic Seed",
+        "type": "item",
+        "game_id": "PSYCHICSEED"
+    },
+    "2660770": {
+        "name": "Misty Seed",
+        "type": "item",
+        "game_id": "MISTYSEED"
+    },
+    "2660771": {
+        "name": "Grassy Seed",
+        "type": "item",
+        "game_id": "GRASSYSEED"
+    },
+    "2660772": {
+        "name": "Luminous Moss",
+        "type": "item",
+        "game_id": "LUMINOUSMOSS"
+    },
+    "2660773": {
+        "name": "Snowball",
+        "type": "item",
+        "game_id": "SNOWBALL"
+    },
+    "2660774": {
+        "name": "Weakness Policy",
+        "type": "item",
+        "game_id": "WEAKNESSPOLICY"
+    },
+    "2660775": {
+        "name": "Adrenaline Orb",
+        "type": "item",
+        "game_id": "ADRENALINEORB"
+    },
+    "2660776": {
+        "name": "Unknown item",
+        "type": "item",
+        "game_id": "DEBUGCANDY"
+    },
+    "2660777": {
+        "name": "Strange Prism",
+        "type": "item",
+        "game_id": "STRANGEPRISM"
+    },
+    "2660778": {
+        "name": "Strange Fruit",
+        "type": "item",
+        "game_id": "STRANGEPLANT"
+    },
+    "2660779": {
+        "name": "Sail Fossil",
+        "type": "item",
+        "game_id": "SAILFOSSIL"
+    },
+    "2660780": {
+        "name": "Necrozium",
+        "type": "item",
+        "game_id": "NECROZIUM"
+    },
+    "2660781": {
+        "name": "Regi Tablet",
+        "type": "item",
+        "game_id": "REGITABLET"
+    },
+    "2660782": {
+        "name": "MMMMemorabilia",
+        "type": "item",
+        "game_id": "BANDLOGO"
+    },
+    "2660783": {
+        "name": "Sleeping Bag",
+        "type": "item",
+        "game_id": "SLEEPINGBAG"
+    },
+    "2660784": {
+        "name": "Lunar Feather",
+        "type": "item",
+        "game_id": "LUNARFEATHER"
+    },
+    "2660785": {
+        "name": "Corrupted Feather",
+        "type": "item",
+        "game_id": "CORRUPTEDFEATHER"
+    },
+    "2660786": {
+        "name": "Bedroom Key",
+        "type": "item",
+        "game_id": "BEDROOMKEY"
+    },
+    "2660787": {
+        "name": "Rocket Uniform",
+        "type": "item",
+        "game_id": "ROCKETUNIFORM"
+    },
+    "2660788": {
+        "name": "Whipped Dream",
+        "type": "item",
+        "game_id": "WHIPPEDDREAM"
+    },
+    "2660789": {
+        "name": "Lift Key",
+        "type": "item",
+        "game_id": "LIFTKEY"
+    },
+    "2660790": {
+        "name": "Pinkan Berry",
+        "type": "item",
+        "game_id": "PINKANBERRY"
+    },
+    "2660791": {
+        "name": "Emergency Whistle",
+        "type": "item",
+        "game_id": "EMERGENCYWHISTLE"
+    },
+    "2660792": {
+        "name": "Favorite Outfit",
+        "type": "item",
+        "game_id": "FAVORITEOUTFIT"
+    },
+    "2660793": {
+        "name": "Hat Dye Kit",
+        "type": "item",
+        "game_id": "HATSDYEKIT"
+    },
+    "2660794": {
+        "name": "Clothing Dye Kit",
+        "type": "item",
+        "game_id": "CLOTHESDYEKIT"
+    },
+    "2660795": {
+        "name": "Devon Parts",
+        "type": "item",
+        "game_id": "DEVONPARTS"
+    },
+    "2660796": {
+        "name": "Mossy Spores",
+        "type": "item",
+        "game_id": "MUSHROOMSPORES"
+    },
+    "2660797": {
+        "name": "Field Sleeping Bag",
+        "type": "item",
+        "game_id": "FIELDSLEEPINGBAG"
+    }
+}

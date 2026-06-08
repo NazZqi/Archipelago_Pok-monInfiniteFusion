@@ -1,4 +1,4 @@
-﻿# Q. What is this file?
+# Q. What is this file?
 # A. This file contains options which allow you to configure your multiworld experience while allowing
 #    others to play how they want as well.
 #
@@ -28,15 +28,13 @@
 name: Player{number}
 
 # Used to describe your yaml. Useful if you have multiple files.
-description: Default Pokemon Emerald Template
+description: Default Pokemon Infinite Fusion Template
 
-game: Pokemon Emerald
+game: Pokemon Infinite Fusion
 requires:
-  version: 0.6.7 # Version of Archipelago required for this yaml to work as expected.
-  game:
-    Pokemon Emerald: 2.5.0 # Version of the world required for this yaml to work as expected.
+  version: 0.6.0 # Version of Archipelago required for this yaml to work as expected.
 
-Pokemon Emerald:
+Pokemon Infinite Fusion:
   ################
   # Game Options #
   ################
@@ -68,13 +66,13 @@ Pokemon Emerald:
   goal:
     # Determines what your goal is to consider the game beaten.
     # 
-    # - Champion: Become the champion and enter the hall of fame
-    # - Steven: Defeat Steven in Meteor Falls
-    # - Norman: Defeat Norman in Petalburg Gym
+    # - Champion: Defeat the Elite Four and the Champion
+    # - Cerulean Cave: Defeat or catch Mewtwo in Cerulean Cave
+    # - Fusion Master: Defeat the final fusion NPC (if applicable)
     # - Legendary Hunt: Defeat or catch legendary pokemon (or whatever was randomized into their encounters)
     champion: 50
-    steven: 0
-    norman: 0
+    cerulean_cave: 0
+    fusion_master: 0
     legendary_hunt: 0
 
   badges:
@@ -97,27 +95,16 @@ Pokemon Emerald:
     shuffle: 0
     completely_random: 50
 
+  ########################
+  # Item Pool Options    #
+  ########################
+
   key_items:
     # Adds most key items to the pool.
     # 
-    # These are usually required to unlock a location or region (e.g. Devon Scope, Letter, Basement Key).
+    # These are usually required to unlock a location or region (e.g. Town Map, Bicycle, Oak's Parcel).
     'false': 0
     'true': 50
-
-  bikes:
-    # Adds the Mach Bike and Acro Bike to the pool.
-    'false': 50
-    'true': 0
-
-  event_tickets:
-    # Adds the event tickets to the pool, which let you access legendaries by sailing from Lilycove.
-    'false': 50
-    'true': 0
-
-  rods:
-    # Adds fishing rods to the pool.
-    'false': 50
-    'true': 0
 
   overworld_items:
     # Adds items on the ground with a Pokeball sprite to the pool.
@@ -134,34 +121,25 @@ Pokemon Emerald:
     'false': 50
     'true': 0
 
-  berry_trees:
-    # Adds berry trees to the pool. Empty soil patches are converted to locations and contribute Sitrus Berries to the pool.
-    'false': 50
-    'true': 0
+  fusion_items:
+    # [INFINITE FUSION ONLY] Adds fusion-related items to the pool (Fuse Splice, DNA Splicers, Super Splicers, etc.).
+    # [PLACEHOLDER - verify with apworld]
+    'false': 0
+    'true': 50
 
   dexsanity:
-    # Adding a "caught" pokedex entry gives you an item (catching, evolving, trading, etc.). Only wild encounters are considered logical access to a species.
+    # Adding a "caught" pokedex entry gives you an item (catching, evolving, trading, etc.). 
     # 
-    # Blacklisting wild encounters removes the dexsanity location.
-    # 
-    # Defeating gym leaders provides dex info, allowing you to see where on the map you can catch species you need.
-    # 
-    # Each pokedex entry adds a Poke Ball, Great Ball, or Ultra Ball to the pool.
+    # Each pokedex entry adds a valuable item or pokeball to the pool.
     # 
     # Warning: This adds a lot of locations and will slow you down significantly.
     'false': 50
     'true': 0
 
-  dexsanity_encounter_types:
-    # Determines which Dexsanity encounter areas are in logic.
-    # 
-    # Logic will only consider access to Pokemon at these encounter types, but they may still be found elsewhere.
-    ['Fishing', 'Water', 'Land']
-
   trainersanity:
     # Defeating a trainer gives you an item.
     # 
-    # Trainers are no longer missable. Trainers no longer give you money for winning. Each trainer adds a valuable item (Nugget, Stardust, etc.) to the pool.
+    # Trainers are no longer missable. Each trainer adds a valuable item to the pool.
     # 
     # Warning: This adds a lot of locations and will slow you down significantly.
     'false': 50
@@ -177,17 +155,9 @@ Pokemon Emerald:
     diverse_balanced: 0
     diverse: 0
 
-  require_itemfinder:
-    # The Itemfinder is logically required to pick up hidden items.
-    'false': 0
-    'true': 50
-
-  require_flash:
-    # Determines whether HM05 Flash is logically required to navigate a dark cave.
-    neither: 0
-    only_granite_cave: 0
-    only_victory_road: 0
-    both: 50
+  ###################################
+  # Requirements and Progression    #
+  ###################################
 
   elite_four_requirement:
     # Sets the requirements to challenge the elite four.
@@ -209,52 +179,48 @@ Pokemon Emerald:
     random-high: 0 # random value weighted towards higher values
     random-range-0-8: 0 # random value between 0 and 8
 
-  norman_requirement:
-    # Sets the requirements to challenge the Petalburg Gym.
+  cerulean_cave_requirement:
+    # Sets the requirements to access Cerulean Cave.
     # 
     # - Badges: Obtain some number of badges
-    # - Gyms: Defeat some number of gym leaders
+    # - Gyms: Defeat some number of gyms
+    # - None: No requirements to enter
     badges: 50
     gyms: 0
+    none: 0
 
-  norman_count:
-    # Sets the number of badges/gyms required to challenge the Petalburg Gym.
+  cerulean_cave_count:
+    # Sets the number of badges/gyms required to access Cerulean Cave.
     #
     # You can define additional values between the minimum and maximum values.
     # Minimum value is 0
-    # Maximum value is 7
-    4: 50
+    # Maximum value is 8
+    8: 50
     random: 0
     random-low: 0 # random value weighted towards lower values
     random-high: 0 # random value weighted towards higher values
-    random-range-0-7: 0 # random value between 0 and 7
+    random-range-0-8: 0 # random value between 0 and 8
 
-  legendary_hunt_catch:
-    # Sets whether legendaries need to be caught to satisfy the Legendary Hunt win condition.
-    # 
-    # Defeated legendaries can be respawned by defeating the Elite 4.
-    'false': 50
-    'true': 0
+  require_itemfinder:
+    # The Itemfinder is logically required to pick up hidden items.
+    'false': 0
+    'true': 50
 
-  legendary_hunt_count:
-    # Sets the number of legendaries that must be caught/defeated for the Legendary Hunt goal.
-    #
-    # You can define additional values between the minimum and maximum values.
-    # Minimum value is 1
-    # Maximum value is 12
-    3: 50
-    random: 0
-    random-low: 0 # random value weighted towards lower values
-    random-high: 0 # random value weighted towards higher values
-    random-range-1-12: 0 # random value between 1 and 12
+  require_flash:
+    # Determines whether HM05 Flash is logically required to navigate a dark cave in Kanto.
+    # 
+    # - neither: Flash is never logically required
+    # - only_rock_tunnel: Flash is required for Rock Tunnel
+    # - only_victory_road: Flash is required for Victory Road
+    # - both: Flash is required for both
+    neither: 0
+    only_rock_tunnel: 0
+    only_victory_road: 0
+    both: 50
 
-  allowed_legendary_hunt_encounters:
-    # Sets which legendary encounters can contribute to the Legendary Hunt goal.
-    # 
-    # Latias will always be at Southern Island. Latios will always be the roamer. The TV broadcast describing the roamer gives you "seen" info for Latios.
-    # 
-    # The braille puzzle in Sealed Chamber gives you "seen" info for Wailord and Relicanth. The move tutor in Fortree City always teaches Dig.
-    ['Groudon', 'Kyogre', 'Rayquaza', 'Latios', 'Latias', 'Regirock', 'Registeel', 'Regice', 'Ho-Oh', 'Lugia', 'Deoxys', 'Mew']
+  ###################################
+  # Pokemon Randomization Options   #
+  ###################################
 
   wild_pokemon:
     # Randomizes wild pokemon encounters (grass, caves, water, fishing).
@@ -281,17 +247,15 @@ Pokemon Emerald:
     []
 
   starters:
-    # Randomizes the starter pokemon in Professor Birch's bag.
+    # Randomizes the starter pokemon in Professor Oak's lab.
     # 
     # - Vanilla: Starters are unchanged
     # - Match Base Stats: Starters are replaced with species with approximately the same bst
     # - Match Type: Starters are replaced with species that share a type with the original
-    # - Match Base Stats and Type: Apply both Match Base Stats and Match Type
     # - Completely Random: There are no restrictions
     vanilla: 50
     match_base_stats: 0
     match_type: 0
-    match_base_stats_and_type: 0
     completely_random: 0
 
   starter_blacklist:
@@ -305,34 +269,20 @@ Pokemon Emerald:
   trainer_parties:
     # Randomizes the parties of all trainers.
     # 
-    # Warning: Matching both base stats and type may severely limit the variety for certain pokemon.
-    # 
     # - Vanilla: Parties are unchanged
     # - Match Base Stats: Trainer pokemon are replaced with species with approximately the same bst
     # - Match Type: Trainer pokemon are replaced with species that share a type with the original
-    # - Match Base Stats and Type: Apply both Match Base Stats and Match Type
     # - Completely Random: There are no restrictions
     vanilla: 50
     match_base_stats: 0
     match_type: 0
-    match_base_stats_and_type: 0
     completely_random: 0
-
-  trainer_party_blacklist:
-    # Prevents listed species from appearing in opponent trainers' parties if opponent parties are randomized.
-    # 
-    # May be overridden if enforcing other restrictions in combination with this blacklist is impossible.
-    # 
-    # Use "_Legendaries" as a shortcut for all legendary pokemon.
-    []
 
   force_fully_evolved:
     # When an opponent uses a pokemon of the specified level or higher, restricts the species to only fully evolved pokemon.
     # 
     # Only applies when trainer parties are randomized.
     # 
-    # Warning: Combining a low value with matched base stats may severely limit the variety for certain pokemon.
-    #
     # You can define additional values between the minimum and maximum values.
     # Minimum value is 1
     # Maximum value is 100
@@ -343,42 +293,39 @@ Pokemon Emerald:
     random-range-1-100: 0 # random value between 1 and 100
 
   legendary_encounters:
-    # Randomizes legendary encounters (Rayquaza, Regice, Latias, etc.). The roamer will always be Latios during legendary hunts.
+    # Randomizes legendary encounters (Articuno, Zapdos, Moltres, Mewtwo, etc.).
     # 
     # - Vanilla: Legendary encounters are unchanged
     # - Shuffle: Legendary encounters are shuffled between each other
     # - Match Base Stats: Legendary encounters are replaced with species with approximately the same bst
-    # - Match Type: Legendary encounters are replaced with species that share a type with the original
-    # - Match Base Stats and Type: Apply both Match Base Stats and Match Type
     # - Completely Random: There are no restrictions
     vanilla: 50
     shuffle: 0
     match_base_stats: 0
-    match_type: 0
-    match_base_stats_and_type: 0
     completely_random: 0
 
-  misc_pokemon:
-    # Randomizes non-legendary static encounters. May grow to include other pokemon like trades or gifts.
+  fusion_randomization:
+    # [INFINITE FUSION ONLY] Controls whether trainer and wild Pokemon fusions are randomized.
+    # [PLACEHOLDER - verify with apworld]
     # 
-    # - Vanilla: Species are unchanged
-    # - Shuffle: Species are shuffled between each other
-    # - Match Base Stats: Species are replaced with species with approximately the same bst
-    # - Match Type: Species are replaced with species that share a type with the original
-    # - Match Base Stats and Type: Apply both Match Base Stats and Match Type
-    # - Completely Random: There are no restrictions
-    vanilla: 50
-    shuffle: 0
-    match_base_stats: 0
-    match_type: 0
-    match_base_stats_and_type: 0
+    # - none: Fusions are kept vanilla as originally designed
+    # - random_head: Only the head Pokemon of the fusion is randomized
+    # - random_body: Only the body Pokemon of the fusion is randomized
+    # - completely_random: Both halves of the fusion are randomized
+    none: 50
+    random_head: 0
+    random_body: 0
     completely_random: 0
+
+  #############################################
+  # Stats, Moves, and Abilities Options       #
+  #############################################
 
   types:
     # Randomizes the type(s) of every pokemon. Each species will have the same number of types.
     # 
     # - Vanilla: Types are unchanged
-    # - Shuffle: Types are shuffled globally for all species (e.g. every Water-type pokemon becomes Fire-type)
+    # - Shuffle: Types are shuffled globally for all species
     # - Completely Random: Each species has its type(s) randomized
     # - Follow Evolutions: Types are randomized per evolution line instead of per species
     vanilla: 50
@@ -412,34 +359,6 @@ Pokemon Emerald:
     randomized: 0
     start_with_four_moves: 0
 
-  move_match_type_bias:
-    # Sets the probability that a learned move will be forced match one of the types of a pokemon.
-    # 
-    # If a move is not forced to match type, it will roll for Normal type bias.
-    #
-    # You can define additional values between the minimum and maximum values.
-    # Minimum value is 0
-    # Maximum value is 100
-    0: 50
-    random: 0
-    random-low: 0 # random value weighted towards lower values
-    random-high: 0 # random value weighted towards higher values
-    random-range-0-100: 0 # random value between 0 and 100
-
-  move_normal_type_bias:
-    # After it has been decided that a move will not be forced to match types, sets the probability that a learned move will be forced to be the Normal type.
-    # 
-    # If a move is not forced to be Normal, it will be completely random.
-    #
-    # You can define additional values between the minimum and maximum values.
-    # Minimum value is 0
-    # Maximum value is 100
-    0: 50
-    random: 0
-    random-low: 0 # random value weighted towards lower values
-    random-high: 0 # random value weighted towards higher values
-    random-range-0-100: 0 # random value between 0 and 100
-
   tm_tutor_compatibility:
     # Sets the percent chance that a given TM or move tutor is compatible with a species.
     # 
@@ -452,9 +371,8 @@ Pokemon Emerald:
     random-low: 0 # random value weighted towards lower values
     random-high: 0 # random value weighted towards higher values
     random-range-0-100: 0 # random value between 0 and 100
-    vanilla: 50 # equivalent to -1
-    full: 0 # equivalent to 100
-
+    -1: 50 # equivalent to -1 (vanilla)
+    100: 0 # equivalent to 100 (full)
   hm_compatibility:
     # Sets the percent chance that a given HM is compatible with a species.
     # 
@@ -467,9 +385,8 @@ Pokemon Emerald:
     random-low: 0 # random value weighted towards lower values
     random-high: 0 # random value weighted towards higher values
     random-range-50-100: 0 # random value between 50 and 100
-    vanilla: 50 # equivalent to -1
-    full: 0 # equivalent to 100
-
+    -1: 50 # equivalent to -1 (vanilla)
+    100: 0 # equivalent to 100 (full)
   tm_tutor_moves:
     # Randomizes the moves taught by TMs and move tutors.
     # 
@@ -488,13 +405,13 @@ Pokemon Emerald:
     # HM moves are already banned.
     []
 
+  #############################################
+  # Difficulty and Quality of Life Options    #
+  #############################################
+
   min_catch_rate:
     # Sets the minimum catch rate a pokemon can have. Any pokemon with a catch rate below this floor will have it raised to this value.
     # 
-    # Legendaries are often in the single digits
-    # Fully evolved pokemon are often double digits
-    # Pidgey is 255
-    #
     # You can define additional values between the minimum and maximum values.
     # Minimum value is 3
     # Maximum value is 255
@@ -506,15 +423,6 @@ Pokemon Emerald:
 
   guaranteed_catch:
     # Every throw is guaranteed to catch a wild pokemon.
-    'false': 50
-    'true': 0
-
-  normalize_encounter_rates:
-    # Make every slot on an encounter table approximately equally likely.
-    # 
-    # This does NOT mean each species is equally likely. In the vanilla game, each species may occupy more than one slot, and slots vary in probability.
-    # 
-    # Species will still occupy the same slots as vanilla, but the slots will be equally weighted. The minimum encounter rate will be 8% (higher in water).
     'false': 50
     'true': 0
 
@@ -540,17 +448,8 @@ Pokemon Emerald:
     'false': 50
     'true': 0
 
-  purge_spinners:
-    # Trainers will rotate in predictable patterns on a set interval instead of randomly and don't turn toward you when you run.
-    'false': 50
-    'true': 0
-
   match_trainer_levels:
     # When you start a battle with a trainer, your party's levels will be automatically set to match that trainer's highest level pokemon.
-    # 
-    # The experience you receive will match your party's average actual level, and will only be awarded when you win the battle.
-    # 
-    # This is a pseudo-replacement for a level cap and makes every trainer battle a fair fight while still allowing you to level up.
     # 
     # - Off: The vanilla experience
     # - Additive: The modifier you apply to your team is a flat bonus
@@ -562,12 +461,6 @@ Pokemon Emerald:
   match_trainer_levels_bonus:
     # A level bonus (or penalty) to apply to your team when matching an opponent's levels.
     # 
-    # When the match trainer levels option is "additive", this value is added to your team's levels during a battle.
-    #     For example, if this value is 5 (+5 levels), you'll have a level 25 team against a level 20 team, and a level 45 team against a level 40 team.
-    # 
-    # When the match trainer levels option is "multiplicative", this is a percent bonus.
-    #     For example, if this value is 5 (+5%), you'll have a level 21 team against a level 20 team, and a level 42 team against a level 40 team.
-    #
     # You can define additional values between the minimum and maximum values.
     # Minimum value is -100
     # Maximum value is 100
@@ -580,10 +473,6 @@ Pokemon Emerald:
   double_battle_chance:
     # The percent chance that a trainer with more than 1 pokemon will be converted into a double battle.
     # 
-    # If these trainers would normally approach you, they will only do so if you have 2 unfainted pokemon.
-    # 
-    # They can be battled by talking to them no matter what.
-    #
     # You can define additional values between the minimum and maximum values.
     # Minimum value is 0
     # Maximum value is 100
@@ -594,52 +483,9 @@ Pokemon Emerald:
     random-range-0-100: 0 # random value between 0 and 100
 
   better_shops:
-    # Pokemarts sell every item that can be obtained in a pokemart (except mail, which is still unique to the relevant city).
+    # Pokemarts sell every item that can be obtained in a pokemart.
     'false': 50
     'true': 0
-
-  remove_roadblocks:
-    # Removes specific NPCs that normally stand in your way until certain events are completed.
-    # 
-    # This can open up the world a bit and make your playthrough less linear, but be careful how many you remove; it may make too much of your world accessible upon receiving Surf.
-    []
-
-  extra_boulders:
-    # Places strength boulders on Route 115 which block access to Meteor Falls from the beach.
-    # 
-    # This aims to take some power away from Surf by restricting how much it allows you to access.
-    'false': 50
-    'true': 0
-
-  extra_bumpy_slope:
-    # Adds a bumpy slope to Route 115 which allows access to Meteor Falls if you have the Acro Bike.
-    # 
-    # This aims to take some power away from Surf by adding a new way to exit the Rustboro area.
-    'false': 50
-    'true': 0
-
-  modify_118:
-    # Changes the layout of Route 118 so that it must be crossed with the Acro Bike instead of Surf.
-    # 
-    # This aims to take some power away from Surf by restricting how much it allows you to access.
-    'false': 50
-    'true': 0
-
-  free_fly_location:
-    # Enables flying to one random location (excluding cities reachable with no items).
-    'false': 50
-    'true': 0
-
-  free_fly_blacklist:
-    # Disables specific locations as valid free fly locations.
-    # 
-    # Has no effect if Free Fly Location is disabled.
-    ['Littleroot Town', 'Oldale Town', 'Petalburg City', 'Rustboro City', 'Dewford Town']
-
-  hm_requirements:
-    # Sets the requirements to use HMs outside of battle.
-    vanilla: 50
-    fly_without_badge: 0
 
   turbo_a:
     # Holding A will advance most text automatically.
@@ -647,61 +493,87 @@ Pokemon Emerald:
     'true': 0
 
   receive_item_messages:
-    # Determines whether you receive an in-game notification when receiving an item. Items can still only be received in the overworld.
+    # Determines whether you receive an in-game notification when receiving an item.
     # 
     # - All: Every item shows a message
     # - Progression: Only progression items show a message
-    # - None: All items are added to your bag silently (badges will still show).
+    # - None: All items are added to your bag silently.
     all: 50
     progression: 0
     none: 0
 
   remote_items:
-    # Instead of placing your own items directly into the ROM, all items are received from the server, including items you find for yourself.
-    # 
-    # This enables co-op of a single slot and recovering more items after a lost save file (if you're so unlucky).
-    # 
-    # But it changes pickup behavior slightly and requires connection to the server to receive any items.
+    # Instead of placing your own items directly into the ROM, all items are received from the server.
     'false': 50
     'true': 0
 
+  ###################################
+  # Infinite Fusion Specific        #
+  ###################################
+
+  allow_triple_fusions:
+    # [INFINITE FUSION ONLY] Permits triple fusions in the game if supported.
+    # [PLACEHOLDER - verify with apworld]
+    'false': 50
+    'true': 0
+
+  fusion_sprite_style:
+    # [INFINITE FUSION ONLY] Controls the visual style of the fusion sprites used in the game.
+    # [PLACEHOLDER - verify with apworld]
+    #
+    # - custom: Use custom handmade sprites where available
+    # - generated: Use algorithmically generated sprites
+    # - vanilla_only: Force base vanilla sprites where applicable
+    custom: 50
+    generated: 0
+    vanilla_only: 0
+
+  npc_fusion_reveal:
+    # [INFINITE FUSION ONLY] NPCs can reveal in-game hints or information about optimal fusions.
+    # [PLACEHOLDER - verify with apworld]
+    'false': 0
+    'true': 50
+
+  legendary_hunt_count:
+    # Sets the number of legendaries that must be caught/defeated for the Legendary Hunt goal.
+    #
+    # You can define additional values between the minimum and maximum values.
+    # Minimum value is 1
+    # Maximum value is 10
+    3: 50
+    random: 0
+    random-low: 0 # random value weighted towards lower values
+    random-high: 0 # random value weighted towards higher values
+    random-range-1-10: 0 # random value between 1 and 10
+
+  allowed_legendary_hunt_encounters:
+    # Sets which Kanto legendary encounters can contribute to the Legendary Hunt goal.
+    ['Articuno', 'Zapdos', 'Moltres', 'Mewtwo', 'Mew']
+
+  ###################################
+  # Multiplayer and Extra Options   #
+  ###################################
+
+  death_link:
+    # When you die, everyone who enabled death link dies. The reverse is true too.
+    'false': 50
+    'true': 0
+
+  enable_wonder_trading:
+    # Allows participation in wonder trading with other players in your current multiworld.
+    # [PLACEHOLDER - verify with apworld]
+    'false': 0
+    'true': 50
+
   music:
-    # Shuffles music played in any situation where it loops. Includes many FRLG tracks.
+    # Shuffles music played in any situation where it loops.
     'false': 50
     'true': 0
 
   fanfares:
     # Shuffles fanfares for item pickups, healing at the pokecenter, etc.
-    # 
-    # When this option is enabled, pressing B will interrupt most fanfares.
     'false': 50
     'true': 0
-
-  death_link:
-    # When you die, everyone who enabled death link dies. Of course, the reverse is true too.
-    # 
-    # In Pokemon Emerald, whiting out sends a death and receiving a death causes you to white out.
-    'false': 50
-    'true': 0
-
-  enable_wonder_trading:
-    # Allows participation in wonder trading with other players in your current multiworld. Speak with the center receptionist on the second floor of any pokecenter.
-    # 
-    # Wonder trading NEVER affects logic.
-    # 
-    # Certain aspects of a pokemon species are per-game, not per-pokemon. As a result, some things are not retained during a trade, including type, ability, level up learnset, and so on.
-    # 
-    # Receiving a pokemon this way does not mark it as found in your pokedex.
-    # 
-    # Trade evolutions do not evolve this way; they retain their modified methods (level ups and item use).
-    'false': 0
-    'true': 50
-
-  easter_egg:
-    # Enter certain phrases and something special might happen.
-    # 
-    # All secret phrases are something that could be a trendy phrase in Dewford Town. They are case insensitive.
-    EMERALD SECRET: 50
 
   ###########################
   # Item & Location Options #
