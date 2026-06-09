@@ -73,13 +73,28 @@ class APRequestHandler(BaseHTTPRequestHandler):
                 data = json.loads(body.decode("utf-8"))
                 msg_type = data.get("type", "")
                 
-                if msg_type == "item_found" or msg_type == "item_received":
+                if msg_type in ["item_found", "item_received", "pokemon_caught", "trainer_defeated"]:
                     map_id = str(data.get("map_id", ""))
                     event_id = str(data.get("event_id", ""))
+                    
+                    # Para ítems y entrenadores, la llave suele ser map_id_event_id
                     key = f"{map_id}_{event_id}"
                     
+                    # Para Dexsanity, la llave podría ser pokemon_species_id
+                    if msg_type == "pokemon_caught":
+                        species = str(data.get("species", ""))
+                        key = f"pokemon_{species}"
+                        
+                    # Para Trainersanity, si el map_id_event_id falla, podríamos buscar por trainer_id
+                    trainer_id = str(data.get("trainer_id", ""))
+                    
+                    ap_ids = None
                     if key in LOCATION_MAPPING:
                         ap_ids = LOCATION_MAPPING[key]
+                    elif msg_type == "trainer_defeated" and trainer_id in LOCATION_MAPPING:
+                        ap_ids = LOCATION_MAPPING[trainer_id]
+                        
+                    if ap_ids:
                         if not isinstance(ap_ids, list):
                             ap_ids = [ap_ids]
                         
@@ -91,7 +106,7 @@ class APRequestHandler(BaseHTTPRequestHandler):
                             self._send_json_response(200, {"status": "ok", "tracked": False})
                             return
                         
-                        logger.info(f"📦 Recogido ítem en mapa {map_id} evento {event_id}. AP IDs: {valid_ids}")
+                        logger.info(f"📦 Recogido ítem en ubicación AP {key}. AP IDs: {valid_ids}")
                         ap_send_queue.put({"cmd": "LocationChecks", "locations": valid_ids})
                         self._send_json_response(200, {"status": "ok", "tracked": True})
                         return
@@ -125,21 +140,9 @@ class PokemonIFCommandProcessor(ClientCommandProcessor):
         self.output(f"Nombre de jugador cambiado a: {slot_name}. Intenta conectarte ahora.")
 
     def _cmd_tracker(self):
-        """Abre el Tracker del Multiworld en tu navegador web."""
-        if not self.ctx.seed_name:
-            self.output("Debes estar conectado a un servidor para usar este comando.")
-            return
-        
-        if self.ctx.server_address and "archipelago.gg" in self.ctx.server_address:
-            url = f"https://archipelago.gg/tracker/{self.ctx.seed_name}"
-            self.output(f"Abriendo el Tracker en tu navegador: {url}")
-            import webbrowser
-            try:
-                webbrowser.open(url)
-            except Exception as e:
-                self.output(f"No se pudo abrir el navegador: {e}")
-        else:
-            self.output("Este servidor no es archipelago.gg oficial. No se puede determinar el enlace del tracker automáticamente.")
+        """Muestra información sobre cómo acceder al Tracker."""
+        self.output("El enlace del tracker no se puede obtener automáticamente del servidor.")
+        self.output("Por favor, dirígete a la página de tu sala (Room) en archipelago.gg para encontrar tu enlace del tracker personal.")
 
 class PokemonIFContext(CommonContext):
     command_processor = PokemonIFCommandProcessor
@@ -177,16 +180,7 @@ class PokemonIFContext(CommonContext):
             
         elif cmd == "Connected":
             if self.server_address and "archipelago.gg" in self.server_address:
-                if self.seed_name:
-                    tracker_url = f"https://archipelago.gg/tracker/{self.seed_name}"
-                    logger.info(f"🔗 Enlace al Tracker: {tracker_url}")
-                    logger.info("💡 Abriendo el Tracker en tu navegador web automáticamente...")
-                    import webbrowser
-                    try:
-                        webbrowser.open(tracker_url)
-                    except Exception as e:
-                        logger.error(f"No se pudo abrir el navegador automáticamente: {e}")
-                    logger.info("💡 Consejo: Escribe /tracker en la barra inferior para abrirlo manualmente.")
+                logger.info("💡 Recuerda que puedes encontrar tu Tracker personal en la página de la sala (Room) en archipelago.gg.")
             logger.info("¡Autenticado en Archipelago!")
             
             # Guardamos las ubicaciones activas para esta semilla

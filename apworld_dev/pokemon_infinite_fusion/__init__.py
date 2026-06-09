@@ -12,15 +12,6 @@ from .options import PokemonIFOptions
 class PokemonIFWeb(WebWorld):
     theme = "ocean"
     bug_report_page = "https://github.com/NazZqi/Archipelago_Pok-monInfiniteFusion/issues"
-    setup_en = Tutorial(
-        "Multiworld Setup Guide",
-        "A guide to setting up the Pokemon Infinite Fusion randomizer.",
-        "English",
-        "setup_en.md",
-        "setup/en",
-        ["Author"]
-    )
-    tutorials = [setup_en]
 
 class PokemonIFWorld(World):
     """
@@ -32,94 +23,68 @@ class PokemonIFWorld(World):
     options_dataclass = PokemonIFOptions
     version = Version(1, 0, 0)
 
-    item_name_to_id = {name: data.code for name, data in item_table.items()}
-    location_name_to_id = {name: data.code for name, data in location_table.items()}
+    item_name_to_id = {name: data.code for name, data in item_table.items() if data.code is not None}
+    location_name_to_id = {name: data.code for name, data in location_table.items() if data.code is not None}
     
+    def get_filler_item_name(self) -> str:
+        return "Potion"
     def set_rules(self):
-        # 1. Recuperar la meta seleccionada por el jugador
-        goal = self.options.goal.value
-        
-        # Lista de medallas para la condición de victoria
-        badges = [
-            "Boulder Badge", "Cascade Badge", "Thunder Badge", "Rainbow Badge", 
-            "Soul Badge", "Marsh Badge", "Volcano Badge", "Earth Badge"
-        ]
-        
-        # 2. Definir la condición de victoria (completion_condition)
-        if goal == 0:  # Champion
-            # Por defecto, requerir las 8 medallas (o las necesarias según Elite Four Count)
-            required_badges = self.options.elite_four_count.value
-            
-            self.multiworld.completion_condition[self.player] = lambda state: \
-                sum(state.has(badge, self.player) for badge in badges) >= required_badges
-                
-        elif goal == 1:  # Cerulean Cave
-            required_badges = self.options.cerulean_cave_count.value
-            self.multiworld.completion_condition[self.player] = lambda state: \
-                sum(state.has(badge, self.player) for badge in badges) >= required_badges
-                
-        elif goal == 2:  # Fusion Master
-            # Fusion master puede requerir un objeto específico o algo de lógica
-            # Como ejemplo, requerimos que sea posible llegar al final
-            self.multiworld.completion_condition[self.player] = lambda state: True
-            
-        elif goal == 3:  # Legendary Hunt
-            # Requiere cierta cantidad de legendarios, por ahora lo dejamos siempre válido
-            self.multiworld.completion_condition[self.player] = lambda state: True
-            
-        else:
-            self.multiworld.completion_condition[self.player] = lambda state: True
+        from .rules import set_rules
+        set_rules(self)
     
     def create_items(self):
-        filler_item_names = []
+        fillers_in_table = []
+        items_added = 0
         
-        # 1. Añadir 1 copia de CADA ítem (progresión, útiles y fillers)
+        # Opciones
+        skip_hms = (self.options.hms.value == 0) and not self.options.randomize_everything.value
+        
         for name, data in item_table.items():
-            self.multiworld.itempool.append(self.create_item(name))
-            if data.classification == ItemClassification.filler:
-                filler_item_names.append(name)
+            if data.code is not None:
+                # Omitir HMs si están en modo vanilla
+                if skip_hms and name.startswith("HM") and len(name) == 4 and name[2:].isdigit():
+                    continue
+                    
+                if data.classification == ItemClassification.filler:
+                    fillers_in_table.append(name)
+                else:
+                    self.multiworld.itempool.append(self.create_item(name))
+                    items_added += 1
             
-        # 2. Rellenar el resto de ubicaciones con fillers aleatorios
-        locations_count = len(self.multiworld.get_unfilled_locations(self.player))
-        items_count = len(self.multiworld.itempool)
+        # Rellenar ubicaciones calculando matemáticamente las ubicaciones restantes
+        my_locations = [loc for loc in self.multiworld.get_locations(self.player) if loc.address is not None]
+        locations_count = len(my_locations)
         
-        while items_count < locations_count:
-            filler_choice = self.multiworld.random.choice(filler_item_names) if filler_item_names else "Potion"
-            self.multiworld.itempool.append(self.create_item(filler_choice))
-            items_count += 1
+        filler_amount = locations_count - items_added
+        
+        if filler_amount < 0:
+            raise Exception(f"Not enough locations for required items! Locations: {locations_count}, Required Items: {items_added}")
+        
+        # Para dar variedad, intentamos añadir al menos 1 de cada filler de la tabla, y luego aleatorio
+        self.multiworld.random.shuffle(fillers_in_table)
+        
+        if filler_amount > 0:
+            for i in range(filler_amount):
+                if i < len(fillers_in_table):
+                    filler_choice = fillers_in_table[i]
+                else:
+                    filler_choice = self.multiworld.random.choice(fillers_in_table) if fillers_in_table else "Potion"
+                self.multiworld.itempool.append(self.create_item(filler_choice))
 
 
     def create_regions(self):
-        menu = Region("Menu", self.player, self.multiworld)
-        kanto = Region("Kanto", self.player, self.multiworld)
-        menu.connect(kanto)
-        
-        for location_name, loc_data in location_table.items():
-            # Filtro según opciones del YAML
-            if loc_data.type == "itemball" and not self.options.overworld_items:
-                continue
-            if loc_data.type == "npc" and not self.options.npc_gifts:
-                continue
-            if loc_data.type == "hidden_item" and not self.options.hidden_items:
-                continue
-                
-            loc = Location(self.player, location_name, loc_data.code, kanto)
-            kanto.locations.append(loc)
-            
-        self.multiworld.regions.append(menu)
-        self.multiworld.regions.append(kanto)
+        from .regions import create_regions
+        create_regions(self)
+
 
     def fill_slot_data(self) -> dict:
-        print(f"\n\n--- DEBUG SLOT DATA ---")
-        print(f"wild_pokemon: {self.options.wild_pokemon.value}")
-        print(f"starters: {self.options.starters.value}")
-        print(f"fusion_randomization: {self.options.fusion_randomization.value}")
-        print(f"hidden_items: {self.options.hidden_items.value}")
-        print(f"-----------------------\n\n")
+        is_random = self.options.randomize_everything.value
+        
         return {
+            "randomize_everything": is_random,
             "goal": self.options.goal.value,
-            "badges": self.options.badges.value,
-            "hms": self.options.hms.value,
+            "badges": 2 if is_random else self.options.badges.value,
+            "hms": 2 if is_random else self.options.hms.value,
             "key_items": self.options.key_items.value,
             "overworld_items": self.options.overworld_items.value,
             "hidden_items": self.options.hidden_items.value,
@@ -134,18 +99,18 @@ class PokemonIFWorld(World):
             "cerulean_cave_count": self.options.cerulean_cave_count.value,
             "require_itemfinder": self.options.require_itemfinder.value,
             "require_flash": self.options.require_flash.value,
-            "wild_pokemon": self.options.wild_pokemon.value,
-            "starters": self.options.starters.value,
-            "trainer_parties": self.options.trainer_parties.value,
+            "wild_pokemon": 4 if is_random else self.options.wild_pokemon.value,
+            "starters": 3 if is_random else self.options.starters.value,
+            "trainer_parties": 3 if is_random else self.options.trainer_parties.value,
             "force_fully_evolved": self.options.force_fully_evolved.value,
-            "legendary_encounters": self.options.legendary_encounters.value,
-            "fusion_randomization": self.options.fusion_randomization.value,
-            "types": self.options.types.value,
-            "abilities": self.options.abilities.value,
-            "level_up_moves": self.options.level_up_moves.value,
+            "legendary_encounters": 3 if is_random else self.options.legendary_encounters.value,
+            "fusion_randomization": 3 if is_random else self.options.fusion_randomization.value,
+            "types": 2 if is_random else self.options.types.value,
+            "abilities": 1 if is_random else self.options.abilities.value,
+            "level_up_moves": 1 if is_random else self.options.level_up_moves.value,
             "tm_tutor_compatibility": self.options.tm_tutor_compatibility.value,
             "hm_compatibility": self.options.hm_compatibility.value,
-            "tm_tutor_moves": self.options.tm_tutor_moves.value,
+            "tm_tutor_moves": True if is_random else self.options.tm_tutor_moves.value,
             "reusable_tms_tutors": self.options.reusable_tms_tutors.value,
             "min_catch_rate": self.options.min_catch_rate.value,
             "guaranteed_catch": self.options.guaranteed_catch.value,
@@ -164,8 +129,8 @@ class PokemonIFWorld(World):
             "legendary_hunt_count": self.options.legendary_hunt_count.value,
             "death_link": self.options.death_link.value,
             "enable_wonder_trading": self.options.enable_wonder_trading.value,
-            "music": self.options.music.value,
-            "fanfares": self.options.fanfares.value,
+            "music": True if is_random else self.options.music.value,
+            "fanfares": True if is_random else self.options.fanfares.value,
             "wild_encounter_blacklist": list(self.options.wild_encounter_blacklist.value),
             "starter_blacklist": list(self.options.starter_blacklist.value),
             "ability_blacklist": list(self.options.ability_blacklist.value),
@@ -176,6 +141,9 @@ class PokemonIFWorld(World):
     def create_item(self, name: str) -> Item:
         item_data = item_table[name]
         return Item(name, item_data.classification, item_data.code, self.player)
+
+    def create_event(self, name: str) -> Item:
+        return Item(name, ItemClassification.progression_skip_balancing, None, self.player)
 
     def generate_output(self, output_directory: str):
         data = {
@@ -191,22 +159,11 @@ class PokemonIFWorld(World):
         # El formato que pide el usuario: P{player}_{player_name}_{seed_name}.apif
         filename = f"P{self.player}_{player_name}_{seed_name}.apif"
         
-        # Archipelago.gg rechaza archivos dentro del ZIP con extensiones desconocidas.
-        # Guardaremos una copia local (fuera del zip) para conveniencia,
-        # pero también creamos el archivo dentro del zip con extensión .json para WebHost.
-        
-        # 1. Copia para uso local (fuera del directorio temporal de Archipelago)
+        # Escribimos el archivo .apif en el output_directory.
+        # No le ponemos extensión .json para evitar que el WebHost de Archipelago intente parsearlo como data de slot y crashee (Error 500).
+        out_file_path = os.path.join(output_directory, filename)
         try:
-            out_file_path_local = os.path.join(os.path.dirname(output_directory), filename)
-            with open(out_file_path_local, "w", encoding="utf-8") as f:
-                json.dump(data, f)
-        except Exception:
-            pass
-            
-        # 2. Copia segura para WebHost (dentro del zip)
-        try:
-            out_file_path_zip = os.path.join(output_directory, filename + ".json")
-            with open(out_file_path_zip, "w", encoding="utf-8") as f:
+            with open(out_file_path, "w", encoding="utf-8") as f:
                 json.dump(data, f)
         except Exception:
             pass

@@ -1,0 +1,3717 @@
+{
+    "65": {
+        "name": "Pokemon Center",
+        "parent": 167,
+        "order": 334
+    },
+    "196": {
+        "name": "Saffron City",
+        "parent": 108,
+        "order": 293
+    },
+    "327": {
+        "name": "New Bark Town",
+        "parent": 326,
+        "order": 427
+    },
+    "458": {
+        "name": "Pokémon Academy",
+        "parent": 79,
+        "order": 142
+    },
+    "589": {
+        "name": "Sinjoh ruins",
+        "parent": 253,
+        "order": 589
+    },
+    "720": {
+        "name": "\\PN's Room?",
+        "parent": 719,
+        "order": 135
+    },
+    "131": {
+        "name": "9F --old--",
+        "parent": 757,
+        "order": 272
+    },
+    "262": {
+        "name": "Route 30",
+        "parent": 253,
+        "order": 563
+    },
+    "393": {
+        "name": "Celadon City",
+        "parent": 95,
+        "order": 203
+    },
+    "524": {
+        "name": "Goldenrod City Gym",
+        "parent": 237,
+        "order": 472
+    },
+    "655": {
+        "name": "Hidden Forest",
+        "parent": 86,
+        "order": 30
+    },
+    "786": {
+        "name": "Prize Exchange",
+        "parent": 734,
+        "order": 622
+    },
+    "66": {
+        "name": "Eastern Gate",
+        "parent": 216,
+        "order": 299
+    },
+    "197": {
+        "name": "Power Plant",
+        "parent": 225,
+        "order": 414
+    },
+    "328": {
+        "name": "Champion",
+        "parent": 314,
+        "order": 341
+    },
+    "459": {
+        "name": "Pewter Hotel",
+        "parent": 380,
+        "order": 351
+    },
+    "590": {
+        "name": "Sinjoh Ruins",
+        "parent": 589,
+        "order": 590
+    },
+    "721": {
+        "name": "Cinnabar Lab",
+        "parent": 206,
+        "order": 321
+    },
+    "263": {
+        "name": "Gate",
+        "parent": 261,
+        "order": 562
+    },
+    "394": {
+        "name": "Vermillion City",
+        "parent": 19,
+        "order": 176
+    },
+    "525": {
+        "name": "Sevii",
+        "parent": 295,
+        "order": 611
+    },
+    "787": {
+        "name": "Battle Tower",
+        "parent": 734,
+        "order": 623
+    },
+    "1": {
+        "name": "Cerulean City",
+        "parent": 224,
+        "order": 145
+    },
+    "198": {
+        "name": "Power Plant",
+        "parent": 197,
+        "order": 415
+    },
+    "329": {
+        "name": "Blackthorn City",
+        "parent": 252,
+        "order": 502
+    },
+    "460": {
+        "name": "Pewter Hotel",
+        "parent": 459,
+        "order": 352
+    },
+    "591": {
+        "name": "Sinjoh Ruins",
+        "parent": 589,
+        "order": 591
+    },
+    "722": {
+        "name": "\\PN's House?",
+        "parent": 719,
+        "order": 132
+    },
+    "67": {
+        "name": "\\PN's Room",
+        "parent": 43,
+        "order": 116
+    },
+    "133": {
+        "name": "Rocket Mart",
+        "parent": 108,
+        "order": 274
+    },
+    "264": {
+        "name": "Pokémon Center",
+        "parent": 230,
+        "order": 431
+    },
+    "395": {
+        "name": "Vermillion City",
+        "parent": 19,
+        "order": 177
+    },
+    "526": {
+        "name": "Knot Island",
+        "parent": 558,
+        "order": 672
+    },
+    "788": {
+        "name": "Art Gallery",
+        "parent": 237,
+        "order": 470
+    },
+    "2": {
+        "name": "Route 101",
+        "parent": 792,
+        "order": 716
+    },
+    "199": {
+        "name": "Saffron City",
+        "parent": 108,
+        "order": 294
+    },
+    "330": {
+        "name": "Pokémon Center",
+        "parent": 329,
+        "order": 503
+    },
+    "461": {
+        "name": "Cerulean Hotel",
+        "parent": 1,
+        "order": 156
+    },
+    "723": {
+        "name": "Pallet Town?",
+        "parent": 719,
+        "order": 133
+    },
+    "68": {
+        "name": "\\PN's Room",
+        "parent": 43,
+        "order": 117
+    },
+    "265": {
+        "name": "Route 34",
+        "parent": 253,
+        "order": 558
+    },
+    "396": {
+        "name": "Underground Gate",
+        "parent": 16,
+        "order": 43
+    },
+    "527": {
+        "name": "Knot Island Harbor",
+        "parent": 526,
+        "order": 673
+    },
+    "658": {
+        "name": "new",
+        "parent": 121,
+        "order": 259
+    },
+    "789": {
+        "name": "Battle Tower Arena",
+        "parent": 787,
+        "order": 624
+    },
+    "3": {
+        "name": "\\PN's House",
+        "parent": 1,
+        "order": 146
+    },
+    "134": {
+        "name": "Johto",
+        "parent": 295,
+        "order": 422
+    },
+    "200": {
+        "name": "Saffron City",
+        "parent": 199,
+        "order": 295
+    },
+    "331": {
+        "name": "Blackthorn Hotel",
+        "parent": 329,
+        "order": 504
+    },
+    "462": {
+        "name": "Cerulean Hotel",
+        "parent": 461,
+        "order": 157
+    },
+    "593": {
+        "name": "Oak's Lab _Sinnoh",
+        "parent": 42,
+        "order": 129
+    },
+    "724": {
+        "name": "Oak's Lab?",
+        "parent": 719,
+        "order": 134
+    },
+    "69": {
+        "name": "\\PN's Room",
+        "parent": 43,
+        "order": 118
+    },
+    "266": {
+        "name": "Ilex Forest",
+        "parent": 253,
+        "order": 549
+    },
+    "397": {
+        "name": "Underground Gate",
+        "parent": 12,
+        "order": 41
+    },
+    "528": {
+        "name": "Treasure Beach",
+        "parent": 557,
+        "order": 613
+    },
+    "659": {
+        "name": "Oak's Lab _Custom",
+        "parent": 42,
+        "order": 130
+    },
+    "790": {
+        "name": "Hoenn",
+        "parent": 295,
+        "order": 713
+    },
+    "4": {
+        "name": "Cerulean City Gym",
+        "parent": 1,
+        "order": 147
+    },
+    "135": {
+        "name": "Cinnabar Hotel",
+        "parent": 98,
+        "order": 313
+    },
+    "332": {
+        "name": "Blackthorn Hotel",
+        "parent": 331,
+        "order": 505
+    },
+    "463": {
+        "name": "Vermillion Hotel",
+        "parent": 19,
+        "order": 180
+    },
+    "594": {
+        "name": "Water Labyrinth",
+        "parent": 557,
+        "order": 644
+    },
+    "70": {
+        "name": "\\PN's Room",
+        "parent": 43,
+        "order": 119
+    },
+    "201": {
+        "name": "S.S. Anne",
+        "parent": 27,
+        "order": 173
+    },
+    "267": {
+        "name": "Route 36",
+        "parent": 253,
+        "order": 555
+    },
+    "398": {
+        "name": "Diglett's Cave",
+        "parent": 140,
+        "order": 369
+    },
+    "529": {
+        "name": "Mt. Silver",
+        "parent": 225,
+        "order": 403
+    },
+    "660": {
+        "name": "2F",
+        "parent": 658,
+        "order": 260
+    },
+    "791": {
+        "name": "Unova",
+        "parent": 295,
+        "order": 730
+    },
+    "5": {
+        "name": "Cerulean City",
+        "parent": 1,
+        "order": 158
+    },
+    "136": {
+        "name": "Cinnabar Hotel",
+        "parent": 135,
+        "order": 314
+    },
+    "464": {
+        "name": "Vermillion Hotel",
+        "parent": 463,
+        "order": 181
+    },
+    "595": {
+        "name": "Dungeons",
+        "parent": 525,
+        "order": 689
+    },
+    "71": {
+        "name": "\\PN's Room",
+        "parent": 43,
+        "order": 120
+    },
+    "202": {
+        "name": "backup",
+        "parent": 143,
+        "order": 101
+    },
+    "399": {
+        "name": "Diglett's Cave",
+        "parent": 140,
+        "order": 370
+    },
+    "530": {
+        "name": "Pokemon Center",
+        "parent": 529,
+        "order": 404
+    },
+    "661": {
+        "name": "3F",
+        "parent": 658,
+        "order": 261
+    },
+    "792": {
+        "name": "Routes",
+        "parent": 790,
+        "order": 714
+    },
+    "6": {
+        "name": "Team Rocket HQ",
+        "parent": 1,
+        "order": 148
+    },
+    "137": {
+        "name": "New Bark Town",
+        "parent": 252,
+        "order": 424
+    },
+    "268": {
+        "name": "Violet City",
+        "parent": 230,
+        "order": 432
+    },
+    "334": {
+        "name": "Blackthorn City",
+        "parent": 329,
+        "order": 506
+    },
+    "465": {
+        "name": "Celadon Hotel",
+        "parent": 95,
+        "order": 206
+    },
+    "596": {
+        "name": "Sky Pillar",
+        "parent": 793,
+        "order": 718
+    },
+    "72": {
+        "name": "Celadon Sewers",
+        "parent": 446,
+        "order": 188
+    },
+    "203": {
+        "name": "TEST",
+        "parent": 0,
+        "order": 734
+    },
+    "400": {
+        "name": "Pokémon Tower",
+        "parent": 50,
+        "order": 240
+    },
+    "531": {
+        "name": "Pinkan Forest",
+        "parent": 51,
+        "order": 712
+    },
+    "662": {
+        "name": "4F",
+        "parent": 658,
+        "order": 262
+    },
+    "793": {
+        "name": "Dungeons",
+        "parent": 790,
+        "order": 717
+    },
+    "7": {
+        "name": "Bike Shop",
+        "parent": 1,
+        "order": 149
+    },
+    "138": {
+        "name": "Olivine City",
+        "parent": 252,
+        "order": 473
+    },
+    "269": {
+        "name": "Violet City",
+        "parent": 230,
+        "order": 433
+    },
+    "466": {
+        "name": "Celadon Hotel",
+        "parent": 465,
+        "order": 207
+    },
+    "597": {
+        "name": "Sky Pillar",
+        "parent": 596,
+        "order": 719
+    },
+    "73": {
+        "name": "\\PN's Room",
+        "parent": 43,
+        "order": 121
+    },
+    "204": {
+        "name": "Farmhouse",
+        "parent": 517,
+        "order": 78
+    },
+    "335": {
+        "name": "Dragon's Den",
+        "parent": 329,
+        "order": 507
+    },
+    "401": {
+        "name": "Pokemon Tower F2",
+        "parent": 400,
+        "order": 241
+    },
+    "532": {
+        "name": "Pokémon Center",
+        "parent": 526,
+        "order": 675
+    },
+    "663": {
+        "name": "5F",
+        "parent": 658,
+        "order": 263
+    },
+    "794": {
+        "name": "Route 131",
+        "parent": 792,
+        "order": 715
+    },
+    "8": {
+        "name": "Route 24",
+        "parent": 223,
+        "order": 92
+    },
+    "139": {
+        "name": "letter",
+        "parent": 373,
+        "order": 11
+    },
+    "270": {
+        "name": "Violet City",
+        "parent": 230,
+        "order": 434
+    },
+    "467": {
+        "name": "Pokemon Tower F5",
+        "parent": 403,
+        "order": 244
+    },
+    "598": {
+        "name": "Boon Island Harbor",
+        "parent": 562,
+        "order": 659
+    },
+    "74": {
+        "name": "Area 1",
+        "parent": 445,
+        "order": 384
+    },
+    "205": {
+        "name": "Pallet Town",
+        "parent": 42,
+        "order": 125
+    },
+    "336": {
+        "name": "Dragon's Den",
+        "parent": 335,
+        "order": 508
+    },
+    "533": {
+        "name": "Knot Island",
+        "parent": 526,
+        "order": 676
+    },
+    "795": {
+        "name": "Cities",
+        "parent": 790,
+        "order": 726
+    },
+    "9": {
+        "name": "Route 25",
+        "parent": 223,
+        "order": 93
+    },
+    "140": {
+        "name": "Diglett's Cave",
+        "parent": 225,
+        "order": 368
+    },
+    "271": {
+        "name": "Gate",
+        "parent": 267,
+        "order": 556
+    },
+    "402": {
+        "name": "Pokemon Tower F3",
+        "parent": 401,
+        "order": 242
+    },
+    "468": {
+        "name": "Pokemon Tower F6",
+        "parent": 467,
+        "order": 245
+    },
+    "599": {
+        "name": "Kin Island Harbor",
+        "parent": 563,
+        "order": 671
+    },
+    "730": {
+        "name": "Route 38",
+        "parent": 253,
+        "order": 607
+    },
+    "75": {
+        "name": "Area 2",
+        "parent": 484,
+        "order": 386
+    },
+    "206": {
+        "name": "Cinnabar Lab",
+        "parent": 98,
+        "order": 317
+    },
+    "337": {
+        "name": "Azalea Town Gym",
+        "parent": 278,
+        "order": 492
+    },
+    "665": {
+        "name": "7F",
+        "parent": 658,
+        "order": 265
+    },
+    "796": {
+        "name": "Pacifidlog Town",
+        "parent": 795,
+        "order": 727
+    },
+    "10": {
+        "name": "Cerulean Cape",
+        "parent": 9,
+        "order": 94
+    },
+    "141": {
+        "name": "Saffron City",
+        "parent": 108,
+        "order": 307
+    },
+    "272": {
+        "name": "Sprout Tower",
+        "parent": 230,
+        "order": 435
+    },
+    "403": {
+        "name": "Pokemon Tower F4",
+        "parent": 402,
+        "order": 243
+    },
+    "600": {
+        "name": "Bond Bridge",
+        "parent": 557,
+        "order": 652
+    },
+    "731": {
+        "name": "Triple Battle Lounge",
+        "parent": 526,
+        "order": 677
+    },
+    "76": {
+        "name": "Pallet Town",
+        "parent": 42,
+        "order": 128
+    },
+    "207": {
+        "name": "Cinnabar Island",
+        "parent": 98,
+        "order": 324
+    },
+    "338": {
+        "name": "Azalea Town",
+        "parent": 278,
+        "order": 493
+    },
+    "469": {
+        "name": "Pokemon Tower F7",
+        "parent": 468,
+        "order": 246
+    },
+    "666": {
+        "name": "8F",
+        "parent": 658,
+        "order": 266
+    },
+    "797": {
+        "name": "Unknown location",
+        "parent": 0,
+        "order": 742
+    },
+    "11": {
+        "name": "Bill's Lighthouse",
+        "parent": 9,
+        "order": 96
+    },
+    "142": {
+        "name": "Pokémon Tower B1",
+        "parent": 400,
+        "order": 248
+    },
+    "273": {
+        "name": "Violet Hotel",
+        "parent": 230,
+        "order": 441
+    },
+    "732": {
+        "name": "Triple Battle Lounge",
+        "parent": 731,
+        "order": 678
+    },
+    "77": {
+        "name": "Oak's Lab",
+        "parent": 42,
+        "order": 122
+    },
+    "208": {
+        "name": "Cinnabar Lab",
+        "parent": 206,
+        "order": 318
+    },
+    "339": {
+        "name": "Pokémon Center",
+        "parent": 338,
+        "order": 494
+    },
+    "667": {
+        "name": "9F",
+        "parent": 658,
+        "order": 267
+    },
+    "798": {
+        "name": "Unknown location",
+        "parent": 0,
+        "order": 743
+    },
+    "12": {
+        "name": "Route 5",
+        "parent": 223,
+        "order": 37
+    },
+    "143": {
+        "name": "Route 23",
+        "parent": 223,
+        "order": 100
+    },
+    "274": {
+        "name": "Violet Hotel",
+        "parent": 273,
+        "order": 442
+    },
+    "405": {
+        "name": "Game Corner",
+        "parent": 95,
+        "order": 214
+    },
+    "536": {
+        "name": "Sprout Tower",
+        "parent": 522,
+        "order": 437
+    },
+    "78": {
+        "name": "Route 1",
+        "parent": 223,
+        "order": 19
+    },
+    "209": {
+        "name": "Cinnabar Lab",
+        "parent": 206,
+        "order": 319
+    },
+    "340": {
+        "name": "Slowpoke Well (flooded)",
+        "parent": 338,
+        "order": 495
+    },
+    "471": {
+        "name": "Fishing Hut",
+        "parent": 159,
+        "order": 58
+    },
+    "668": {
+        "name": "10F",
+        "parent": 658,
+        "order": 268
+    },
+    "799": {
+        "name": "Debug Arena",
+        "parent": 355,
+        "order": 737
+    },
+    "13": {
+        "name": "Day Care Center",
+        "parent": 12,
+        "order": 38
+    },
+    "144": {
+        "name": "Power Plant",
+        "parent": 198,
+        "order": 416
+    },
+    "406": {
+        "name": "Celadon Café",
+        "parent": 95,
+        "order": 184
+    },
+    "537": {
+        "name": "Sprout Tower",
+        "parent": 536,
+        "order": 438
+    },
+    "734": {
+        "name": "Battle Factory",
+        "parent": 559,
+        "order": 618
+    },
+    "79": {
+        "name": "Viridian City",
+        "parent": 224,
+        "order": 137
+    },
+    "341": {
+        "name": "Hall of Fame",
+        "parent": 314,
+        "order": 342
+    },
+    "472": {
+        "name": "Fuchsia City",
+        "parent": 224,
+        "order": 229
+    },
+    "603": {
+        "name": "Chrono Island",
+        "parent": 558,
+        "order": 682
+    },
+    "669": {
+        "name": "Viridian River",
+        "parent": 40,
+        "order": 32
+    },
+    "800": {
+        "name": "Rock Tunnel",
+        "parent": 350,
+        "order": 379
+    },
+    "14": {
+        "name": "Underground",
+        "parent": 12,
+        "order": 40
+    },
+    "145": {
+        "name": "Route 26",
+        "parent": 223,
+        "order": 102
+    },
+    "276": {
+        "name": "Gate",
+        "parent": 266,
+        "order": 551
+    },
+    "407": {
+        "name": "Celadon Café Backstore",
+        "parent": 768,
+        "order": 226
+    },
+    "538": {
+        "name": "Sprout Tower",
+        "parent": 537,
+        "order": 439
+    },
+    "735": {
+        "name": "Battle Factory",
+        "parent": 734,
+        "order": 619
+    },
+    "80": {
+        "name": "Pokemon Center",
+        "parent": 1,
+        "order": 150
+    },
+    "342": {
+        "name": "Ruins of Alph",
+        "parent": 253,
+        "order": 573
+    },
+    "473": {
+        "name": "Safari Zone Gate",
+        "parent": 472,
+        "order": 231
+    },
+    "604": {
+        "name": "Pokémon Center",
+        "parent": 603,
+        "order": 683
+    },
+    "801": {
+        "name": "Mt. Moon",
+        "parent": 105,
+        "order": 358
+    },
+    "15": {
+        "name": "Northern Gate",
+        "parent": 216,
+        "order": 297
+    },
+    "146": {
+        "name": "Route 17",
+        "parent": 223,
+        "order": 74
+    },
+    "277": {
+        "name": "Gate",
+        "parent": 266,
+        "order": 550
+    },
+    "408": {
+        "name": "Pokemon Center",
+        "parent": 95,
+        "order": 185
+    },
+    "539": {
+        "name": "Sprout Tower",
+        "parent": 538,
+        "order": 440
+    },
+    "670": {
+        "name": "Ice Mountains",
+        "parent": 253,
+        "order": 595
+    },
+    "736": {
+        "name": "Battle Factory",
+        "parent": 734,
+        "order": 620
+    },
+    "81": {
+        "name": "PokeMart",
+        "parent": 79,
+        "order": 138
+    },
+    "212": {
+        "name": "Silph Co.",
+        "parent": 121,
+        "order": 258
+    },
+    "343": {
+        "name": "Gate",
+        "parent": 288,
+        "order": 572
+    },
+    "474": {
+        "name": "Gate",
+        "parent": 438,
+        "order": 71
+    },
+    "605": {
+        "name": "Chrono Island Harbor",
+        "parent": 603,
+        "order": 685
+    },
+    "802": {
+        "name": "Mt. Moon",
+        "parent": 801,
+        "order": 359
+    },
+    "16": {
+        "name": "Route 6",
+        "parent": 223,
+        "order": 42
+    },
+    "147": {
+        "name": "Route 27",
+        "parent": 223,
+        "order": 105
+    },
+    "278": {
+        "name": "Azalea Town",
+        "parent": 252,
+        "order": 486
+    },
+    "409": {
+        "name": "Route 8",
+        "parent": 223,
+        "order": 46
+    },
+    "540": {
+        "name": "Route 30",
+        "parent": 262,
+        "order": 566
+    },
+    "671": {
+        "name": "Ecruteak City",
+        "parent": 582,
+        "order": 518
+    },
+    "82": {
+        "name": "Area 3",
+        "parent": 485,
+        "order": 388
+    },
+    "213": {
+        "name": "Gate",
+        "parent": 483,
+        "order": 64
+    },
+    "344": {
+        "name": "Gate",
+        "parent": 267,
+        "order": 557
+    },
+    "475": {
+        "name": "Gate",
+        "parent": 474,
+        "order": 72
+    },
+    "606": {
+        "name": "Underwater",
+        "parent": 594,
+        "order": 645
+    },
+    "737": {
+        "name": "Battle Factory Arena",
+        "parent": 734,
+        "order": 621
+    },
+    "803": {
+        "name": "Saffron City",
+        "parent": 108,
+        "order": 309
+    },
+    "17": {
+        "name": "S.S. Anne",
+        "parent": 27,
+        "order": 167
+    },
+    "148": {
+        "name": "Pokemon League Entrance",
+        "parent": 171,
+        "order": 91
+    },
+    "279": {
+        "name": "Pokémon Center",
+        "parent": 278,
+        "order": 487
+    },
+    "410": {
+        "name": "Underground Gate",
+        "parent": 409,
+        "order": 47
+    },
+    "541": {
+        "name": "Blackthorn City",
+        "parent": 329,
+        "order": 511
+    },
+    "672": {
+        "name": "Ecruteak City",
+        "parent": 582,
+        "order": 521
+    },
+    "83": {
+        "name": "Viridian City",
+        "parent": 79,
+        "order": 139
+    },
+    "214": {
+        "name": "Day Care Center",
+        "parent": 13,
+        "order": 39
+    },
+    "345": {
+        "name": "Chamber A",
+        "parent": 342,
+        "order": 576
+    },
+    "476": {
+        "name": "Pokemon Center",
+        "parent": 472,
+        "order": 230
+    },
+    "607": {
+        "name": "Birth Island",
+        "parent": 595,
+        "order": 692
+    },
+    "18": {
+        "name": "Southern Gate",
+        "parent": 216,
+        "order": 300
+    },
+    "149": {
+        "name": "Flooded Cave",
+        "parent": 159,
+        "order": 59
+    },
+    "280": {
+        "name": "PokeMart",
+        "parent": 278,
+        "order": 488
+    },
+    "411": {
+        "name": "Underground",
+        "parent": 410,
+        "order": 48
+    },
+    "542": {
+        "name": "Celadon City Gym",
+        "parent": 95,
+        "order": 228
+    },
+    "673": {
+        "name": "Ecruteak City",
+        "parent": 671,
+        "order": 519
+    },
+    "804": {
+        "name": "Safari Zone Gate",
+        "parent": 473,
+        "order": 232
+    },
+    "84": {
+        "name": "Viridian City",
+        "parent": 79,
+        "order": 141
+    },
+    "346": {
+        "name": "Ruins of Alph",
+        "parent": 342,
+        "order": 574
+    },
+    "477": {
+        "name": "Fuchsia Hotel",
+        "parent": 472,
+        "order": 233
+    },
+    "608": {
+        "name": "Ember Spa",
+        "parent": 559,
+        "order": 617
+    },
+    "19": {
+        "name": "Vermillion City",
+        "parent": 224,
+        "order": 159
+    },
+    "281": {
+        "name": "Azalea Town",
+        "parent": 278,
+        "order": 489
+    },
+    "412": {
+        "name": "Gate (East)",
+        "parent": 409,
+        "order": 49
+    },
+    "674": {
+        "name": "Ecruteak City",
+        "parent": 672,
+        "order": 522
+    },
+    "805": {
+        "name": "Waterfall Cave",
+        "parent": 167,
+        "order": 333
+    },
+    "85": {
+        "name": "Viridian City Gym",
+        "parent": 79,
+        "order": 143
+    },
+    "216": {
+        "name": "Gates",
+        "parent": 108,
+        "order": 296
+    },
+    "347": {
+        "name": "Chamber B",
+        "parent": 342,
+        "order": 577
+    },
+    "478": {
+        "name": "Fuchsia Hotel",
+        "parent": 477,
+        "order": 234
+    },
+    "609": {
+        "name": "Underwater",
+        "parent": 559,
+        "order": 616
+    },
+    "740": {
+        "name": "Oak's Lab.old",
+        "parent": 430,
+        "order": 124
+    },
+    "20": {
+        "name": "Pokemon Center",
+        "parent": 19,
+        "order": 178
+    },
+    "151": {
+        "name": "Saffron Boutique",
+        "parent": 108,
+        "order": 275
+    },
+    "282": {
+        "name": "Azalea Town",
+        "parent": 278,
+        "order": 490
+    },
+    "413": {
+        "name": "Route 7",
+        "parent": 223,
+        "order": 44
+    },
+    "544": {
+        "name": "Cerulean Cave WTF",
+        "parent": 324,
+        "order": 401
+    },
+    "675": {
+        "name": "Ecruteak City",
+        "parent": 674,
+        "order": 523
+    },
+    "806": {
+        "name": "Old Shipwreck",
+        "parent": 610,
+        "order": 627
+    },
+    "86": {
+        "name": "Route 2",
+        "parent": 223,
+        "order": 22
+    },
+    "348": {
+        "name": "Chamber C",
+        "parent": 342,
+        "order": 578
+    },
+    "479": {
+        "name": "Fuchsia City Gym",
+        "parent": 472,
+        "order": 235
+    },
+    "610": {
+        "name": "Old Shipwreck",
+        "parent": 564,
+        "order": 626
+    },
+    "152": {
+        "name": "Saffron City Gym",
+        "parent": 108,
+        "order": 292
+    },
+    "283": {
+        "name": "Slowpoke Well",
+        "parent": 278,
+        "order": 491
+    },
+    "545": {
+        "name": "Cherrygrove City",
+        "parent": 310,
+        "order": 501
+    },
+    "676": {
+        "name": "Ecruteak City",
+        "parent": 673,
+        "order": 520
+    },
+    "807": {
+        "name": "11F",
+        "parent": 757,
+        "order": 271
+    },
+    "87": {
+        "name": "Fuchsia City",
+        "parent": 472,
+        "order": 237
+    },
+    "349": {
+        "name": "Rock Tunnel",
+        "parent": 225,
+        "order": 377
+    },
+    "480": {
+        "name": "Underwater",
+        "parent": 228,
+        "order": 89
+    },
+    "611": {
+        "name": "Burned Tower",
+        "parent": 359,
+        "order": 532
+    },
+    "22": {
+        "name": "Vermillion City",
+        "parent": 19,
+        "order": 160
+    },
+    "153": {
+        "name": "Saffron City",
+        "parent": 108,
+        "order": 276
+    },
+    "284": {
+        "name": "Route 33",
+        "parent": 253,
+        "order": 560
+    },
+    "415": {
+        "name": "Western Gate",
+        "parent": 216,
+        "order": 298
+    },
+    "546": {
+        "name": "Fighting Arena",
+        "parent": 19,
+        "order": 182
+    },
+    "677": {
+        "name": "Hidden Chamber",
+        "parent": 342,
+        "order": 583
+    },
+    "808": {
+        "name": "Seafoam Islands B1",
+        "parent": 52,
+        "order": 372
+    },
+    "88": {
+        "name": "Gate",
+        "parent": 86,
+        "order": 23
+    },
+    "350": {
+        "name": "Rock Tunnel",
+        "parent": 349,
+        "order": 378
+    },
+    "481": {
+        "name": "Fuchsia City",
+        "parent": 472,
+        "order": 238
+    },
+    "612": {
+        "name": "Boon Island",
+        "parent": 562,
+        "order": 660
+    },
+    "23": {
+        "name": "Vermillion City",
+        "parent": 19,
+        "order": 161
+    },
+    "154": {
+        "name": "Route 10",
+        "parent": 223,
+        "order": 52
+    },
+    "285": {
+        "name": "Union Cave",
+        "parent": 253,
+        "order": 552
+    },
+    "416": {
+        "name": "Pokemon Center",
+        "parent": 50,
+        "order": 249
+    },
+    "809": {
+        "name": "Creepy House_backup",
+        "parent": 712,
+        "order": 68
+    },
+    "89": {
+        "name": "Gate",
+        "parent": 86,
+        "order": 25
+    },
+    "220": {
+        "name": "Underwater",
+        "parent": 437,
+        "order": 81
+    },
+    "351": {
+        "name": "Route 9",
+        "parent": 223,
+        "order": 50
+    },
+    "482": {
+        "name": "Fuchsia City",
+        "parent": 472,
+        "order": 236
+    },
+    "744": {
+        "name": "Radio Tower",
+        "parent": 246,
+        "order": 455
+    },
+    "24": {
+        "name": "Vermillion City Gym",
+        "parent": 19,
+        "order": 162
+    },
+    "155": {
+        "name": "Route 11",
+        "parent": 223,
+        "order": 54
+    },
+    "286": {
+        "name": "Union Cave B1",
+        "parent": 285,
+        "order": 553
+    },
+    "417": {
+        "name": "Gate",
+        "parent": 50,
+        "order": 250
+    },
+    "679": {
+        "name": "Underwater",
+        "parent": 570,
+        "order": 632
+    },
+    "810": {
+        "name": "Sealed Chamber",
+        "parent": 814,
+        "order": 651
+    },
+    "90": {
+        "name": "Route 2",
+        "parent": 86,
+        "order": 29
+    },
+    "221": {
+        "name": "Cinnabar Island Gym",
+        "parent": 98,
+        "order": 322
+    },
+    "352": {
+        "name": "Chamber D",
+        "parent": 342,
+        "order": 579
+    },
+    "483": {
+        "name": "Gate",
+        "parent": 444,
+        "order": 63
+    },
+    "745": {
+        "name": "Radio Tower",
+        "parent": 246,
+        "order": 456
+    },
+    "25": {
+        "name": "Pokémon Fan Club",
+        "parent": 19,
+        "order": 164
+    },
+    "156": {
+        "name": "Saffron City",
+        "parent": 153,
+        "order": 277
+    },
+    "287": {
+        "name": "Union Cave B2",
+        "parent": 286,
+        "order": 554
+    },
+    "418": {
+        "name": "Pokémon House",
+        "parent": 50,
+        "order": 251
+    },
+    "680": {
+        "name": "Underwater",
+        "parent": 679,
+        "order": 633
+    },
+    "811": {
+        "name": "Submerged Temple",
+        "parent": 594,
+        "order": 648
+    },
+    "91": {
+        "name": "Pewter City",
+        "parent": 380,
+        "order": 349
+    },
+    "222": {
+        "name": "Route 2",
+        "parent": 86,
+        "order": 28
+    },
+    "353": {
+        "name": "Chamber E",
+        "parent": 342,
+        "order": 580
+    },
+    "484": {
+        "name": "Area 2",
+        "parent": 443,
+        "order": 385
+    },
+    "746": {
+        "name": "Viridian City",
+        "parent": 79,
+        "order": 144
+    },
+    "26": {
+        "name": "Harbour",
+        "parent": 19,
+        "order": 165
+    },
+    "157": {
+        "name": "Game intro",
+        "parent": 373,
+        "order": 13
+    },
+    "288": {
+        "name": "Route 32",
+        "parent": 253,
+        "order": 570
+    },
+    "419": {
+        "name": "Lavender Town",
+        "parent": 50,
+        "order": 255
+    },
+    "681": {
+        "name": "Underwater",
+        "parent": 679,
+        "order": 637
+    },
+    "812": {
+        "name": "Submerged Temple",
+        "parent": 594,
+        "order": 646
+    },
+    "92": {
+        "name": "Route 2",
+        "parent": 86,
+        "order": 26
+    },
+    "223": {
+        "name": "Routes",
+        "parent": 33,
+        "order": 18
+    },
+    "354": {
+        "name": "Ruins of Alph",
+        "parent": 342,
+        "order": 581
+    },
+    "485": {
+        "name": "Area 3",
+        "parent": 443,
+        "order": 387
+    },
+    "616": {
+        "name": "Cinnabar Island Harbor",
+        "parent": 98,
+        "order": 323
+    },
+    "747": {
+        "name": "Radio Tower",
+        "parent": 246,
+        "order": 457
+    },
+    "27": {
+        "name": "S.S. Anne",
+        "parent": 26,
+        "order": 166
+    },
+    "158": {
+        "name": "Gate",
+        "parent": 155,
+        "order": 55
+    },
+    "289": {
+        "name": "Pokémon Center",
+        "parent": 288,
+        "order": 571
+    },
+    "420": {
+        "name": "Lavender Town",
+        "parent": 50,
+        "order": 252
+    },
+    "551": {
+        "name": "Oak's Lab _Johto",
+        "parent": 42,
+        "order": 126
+    },
+    "682": {
+        "name": "Underwater",
+        "parent": 680,
+        "order": 635
+    },
+    "813": {
+        "name": "Sealed Chamber",
+        "parent": 811,
+        "order": 649
+    },
+    "93": {
+        "name": "Pewter City",
+        "parent": 380,
+        "order": 350
+    },
+    "224": {
+        "name": "Cities",
+        "parent": 33,
+        "order": 112
+    },
+    "355": {
+        "name": "Testing Room",
+        "parent": 118,
+        "order": 736
+    },
+    "486": {
+        "name": "Area 4",
+        "parent": 443,
+        "order": 389
+    },
+    "617": {
+        "name": "Chrono Island",
+        "parent": 603,
+        "order": 684
+    },
+    "28": {
+        "name": "S.S. Anne",
+        "parent": 27,
+        "order": 168
+    },
+    "159": {
+        "name": "Route 12",
+        "parent": 223,
+        "order": 57
+    },
+    "290": {
+        "name": "BW2",
+        "parent": 373,
+        "order": 15
+    },
+    "421": {
+        "name": "Nicknaming Club",
+        "parent": 50,
+        "order": 253
+    },
+    "552": {
+        "name": "Oak's Lab _Hoenn",
+        "parent": 42,
+        "order": 127
+    },
+    "683": {
+        "name": "Underwater",
+        "parent": 681,
+        "order": 638
+    },
+    "814": {
+        "name": "Sealed Chamber",
+        "parent": 594,
+        "order": 650
+    },
+    "94": {
+        "name": "Soaring",
+        "parent": 33,
+        "order": 17
+    },
+    "225": {
+        "name": "Dungeons",
+        "parent": 33,
+        "order": 353
+    },
+    "356": {
+        "name": "Debug Island",
+        "parent": 118,
+        "order": 739
+    },
+    "487": {
+        "name": "Area 5",
+        "parent": 443,
+        "order": 391
+    },
+    "618": {
+        "name": "Chrono Island",
+        "parent": 603,
+        "order": 686
+    },
+    "29": {
+        "name": "S.S. Anne",
+        "parent": 27,
+        "order": 169
+    },
+    "160": {
+        "name": "Messages",
+        "parent": 373,
+        "order": 14
+    },
+    "291": {
+        "name": "Route 4",
+        "parent": 106,
+        "order": 36
+    },
+    "684": {
+        "name": "Underwater",
+        "parent": 681,
+        "order": 643
+    },
+    "815": {
+        "name": "Submerged Temple",
+        "parent": 812,
+        "order": 647
+    },
+    "95": {
+        "name": "Celadon City",
+        "parent": 224,
+        "order": 183
+    },
+    "357": {
+        "name": "PokéMart",
+        "parent": 175,
+        "order": 2
+    },
+    "488": {
+        "name": "Area 5",
+        "parent": 487,
+        "order": 392
+    },
+    "619": {
+        "name": "Berry Forest",
+        "parent": 595,
+        "order": 693
+    },
+    "30": {
+        "name": "S.S. Anne",
+        "parent": 27,
+        "order": 170
+    },
+    "292": {
+        "name": "Dept. Store",
+        "parent": 237,
+        "order": 462
+    },
+    "423": {
+        "name": "Cyberspace",
+        "parent": 384,
+        "order": 98
+    },
+    "685": {
+        "name": "Underwater",
+        "parent": 683,
+        "order": 639
+    },
+    "816": {
+        "name": "Dressing Room",
+        "parent": 355,
+        "order": 738
+    },
+    "96": {
+        "name": "Pewter City Museum",
+        "parent": 385,
+        "order": 345
+    },
+    "227": {
+        "name": "Underwater",
+        "parent": 57,
+        "order": 84
+    },
+    "358": {
+        "name": "Art Gallery",
+        "parent": 788,
+        "order": 471
+    },
+    "489": {
+        "name": "Seafoam Islands.old",
+        "parent": 52,
+        "order": 376
+    },
+    "620": {
+        "name": "Berry Forest",
+        "parent": 619,
+        "order": 694
+    },
+    "751": {
+        "name": "Credits",
+        "parent": 175,
+        "order": 5
+    },
+    "31": {
+        "name": "S.S. Anne",
+        "parent": 30,
+        "order": 171
+    },
+    "162": {
+        "name": "Underwater",
+        "parent": 159,
+        "order": 60
+    },
+    "293": {
+        "name": "Dept. Store",
+        "parent": 292,
+        "order": 463
+    },
+    "424": {
+        "name": "Cyberspace_backup",
+        "parent": 423,
+        "order": 99
+    },
+    "686": {
+        "name": "Underwater",
+        "parent": 685,
+        "order": 640
+    },
+    "97": {
+        "name": "Route 1",
+        "parent": 78,
+        "order": 20
+    },
+    "228": {
+        "name": "Underwater",
+        "parent": 58,
+        "order": 88
+    },
+    "359": {
+        "name": "Ecruteak City",
+        "parent": 252,
+        "order": 512
+    },
+    "490": {
+        "name": "Route 3",
+        "parent": 223,
+        "order": 110
+    },
+    "621": {
+        "name": "P2 Laboratory",
+        "parent": 791,
+        "order": 731
+    },
+    "752": {
+        "name": "Mt. Ember",
+        "parent": 561,
+        "order": 697
+    },
+    "294": {
+        "name": "Dept. Store",
+        "parent": 293,
+        "order": 464
+    },
+    "425": {
+        "name": "Underground Gate",
+        "parent": 413,
+        "order": 45
+    },
+    "556": {
+        "name": "Pokemon Tower F3",
+        "parent": 401,
+        "order": 247
+    },
+    "687": {
+        "name": "Underwater",
+        "parent": 685,
+        "order": 641
+    },
+    "98": {
+        "name": "Cinnabar Island",
+        "parent": 224,
+        "order": 310
+    },
+    "229": {
+        "name": "Underwater",
+        "parent": 59,
+        "order": 109
+    },
+    "360": {
+        "name": "Pokémon School",
+        "parent": 230,
+        "order": 443
+    },
+    "491": {
+        "name": "Viridian Forest",
+        "parent": 225,
+        "order": 397
+    },
+    "622": {
+        "name": "P2 Laboratory",
+        "parent": 621,
+        "order": 732
+    },
+    "753": {
+        "name": "Mt. Ember",
+        "parent": 561,
+        "order": 698
+    },
+    "295": {
+        "name": "Intro",
+        "parent": 0,
+        "order": 6
+    },
+    "426": {
+        "name": "Blackthorn City Gym",
+        "parent": 377,
+        "order": 510
+    },
+    "557": {
+        "name": "Routes",
+        "parent": 525,
+        "order": 612
+    },
+    "688": {
+        "name": "Underwater",
+        "parent": 680,
+        "order": 634
+    },
+    "819": {
+        "name": "Halfmoon Island",
+        "parent": 595,
+        "order": 703
+    },
+    "33": {
+        "name": "Kanto",
+        "parent": 295,
+        "order": 16
+    },
+    "230": {
+        "name": "Violet City",
+        "parent": 252,
+        "order": 430
+    },
+    "361": {
+        "name": "Navel Rock",
+        "parent": 595,
+        "order": 690
+    },
+    "492": {
+        "name": "Gate",
+        "parent": 57,
+        "order": 83
+    },
+    "623": {
+        "name": "P2 Laboratory",
+        "parent": 621,
+        "order": 733
+    },
+    "754": {
+        "name": "Mt. Ember",
+        "parent": 561,
+        "order": 699
+    },
+    "296": {
+        "name": "Dept. Store",
+        "parent": 294,
+        "order": 465
+    },
+    "558": {
+        "name": "Cities",
+        "parent": 525,
+        "order": 656
+    },
+    "689": {
+        "name": "Underwater",
+        "parent": 681,
+        "order": 642
+    },
+    "820": {
+        "name": "Route 39",
+        "parent": 836,
+        "order": 609
+    },
+    "34": {
+        "name": "SS.Anne",
+        "parent": 27,
+        "order": 174
+    },
+    "362": {
+        "name": "Navel Rock",
+        "parent": 361,
+        "order": 691
+    },
+    "624": {
+        "name": "Boon Island",
+        "parent": 562,
+        "order": 661
+    },
+    "755": {
+        "name": "Mt. Ember",
+        "parent": 561,
+        "order": 700
+    },
+    "100": {
+        "name": "Cianwood City Gym_prototype2",
+        "parent": 709,
+        "order": 547
+    },
+    "821": {
+        "name": "Newmoon Island",
+        "parent": 819,
+        "order": 707
+    },
+    "690": {
+        "name": "Underwater",
+        "parent": 570,
+        "order": 631
+    },
+    "559": {
+        "name": "Kindle Road",
+        "parent": 557,
+        "order": 615
+    },
+    "297": {
+        "name": "Dept Store",
+        "parent": 292,
+        "order": 466
+    },
+    "428": {
+        "name": "Ranger Cabin",
+        "parent": 51,
+        "order": 711
+    },
+    "35": {
+        "name": "Captain's Room",
+        "parent": 27,
+        "order": 172
+    },
+    "101": {
+        "name": "Littleroot Town",
+        "parent": 795,
+        "order": 728
+    },
+    "232": {
+        "name": "Saffron City",
+        "parent": 108,
+        "order": 301
+    },
+    "363": {
+        "name": "Violet City Gym",
+        "parent": 230,
+        "order": 444
+    },
+    "494": {
+        "name": "Mt. Moon Square",
+        "parent": 102,
+        "order": 360
+    },
+    "625": {
+        "name": "Rocket Warehouse",
+        "parent": 603,
+        "order": 687
+    },
+    "756": {
+        "name": "Mt. Ember",
+        "parent": 561,
+        "order": 701
+    },
+    "560": {
+        "name": "Underwater",
+        "parent": 570,
+        "order": 629
+    },
+    "691": {
+        "name": "Underwater",
+        "parent": 682,
+        "order": 636
+    },
+    "822": {
+        "name": "Moonlit Forest",
+        "parent": 819,
+        "order": 704
+    },
+    "298": {
+        "name": "Dept. Store Basement",
+        "parent": 292,
+        "order": 467
+    },
+    "36": {
+        "name": "SS. Anne",
+        "parent": 27,
+        "order": 175
+    },
+    "167": {
+        "name": "Crimson City",
+        "parent": 224,
+        "order": 326
+    },
+    "102": {
+        "name": "Mt. Moon",
+        "parent": 225,
+        "order": 354
+    },
+    "233": {
+        "name": "Route 4",
+        "parent": 106,
+        "order": 34
+    },
+    "364": {
+        "name": "Dark Cave",
+        "parent": 253,
+        "order": 584
+    },
+    "495": {
+        "name": "Route 9",
+        "parent": 351,
+        "order": 51
+    },
+    "626": {
+        "name": "Kin Island",
+        "parent": 563,
+        "order": 666
+    },
+    "757": {
+        "name": "11F",
+        "parent": 658,
+        "order": 269
+    },
+    "561": {
+        "name": "Mt. Ember",
+        "parent": 595,
+        "order": 695
+    },
+    "692": {
+        "name": "Route 44",
+        "parent": 253,
+        "order": 599
+    },
+    "823": {
+        "name": "Fullmoon Island",
+        "parent": 819,
+        "order": 705
+    },
+    "299": {
+        "name": "Goldenrod Tunnel",
+        "parent": 240,
+        "order": 450
+    },
+    "430": {
+        "name": "Oak's Lab.oldest",
+        "parent": 42,
+        "order": 123
+    },
+    "37": {
+        "name": "Vermillion City",
+        "parent": 19,
+        "order": 179
+    },
+    "168": {
+        "name": "Crimson City",
+        "parent": 167,
+        "order": 327
+    },
+    "103": {
+        "name": "Mt. Moon B1F",
+        "parent": 102,
+        "order": 355
+    },
+    "496": {
+        "name": "Mt. Moon",
+        "parent": 102,
+        "order": 362
+    },
+    "627": {
+        "name": "Kin Island",
+        "parent": 563,
+        "order": 667
+    },
+    "758": {
+        "name": "6F",
+        "parent": 658,
+        "order": 264
+    },
+    "562": {
+        "name": "Boon Island",
+        "parent": 558,
+        "order": 657
+    },
+    "693": {
+        "name": "Ice Cavern",
+        "parent": 670,
+        "order": 596
+    },
+    "824": {
+        "name": "Moonlit Forest",
+        "parent": 819,
+        "order": 706
+    },
+    "300": {
+        "name": "National Park",
+        "parent": 253,
+        "order": 603
+    },
+    "431": {
+        "name": "Celadon Sewers",
+        "parent": 95,
+        "order": 186
+    },
+    "169": {
+        "name": "Crimson City",
+        "parent": 167,
+        "order": 328
+    },
+    "104": {
+        "name": "Mt. Moon",
+        "parent": 102,
+        "order": 363
+    },
+    "235": {
+        "name": "Ruins of Alph",
+        "parent": 342,
+        "order": 575
+    },
+    "366": {
+        "name": "Cherrygrove City",
+        "parent": 310,
+        "order": 497
+    },
+    "497": {
+        "name": "Cutscene",
+        "parent": 373,
+        "order": 9
+    },
+    "628": {
+        "name": "Kin Island",
+        "parent": 563,
+        "order": 670
+    },
+    "563": {
+        "name": "Kin Island",
+        "parent": 558,
+        "order": 663
+    },
+    "694": {
+        "name": "Ice Mountains Peak",
+        "parent": 670,
+        "order": 598
+    },
+    "825": {
+        "name": "Saffron Bar",
+        "parent": 112,
+        "order": 289
+    },
+    "432": {
+        "name": "Celadon Dpt. Store",
+        "parent": 95,
+        "order": 192
+    },
+    "39": {
+        "name": "Trainer House",
+        "parent": 86,
+        "order": 27
+    },
+    "170": {
+        "name": "Crimson City",
+        "parent": 167,
+        "order": 329
+    },
+    "301": {
+        "name": "Gate",
+        "parent": 300,
+        "order": 604
+    },
+    "105": {
+        "name": "Mt. Moon B2F",
+        "parent": 102,
+        "order": 356
+    },
+    "236": {
+        "name": "Route 4",
+        "parent": 106,
+        "order": 35
+    },
+    "367": {
+        "name": "Cherrygrove City",
+        "parent": 310,
+        "order": 498
+    },
+    "498": {
+        "name": "Celadon City",
+        "parent": 95,
+        "order": 216
+    },
+    "629": {
+        "name": "Kin Island",
+        "parent": 563,
+        "order": 668
+    },
+    "564": {
+        "name": "Brine Road",
+        "parent": 557,
+        "order": 625
+    },
+    "826": {
+        "name": "Oricorio Clearing",
+        "parent": 528,
+        "order": 614
+    },
+    "433": {
+        "name": "Celadon Dpt. Store",
+        "parent": 432,
+        "order": 193
+    },
+    "40": {
+        "name": "Viridian River",
+        "parent": 655,
+        "order": 31
+    },
+    "171": {
+        "name": "Route 22",
+        "parent": 223,
+        "order": 90
+    },
+    "302": {
+        "name": "Gate",
+        "parent": 300,
+        "order": 605
+    },
+    "106": {
+        "name": "Route 4",
+        "parent": 223,
+        "order": 33
+    },
+    "237": {
+        "name": "Goldenrod City",
+        "parent": 252,
+        "order": 445
+    },
+    "368": {
+        "name": "Pokémon Center",
+        "parent": 310,
+        "order": 499
+    },
+    "630": {
+        "name": "Resort Gorgeous",
+        "parent": 566,
+        "order": 654
+    },
+    "761": {
+        "name": "Cinnabar Island Harbor",
+        "parent": 98,
+        "order": 325
+    },
+    "565": {
+        "name": "Kin Hotel",
+        "parent": 563,
+        "order": 664
+    },
+    "696": {
+        "name": "Burned Tower",
+        "parent": 611,
+        "order": 533
+    },
+    "827": {
+        "name": "Mt. Moon Summit",
+        "parent": 102,
+        "order": 364
+    },
+    "434": {
+        "name": "Celadon Dpt. Store",
+        "parent": 433,
+        "order": 194
+    },
+    "41": {
+        "name": "Goldenrod Waterway",
+        "parent": 253,
+        "order": 610
+    },
+    "303": {
+        "name": "Indigo Plateau",
+        "parent": 224,
+        "order": 335
+    },
+    "107": {
+        "name": "Area 4",
+        "parent": 486,
+        "order": 390
+    },
+    "500": {
+        "name": "Celadon City",
+        "parent": 95,
+        "order": 222
+    },
+    "631": {
+        "name": "Mahogany Town",
+        "parent": 252,
+        "order": 538
+    },
+    "762": {
+        "name": "Offshore Road",
+        "parent": 557,
+        "order": 655
+    },
+    "697": {
+        "name": "Burned Tower",
+        "parent": 611,
+        "order": 534
+    },
+    "828": {
+        "name": "Mt. Moon Observatory",
+        "parent": 827,
+        "order": 365
+    },
+    "566": {
+        "name": "Resort Gorgeous",
+        "parent": 557,
+        "order": 653
+    },
+    "42": {
+        "name": "Pallet Town",
+        "parent": 224,
+        "order": 113
+    },
+    "173": {
+        "name": "Pokémon Mansion",
+        "parent": 225,
+        "order": 418
+    },
+    "304": {
+        "name": "Victory Road",
+        "parent": 225,
+        "order": 394
+    },
+    "435": {
+        "name": "Celadon Dpt. Store",
+        "parent": 434,
+        "order": 195
+    },
+    "108": {
+        "name": "Saffron City",
+        "parent": 224,
+        "order": 256
+    },
+    "239": {
+        "name": "Pokémon Center",
+        "parent": 237,
+        "order": 446
+    },
+    "370": {
+        "name": "PokeMart",
+        "parent": 310,
+        "order": 500
+    },
+    "501": {
+        "name": "Celadon City",
+        "parent": 500,
+        "order": 223
+    },
+    "632": {
+        "name": "Pokémon Center",
+        "parent": 631,
+        "order": 539
+    },
+    "763": {
+        "name": "Contest Hall",
+        "parent": 526,
+        "order": 679
+    },
+    "698": {
+        "name": "Ice Cavern",
+        "parent": 693,
+        "order": 597
+    },
+    "829": {
+        "name": "Saffron Bar",
+        "parent": 112,
+        "order": 290
+    },
+    "567": {
+        "name": "Pokémon Center",
+        "parent": 563,
+        "order": 665
+    },
+    "43": {
+        "name": "\\PN's House",
+        "parent": 42,
+        "order": 114
+    },
+    "174": {
+        "name": "Pokémon Mansion",
+        "parent": 173,
+        "order": 419
+    },
+    "305": {
+        "name": "11F.old",
+        "parent": 757,
+        "order": 270
+    },
+    "436": {
+        "name": "Celadon Dpt. Store",
+        "parent": 435,
+        "order": 196
+    },
+    "109": {
+        "name": "Hidden Tomb",
+        "parent": 50,
+        "order": 254
+    },
+    "240": {
+        "name": "Goldenrod Tunnel",
+        "parent": 237,
+        "order": 447
+    },
+    "371": {
+        "name": "Pokemon Center",
+        "parent": 79,
+        "order": 140
+    },
+    "502": {
+        "name": "Celadon City",
+        "parent": 95,
+        "order": 211
+    },
+    "633": {
+        "name": "Sky Pillar",
+        "parent": 596,
+        "order": 720
+    },
+    "764": {
+        "name": "Contest (Normal)",
+        "parent": 763,
+        "order": 680
+    },
+    "830": {
+        "name": "Nightsky",
+        "parent": 827,
+        "order": 366
+    },
+    "568": {
+        "name": "Pokémon Center",
+        "parent": 562,
+        "order": 658
+    },
+    "175": {
+        "name": "COMMON",
+        "parent": 0,
+        "order": 1
+    },
+    "306": {
+        "name": "Victory Road",
+        "parent": 304,
+        "order": 395
+    },
+    "437": {
+        "name": "Route 13",
+        "parent": 223,
+        "order": 79
+    },
+    "110": {
+        "name": "Saffron Hotel",
+        "parent": 108,
+        "order": 302
+    },
+    "241": {
+        "name": "Goldenrod City",
+        "parent": 240,
+        "order": 448
+    },
+    "372": {
+        "name": "Celadon Sewers",
+        "parent": 431,
+        "order": 191
+    },
+    "503": {
+        "name": "Celadon City",
+        "parent": 502,
+        "order": 212
+    },
+    "634": {
+        "name": "Sky Pillar",
+        "parent": 633,
+        "order": 721
+    },
+    "765": {
+        "name": "Knot Island",
+        "parent": 526,
+        "order": 681
+    },
+    "831": {
+        "name": "Nightsky",
+        "parent": 827,
+        "order": 367
+    },
+    "45": {
+        "name": "Team Rocket Hideout",
+        "parent": 449,
+        "order": 202
+    },
+    "176": {
+        "name": "Crimson Hotel",
+        "parent": 167,
+        "order": 330
+    },
+    "307": {
+        "name": "Victory Road",
+        "parent": 306,
+        "order": 396
+    },
+    "438": {
+        "name": "Route 16",
+        "parent": 223,
+        "order": 69
+    },
+    "569": {
+        "name": "Ruby Chamber",
+        "parent": 561,
+        "order": 696
+    },
+    "111": {
+        "name": "Saffron Hotel",
+        "parent": 110,
+        "order": 303
+    },
+    "242": {
+        "name": "Goldenrod City",
+        "parent": 240,
+        "order": 449
+    },
+    "373": {
+        "name": "Intro_TR",
+        "parent": 295,
+        "order": 7
+    },
+    "504": {
+        "name": "Celadon City",
+        "parent": 503,
+        "order": 213
+    },
+    "635": {
+        "name": "Route 43",
+        "parent": 253,
+        "order": 592
+    },
+    "766": {
+        "name": "Boon Island",
+        "parent": 562,
+        "order": 662
+    },
+    "701": {
+        "name": "Saffron Hotel",
+        "parent": 110,
+        "order": 304
+    },
+    "832": {
+        "name": "Ecruteak City",
+        "parent": 359,
+        "order": 537
+    },
+    "46": {
+        "name": "Pinkan Hollow",
+        "parent": 51,
+        "order": 710
+    },
+    "177": {
+        "name": "Crimson Hotel",
+        "parent": 176,
+        "order": 331
+    },
+    "308": {
+        "name": "Day Care Center",
+        "parent": 265,
+        "order": 559
+    },
+    "439": {
+        "name": "House",
+        "parent": 438,
+        "order": 70
+    },
+    "570": {
+        "name": "Deep Sea",
+        "parent": 557,
+        "order": 628
+    },
+    "112": {
+        "name": "Saffron Bar",
+        "parent": 108,
+        "order": 284
+    },
+    "243": {
+        "name": "Goldenrod Hotel",
+        "parent": 237,
+        "order": 451
+    },
+    "374": {
+        "name": "Tests",
+        "parent": 373,
+        "order": 8
+    },
+    "505": {
+        "name": "Celadon Condominiums",
+        "parent": 95,
+        "order": 217
+    },
+    "767": {
+        "name": "Mt. Moon",
+        "parent": 105,
+        "order": 357
+    },
+    "636": {
+        "name": "Gate",
+        "parent": 635,
+        "order": 593
+    },
+    "702": {
+        "name": "Saffron Hotel",
+        "parent": 110,
+        "order": 305
+    },
+    "833": {
+        "name": "Dressing room",
+        "parent": 129,
+        "order": 4
+    },
+    "47": {
+        "name": "Mt. Mortar",
+        "parent": 253,
+        "order": 606
+    },
+    "178": {
+        "name": "Bill's garden",
+        "parent": 10,
+        "order": 95
+    },
+    "309": {
+        "name": "Goldenrod City",
+        "parent": 237,
+        "order": 468
+    },
+    "440": {
+        "name": "Route 14",
+        "parent": 223,
+        "order": 61
+    },
+    "113": {
+        "name": "Saffron Bar",
+        "parent": 112,
+        "order": 285
+    },
+    "244": {
+        "name": "Goldenrod Hotel",
+        "parent": 243,
+        "order": 452
+    },
+    "506": {
+        "name": "Celadon Condominiums",
+        "parent": 505,
+        "order": 218
+    },
+    "768": {
+        "name": "Celadon Café",
+        "parent": 95,
+        "order": 225
+    },
+    "637": {
+        "name": "Gate",
+        "parent": 635,
+        "order": 594
+    },
+    "703": {
+        "name": "Cinnabar Lab",
+        "parent": 206,
+        "order": 320
+    },
+    "834": {
+        "name": "PokeMart (Olivine)",
+        "parent": 138,
+        "order": 475
+    },
+    "48": {
+        "name": "\\PN's Room",
+        "parent": 43,
+        "order": 115
+    },
+    "179": {
+        "name": "Police Station",
+        "parent": 108,
+        "order": 278
+    },
+    "310": {
+        "name": "Cherrygrove City",
+        "parent": 252,
+        "order": 496
+    },
+    "441": {
+        "name": "Gate",
+        "parent": 437,
+        "order": 80
+    },
+    "114": {
+        "name": "Saffron Nightclub",
+        "parent": 112,
+        "order": 286
+    },
+    "376": {
+        "name": "Hall of Origin",
+        "parent": 225,
+        "order": 402
+    },
+    "507": {
+        "name": "Celadon Condominiums",
+        "parent": 506,
+        "order": 219
+    },
+    "769": {
+        "name": "Route 40",
+        "parent": 253,
+        "order": 602
+    },
+    "638": {
+        "name": "Lake of Rage",
+        "parent": 252,
+        "order": 543
+    },
+    "704": {
+        "name": "Burned Tower",
+        "parent": 611,
+        "order": 535
+    },
+    "835": {
+        "name": "Newmoon Island",
+        "parent": 821,
+        "order": 708
+    },
+    "49": {
+        "name": "Mahogany Town",
+        "parent": 631,
+        "order": 540
+    },
+    "180": {
+        "name": "Saffron City",
+        "parent": 108,
+        "order": 279
+    },
+    "311": {
+        "name": "Route 29",
+        "parent": 253,
+        "order": 567
+    },
+    "442": {
+        "name": "Sunken Ship",
+        "parent": 227,
+        "order": 85
+    },
+    "115": {
+        "name": "Saffron Bar",
+        "parent": 112,
+        "order": 287
+    },
+    "246": {
+        "name": "Radio Tower",
+        "parent": 237,
+        "order": 453
+    },
+    "377": {
+        "name": "Blackthorn City Gym",
+        "parent": 329,
+        "order": 509
+    },
+    "508": {
+        "name": "Celadon Condominiums",
+        "parent": 507,
+        "order": 220
+    },
+    "639": {
+        "name": "Sky Pillar",
+        "parent": 634,
+        "order": 722
+    },
+    "770": {
+        "name": "Pokémon Center",
+        "parent": 138,
+        "order": 474
+    },
+    "836": {
+        "name": "Route 39",
+        "parent": 253,
+        "order": 608
+    },
+    "50": {
+        "name": "Lavender Town",
+        "parent": 224,
+        "order": 239
+    },
+    "181": {
+        "name": "Pokémon Mansion",
+        "parent": 174,
+        "order": 420
+    },
+    "312": {
+        "name": "Route 46",
+        "parent": 253,
+        "order": 569
+    },
+    "443": {
+        "name": "Safari Zone",
+        "parent": 225,
+        "order": 382
+    },
+    "247": {
+        "name": "Radio Tower",
+        "parent": 246,
+        "order": 454
+    },
+    "378": {
+        "name": "Mewtwo Intro",
+        "parent": 373,
+        "order": 10
+    },
+    "509": {
+        "name": "Celadon Condominiums",
+        "parent": 508,
+        "order": 221
+    },
+    "640": {
+        "name": "Sky Pillar",
+        "parent": 639,
+        "order": 723
+    },
+    "771": {
+        "name": "Celadon City",
+        "parent": 95,
+        "order": 227
+    },
+    "837": {
+        "name": "Lighthouse",
+        "parent": 138,
+        "order": 476
+    },
+    "51": {
+        "name": "Pinkan Island",
+        "parent": 595,
+        "order": 709
+    },
+    "182": {
+        "name": "Saffron City",
+        "parent": 108,
+        "order": 280
+    },
+    "313": {
+        "name": "Gate",
+        "parent": 311,
+        "order": 568
+    },
+    "444": {
+        "name": "Route 15",
+        "parent": 223,
+        "order": 62
+    },
+    "575": {
+        "name": "Ecruteak Hotel",
+        "parent": 359,
+        "order": 513
+    },
+    "248": {
+        "name": "Train Station",
+        "parent": 237,
+        "order": 458
+    },
+    "379": {
+        "name": "Pokemon Center",
+        "parent": 490,
+        "order": 111
+    },
+    "510": {
+        "name": "Game Corner",
+        "parent": 405,
+        "order": 215
+    },
+    "641": {
+        "name": "Sky Pillar",
+        "parent": 640,
+        "order": 724
+    },
+    "772": {
+        "name": "Saffron City",
+        "parent": 108,
+        "order": 306
+    },
+    "838": {
+        "name": "Elevator",
+        "parent": 837,
+        "order": 477
+    },
+    "52": {
+        "name": "Seafoam Islands.old",
+        "parent": 225,
+        "order": 371
+    },
+    "183": {
+        "name": "Saffron City",
+        "parent": 108,
+        "order": 281
+    },
+    "314": {
+        "name": "Pokémon League",
+        "parent": 303,
+        "order": 336
+    },
+    "445": {
+        "name": "Area 1",
+        "parent": 443,
+        "order": 383
+    },
+    "576": {
+        "name": "Ecruteak Hotel",
+        "parent": 575,
+        "order": 514
+    },
+    "707": {
+        "name": "Unknown location",
+        "parent": 0,
+        "order": 740
+    },
+    "118": {
+        "name": "debug",
+        "parent": 203,
+        "order": 735
+    },
+    "249": {
+        "name": "Goldenrod City",
+        "parent": 237,
+        "order": 459
+    },
+    "380": {
+        "name": "Pewter City",
+        "parent": 224,
+        "order": 343
+    },
+    "511": {
+        "name": "Gate",
+        "parent": 88,
+        "order": 24
+    },
+    "642": {
+        "name": "Sky Pillar",
+        "parent": 641,
+        "order": 725
+    },
+    "773": {
+        "name": "Knot Island Harbor",
+        "parent": 527,
+        "order": 674
+    },
+    "839": {
+        "name": "1F",
+        "parent": 837,
+        "order": 478
+    },
+    "53": {
+        "name": "Seafoam Islands B2",
+        "parent": 52,
+        "order": 373
+    },
+    "184": {
+        "name": "Saffron City",
+        "parent": 183,
+        "order": 282
+    },
+    "315": {
+        "name": "Elite 1",
+        "parent": 314,
+        "order": 337
+    },
+    "446": {
+        "name": "Celadon Sewers",
+        "parent": 431,
+        "order": 187
+    },
+    "577": {
+        "name": "Pokémon Center",
+        "parent": 359,
+        "order": 515
+    },
+    "708": {
+        "name": "Blank",
+        "parent": 0,
+        "order": 741
+    },
+    "250": {
+        "name": "Goldenrod City",
+        "parent": 237,
+        "order": 460
+    },
+    "381": {
+        "name": "Pewter City Museum",
+        "parent": 96,
+        "order": 346
+    },
+    "512": {
+        "name": "Rock Tunnel",
+        "parent": 349,
+        "order": 380
+    },
+    "643": {
+        "name": "Rocket Warehouse",
+        "parent": 625,
+        "order": 688
+    },
+    "774": {
+        "name": "Mt. Ember",
+        "parent": 561,
+        "order": 702
+    },
+    "840": {
+        "name": "2F",
+        "parent": 837,
+        "order": 479
+    },
+    "54": {
+        "name": "Seafoam Islands B3",
+        "parent": 52,
+        "order": 374
+    },
+    "185": {
+        "name": "Secret Garden",
+        "parent": 78,
+        "order": 21
+    },
+    "316": {
+        "name": "Elite 2",
+        "parent": 314,
+        "order": 338
+    },
+    "447": {
+        "name": "Control Room",
+        "parent": 431,
+        "order": 189
+    },
+    "709": {
+        "name": "Cianwood City",
+        "parent": 252,
+        "order": 546
+    },
+    "251": {
+        "name": "Goldenrod City",
+        "parent": 237,
+        "order": 461
+    },
+    "513": {
+        "name": "Rock Tunnel",
+        "parent": 512,
+        "order": 381
+    },
+    "644": {
+        "name": "Mahogany Town",
+        "parent": 631,
+        "order": 541
+    },
+    "841": {
+        "name": "3F",
+        "parent": 837,
+        "order": 480
+    },
+    "55": {
+        "name": "Seafoam Islands B4",
+        "parent": 52,
+        "order": 375
+    },
+    "186": {
+        "name": "letter2",
+        "parent": 139,
+        "order": 12
+    },
+    "317": {
+        "name": "Elite 3",
+        "parent": 314,
+        "order": 339
+    },
+    "448": {
+        "name": "Control Room",
+        "parent": 431,
+        "order": 190
+    },
+    "579": {
+        "name": "Ecruteak City",
+        "parent": 359,
+        "order": 516
+    },
+    "121": {
+        "name": "Silph Co.",
+        "parent": 108,
+        "order": 257
+    },
+    "252": {
+        "name": "Cities",
+        "parent": 134,
+        "order": 423
+    },
+    "383": {
+        "name": "Gate",
+        "parent": 1,
+        "order": 151
+    },
+    "514": {
+        "name": "Celadon Dpt. Store",
+        "parent": 432,
+        "order": 197
+    },
+    "645": {
+        "name": "Lake of Rage",
+        "parent": 638,
+        "order": 544
+    },
+    "776": {
+        "name": "Mt. Silver",
+        "parent": 529,
+        "order": 405
+    },
+    "842": {
+        "name": "4F",
+        "parent": 837,
+        "order": 481
+    },
+    "56": {
+        "name": "Surf Race",
+        "parent": 57,
+        "order": 86
+    },
+    "187": {
+        "name": "Pokémon Mansion",
+        "parent": 181,
+        "order": 421
+    },
+    "318": {
+        "name": "Elite 4",
+        "parent": 314,
+        "order": 340
+    },
+    "449": {
+        "name": "Team Rocket Hideout",
+        "parent": 95,
+        "order": 198
+    },
+    "580": {
+        "name": "Route 42",
+        "parent": 253,
+        "order": 585
+    },
+    "122": {
+        "name": "Pokemon Center",
+        "parent": 108,
+        "order": 273
+    },
+    "253": {
+        "name": "Routes",
+        "parent": 134,
+        "order": 548
+    },
+    "384": {
+        "name": "Bill's Lighthouse",
+        "parent": 11,
+        "order": 97
+    },
+    "515": {
+        "name": "Mt. Moon Square",
+        "parent": 494,
+        "order": 361
+    },
+    "646": {
+        "name": "Lake of Rage",
+        "parent": 638,
+        "order": 545
+    },
+    "777": {
+        "name": "Mt. Silver",
+        "parent": 529,
+        "order": 406
+    },
+    "843": {
+        "name": "5F",
+        "parent": 837,
+        "order": 482
+    },
+    "57": {
+        "name": "Route 19",
+        "parent": 223,
+        "order": 82
+    },
+    "319": {
+        "name": "Route 30",
+        "parent": 262,
+        "order": 564
+    },
+    "581": {
+        "name": "Gate",
+        "parent": 580,
+        "order": 586
+    },
+    "712": {
+        "name": "Creepy House",
+        "parent": 444,
+        "order": 65
+    },
+    "123": {
+        "name": "Littleroot Interiors",
+        "parent": 101,
+        "order": 729
+    },
+    "254": {
+        "name": "Route 35",
+        "parent": 253,
+        "order": 600
+    },
+    "385": {
+        "name": "Pewter City Museum",
+        "parent": 380,
+        "order": 344
+    },
+    "516": {
+        "name": "Route 16",
+        "parent": 438,
+        "order": 73
+    },
+    "647": {
+        "name": "Magogany Town Gym",
+        "parent": 631,
+        "order": 542
+    },
+    "778": {
+        "name": "Mt Silver",
+        "parent": 529,
+        "order": 407
+    },
+    "844": {
+        "name": "Light Room",
+        "parent": 837,
+        "order": 483
+    },
+    "58": {
+        "name": "Route 20",
+        "parent": 223,
+        "order": 87
+    },
+    "189": {
+        "name": "Cinnabar Island",
+        "parent": 98,
+        "order": 315
+    },
+    "320": {
+        "name": "Route 30",
+        "parent": 262,
+        "order": 565
+    },
+    "451": {
+        "name": "Celadon City",
+        "parent": 95,
+        "order": 224
+    },
+    "582": {
+        "name": "Ecruteak City",
+        "parent": 359,
+        "order": 517
+    },
+    "713": {
+        "name": "Creepy House",
+        "parent": 712,
+        "order": 66
+    },
+    "255": {
+        "name": "Gate",
+        "parent": 254,
+        "order": 601
+    },
+    "386": {
+        "name": "Pewter City Gym",
+        "parent": 380,
+        "order": 347
+    },
+    "517": {
+        "name": "Route 18",
+        "parent": 223,
+        "order": 75
+    },
+    "648": {
+        "name": "Ecruteak City Gym",
+        "parent": 359,
+        "order": 536
+    },
+    "779": {
+        "name": "Mt Silver",
+        "parent": 778,
+        "order": 408
+    },
+    "845": {
+        "name": "Hotel",
+        "parent": 138,
+        "order": 484
+    },
+    "59": {
+        "name": "Route 21",
+        "parent": 223,
+        "order": 108
+    },
+    "190": {
+        "name": "Cinnabar Island",
+        "parent": 98,
+        "order": 316
+    },
+    "321": {
+        "name": "Route 27",
+        "parent": 147,
+        "order": 107
+    },
+    "583": {
+        "name": "Ecruteak City",
+        "parent": 359,
+        "order": 524
+    },
+    "714": {
+        "name": "Creepy House",
+        "parent": 712,
+        "order": 67
+    },
+    "125": {
+        "name": "Cinnabar Island",
+        "parent": 98,
+        "order": 311
+    },
+    "256": {
+        "name": "Gate",
+        "parent": 158,
+        "order": 56
+    },
+    "387": {
+        "name": "Cerulean City",
+        "parent": 1,
+        "order": 152
+    },
+    "518": {
+        "name": "Gate",
+        "parent": 517,
+        "order": 76
+    },
+    "649": {
+        "name": "Bell Tower 1F",
+        "parent": 585,
+        "order": 527
+    },
+    "780": {
+        "name": "Mt. Silver",
+        "parent": 529,
+        "order": 409
+    },
+    "846": {
+        "name": "Hotel 2nd Floor",
+        "parent": 845,
+        "order": 485
+    },
+    "191": {
+        "name": "Fighting Dojo",
+        "parent": 108,
+        "order": 283
+    },
+    "322": {
+        "name": "Cerulean Cave",
+        "parent": 225,
+        "order": 398
+    },
+    "453": {
+        "name": "Celadon City",
+        "parent": 95,
+        "order": 204
+    },
+    "584": {
+        "name": "Ecruteak City",
+        "parent": 359,
+        "order": 525
+    },
+    "388": {
+        "name": "Cerulean City",
+        "parent": 1,
+        "order": 153
+    },
+    "519": {
+        "name": "Azalea Town",
+        "parent": 342,
+        "order": 582
+    },
+    "650": {
+        "name": "Bell Tower 4F",
+        "parent": 585,
+        "order": 530
+    },
+    "781": {
+        "name": "Mt. Silver",
+        "parent": 529,
+        "order": 410
+    },
+    "847": {
+        "name": "Oak's Lab_backup",
+        "parent": 42,
+        "order": 136
+    },
+    "61": {
+        "name": "Vermillion City Gym",
+        "parent": 24,
+        "order": 163
+    },
+    "192": {
+        "name": "Train Station",
+        "parent": 108,
+        "order": 291
+    },
+    "323": {
+        "name": "Cerulean Cave",
+        "parent": 322,
+        "order": 399
+    },
+    "454": {
+        "name": "Celadon City",
+        "parent": 453,
+        "order": 205
+    },
+    "585": {
+        "name": "Bell Tower",
+        "parent": 359,
+        "order": 526
+    },
+    "716": {
+        "name": "Goldenrod City",
+        "parent": 237,
+        "order": 469
+    },
+    "258": {
+        "name": "Tohjo Falls",
+        "parent": 147,
+        "order": 106
+    },
+    "389": {
+        "name": "Cerulean City",
+        "parent": 1,
+        "order": 154
+    },
+    "520": {
+        "name": "New Bark Town",
+        "parent": 137,
+        "order": 428
+    },
+    "651": {
+        "name": "Bell Tower",
+        "parent": 585,
+        "order": 531
+    },
+    "782": {
+        "name": "Mt. Silver",
+        "parent": 529,
+        "order": 411
+    },
+    "62": {
+        "name": "Celadon City",
+        "parent": 95,
+        "order": 208
+    },
+    "193": {
+        "name": "Gate",
+        "parent": 518,
+        "order": 77
+    },
+    "324": {
+        "name": "Cerulean Cave",
+        "parent": 323,
+        "order": 400
+    },
+    "455": {
+        "name": "Team Rocket Hideout",
+        "parent": 449,
+        "order": 199
+    },
+    "586": {
+        "name": "Route 37",
+        "parent": 253,
+        "order": 587
+    },
+    "717": {
+        "name": "Area 5",
+        "parent": 487,
+        "order": 393
+    },
+    "259": {
+        "name": "Route 26",
+        "parent": 145,
+        "order": 103
+    },
+    "390": {
+        "name": "connection",
+        "parent": 1,
+        "order": 155
+    },
+    "521": {
+        "name": "New Bark Town",
+        "parent": 137,
+        "order": 429
+    },
+    "652": {
+        "name": "Bell Tower 3F",
+        "parent": 585,
+        "order": 529
+    },
+    "783": {
+        "name": "Mt. Silver Summit",
+        "parent": 529,
+        "order": 412
+    },
+    "63": {
+        "name": "Celadon City",
+        "parent": 62,
+        "order": 209
+    },
+    "194": {
+        "name": "Saffron City",
+        "parent": 141,
+        "order": 308
+    },
+    "325": {
+        "name": "Prof. Elm Lab.",
+        "parent": 137,
+        "order": 425
+    },
+    "456": {
+        "name": "Team Rocket Hideout",
+        "parent": 449,
+        "order": 200
+    },
+    "587": {
+        "name": "Gate",
+        "parent": 586,
+        "order": 588
+    },
+    "129": {
+        "name": "Pokémon Trade Center",
+        "parent": 175,
+        "order": 3
+    },
+    "260": {
+        "name": "Pokemon League Gate",
+        "parent": 145,
+        "order": 104
+    },
+    "391": {
+        "name": "Pokemon Center",
+        "parent": 154,
+        "order": 53
+    },
+    "522": {
+        "name": "Sprout Tower",
+        "parent": 272,
+        "order": 436
+    },
+    "653": {
+        "name": "Bell Tower 2F",
+        "parent": 585,
+        "order": 528
+    },
+    "784": {
+        "name": "Mt. Silver Summit (Future)",
+        "parent": 529,
+        "order": 413
+    },
+    "64": {
+        "name": "Celadon City",
+        "parent": 63,
+        "order": 210
+    },
+    "195": {
+        "name": "Saffron Bar",
+        "parent": 112,
+        "order": 288
+    },
+    "326": {
+        "name": "New Bark Town",
+        "parent": 137,
+        "order": 426
+    },
+    "457": {
+        "name": "Team Rocket Hideout",
+        "parent": 449,
+        "order": 201
+    },
+    "588": {
+        "name": "Sapphire Cave",
+        "parent": 560,
+        "order": 630
+    },
+    "719": {
+        "name": "dream sequence",
+        "parent": 42,
+        "order": 131
+    },
+    "130": {
+        "name": "Pokemon Center",
+        "parent": 98,
+        "order": 312
+    },
+    "261": {
+        "name": "Route 31",
+        "parent": 253,
+        "order": 561
+    },
+    "392": {
+        "name": "Pokémon Center",
+        "parent": 380,
+        "order": 348
+    },
+    "523": {
+        "name": "Waterfall Cave",
+        "parent": 167,
+        "order": 332
+    },
+    "654": {
+        "name": "Kin Island",
+        "parent": 563,
+        "order": 669
+    },
+    "785": {
+        "name": "Power Plant.old",
+        "parent": 198,
+        "order": 417
+    }
+}

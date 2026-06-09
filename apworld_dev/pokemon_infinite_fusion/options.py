@@ -1,6 +1,11 @@
 from dataclasses import dataclass
 from Options import Choice, Range, Toggle, OptionSet, OptionList, PerGameCommonOptions
 
+class RandomizeEverything(Toggle):
+    """If enabled, forces all randomization options to their maximum chaotic settings. If disabled, uses your personalized YAML settings."""
+    display_name = "Randomize Everything"
+    default = False
+
 class Goal(Choice):
     """Determines what your goal is to consider the game beaten."""
     display_name = "Goal"
@@ -29,37 +34,37 @@ class HMs(Choice):
 class KeyItems(Toggle):
     """Adds most key items to the pool."""
     display_name = "Key Items"
-    default = 1
+    default = True
 
 class OverworldItems(Toggle):
     """Adds items on the ground with a Pokeball sprite to the pool."""
     display_name = "Overworld Items"
-    default = 1
+    default = True
 
 class HiddenItems(Toggle):
     """Adds hidden items to the pool."""
     display_name = "Hidden Items"
-    default = 0
+    default = False
 
 class NpcGifts(Toggle):
     """Adds most gifts received from NPCs to the pool."""
     display_name = "NPC Gifts"
-    default = 0
+    default = False
 
 class FusionItems(Toggle):
     """Adds fusion-related items to the pool."""
     display_name = "Fusion Items"
-    default = 1
+    default = True
 
 class Dexsanity(Toggle):
     """Adding a 'caught' pokedex entry gives you an item."""
     display_name = "Dexsanity"
-    default = 0
+    default = False
 
 class Trainersanity(Toggle):
     """Defeating a trainer gives you an item."""
     display_name = "Trainersanity"
-    default = 0
+    default = False
 
 class ItemPoolType(Choice):
     """Determines which non-progression items get put into the item pool."""
@@ -101,7 +106,7 @@ class CeruleanCaveCount(Range):
 class RequireItemfinder(Toggle):
     """The Itemfinder is logically required to pick up hidden items."""
     display_name = "Require Itemfinder"
-    default = 1
+    default = True
 
 class RequireFlash(Choice):
     """Determines whether HM05 Flash is logically required to navigate a dark cave in Kanto."""
@@ -227,12 +232,12 @@ class HmCompatibility(Range):
 class TmTutorMoves(Toggle):
     """Randomizes the moves taught by TMs and move tutors."""
     display_name = "TM Tutor Moves"
-    default = 0
+    default = False
 
 class ReusableTmsTutors(Toggle):
     """Sets TMs to not break after use and move tutors to infinite use."""
     display_name = "Reusable TMs and Tutors"
-    default = 0
+    default = False
 
 class MoveBlacklist(OptionSet):
     """Prevents species from learning these moves."""
@@ -248,7 +253,7 @@ class MinCatchRate(Range):
 class GuaranteedCatch(Toggle):
     """Every throw is guaranteed to catch a wild pokemon."""
     display_name = "Guaranteed Catch"
-    default = 0
+    default = False
 
 class ExpModifier(Range):
     """Multiplies gained experience by a percentage."""
@@ -260,7 +265,7 @@ class ExpModifier(Range):
 class BlindTrainers(Toggle):
     """Trainers will not start a battle with you unless you talk to them."""
     display_name = "Blind Trainers"
-    default = 0
+    default = False
 
 class MatchTrainerLevels(Choice):
     """Your party's levels will match the trainer's highest level pokemon."""
@@ -287,12 +292,12 @@ class DoubleBattleChance(Range):
 class BetterShops(Toggle):
     """Pokemarts sell every item."""
     display_name = "Better Shops"
-    default = 0
+    default = False
 
 class TurboA(Toggle):
     """Holding A will advance most text automatically."""
     display_name = "Turbo A"
-    default = 0
+    default = False
 
 class ReceiveItemMessages(Choice):
     """Determines whether you receive an in-game notification when receiving an item."""
@@ -305,12 +310,12 @@ class ReceiveItemMessages(Choice):
 class RemoteItems(Toggle):
     """All items are received from the server."""
     display_name = "Remote Items"
-    default = 0
+    default = False
 
 class AllowTripleFusions(Toggle):
     """Permits triple fusions in the game if supported."""
     display_name = "Allow Triple Fusions"
-    default = 0
+    default = False
 
 class FusionSpriteStyle(Choice):
     """Controls the visual style of the fusion sprites used in the game."""
@@ -323,7 +328,7 @@ class FusionSpriteStyle(Choice):
 class NpcFusionReveal(Toggle):
     """NPCs can reveal in-game hints or information about optimal fusions."""
     display_name = "NPC Fusion Reveal"
-    default = 1
+    default = True
 
 class LegendaryHuntCount(Range):
     """Number of legendaries that must be caught/defeated for the Legendary Hunt goal."""
@@ -340,25 +345,26 @@ class AllowedLegendaryHuntEncounters(OptionSet):
 class DeathLink(Toggle):
     """When you die, everyone who enabled death link dies. The reverse is true too."""
     display_name = "Death Link"
-    default = 0
+    default = False
 
 class EnableWonderTrading(Toggle):
     """Allows participation in wonder trading with other players in your current multiworld."""
     display_name = "Enable Wonder Trading"
-    default = 1
+    default = True
 
 class Music(Toggle):
     """Shuffles music played in any situation where it loops."""
     display_name = "Music"
-    default = 0
+    default = False
 
 class Fanfares(Toggle):
     """Shuffles fanfares for item pickups, healing at the pokecenter, etc."""
     display_name = "Fanfares"
-    default = 0
+    default = False
 
 @dataclass
 class PokemonIFOptions(PerGameCommonOptions):
+    randomize_everything: RandomizeEverything
     goal: Goal
     badges: Badges
     hms: HMs

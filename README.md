@@ -3,10 +3,12 @@
 ¡Conecta Pokémon Infinite Fusion con Archipelago Multiworld! Juega de forma cooperativa con tus amigos mientras los objetos del suelo, de los NPCs y eventos están esparcidos por otros juegos.
 
 ## Estado del Proyecto
-🚀 **Fase 2 Completada:** Soporte Multiworld bidireccional estable.
-- **864 Ubicaciones** mapeadas.
-- Sincronización en tiempo real vía WebSockets.
+🚀 **Integración Core Completada:** Soporte Multiworld bidireccional estable.
+- Estructura `.apworld` nativa para Archipelago.
+- **Generación automatizada de objetos y ubicaciones** mapeadas.
+- Sincronización en tiempo real.
 - Soporte nativo y no-bloqueante dentro de Ruby/RPG Maker XP.
+- Soporte de cliente nativo integrado en el `.apworld`.
 
 ---
 
@@ -20,49 +22,45 @@
 ## ⚙️ Instalación y Configuración
 
 ### 1. Instalar el `.apworld`
-1. Descarga el archivo `pokemon_infinite_fusion.apworld` de este repositorio.
-2. Ve a la carpeta donde tienes instalado Archipelago.
-3. Copia el archivo `.apworld` dentro de la ruta: `Archipelago/lib/custom_worlds/` (si no existe, créala).
+Puedes compilar el archivo `.apworld` usando el script incluido o descargar la versión ya empaquetada.
+1. Ejecuta `python build_apworld.py` para generar e instalar automáticamente el `pokemon_infinite_fusion.apworld` en la carpeta `custom_worlds` de tu Archipelago local.
+2. O bien, descarga el archivo precompilado y cópialo manualmente en `Archipelago/lib/custom_worlds/` (si no existe, créala).
 
 ### 2. Modificar el Juego (Infinite Fusion)
-1. Copia el script `ArchipelagoNetwork.rb` dentro de la carpeta `Data/Scripts/052_AddOns/` de tu juego.
-2. La próxima vez que abras el juego, el script inyectará automáticamente un Círculo Verde en la esquina superior derecha indicando el estado de conexión.
-
-### 3. Ejecutar el Cliente Multiworld
-El cliente es el intermediario entre tu juego local y el servidor de Archipelago.
-1. Abre una terminal y navega hasta donde guardaste el proyecto.
-2. Instala la dependencia necesaria ejecutando: `pip install websockets`.
-3. Asegúrate de que los archivos `ap_local_client.py` y `client_mapping.json` estén en la misma carpeta.
+1. Copia el script de red correspondiente dentro de la carpeta `Data/Scripts/052_AddOns/` de tu juego (las instrucciones detalladas para el parche de Ruby se proporcionan en la release).
+2. La próxima vez que abras el juego, el script inyectará automáticamente un indicador visual (Círculo Verde/Rojo) en la esquina superior derecha indicando el estado de conexión local.
 
 ---
 
-## 🎮 ¿Cómo Jugar? (Pruebas)
+## 🎮 ¿Cómo Jugar?
 
-1. **Generar el Mundo**:
-   - Copia el archivo de ejemplo `pokemon_infinite_fusion.yaml` en la carpeta `Players` de Archipelago.
+1. **Configurar la Semilla**:
+   - Edita el archivo `Pokemon Infinite Fusion.yaml` para ajustar tus preferencias (las opciones principales ahora utilizan valores True/False).
+   - ¡Prueba la nueva opción **`Randomize Everything`** si quieres el máximo nivel de caos!
+   - Copia el archivo `.yaml` en la carpeta `Players` de Archipelago.
+
+2. **Generar el Mundo**:
    - Ejecuta `ArchipelagoGenerate.exe` para crear tu semilla (*seed*).
    
-2. **Iniciar el Servidor AP**:
+3. **Iniciar el Servidor AP**:
    - En Archipelago, abre el archivo `.zip` generado (la *seed*) ejecutando `ArchipelagoServer.exe`.
    - Copia el puerto que te asigne el servidor (por defecto `38281`).
 
-3. **Conectar el Cliente**:
-   - Ejecuta el cliente de Python:
-     ```bash
-     python ap_local_client.py
-     ```
-   - (Asegúrate de editar `ap_local_client.py` en la línea 33 si tu servidor tiene contraseña o usa un puerto diferente. Por defecto es `ws://localhost:38281` y slot `Player1`).
+4. **Conectar el Cliente**:
+   - Ejecuta el cliente nativo de Archipelago (usualmente desde el Launcher, abriendo el Pokemon Infinite Fusion Client) y conéctate al servidor. El cliente se encarga de crear el puente entre el servidor de AP y el juego abierto.
 
-4. **Jugar**:
+5. **Jugar**:
    - Abre *Pokémon Infinite Fusion*. 
-   - El círculo en la esquina pasará de Rojo a **Verde**.
-   - ¡Ve a recoger una Poción en la Ruta 1! El cliente Python reportará la ubicación automáticamente al servidor de Archipelago.
+   - El círculo en la esquina pasará de Rojo a **Verde** al conectar con el cliente puente.
+   - ¡Explora y juega! Ahora los eventos importantes, el `Pokedex`, y la victoria (al ganar el evento `Defeat Champion`) están completamente integrados y sincronizados con Archipelago.
 
 ---
 
 ## 🏗️ Arquitectura Técnica
 
-- **`AP_Extractor.rb`**: (Herramienta de desarrollo) Escaneó en tiempo real los mapas del juego para extraer los metadatos y compilar el JSON original.
-- **`apworld_generator.py`**: Compila el JSON extraído, elimina duplicados y genera los archivos nativos de Archipelago (`locations.py`, `items.py`, `options.py`).
-- **Ruby Network Hooks**: Modificación de `pbItemBall` y `pbReceiveItem` preservando los métodos originales.
-- **Async Python Client**: Puente con dos hilos, `http.server` síncrono para el juego y `asyncio + websockets` asíncrono para el AP Server.
+- **Estructura APWorld**: Contiene la lógica de regiones (`regions.py`), reglas lógicas (`rules.py`), ubicaciones (`locations.py`), objetos (`items.py`) y el mapeo de IDs (`map_ids.py`).
+- **`apworld_generator.py`**: Utilidad para compilar los JSON extraídos del juego base y generar el código nativo para el apworld.
+- **Cliente Nativo (`client.py`)**: Totalmente integrado en el `.apworld`, estableciendo el puente (http local / websockets) hacia el servidor de AP.
+- **Ruby Network Hooks**: Modificación de eventos base de in-game (obtención de objetos, combate, etc.) para comunicarse sin bloquear el hilo de ejecución de RPG Maker XP.
+
+¡Diviértete fusionando y colaborando en Archipelago!

@@ -6,6 +6,7 @@ class IFLocationData(NamedTuple):
     type: str
 
 location_table: Dict[str, IFLocationData] = {
+    "Defeat Champion": IFLocationData(None, "Kanto", "event"),
     "Map 1 - Event 49 (1_49_0)": IFLocationData(2560000, "Kanto", "itemball"),
     "Map 1 - Event 24 (1_24_0)": IFLocationData(2560001, "Kanto", "itemball"),
     "Map 1 - Event 46 (1_46_0)": IFLocationData(2560002, "Kanto", "npc"),
