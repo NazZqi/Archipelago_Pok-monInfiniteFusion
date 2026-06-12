@@ -1,0 +1,1863 @@
+[16:35:55] Hook de pbItemBall instalado correctamente.
+[16:35:55] Hook de pbReceiveItem instalado correctamente.
+[16:35:55] Intentando conectar a http://127.0.0.1:5050...
+[16:46:26] Hook de pbItemBall instalado correctamente.
+[16:46:26] Hook de pbReceiveItem instalado correctamente.
+[16:46:26] Intentando conectar a http://127.0.0.1:5050...
+[16:46:28] Error de conexión: MKXPError - Failed to POST http://127.0.0.1:5050/event (2: Connection)
+[16:46:28] =============================================
+[16:46:28]  Archipelago Network Module v0.3 cargado
+[16:46:28]  Modo: HTTP via HTTPLite
+[16:46:28]  Compatible con PIF v6.7
+[16:46:28] =============================================
+[16:46:42] Hook de pbItemBall instalado correctamente.
+[16:46:42] Hook de pbReceiveItem instalado correctamente.
+[16:46:42] Intentando conectar a http://127.0.0.1:5050...
+[16:46:44] Error de conexión: MKXPError - Failed to POST http://127.0.0.1:5050/event (2: Connection)
+[16:46:44] =============================================
+[16:46:44]  Archipelago Network Module v0.3 cargado
+[16:46:44]  Modo: HTTP via HTTPLite
+[16:46:44]  Compatible con PIF v6.7
+[16:46:44] =============================================
+[16:48:48] Hook de pbItemBall instalado correctamente.
+[16:48:48] Hook de pbReceiveItem instalado correctamente.
+[16:48:48] Intentando conectar a http://127.0.0.1:5050...
+[16:48:50] Error de conexión: MKXPError - Failed to POST http://127.0.0.1:5050/event (2: Connection)
+[16:48:50] =============================================
+[16:48:50]  Archipelago Network Module v0.3 cargado
+[16:48:50]  Modo: HTTP via HTTPLite
+[16:48:50]  Compatible con PIF v6.7
+[16:48:50] =============================================
+[16:49:30] Exportados 1396 items a ap_items_dump.json
+[16:55:46] Hook de pbItemBall instalado correctamente.
+[16:55:46] Hook de pbReceiveItem instalado correctamente.
+[16:55:46] Intentando conectar a http://127.0.0.1:5050...
+[16:55:48] Error de conexión: MKXPError - Failed to POST http://127.0.0.1:5050/event (2: Connection)
+[16:55:48] =============================================
+[16:55:48]  Archipelago Network Module v0.3 cargado
+[16:55:48]  Modo: HTTP via HTTPLite
+[16:55:48]  Compatible con PIF v6.7
+[16:55:48] =============================================
+[16:58:22] Intentando conectar a http://127.0.0.1:5050...
+[16:58:22] ¡Conectado exitosamente al servidor AP!
+[16:58:22] Enviado: badge_obtained — {"type":"badge_obtained","badge_id":2}
+[16:58:26] Recibidos 2 eventos del servidor
+[16:59:01] Enviado: item_found — {"type":"item_found","item":"POTION","quantity":1,"map_id":171,"event_id":39}
+[16:59:03] Recibidos 2 eventos del servidor
+[16:59:03] Entregando ítem de AP al jugador: SNOWMAIL x1
+[17:05:32] Enviado: item_received — {"type":"item_received","item":"OAKSPARCEL","quantity":1,"map_id":81,"event_id":2}
+[17:05:34] Enviado: item_received — {"type":"item_received","item":"DNASPLICERS","quantity":1,"map_id":81,"event_id":2}
+[17:12:02] Enviado: item_received — {"type":"item_received","item":"POTION","quantity":1,"map_id":78,"event_id":3}
+[17:16:30] Recibidos 3 eventos del servidor
+[17:16:30] Entregando ítem de AP al jugador: SNOWMAIL x1
+[17:17:22] Hook de pbItemBall instalado correctamente.
+[17:17:22] Hook de pbReceiveItem instalado correctamente.
+[17:17:22] Intentando conectar a http://127.0.0.1:5050...
+[17:17:22] ¡Conectado exitosamente al servidor AP!
+[17:17:22] =============================================
+[17:17:22]  Archipelago Network Module v0.3 cargado
+[17:17:22]  Modo: HTTP via HTTPLite
+[17:17:22]  Compatible con PIF v6.7
+[17:17:22] =============================================
+[17:18:14] Enviado: item_received — {"type":"item_received","item":"OAKSPARCEL","quantity":1,"map_id":81,"event_id":2}
+[17:18:41] Enviado: item_received — {"type":"item_received","item":"DNASPLICERS","quantity":1,"map_id":81,"event_id":2}
+[17:22:47] Recibidos 3 eventos del servidor
+[17:22:47] Encolando ítem de AP para el jugador: SNOWMAIL x1
+[17:23:13] Enviado: item_received — {"type":"item_received","item":"OAKSPARCEL","quantity":1,"map_id":81,"event_id":2}
+[17:23:17] Enviado: item_received — {"type":"item_received","item":"DNASPLICERS","quantity":1,"map_id":81,"event_id":2}
+[17:23:47] Enviado: item_found — {"type":"item_found","item":"POTION","quantity":1,"map_id":171,"event_id":39}
+[17:25:53] Enviado: item_received — {"type":"item_received","item":"POTION","quantity":1,"map_id":78,"event_id":3}
+[17:26:15] Enviado: item_received — {"type":"item_received","item":"FAVORITEOUTFIT","quantity":1,"map_id":78,"event_id":3}
+[17:26:32] Enviado: item_received — {"type":"item_received","item":"FAVORITEOUTFIT","quantity":1,"map_id":78,"event_id":3}
+[17:26:47] Enviado: item_received — {"type":"item_received","item":"FAVORITEOUTFIT","quantity":1,"map_id":78,"event_id":3}
+[17:28:05] Enviado: item_received — {"type":"item_received","item":"POKEBALL","quantity":5,"map_id":77,"event_id":7}
+[17:31:43] Hook de pbItemBall instalado correctamente.
+[17:31:43] Hook de pbReceiveItem instalado correctamente.
+[17:31:43] Intentando conectar a http://127.0.0.1:5050...
+[17:31:43] ¡Conectado exitosamente al servidor AP!
+[17:31:43] =============================================
+[17:31:43]  Archipelago Network Module v0.3 cargado
+[17:31:43]  Modo: HTTP via HTTPLite
+[17:31:43]  Compatible con PIF v6.7
+[17:31:43] =============================================
+[17:32:17] Recibidos 3 eventos del servidor
+[17:32:17] Encolando ítem de AP para el jugador: SNOWMAIL x1
+[17:32:40] Enviado: item_received — {"type":"item_received","item":"OAKSPARCEL","quantity":1,"map_id":81,"event_id":2}
+[17:32:47] Enviado: item_received — {"type":"item_received","item":"DNASPLICERS","quantity":1,"map_id":81,"event_id":2}
+[17:33:01] Enviado: item_found — {"type":"item_found","item":"ORANBERRY","quantity":1,"map_id":78,"event_id":1}
+[17:33:03] Recibidos 2 eventos del servidor
+[17:33:03] Encolando ítem de AP para el jugador: SKYPLATE x1
+[17:33:31] Enviado: item_received — {"type":"item_received","item":"POTION","quantity":1,"map_id":78,"event_id":3}
+[17:33:54] Enviado: item_received — {"type":"item_received","item":"POKEBALL","quantity":5,"map_id":77,"event_id":7}
+[18:01:36] Hook de pbItemBall instalado correctamente.
+[18:01:36] Hook de pbReceiveItem instalado correctamente.
+[18:01:36] Intentando conectar a http://127.0.0.1:5050...
+[18:01:39] Error de conexión: MKXPError - Failed to POST http://127.0.0.1:5050/event (2: Connection)
+[18:01:39] =============================================
+[18:01:39]  Archipelago Network Module v0.3 cargado
+[18:01:39]  Modo: HTTP via HTTPLite
+[18:01:39]  Compatible con PIF v6.7
+[18:01:39] =============================================
+[18:41:27] Hook de pbItemBall instalado correctamente.
+[18:41:27] Hook de pbReceiveItem instalado correctamente.
+[18:41:27] Intentando conectar a http://127.0.0.1:5050...
+[18:41:27] ¡Conectado exitosamente al servidor AP!
+[18:41:27] =============================================
+[18:41:27]  Archipelago Network Module v0.3 cargado
+[18:41:27]  Modo: HTTP via HTTPLite
+[18:41:27]  Compatible con PIF v6.7
+[18:41:27] =============================================
+[22:24:38] Hook de pbItemBall instalado correctamente.
+[22:24:38] Hook de pbReceiveItem instalado correctamente.
+[22:24:38] Intentando conectar a http://127.0.0.1:5050...
+[22:24:38] ¡Conectado exitosamente al servidor AP!
+[22:24:38] =============================================
+[22:24:38]  Archipelago Network Module v0.3 cargado
+[22:24:38]  Modo: HTTP via HTTPLite
+[22:24:38]  Compatible con PIF v6.7
+[22:24:38] =============================================
+[22:27:15] Enviado: item_received — {"type":"item_received","item":"POTION","quantity":1,"map_id":78,"event_id":3}
+[22:27:53] Enviado: item_received — {"type":"item_received","item":"FAVORITEOUTFIT","quantity":1,"map_id":78,"event_id":3}
+[22:28:09] Enviado: item_found — {"type":"item_found","item":"ORANBERRY","quantity":1,"map_id":78,"event_id":1}
+[22:28:39] Enviado: item_found — {"type":"item_found","item":"POTION","quantity":1,"map_id":171,"event_id":39}
+[22:54:18] Hook de pbItemBall instalado correctamente.
+[22:54:18] Hook de pbReceiveItem instalado correctamente.
+[22:54:18] Intentando conectar a http://127.0.0.1:5050...
+[22:54:18] ¡Conectado exitosamente al servidor AP!
+[22:54:18] =============================================
+[22:54:18]  Archipelago Network Module v0.3 cargado
+[22:54:18]  Modo: HTTP via HTTPLite
+[22:54:18]  Compatible con PIF v6.7
+[22:54:18] =============================================
+[22:58:04] Enviado: item_received — {"type":"item_received","item":"POTION","quantity":1,"map_id":78,"event_id":3}
+[23:28:52] Hook de pbItemBall instalado correctamente.
+[23:28:52] Hook de pbReceiveItem instalado correctamente.
+[23:28:52] Intentando conectar a http://127.0.0.1:5050...
+[23:28:52] ¡Conectado exitosamente al servidor AP!
+[23:28:52] =============================================
+[23:28:52]  Archipelago Network Module v0.3 cargado
+[23:28:52]  Modo: HTTP via HTTPLite
+[23:28:52]  Compatible con PIF v6.7
+[23:28:52] =============================================
+[23:48:35] Hook de pbItemBall instalado correctamente.
+[23:48:35] Hook de pbReceiveItem instalado correctamente.
+[23:48:35] Intentando conectar a http://127.0.0.1:5050...
+[23:48:35] ¡Conectado exitosamente al servidor AP!
+[23:48:35] =============================================
+[23:48:35]  Archipelago Network Module v0.3 cargado
+[23:48:35]  Modo: HTTP via HTTPLite
+[23:48:35]  Compatible con PIF v6.7
+[23:48:35] =============================================
+[23:54:41] Hook de pbItemBall instalado correctamente.
+[23:54:41] Hook de pbReceiveItem instalado correctamente.
+[23:54:41] Intentando conectar a http://127.0.0.1:5050...
+[23:54:41] ¡Conectado exitosamente al servidor AP!
+[23:54:41] =============================================
+[23:54:41]  Archipelago Network Module v0.3 cargado
+[23:54:41]  Modo: HTTP via HTTPLite
+[23:54:41]  Compatible con PIF v6.7
+[23:54:41] =============================================
+[23:55:13] Recibidos 3 eventos del servidor
+[23:55:13] Opciones recibidas desde Archipelago: {"abilities"=>0.0, "ability_blacklist"=>[], "allow_triple_fusions"=>0.0, "allowed_legendary_hunt_encounters"=>["Mew", "Mewtwo", "Articuno", "Zapdos", "Moltres"], "badges"=>2.0, "better_shops"=>0.0, "blind_trainers"=>0.0, "cerulean_cave_count"=>8.0, "cerulean_cave_requirement"=>0.0, "death_link"=>0.0, "dexsanity"=>0.0, "double_battle_chance"=>0.0, "elite_four_count"=>8.0, "elite_four_requirement"=>0.0, "enable_wonder_trading"=>1.0, "exp_modifier"=>100.0, "fanfares"=>0.0, "force_fully_evolved"=>100.0, "fusion_items"=>1.0, "fusion_randomization"=>0.0, "fusion_sprite_style"=>0.0, "goal"=>0.0, "guaranteed_catch"=>0.0, "hidden_items"=>0.0, "hm_compatibility"=>-1.0, "hms"=>2.0, "item_pool_type"=>0.0, "key_items"=>1.0, "legendary_encounters"=>0.0, "legendary_hunt_count"=>3.0, "level_up_moves"=>0.0, "match_trainer_levels"=>0.0, "match_trainer_levels_bonus"=>0.0, "min_catch_rate"=>3.0, "move_blacklist"=>[], "music"=>0.0, "npc_fusion_reveal"=>1.0, "npc_gifts"=>0.0, "overworld_items"=>1.0, "receive_item_messages"=>0.0, "remote_items"=>0.0, "require_flash"=>3.0, "require_itemfinder"=>1.0, "reusable_tms_tutors"=>0.0, "starter_blacklist"=>[], "starters"=>0.0, "tm_tutor_compatibility"=>-1.0, "tm_tutor_moves"=>0.0, "trainer_parties"=>0.0, "trainersanity"=>0.0, "turbo_a"=>0.0, "types"=>0.0, "wild_encounter_blacklist"=>[], "wild_pokemon"=>0.0}
+[23:58:32] Enviado: item_received — {"type":"item_received","item":"POTION","quantity":1,"map_id":78,"event_id":3}
+[01:17:37] Hook de pbItemBall instalado correctamente.
+[01:17:37] Hook de pbReceiveItem instalado correctamente.
+[01:17:37] Intentando conectar a http://127.0.0.1:5050...
+[01:17:37] ¡Conectado exitosamente al servidor AP!
+[01:17:37] =============================================
+[01:17:37]  Archipelago Network Module v0.3 cargado
+[01:17:37]  Modo: HTTP via HTTPLite
+[01:17:37]  Compatible con PIF v6.7
+[01:17:37] =============================================
+[01:18:17] Recibidos 3 eventos del servidor
+[01:18:17] Opciones recibidas desde Archipelago: {"abilities"=>0.0, "ability_blacklist"=>[], "allow_triple_fusions"=>0.0, "allowed_legendary_hunt_encounters"=>["Zapdos", "Moltres", "Articuno", "Mewtwo", "Mew"], "badges"=>2.0, "better_shops"=>0.0, "blind_trainers"=>0.0, "cerulean_cave_count"=>8.0, "cerulean_cave_requirement"=>0.0, "death_link"=>0.0, "dexsanity"=>0.0, "double_battle_chance"=>0.0, "elite_four_count"=>8.0, "elite_four_requirement"=>0.0, "enable_wonder_trading"=>1.0, "exp_modifier"=>200.0, "fanfares"=>0.0, "force_fully_evolved"=>100.0, "fusion_items"=>1.0, "fusion_randomization"=>3.0, "fusion_sprite_style"=>0.0, "goal"=>0.0, "guaranteed_catch"=>0.0, "hidden_items"=>1.0, "hm_compatibility"=>-1.0, "hms"=>2.0, "item_pool_type"=>0.0, "key_items"=>1.0, "legendary_encounters"=>3.0, "legendary_hunt_count"=>3.0, "level_up_moves"=>0.0, "match_trainer_levels"=>0.0, "match_trainer_levels_bonus"=>0.0, "min_catch_rate"=>3.0, "move_blacklist"=>[], "music"=>0.0, "npc_fusion_reveal"=>1.0, "npc_gifts"=>1.0, "overworld_items"=>1.0, "receive_item_messages"=>0.0, "remote_items"=>0.0, "require_flash"=>3.0, "require_itemfinder"=>1.0, "reusable_tms_tutors"=>0.0, "starter_blacklist"=>[], "starters"=>3.0, "tm_tutor_compatibility"=>-1.0, "tm_tutor_moves"=>0.0, "trainer_parties"=>3.0, "trainersanity"=>1.0, "turbo_a"=>0.0, "types"=>0.0, "wild_encounter_blacklist"=>[], "wild_pokemon"=>4.0}
+[01:20:43] Enviado: item_received — {"type":"item_received","item":"POTION","quantity":1,"map_id":78,"event_id":3}
+[01:20:45] Recibidos 1 eventos del servidor
+[01:21:06] Recibidos 3 eventos del servidor
+[01:21:06] Opciones recibidas desde Archipelago: {"abilities"=>0.0, "ability_blacklist"=>[], "allow_triple_fusions"=>0.0, "allowed_legendary_hunt_encounters"=>["Zapdos", "Moltres", "Articuno", "Mewtwo", "Mew"], "badges"=>2.0, "better_shops"=>0.0, "blind_trainers"=>0.0, "cerulean_cave_count"=>8.0, "cerulean_cave_requirement"=>0.0, "death_link"=>0.0, "dexsanity"=>0.0, "double_battle_chance"=>0.0, "elite_four_count"=>8.0, "elite_four_requirement"=>0.0, "enable_wonder_trading"=>1.0, "exp_modifier"=>200.0, "fanfares"=>0.0, "force_fully_evolved"=>100.0, "fusion_items"=>1.0, "fusion_randomization"=>3.0, "fusion_sprite_style"=>0.0, "goal"=>0.0, "guaranteed_catch"=>0.0, "hidden_items"=>1.0, "hm_compatibility"=>-1.0, "hms"=>2.0, "item_pool_type"=>0.0, "key_items"=>1.0, "legendary_encounters"=>3.0, "legendary_hunt_count"=>3.0, "level_up_moves"=>0.0, "match_trainer_levels"=>0.0, "match_trainer_levels_bonus"=>0.0, "min_catch_rate"=>3.0, "move_blacklist"=>[], "music"=>0.0, "npc_fusion_reveal"=>1.0, "npc_gifts"=>1.0, "overworld_items"=>1.0, "receive_item_messages"=>0.0, "remote_items"=>0.0, "require_flash"=>3.0, "require_itemfinder"=>1.0, "reusable_tms_tutors"=>0.0, "starter_blacklist"=>[], "starters"=>3.0, "tm_tutor_compatibility"=>-1.0, "tm_tutor_moves"=>0.0, "trainer_parties"=>3.0, "trainersanity"=>1.0, "turbo_a"=>0.0, "types"=>0.0, "wild_encounter_blacklist"=>[], "wild_pokemon"=>4.0}
+[01:22:10] Enviado: item_found — {"type":"item_found","item":"ORANBERRY","quantity":1,"map_id":78,"event_id":1}
+[01:22:12] Recibidos 1 eventos del servidor
+[01:22:24] Recibidos 3 eventos del servidor
+[01:22:24] Opciones recibidas desde Archipelago: {"abilities"=>0.0, "ability_blacklist"=>[], "allow_triple_fusions"=>0.0, "allowed_legendary_hunt_encounters"=>["Zapdos", "Moltres", "Articuno", "Mewtwo", "Mew"], "badges"=>2.0, "better_shops"=>0.0, "blind_trainers"=>0.0, "cerulean_cave_count"=>8.0, "cerulean_cave_requirement"=>0.0, "death_link"=>0.0, "dexsanity"=>0.0, "double_battle_chance"=>0.0, "elite_four_count"=>8.0, "elite_four_requirement"=>0.0, "enable_wonder_trading"=>1.0, "exp_modifier"=>200.0, "fanfares"=>0.0, "force_fully_evolved"=>100.0, "fusion_items"=>1.0, "fusion_randomization"=>3.0, "fusion_sprite_style"=>0.0, "goal"=>0.0, "guaranteed_catch"=>0.0, "hidden_items"=>1.0, "hm_compatibility"=>-1.0, "hms"=>2.0, "item_pool_type"=>0.0, "key_items"=>1.0, "legendary_encounters"=>3.0, "legendary_hunt_count"=>3.0, "level_up_moves"=>0.0, "match_trainer_levels"=>0.0, "match_trainer_levels_bonus"=>0.0, "min_catch_rate"=>3.0, "move_blacklist"=>[], "music"=>0.0, "npc_fusion_reveal"=>1.0, "npc_gifts"=>1.0, "overworld_items"=>1.0, "receive_item_messages"=>0.0, "remote_items"=>0.0, "require_flash"=>3.0, "require_itemfinder"=>1.0, "reusable_tms_tutors"=>0.0, "starter_blacklist"=>[], "starters"=>3.0, "tm_tutor_compatibility"=>-1.0, "tm_tutor_moves"=>0.0, "trainer_parties"=>3.0, "trainersanity"=>1.0, "turbo_a"=>0.0, "types"=>0.0, "wild_encounter_blacklist"=>[], "wild_pokemon"=>4.0}
+[17:48:56] Hook de pbItemBall instalado correctamente.
+[17:48:56] Hook de pbReceiveItem instalado correctamente.
+[17:48:56] Intentando conectar a http://127.0.0.1:5050...
+[17:48:56] ¡Conectado exitosamente al servidor AP!
+[17:48:56] =============================================
+[17:48:56]  Archipelago Network Module v0.3 cargado
+[17:48:56]  Modo: HTTP via HTTPLite
+[17:48:56]  Compatible con PIF v6.7
+[17:48:56] =============================================
+[17:49:38] Recibidos 5 eventos del servidor
+[17:49:38] Opciones recibidas desde Archipelago: {"abilities"=>0.0, "ability_blacklist"=>[], "allow_triple_fusions"=>0.0, "allowed_legendary_hunt_encounters"=>["Zapdos", "Moltres", "Articuno", "Mewtwo", "Mew"], "badges"=>2.0, "better_shops"=>0.0, "blind_trainers"=>0.0, "cerulean_cave_count"=>8.0, "cerulean_cave_requirement"=>0.0, "death_link"=>0.0, "dexsanity"=>0.0, "double_battle_chance"=>0.0, "elite_four_count"=>8.0, "elite_four_requirement"=>0.0, "enable_wonder_trading"=>1.0, "exp_modifier"=>200.0, "fanfares"=>0.0, "force_fully_evolved"=>100.0, "fusion_items"=>1.0, "fusion_randomization"=>3.0, "fusion_sprite_style"=>0.0, "goal"=>0.0, "guaranteed_catch"=>0.0, "hidden_items"=>1.0, "hm_compatibility"=>-1.0, "hms"=>2.0, "item_pool_type"=>0.0, "key_items"=>1.0, "legendary_encounters"=>3.0, "legendary_hunt_count"=>3.0, "level_up_moves"=>0.0, "match_trainer_levels"=>0.0, "match_trainer_levels_bonus"=>0.0, "min_catch_rate"=>3.0, "move_blacklist"=>[], "music"=>0.0, "npc_fusion_reveal"=>1.0, "npc_gifts"=>1.0, "overworld_items"=>1.0, "receive_item_messages"=>0.0, "remote_items"=>0.0, "require_flash"=>3.0, "require_itemfinder"=>1.0, "reusable_tms_tutors"=>0.0, "starter_blacklist"=>[], "starters"=>3.0, "tm_tutor_compatibility"=>-1.0, "tm_tutor_moves"=>0.0, "trainer_parties"=>3.0, "trainersanity"=>1.0, "turbo_a"=>0.0, "types"=>0.0, "wild_encounter_blacklist"=>[], "wild_pokemon"=>4.0}
+[17:49:38] Encolando ítem de AP para el jugador: DREADPLATE x1
+[17:49:38] Encolando ítem de AP para el jugador: GROWTHMULCH x1
+[17:53:20] Enviado: item_received — {"type":"item_received","item":"POTION","quantity":1,"map_id":78,"event_id":3}
+[17:54:08] Enviado: item_found — {"type":"item_found","item":"ORANBERRY","quantity":1,"map_id":78,"event_id":1}
+[17:54:26] Enviado: item_found — {"type":"item_found","item":"POTION","quantity":1,"map_id":171,"event_id":39}
+[17:54:27] Recibidos 2 eventos del servidor
+[17:54:27] Encolando ítem de AP para el jugador: TM60 x1
+[17:54:42] Enviado: item_received — {"type":"item_received","item":"OAKSPARCEL","quantity":1,"map_id":81,"event_id":2}
+[17:54:44] Enviado: item_received — {"type":"item_received","item":"DNASPLICERS","quantity":1,"map_id":81,"event_id":2}
+[17:54:45] Recibidos 4 eventos del servidor
+[17:54:45] Encolando ítem de AP para el jugador: BUGGEM x1
+[17:54:45] Encolando ítem de AP para el jugador: XSPDEF6 x1
+[17:56:40] Enviado: item_received — {"type":"item_received","item":"POKEBALL","quantity":5,"map_id":77,"event_id":7}
+[17:56:42] Recibidos 4 eventos del servidor
+[17:56:42] Encolando ítem de AP para el jugador: KASIBBERRY x1
+[17:56:42] Encolando ítem de AP para el jugador: ASSAULTVEST x1
+[18:08:54] Hook de pbItemBall instalado correctamente.
+[18:08:54] Hook de pbReceiveItem instalado correctamente.
+[18:08:54] Intentando conectar a http://127.0.0.1:5050...
+[18:08:54] ¡Conectado exitosamente al servidor AP!
+[18:08:54] =============================================
+[18:08:54]  Archipelago Network Module v0.3 cargado
+[18:08:54]  Modo: HTTP via HTTPLite
+[18:08:54]  Compatible con PIF v6.7
+[18:08:54] =============================================
+[18:09:29] Recibidos 3 eventos del servidor
+[18:09:29] Opciones recibidas desde Archipelago: {"abilities"=>0.0, "ability_blacklist"=>[], "allow_triple_fusions"=>0.0, "allowed_legendary_hunt_encounters"=>["Zapdos", "Mewtwo", "Articuno", "Moltres", "Mew"], "badges"=>2.0, "better_shops"=>0.0, "blind_trainers"=>0.0, "cerulean_cave_count"=>8.0, "cerulean_cave_requirement"=>0.0, "death_link"=>0.0, "dexsanity"=>0.0, "double_battle_chance"=>0.0, "elite_four_count"=>8.0, "elite_four_requirement"=>0.0, "enable_wonder_trading"=>1.0, "exp_modifier"=>200.0, "fanfares"=>0.0, "force_fully_evolved"=>100.0, "fusion_items"=>1.0, "fusion_randomization"=>3.0, "fusion_sprite_style"=>0.0, "goal"=>0.0, "guaranteed_catch"=>0.0, "hidden_items"=>1.0, "hm_compatibility"=>-1.0, "hms"=>2.0, "item_pool_type"=>0.0, "key_items"=>1.0, "legendary_encounters"=>3.0, "legendary_hunt_count"=>3.0, "level_up_moves"=>0.0, "match_trainer_levels"=>0.0, "match_trainer_levels_bonus"=>0.0, "min_catch_rate"=>3.0, "move_blacklist"=>[], "music"=>0.0, "npc_fusion_reveal"=>1.0, "npc_gifts"=>1.0, "overworld_items"=>1.0, "receive_item_messages"=>0.0, "remote_items"=>0.0, "require_flash"=>3.0, "require_itemfinder"=>1.0, "reusable_tms_tutors"=>0.0, "starter_blacklist"=>[], "starters"=>3.0, "tm_tutor_compatibility"=>-1.0, "tm_tutor_moves"=>0.0, "trainer_parties"=>3.0, "trainersanity"=>1.0, "turbo_a"=>0.0, "types"=>0.0, "wild_encounter_blacklist"=>[], "wild_pokemon"=>4.0}
+[18:51:54] Hook de pbItemBall instalado correctamente.
+[18:51:54] Hook de pbReceiveItem instalado correctamente.
+[18:51:54] Intentando conectar a http://127.0.0.1:5050...
+[18:51:56] Error de conexión: MKXPError - Failed to POST http://127.0.0.1:5050/event (2: Connection)
+[18:51:56] =============================================
+[18:51:56]  Archipelago Network Module v0.3 cargado
+[18:51:56]  Modo: HTTP via HTTPLite
+[18:51:56]  Compatible con PIF v6.7
+[18:51:56] =============================================
+[18:55:36] Hook de pbItemBall instalado correctamente.
+[18:55:36] Hook de pbReceiveItem instalado correctamente.
+[18:55:36] Intentando conectar a http://127.0.0.1:5050...
+[18:55:38] Error de conexión: MKXPError - Failed to POST http://127.0.0.1:5050/event (2: Connection)
+[18:55:38] =============================================
+[18:55:38]  Archipelago Network Module v0.3 cargado
+[18:55:38]  Modo: HTTP via HTTPLite
+[18:55:38]  Compatible con PIF v6.7
+[18:55:38] =============================================
+[18:57:48] Hook de pbItemBall instalado correctamente.
+[18:57:48] Hook de pbReceiveItem instalado correctamente.
+[18:57:48] Intentando conectar a http://127.0.0.1:5050...
+[18:57:48] ¡Conectado exitosamente al servidor AP!
+[18:57:48] =============================================
+[18:57:48]  Archipelago Network Module v0.3 cargado
+[18:57:48]  Modo: HTTP via HTTPLite
+[18:57:48]  Compatible con PIF v6.7
+[18:57:48] =============================================
+[18:58:28] Recibidos 3 eventos del servidor
+[18:58:28] Opciones recibidas desde Archipelago: {"abilities"=>0.0, "ability_blacklist"=>[], "allow_triple_fusions"=>0.0, "allowed_legendary_hunt_encounters"=>["Zapdos", "Mewtwo", "Articuno", "Moltres", "Mew"], "badges"=>2.0, "better_shops"=>0.0, "blind_trainers"=>0.0, "cerulean_cave_count"=>8.0, "cerulean_cave_requirement"=>0.0, "death_link"=>0.0, "dexsanity"=>0.0, "double_battle_chance"=>0.0, "elite_four_count"=>8.0, "elite_four_requirement"=>0.0, "enable_wonder_trading"=>1.0, "exp_modifier"=>200.0, "fanfares"=>0.0, "force_fully_evolved"=>100.0, "fusion_items"=>1.0, "fusion_randomization"=>3.0, "fusion_sprite_style"=>0.0, "goal"=>0.0, "guaranteed_catch"=>0.0, "hidden_items"=>1.0, "hm_compatibility"=>-1.0, "hms"=>2.0, "item_pool_type"=>0.0, "key_items"=>1.0, "legendary_encounters"=>3.0, "legendary_hunt_count"=>3.0, "level_up_moves"=>0.0, "match_trainer_levels"=>0.0, "match_trainer_levels_bonus"=>0.0, "min_catch_rate"=>3.0, "move_blacklist"=>[], "music"=>0.0, "npc_fusion_reveal"=>1.0, "npc_gifts"=>1.0, "overworld_items"=>1.0, "receive_item_messages"=>0.0, "remote_items"=>0.0, "require_flash"=>3.0, "require_itemfinder"=>1.0, "reusable_tms_tutors"=>0.0, "starter_blacklist"=>[], "starters"=>3.0, "tm_tutor_compatibility"=>-1.0, "tm_tutor_moves"=>0.0, "trainer_parties"=>3.0, "trainersanity"=>1.0, "turbo_a"=>0.0, "types"=>0.0, "wild_encounter_blacklist"=>[], "wild_pokemon"=>4.0}
+[18:59:04] Recibidos 3 eventos del servidor
+[19:02:51] Enviado: item_received — {"type":"item_received","item":"OAKSPARCEL","quantity":1,"map_id":81,"event_id":2}
+[19:02:53] Enviado: item_received — {"type":"item_received","item":"DNASPLICERS","quantity":1,"map_id":81,"event_id":2}
+[19:02:54] Recibidos 4 eventos del servidor
+[19:02:54] Encolando ítem de AP para el jugador: DIREHIT2 x1
+[19:02:54] Encolando ítem de AP para el jugador: GUARDSPEC x1
+[19:03:25] Enviado: item_found — {"type":"item_found","item":"ORANBERRY","quantity":1,"map_id":78,"event_id":1}
+[19:03:27] Recibidos 2 eventos del servidor
+[19:03:27] Encolando ítem de AP para el jugador: MOSAICMAIL x1
+[19:03:39] Enviado: item_received — {"type":"item_received","item":"POTION","quantity":1,"map_id":78,"event_id":3}
+[19:03:42] Recibidos 2 eventos del servidor
+[19:03:42] Encolando ítem de AP para el jugador: PROTECTIVEPADS x1
+[19:04:08] Enviado: item_received — {"type":"item_received","item":"POKEBALL","quantity":5,"map_id":77,"event_id":7}
+[19:04:09] Recibidos 4 eventos del servidor
+[19:04:09] Encolando ítem de AP para el jugador: QUICKCLAW x1
+[19:04:09] Encolando ítem de AP para el jugador: TM19 x1
+[19:08:41] Hook de pbItemBall instalado correctamente.
+[19:08:41] Hook de pbReceiveItem instalado correctamente.
+[19:08:41] Intentando conectar a http://127.0.0.1:5050...
+[19:08:41] ¡Conectado exitosamente al servidor AP!
+[19:08:41] =============================================
+[19:08:41]  Archipelago Network Module v0.3 cargado
+[19:08:41]  Modo: HTTP via HTTPLite
+[19:08:41]  Compatible con PIF v6.7
+[19:08:41] =============================================
+[19:09:14] Recibidos 10 eventos del servidor
+[19:09:14] Opciones recibidas desde Archipelago: {"abilities"=>0.0, "ability_blacklist"=>[], "allow_triple_fusions"=>0.0, "allowed_legendary_hunt_encounters"=>["Zapdos", "Mewtwo", "Articuno", "Moltres", "Mew"], "badges"=>2.0, "better_shops"=>0.0, "blind_trainers"=>0.0, "cerulean_cave_count"=>8.0, "cerulean_cave_requirement"=>0.0, "death_link"=>0.0, "dexsanity"=>0.0, "double_battle_chance"=>0.0, "elite_four_count"=>8.0, "elite_four_requirement"=>0.0, "enable_wonder_trading"=>1.0, "exp_modifier"=>200.0, "fanfares"=>0.0, "force_fully_evolved"=>100.0, "fusion_items"=>1.0, "fusion_randomization"=>3.0, "fusion_sprite_style"=>0.0, "goal"=>0.0, "guaranteed_catch"=>0.0, "hidden_items"=>1.0, "hm_compatibility"=>-1.0, "hms"=>2.0, "item_pool_type"=>0.0, "key_items"=>1.0, "legendary_encounters"=>3.0, "legendary_hunt_count"=>3.0, "level_up_moves"=>0.0, "match_trainer_levels"=>0.0, "match_trainer_levels_bonus"=>0.0, "min_catch_rate"=>3.0, "move_blacklist"=>[], "music"=>0.0, "npc_fusion_reveal"=>1.0, "npc_gifts"=>1.0, "overworld_items"=>1.0, "receive_item_messages"=>0.0, "remote_items"=>0.0, "require_flash"=>3.0, "require_itemfinder"=>1.0, "reusable_tms_tutors"=>0.0, "starter_blacklist"=>[], "starters"=>3.0, "tm_tutor_compatibility"=>-1.0, "tm_tutor_moves"=>0.0, "trainer_parties"=>3.0, "trainersanity"=>1.0, "turbo_a"=>0.0, "types"=>0.0, "wild_encounter_blacklist"=>[], "wild_pokemon"=>4.0}
+[19:09:14] Encolando ítem de AP para el jugador: DIREHIT2 x1
+[19:09:14] Encolando ítem de AP para el jugador: GUARDSPEC x1
+[19:09:14] Encolando ítem de AP para el jugador: MOSAICMAIL x1
+[19:09:14] Encolando ítem de AP para el jugador: PROTECTIVEPADS x1
+[19:09:14] Encolando ítem de AP para el jugador: QUICKCLAW x1
+[19:09:14] Encolando ítem de AP para el jugador: TM19 x1
+[19:10:04] Recibidos 3 eventos del servidor
+[19:10:30] Enviado: item_found — {"type":"item_found","item":"ORANBERRY","quantity":1,"map_id":78,"event_id":1}
+[19:10:55] Enviado: item_received — {"type":"item_received","item":"OAKSPARCEL","quantity":1,"map_id":81,"event_id":2}
+[19:10:57] Enviado: item_received — {"type":"item_received","item":"DNASPLICERS","quantity":1,"map_id":81,"event_id":2}
+[19:11:28] Enviado: item_received — {"type":"item_received","item":"POKEBALL","quantity":5,"map_id":77,"event_id":7}
+[19:14:45] Hook de pbItemBall instalado correctamente.
+[19:14:45] Hook de pbReceiveItem instalado correctamente.
+[19:14:45] Intentando conectar a http://127.0.0.1:5050...
+[19:14:45] ¡Conectado exitosamente al servidor AP!
+[19:14:45] =============================================
+[19:14:45]  Archipelago Network Module v0.3 cargado
+[19:14:45]  Modo: HTTP via HTTPLite
+[19:14:45]  Compatible con PIF v6.7
+[19:14:45] =============================================
+[19:15:52] Enviado: item_received — {"type":"item_received","item":"OAKSPARCEL","quantity":1,"map_id":81,"event_id":2}
+[19:15:54] Enviado: item_received — {"type":"item_received","item":"DNASPLICERS","quantity":1,"map_id":81,"event_id":2}
+[19:16:38] Enviado: item_received — {"type":"item_received","item":"POKEBALL","quantity":5,"map_id":77,"event_id":7}
+[19:21:24] Hook de pbItemBall instalado correctamente.
+[19:21:24] Hook de pbReceiveItem instalado correctamente.
+[19:21:24] Intentando conectar a http://127.0.0.1:5050...
+[19:21:24] ¡Conectado exitosamente al servidor AP!
+[19:21:24] =============================================
+[19:21:24]  Archipelago Network Module v0.3 cargado
+[19:21:24]  Modo: HTTP via HTTPLite
+[19:21:24]  Compatible con PIF v6.7
+[19:21:24] =============================================
+[19:22:35] Enviado: item_received — {"type":"item_received","item":"OAKSPARCEL","quantity":1,"map_id":81,"event_id":2}
+[19:22:37] Enviado: item_received — {"type":"item_received","item":"DNASPLICERS","quantity":1,"map_id":81,"event_id":2}
+[19:23:08] Enviado: item_received — {"type":"item_received","item":"POKEBALL","quantity":5,"map_id":77,"event_id":7}
+[19:24:58] Hook de pbItemBall instalado correctamente.
+[19:24:58] Hook de pbReceiveItem instalado correctamente.
+[19:24:58] Intentando conectar a http://127.0.0.1:5050...
+[19:24:58] ¡Conectado exitosamente al servidor AP!
+[19:24:58] =============================================
+[19:24:58]  Archipelago Network Module v0.3 cargado
+[19:24:58]  Modo: HTTP via HTTPLite
+[19:24:58]  Compatible con PIF v6.7
+[19:24:58] =============================================
+[19:25:41] Enviado: item_received — {"type":"item_received","item":"OAKSPARCEL","quantity":1,"map_id":81,"event_id":2}
+[19:25:43] Enviado: item_received — {"type":"item_received","item":"DNASPLICERS","quantity":1,"map_id":81,"event_id":2}
+[19:26:28] Enviado: item_received — {"type":"item_received","item":"POKEBALL","quantity":5,"map_id":77,"event_id":7}
+[19:26:36] Enviando evento de Meta (Victoria) a Archipelago...
+[19:26:36] Meta registrada con éxito en el cliente.
+[19:26:36] Recibidos 562 eventos del servidor
+[19:26:39] Recibidos 2114 eventos del servidor
+[19:26:39] Encolando ítem de AP para el jugador: REPEL x1
+[19:26:39] Encolando ítem de AP para el jugador: REPEL x1
+[19:26:39] Encolando ítem de AP para el jugador: REPEL x1
+[19:26:39] Encolando ítem de AP para el jugador: REPEL x1
+[19:26:39] Encolando ítem de AP para el jugador: REPEL x1
+[19:26:39] Encolando ítem de AP para el jugador: REPEL x1
+[19:26:39] Encolando ítem de AP para el jugador: SUPERREPEL x1
+[19:26:39] Encolando ítem de AP para el jugador: SUPERREPEL x1
+[19:26:39] Encolando ítem de AP para el jugador: MAXREPEL x1
+[19:26:39] Encolando ítem de AP para el jugador: MAXREPEL x1
+[19:26:39] Encolando ítem de AP para el jugador: MAXREPEL x1
+[19:26:39] Encolando ítem de AP para el jugador: MAXREPEL x1
+[19:26:39] Encolando ítem de AP para el jugador: MAXREPEL x1
+[19:26:39] Encolando ítem de AP para el jugador: MAXREPEL x1
+[19:26:39] Encolando ítem de AP para el jugador: BLACKFLUTE x1
+[19:26:39] Encolando ítem de AP para el jugador: BLACKFLUTE x1
+[19:26:39] Encolando ítem de AP para el jugador: BLACKFLUTE x1
+[19:26:39] Encolando ítem de AP para el jugador: WHITEFLUTE x1
+[19:26:39] Encolando ítem de AP para el jugador: WHITEFLUTE x1
+[19:26:39] Encolando ítem de AP para el jugador: WHITEFLUTE x1
+[19:26:39] Encolando ítem de AP para el jugador: HONEY x1
+[19:26:39] Encolando ítem de AP para el jugador: HONEY x1
+[19:26:39] Encolando ítem de AP para el jugador: HONEY x1
+[19:26:39] Encolando ítem de AP para el jugador: ESCAPEROPE x1
+[19:26:39] Encolando ítem de AP para el jugador: ESCAPEROPE x1
+[19:26:39] Encolando ítem de AP para el jugador: ESCAPEROPE x1
+[19:26:39] Encolando ítem de AP para el jugador: REDSHARD x1
+[19:26:39] Encolando ítem de AP para el jugador: REDSHARD x1
+[19:26:39] Encolando ítem de AP para el jugador: REDSHARD x1
+[19:26:39] Encolando ítem de AP para el jugador: REDSHARD x1
+[19:26:39] Encolando ítem de AP para el jugador: REDSHARD x1
+[19:26:39] Encolando ítem de AP para el jugador: REDSHARD x1
+[19:26:39] Encolando ítem de AP para el jugador: REDSHARD x1
+[19:26:39] Encolando ítem de AP para el jugador: YELLOWSHARD x1
+[19:26:39] Encolando ítem de AP para el jugador: YELLOWSHARD x1
+[19:26:39] Encolando ítem de AP para el jugador: YELLOWSHARD x1
+[19:26:39] Encolando ítem de AP para el jugador: YELLOWSHARD x1
+[19:26:39] Encolando ítem de AP para el jugador: YELLOWSHARD x1
+[19:26:39] Encolando ítem de AP para el jugador: YELLOWSHARD x1
+[19:26:39] Encolando ítem de AP para el jugador: YELLOWSHARD x1
+[19:26:39] Encolando ítem de AP para el jugador: YELLOWSHARD x1
+[19:26:39] Encolando ítem de AP para el jugador: BLUESHARD x1
+[19:26:39] Encolando ítem de AP para el jugador: GREENSHARD x1
+[19:26:39] Encolando ítem de AP para el jugador: GREENSHARD x1
+[19:26:39] Encolando ítem de AP para el jugador: GREENSHARD x1
+[19:26:39] Encolando ítem de AP para el jugador: GREENSHARD x1
+[19:26:39] Encolando ítem de AP para el jugador: FIRESTONE x1
+[19:26:39] Encolando ítem de AP para el jugador: THUNDERSTONE x1
+[19:26:39] Encolando ítem de AP para el jugador: WATERSTONE x1
+[19:26:39] Encolando ítem de AP para el jugador: LEAFSTONE x1
+[19:26:39] Encolando ítem de AP para el jugador: MOONSTONE x1
+[19:26:39] Encolando ítem de AP para el jugador: SUNSTONE x1
+[19:26:39] Encolando ítem de AP para el jugador: DUSKSTONE x1
+[19:26:39] Encolando ítem de AP para el jugador: DAWNSTONE x1
+[19:26:39] Encolando ítem de AP para el jugador: SHINYSTONE x1
+[19:26:39] Encolando ítem de AP para el jugador: REDAPRICORN x1
+[19:26:39] Encolando ítem de AP para el jugador: YELLOWAPRICORN x1
+[19:26:39] Encolando ítem de AP para el jugador: BLUEAPRICORN x1
+[19:26:39] Encolando ítem de AP para el jugador: GREENAPRICORN x1
+[19:26:39] Encolando ítem de AP para el jugador: PINKAPRICORN x1
+[19:26:39] Encolando ítem de AP para el jugador: WHITEAPRICORN x1
+[19:26:39] Encolando ítem de AP para el jugador: BLACKAPRICORN x1
+[19:26:39] Encolando ítem de AP para el jugador: HELIXFOSSIL x1
+[19:26:39] Encolando ítem de AP para el jugador: DOMEFOSSIL x1
+[19:26:39] Encolando ítem de AP para el jugador: OLDAMBER x1
+[19:26:39] Encolando ítem de AP para el jugador: ROOTFOSSIL x1
+[19:26:39] Encolando ítem de AP para el jugador: CLAWFOSSIL x1
+[19:26:39] Encolando ítem de AP para el jugador: SKULLFOSSIL x1
+[19:26:39] Encolando ítem de AP para el jugador: ARMORFOSSIL x1
+[19:26:39] Encolando ítem de AP para el jugador: PRETTYWING x1
+[19:26:39] Encolando ítem de AP para el jugador: PRETTYWING x1
+[19:26:39] Encolando ítem de AP para el jugador: PRETTYWING x1
+[19:26:39] Encolando ítem de AP para el jugador: PRETTYWING x1
+[19:26:39] Encolando ítem de AP para el jugador: PRETTYWING x1
+[19:26:39] Encolando ítem de AP para el jugador: TINYMUSHROOM x1
+[19:26:39] Encolando ítem de AP para el jugador: TINYMUSHROOM x1
+[19:26:39] Encolando ítem de AP para el jugador: TINYMUSHROOM x1
+[19:26:39] Encolando ítem de AP para el jugador: BIGMUSHROOM x1
+[19:26:39] Encolando ítem de AP para el jugador: BALMMUSHROOM x1
+[19:26:39] Encolando ítem de AP para el jugador: PEARL x1
+[19:26:39] Encolando ítem de AP para el jugador: PEARL x1
+[19:26:39] Encolando ítem de AP para el jugador: PEARL x1
+[19:26:39] Encolando ítem de AP para el jugador: PEARL x1
+[19:26:39] Encolando ítem de AP para el jugador: PEARL x1
+[19:26:39] Encolando ítem de AP para el jugador: BIGPEARL x1
+[19:26:39] Encolando ítem de AP para el jugador: PEARLSTRING x1
+[19:26:39] Encolando ítem de AP para el jugador: STARDUST x1
+[19:26:39] Encolando ítem de AP para el jugador: STARDUST x1
+[19:26:39] Encolando ítem de AP para el jugador: STARDUST x1
+[19:26:39] Encolando ítem de AP para el jugador: STARPIECE x1
+[19:26:39] Encolando ítem de AP para el jugador: COMETSHARD x1
+[19:26:39] Encolando ítem de AP para el jugador: NUGGET x1
+[19:26:39] Encolando ítem de AP para el jugador: BIGNUGGET x1
+[19:26:39] Encolando ítem de AP para el jugador: HEARTSCALE x1
+[19:26:39] Encolando ítem de AP para el jugador: SLOWPOKETAIL x1
+[19:26:39] Encolando ítem de AP para el jugador: RAREBONE x1
+[19:26:39] Encolando ítem de AP para el jugador: RAREBONE x1
+[19:26:39] Encolando ítem de AP para el jugador: RAREBONE x1
+[19:26:39] Encolando ítem de AP para el jugador: RELICCOPPER x1
+[19:26:39] Encolando ítem de AP para el jugador: RELICCOPPER x1
+[19:26:39] Encolando ítem de AP para el jugador: RELICCOPPER x1
+[19:26:39] Encolando ítem de AP para el jugador: RELICSILVER x1
+[19:26:39] Encolando ítem de AP para el jugador: RELICGOLD x1
+[19:26:39] Encolando ítem de AP para el jugador: RELICVASE x1
+[19:26:39] Encolando ítem de AP para el jugador: RELICBAND x1
+[19:26:39] Encolando ítem de AP para el jugador: RELICBAND x1
+[19:26:39] Encolando ítem de AP para el jugador: RELICBAND x1
+[19:26:39] Encolando ítem de AP para el jugador: RELICSTATUE x1
+[19:26:39] Encolando ítem de AP para el jugador: RELICCROWN x1
+[19:26:39] Encolando ítem de AP para el jugador: GROWTHMULCH x1
+[19:26:39] Encolando ítem de AP para el jugador: GROWTHMULCH x1
+[19:26:39] Encolando ítem de AP para el jugador: DAMPMULCH x1
+[19:26:39] Encolando ítem de AP para el jugador: DAMPMULCH x1
+[19:26:39] Encolando ítem de AP para el jugador: DAMPMULCH x1
+[19:26:39] Encolando ítem de AP para el jugador: DAMPMULCH x1
+[19:26:39] Encolando ítem de AP para el jugador: STABLEMULCH x1
+[19:26:39] Encolando ítem de AP para el jugador: STABLEMULCH x1
+[19:26:39] Encolando ítem de AP para el jugador: STABLEMULCH x1
+[19:26:39] Encolando ítem de AP para el jugador: STABLEMULCH x1
+[19:26:39] Encolando ítem de AP para el jugador: STABLEMULCH x1
+[19:26:39] Encolando ítem de AP para el jugador: GOOEYMULCH x1
+[19:26:39] Encolando ítem de AP para el jugador: GOOEYMULCH x1
+[19:26:39] Encolando ítem de AP para el jugador: GOOEYMULCH x1
+[19:26:39] Encolando ítem de AP para el jugador: SHOALSALT x1
+[19:26:39] Encolando ítem de AP para el jugador: SHOALSHELL x1
+[19:26:39] Encolando ítem de AP para el jugador: SHOALSHELL x1
+[19:26:39] Encolando ítem de AP para el jugador: ODDKEYSTONE x1
+[19:26:39] Encolando ítem de AP para el jugador: AIRBALLOON x1
+[19:26:39] Encolando ítem de AP para el jugador: BRIGHTPOWDER x1
+[19:26:39] Encolando ítem de AP para el jugador: EVIOLITE x1
+[19:26:39] Encolando ítem de AP para el jugador: FLOATSTONE x1
+[19:26:39] Encolando ítem de AP para el jugador: DESTINYKNOT x1
+[19:26:39] Encolando ítem de AP para el jugador: ROCKYHELMET x1
+[19:26:39] Encolando ítem de AP para el jugador: EJECTBUTTON x1
+[19:26:39] Encolando ítem de AP para el jugador: REDCARD x1
+[19:26:39] Encolando ítem de AP para el jugador: SHEDSHELL x1
+[19:26:39] Encolando ítem de AP para el jugador: SMOKEBALL x1
+[19:26:39] Encolando ítem de AP para el jugador: LUCKYEGG x1
+[19:26:39] Encolando ítem de AP para el jugador: EXPSHARE x1
+[19:26:39] Encolando ítem de AP para el jugador: AMULETCOIN x1
+[19:26:39] Encolando ítem de AP para el jugador: SOOTHEBELL x1
+[19:26:39] Encolando ítem de AP para el jugador: CLEANSETAG x1
+[19:26:39] Encolando ítem de AP para el jugador: CHOICEBAND x1
+[19:26:39] Encolando ítem de AP para el jugador: CHOICESPECS x1
+[19:26:39] Encolando ítem de AP para el jugador: CHOICESCARF x1
+[19:26:39] Encolando ítem de AP para el jugador: HEATROCK x1
+[19:26:39] Encolando ítem de AP para el jugador: DAMPROCK x1
+[19:26:39] Encolando ítem de AP para el jugador: SMOOTHROCK x1
+[19:26:39] Encolando ítem de AP para el jugador: ICYROCK x1
+[19:26:39] Encolando ítem de AP para el jugador: LIGHTCLAY x1
+[19:26:39] Encolando ítem de AP para el jugador: GRIPCLAW x1
+[19:26:39] Encolando ítem de AP para el jugador: BINDINGBAND x1
+[19:26:39] Encolando ítem de AP para el jugador: BIGROOT x1
+[19:26:39] Encolando ítem de AP para el jugador: BLACKSLUDGE x1
+[19:26:39] Encolando ítem de AP para el jugador: LEFTOVERS x1
+[19:26:39] Encolando ítem de AP para el jugador: SHELLBELL x1
+[19:26:39] Encolando ítem de AP para el jugador: MENTALHERB x1
+[19:26:39] Encolando ítem de AP para el jugador: WHITEHERB x1
+[19:26:39] Encolando ítem de AP para el jugador: POWERHERB x1
+[19:26:39] Encolando ítem de AP para el jugador: ABSORBBULB x1
+[19:26:39] Encolando ítem de AP para el jugador: CELLBATTERY x1
+[19:26:39] Encolando ítem de AP para el jugador: LIFEORB x1
+[19:26:39] Encolando ítem de AP para el jugador: EXPERTBELT x1
+[19:26:39] Encolando ítem de AP para el jugador: METRONOME x1
+[19:26:39] Encolando ítem de AP para el jugador: MUSCLEBAND x1
+[19:26:39] Encolando ítem de AP para el jugador: WISEGLASSES x1
+[19:26:39] Encolando ítem de AP para el jugador: RAZORCLAW x1
+[19:26:39] Encolando ítem de AP para el jugador: SCOPELENS x1
+[19:26:39] Encolando ítem de AP para el jugador: WIDELENS x1
+[19:26:39] Encolando ítem de AP para el jugador: ZOOMLENS x1
+[19:26:39] Encolando ítem de AP para el jugador: KINGSROCK x1
+[19:26:39] Encolando ítem de AP para el jugador: RAZORFANG x1
+[19:26:39] Encolando ítem de AP para el jugador: LAGGINGTAIL x1
+[19:26:39] Encolando ítem de AP para el jugador: FOCUSBAND x1
+[19:26:39] Encolando ítem de AP para el jugador: FOCUSSASH x1
+[19:26:39] Encolando ítem de AP para el jugador: FLAMEORB x1
+[19:26:39] Encolando ítem de AP para el jugador: TOXICORB x1
+[19:26:39] Encolando ítem de AP para el jugador: STICKYBARB x1
+[19:26:39] Encolando ítem de AP para el jugador: IRONBALL x1
+[19:26:39] Encolando ítem de AP para el jugador: RINGTARGET x1
+[19:26:39] Encolando ítem de AP para el jugador: MACHOBRACE x1
+[19:26:39] Encolando ítem de AP para el jugador: POWERWEIGHT x1
+[19:26:39] Encolando ítem de AP para el jugador: POWERBRACER x1
+[19:26:39] Encolando ítem de AP para el jugador: POWERBELT x1
+[19:26:39] Encolando ítem de AP para el jugador: POWERLENS x1
+[19:26:39] Encolando ítem de AP para el jugador: POWERBAND x1
+[19:26:39] Encolando ítem de AP para el jugador: POWERANKLET x1
+[19:26:39] Encolando ítem de AP para el jugador: LAXINCENSE x1
+[19:26:39] Encolando ítem de AP para el jugador: FULLINCENSE x1
+[19:26:39] Encolando ítem de AP para el jugador: LUCKINCENSE x1
+[19:26:39] Encolando ítem de AP para el jugador: PUREINCENSE x1
+[19:26:39] Encolando ítem de AP para el jugador: SEAINCENSE x1
+[19:26:39] Encolando ítem de AP para el jugador: SEAINCENSE x1
+[19:26:39] Encolando ítem de AP para el jugador: SEAINCENSE x1
+[19:26:39] Encolando ítem de AP para el jugador: SEAINCENSE x1
+[19:26:39] Encolando ítem de AP para el jugador: WAVEINCENSE x1
+[19:26:39] Encolando ítem de AP para el jugador: WAVEINCENSE x1
+[19:26:39] Encolando ítem de AP para el jugador: WAVEINCENSE x1
+[19:26:39] Encolando ítem de AP para el jugador: WAVEINCENSE x1
+[19:26:39] Encolando ítem de AP para el jugador: WAVEINCENSE x1
+[19:26:39] Encolando ítem de AP para el jugador: ROSEINCENSE x1
+[19:26:39] Encolando ítem de AP para el jugador: ROSEINCENSE x1
+[19:26:39] Encolando ítem de AP para el jugador: ROSEINCENSE x1
+[19:26:39] Encolando ítem de AP para el jugador: ROSEINCENSE x1
+[19:26:39] Encolando ítem de AP para el jugador: ROSEINCENSE x1
+[19:26:39] Encolando ítem de AP para el jugador: ODDINCENSE x1
+[19:26:39] Encolando ítem de AP para el jugador: ODDINCENSE x1
+[19:26:39] Encolando ítem de AP para el jugador: ODDINCENSE x1
+[19:26:39] Encolando ítem de AP para el jugador: ROCKINCENSE x1
+[19:26:39] Encolando ítem de AP para el jugador: ROCKINCENSE x1
+[19:26:39] Encolando ítem de AP para el jugador: ROCKINCENSE x1
+[19:26:39] Encolando ítem de AP para el jugador: CHARCOAL x1
+[19:26:39] Encolando ítem de AP para el jugador: CHARCOAL x1
+[19:26:39] Encolando ítem de AP para el jugador: MYSTICWATER x1
+[19:26:39] Encolando ítem de AP para el jugador: MYSTICWATER x1
+[19:26:39] Encolando ítem de AP para el jugador: MAGNET x1
+[19:26:39] Encolando ítem de AP para el jugador: MAGNET x1
+[19:26:39] Encolando ítem de AP para el jugador: MIRACLESEED x1
+[19:26:39] Encolando ítem de AP para el jugador: MIRACLESEED x1
+[19:26:39] Encolando ítem de AP para el jugador: MIRACLESEED x1
+[19:26:39] Encolando ítem de AP para el jugador: MIRACLESEED x1
+[19:26:39] Encolando ítem de AP para el jugador: MIRACLESEED x1
+[19:26:39] Encolando ítem de AP para el jugador: NEVERMELTICE x1
+[19:26:39] Encolando ítem de AP para el jugador: NEVERMELTICE x1
+[19:26:39] Encolando ítem de AP para el jugador: BLACKBELT x1
+[19:26:39] Encolando ítem de AP para el jugador: BLACKBELT x1
+[19:26:39] Encolando ítem de AP para el jugador: BLACKBELT x1
+[19:26:39] Encolando ítem de AP para el jugador: POISONBARB x1
+[19:26:39] Encolando ítem de AP para el jugador: POISONBARB x1
+[19:26:39] Encolando ítem de AP para el jugador: POISONBARB x1
+[19:26:39] Encolando ítem de AP para el jugador: POISONBARB x1
+[19:26:39] Encolando ítem de AP para el jugador: SOFTSAND x1
+[19:26:39] Encolando ítem de AP para el jugador: SOFTSAND x1
+[19:26:39] Encolando ítem de AP para el jugador: SOFTSAND x1
+[19:26:39] Encolando ítem de AP para el jugador: SOFTSAND x1
+[19:26:39] Encolando ítem de AP para el jugador: SOFTSAND x1
+[19:26:39] Encolando ítem de AP para el jugador: SHARPBEAK x1
+[19:26:39] Encolando ítem de AP para el jugador: SHARPBEAK x1
+[19:26:39] Encolando ítem de AP para el jugador: SHARPBEAK x1
+[19:26:39] Encolando ítem de AP para el jugador: TWISTEDSPOON x1
+[19:26:39] Encolando ítem de AP para el jugador: TWISTEDSPOON x1
+[19:26:39] Encolando ítem de AP para el jugador: TWISTEDSPOON x1
+[19:26:39] Encolando ítem de AP para el jugador: SILVERPOWDER x1
+[19:26:39] Encolando ítem de AP para el jugador: SILVERPOWDER x1
+[19:26:39] Encolando ítem de AP para el jugador: SILVERPOWDER x1
+[19:26:39] Encolando ítem de AP para el jugador: SILVERPOWDER x1
+[19:26:39] Encolando ítem de AP para el jugador: HARDSTONE x1
+[19:26:39] Encolando ítem de AP para el jugador: HARDSTONE x1
+[19:26:39] Encolando ítem de AP para el jugador: SPELLTAG x1
+[19:26:39] Encolando ítem de AP para el jugador: SPELLTAG x1
+[19:26:39] Encolando ítem de AP para el jugador: DRAGONFANG x1
+[19:26:39] Encolando ítem de AP para el jugador: DRAGONFANG x1
+[19:26:39] Encolando ítem de AP para el jugador: DRAGONFANG x1
+[19:26:39] Encolando ítem de AP para el jugador: BLACKGLASSES x1
+[19:26:39] Encolando ítem de AP para el jugador: METALCOAT x1
+[19:26:39] Encolando ítem de AP para el jugador: SILKSCARF x1
+[19:26:39] Encolando ítem de AP para el jugador: SILKSCARF x1
+[19:26:39] Encolando ítem de AP para el jugador: SILKSCARF x1
+[19:26:39] Encolando ítem de AP para el jugador: FLAMEPLATE x1
+[19:26:39] Encolando ítem de AP para el jugador: FLAMEPLATE x1
+[19:26:39] Encolando ítem de AP para el jugador: FLAMEPLATE x1
+[19:26:39] Encolando ítem de AP para el jugador: SPLASHPLATE x1
+[19:26:39] Encolando ítem de AP para el jugador: ZAPPLATE x1
+[19:26:39] Encolando ítem de AP para el jugador: ZAPPLATE x1
+[19:26:39] Encolando ítem de AP para el jugador: MEADOWPLATE x1
+[19:26:39] Encolando ítem de AP para el jugador: MEADOWPLATE x1
+[19:26:39] Encolando ítem de AP para el jugador: MEADOWPLATE x1
+[19:26:39] Encolando ítem de AP para el jugador: ICICLEPLATE x1
+[19:26:39] Encolando ítem de AP para el jugador: ICICLEPLATE x1
+[19:26:39] Encolando ítem de AP para el jugador: ICICLEPLATE x1
+[19:26:39] Encolando ítem de AP para el jugador: FISTPLATE x1
+[19:26:39] Encolando ítem de AP para el jugador: FISTPLATE x1
+[19:26:39] Encolando ítem de AP para el jugador: FISTPLATE x1
+[19:26:39] Encolando ítem de AP para el jugador: FISTPLATE x1
+[19:26:39] Encolando ítem de AP para el jugador: TOXICPLATE x1
+[19:26:39] Encolando ítem de AP para el jugador: TOXICPLATE x1
+[19:26:39] Encolando ítem de AP para el jugador: TOXICPLATE x1
+[19:26:39] Encolando ítem de AP para el jugador: TOXICPLATE x1
+[19:26:39] Encolando ítem de AP para el jugador: EARTHPLATE x1
+[19:26:39] Encolando ítem de AP para el jugador: EARTHPLATE x1
+[19:26:39] Encolando ítem de AP para el jugador: SKYPLATE x1
+[19:26:39] Encolando ítem de AP para el jugador: SKYPLATE x1
+[19:26:39] Encolando ítem de AP para el jugador: SKYPLATE x1
+[19:26:39] Encolando ítem de AP para el jugador: SKYPLATE x1
+[19:26:39] Encolando ítem de AP para el jugador: MINDPLATE x1
+[19:26:39] Encolando ítem de AP para el jugador: MINDPLATE x1
+[19:26:39] Encolando ítem de AP para el jugador: INSECTPLATE x1
+[19:26:39] Encolando ítem de AP para el jugador: INSECTPLATE x1
+[19:26:39] Encolando ítem de AP para el jugador: STONEPLATE x1
+[19:26:39] Encolando ítem de AP para el jugador: STONEPLATE x1
+[19:26:39] Encolando ítem de AP para el jugador: STONEPLATE x1
+[19:26:39] Encolando ítem de AP para el jugador: STONEPLATE x1
+[19:26:39] Encolando ítem de AP para el jugador: STONEPLATE x1
+[19:26:39] Encolando ítem de AP para el jugador: SPOOKYPLATE x1
+[19:26:39] Encolando ítem de AP para el jugador: SPOOKYPLATE x1
+[19:26:39] Encolando ítem de AP para el jugador: SPOOKYPLATE x1
+[19:26:39] Encolando ítem de AP para el jugador: SPOOKYPLATE x1
+[19:26:39] Encolando ítem de AP para el jugador: DRACOPLATE x1
+[19:26:39] Encolando ítem de AP para el jugador: DRACOPLATE x1
+[19:26:39] Encolando ítem de AP para el jugador: DRACOPLATE x1
+[19:26:39] Encolando ítem de AP para el jugador: DREADPLATE x1
+[19:26:39] Encolando ítem de AP para el jugador: DREADPLATE x1
+[19:26:39] Encolando ítem de AP para el jugador: DREADPLATE x1
+[19:26:39] Encolando ítem de AP para el jugador: IRONPLATE x1
+[19:26:39] Encolando ítem de AP para el jugador: IRONPLATE x1
+[19:26:39] Encolando ítem de AP para el jugador: IRONPLATE x1
+[19:26:39] Encolando ítem de AP para el jugador: FIREGEM x1
+[19:26:39] Encolando ítem de AP para el jugador: FIREGEM x1
+[19:26:39] Encolando ítem de AP para el jugador: FIREGEM x1
+[19:26:39] Encolando ítem de AP para el jugador: WATERGEM x1
+[19:26:39] Encolando ítem de AP para el jugador: WATERGEM x1
+[19:26:39] Encolando ítem de AP para el jugador: WATERGEM x1
+[19:26:39] Encolando ítem de AP para el jugador: ELECTRICGEM x1
+[19:26:39] Encolando ítem de AP para el jugador: ELECTRICGEM x1
+[19:26:39] Encolando ítem de AP para el jugador: GRASSGEM x1
+[19:26:39] Encolando ítem de AP para el jugador: GRASSGEM x1
+[19:26:39] Encolando ítem de AP para el jugador: GRASSGEM x1
+[19:26:39] Encolando ítem de AP para el jugador: ICEGEM x1
+[19:26:39] Encolando ítem de AP para el jugador: ICEGEM x1
+[19:26:39] Encolando ítem de AP para el jugador: ICEGEM x1
+[19:26:39] Encolando ítem de AP para el jugador: ICEGEM x1
+[19:26:39] Encolando ítem de AP para el jugador: ICEGEM x1
+[19:26:39] Encolando ítem de AP para el jugador: ICEGEM x1
+[19:26:39] Encolando ítem de AP para el jugador: FIGHTINGGEM x1
+[19:26:39] Encolando ítem de AP para el jugador: FIGHTINGGEM x1
+[19:26:39] Encolando ítem de AP para el jugador: POISONGEM x1
+[19:26:39] Encolando ítem de AP para el jugador: GROUNDGEM x1
+[19:26:39] Encolando ítem de AP para el jugador: GROUNDGEM x1
+[19:26:39] Encolando ítem de AP para el jugador: GROUNDGEM x1
+[19:26:39] Encolando ítem de AP para el jugador: FLYINGGEM x1
+[19:26:39] Encolando ítem de AP para el jugador: FLYINGGEM x1
+[19:26:39] Encolando ítem de AP para el jugador: FLYINGGEM x1
+[19:26:39] Encolando ítem de AP para el jugador: FLYINGGEM x1
+[19:26:39] Encolando ítem de AP para el jugador: FLYINGGEM x1
+[19:26:39] Encolando ítem de AP para el jugador: PSYCHICGEM x1
+[19:26:39] Encolando ítem de AP para el jugador: PSYCHICGEM x1
+[19:26:39] Encolando ítem de AP para el jugador: BUGGEM x1
+[19:26:39] Encolando ítem de AP para el jugador: BUGGEM x1
+[19:26:39] Encolando ítem de AP para el jugador: BUGGEM x1
+[19:26:39] Encolando ítem de AP para el jugador: ROCKGEM x1
+[19:26:39] Encolando ítem de AP para el jugador: GHOSTGEM x1
+[19:26:39] Encolando ítem de AP para el jugador: GHOSTGEM x1
+[19:26:39] Encolando ítem de AP para el jugador: GHOSTGEM x1
+[19:26:39] Encolando ítem de AP para el jugador: GHOSTGEM x1
+[19:26:39] Encolando ítem de AP para el jugador: DRAGONGEM x1
+[19:26:39] Encolando ítem de AP para el jugador: DRAGONGEM x1
+[19:26:39] Encolando ítem de AP para el jugador: DRAGONGEM x1
+[19:26:39] Encolando ítem de AP para el jugador: DARKGEM x1
+[19:26:39] Encolando ítem de AP para el jugador: DARKGEM x1
+[19:26:39] Encolando ítem de AP para el jugador: DARKGEM x1
+[19:26:39] Encolando ítem de AP para el jugador: DARKGEM x1
+[19:26:39] Encolando ítem de AP para el jugador: STEELGEM x1
+[19:26:39] Encolando ítem de AP para el jugador: NORMALGEM x1
+[19:26:39] Encolando ítem de AP para el jugador: NORMALGEM x1
+[19:26:39] Encolando ítem de AP para el jugador: NORMALGEM x1
+[19:26:39] Encolando ítem de AP para el jugador: NORMALGEM x1
+[19:26:39] Encolando ítem de AP para el jugador: LIGHTBALL x1
+[19:26:39] Encolando ítem de AP para el jugador: LIGHTBALL x1
+[19:26:39] Encolando ítem de AP para el jugador: LUCKYPUNCH x1
+[19:26:39] Encolando ítem de AP para el jugador: LUCKYPUNCH x1
+[19:26:39] Encolando ítem de AP para el jugador: LUCKYPUNCH x1
+[19:26:39] Encolando ítem de AP para el jugador: LUCKYPUNCH x1
+[19:26:39] Encolando ítem de AP para el jugador: LUCKYPUNCH x1
+[19:26:39] Encolando ítem de AP para el jugador: LUCKYPUNCH x1
+[19:26:39] Encolando ítem de AP para el jugador: LUCKYPUNCH x1
+[19:26:39] Encolando ítem de AP para el jugador: LUCKYPUNCH x1
+[19:26:39] Encolando ítem de AP para el jugador: METALPOWDER x1
+[19:26:39] Encolando ítem de AP para el jugador: METALPOWDER x1
+[19:26:39] Encolando ítem de AP para el jugador: METALPOWDER x1
+[19:26:39] Encolando ítem de AP para el jugador: METALPOWDER x1
+[19:26:39] Encolando ítem de AP para el jugador: QUICKPOWDER x1
+[19:26:39] Encolando ítem de AP para el jugador: QUICKPOWDER x1
+[19:26:39] Encolando ítem de AP para el jugador: THICKCLUB x1
+[19:26:39] Encolando ítem de AP para el jugador: THICKCLUB x1
+[19:26:39] Encolando ítem de AP para el jugador: STICK x1
+[19:26:39] Encolando ítem de AP para el jugador: STICK x1
+[19:26:39] Encolando ítem de AP para el jugador: SOULDEW x1
+[19:26:39] Encolando ítem de AP para el jugador: DEEPSEATOOTH x1
+[19:26:39] Encolando ítem de AP para el jugador: DEEPSEATOOTH x1
+[19:26:39] Encolando ítem de AP para el jugador: DEEPSEATOOTH x1
+[19:26:39] Encolando ítem de AP para el jugador: DEEPSEASCALE x1
+[19:26:39] Encolando ítem de AP para el jugador: DEEPSEASCALE x1
+[19:26:39] Encolando ítem de AP para el jugador: DEEPSEASCALE x1
+[19:26:39] Encolando ítem de AP para el jugador: ADAMANTORB x1
+[19:26:39] Encolando ítem de AP para el jugador: LUSTROUSORB x1
+[19:26:39] Encolando ítem de AP para el jugador: GRISEOUSORB x1
+[19:26:39] Encolando ítem de AP para el jugador: DOUSEDRIVE x1
+[19:26:39] Encolando ítem de AP para el jugador: DOUSEDRIVE x1
+[19:26:39] Encolando ítem de AP para el jugador: DOUSEDRIVE x1
+[19:26:39] Encolando ítem de AP para el jugador: SHOCKDRIVE x1
+[19:26:39] Encolando ítem de AP para el jugador: SHOCKDRIVE x1
+[19:26:39] Encolando ítem de AP para el jugador: BURNDRIVE x1
+[19:26:39] Encolando ítem de AP para el jugador: BURNDRIVE x1
+[19:26:39] Encolando ítem de AP para el jugador: BURNDRIVE x1
+[19:26:39] Encolando ítem de AP para el jugador: CHILLDRIVE x1
+[19:26:39] Encolando ítem de AP para el jugador: CHILLDRIVE x1
+[19:26:39] Encolando ítem de AP para el jugador: CHILLDRIVE x1
+[19:26:39] Encolando ítem de AP para el jugador: EVERSTONE x1
+[19:26:39] Encolando ítem de AP para el jugador: EVERSTONE x1
+[19:26:39] Encolando ítem de AP para el jugador: DRAGONSCALE x1
+[19:26:39] Encolando ítem de AP para el jugador: UPGRADE x1
+[19:26:39] Encolando ítem de AP para el jugador: DUBIOUSDISC x1
+[19:26:39] Encolando ítem de AP para el jugador: PROTECTOR x1
+[19:26:39] Encolando ítem de AP para el jugador: ELECTIRIZER x1
+[19:26:39] Encolando ítem de AP para el jugador: MAGMARIZER x1
+[19:26:39] Encolando ítem de AP para el jugador: REAPERCLOTH x1
+[19:26:39] Encolando ítem de AP para el jugador: PRISMSCALE x1
+[19:26:39] Encolando ítem de AP para el jugador: OVALSTONE x1
+[19:26:39] Encolando ítem de AP para el jugador: REDSCARF x1
+[19:26:39] Encolando ítem de AP para el jugador: BLUESCARF x1
+[19:26:39] Encolando ítem de AP para el jugador: BLUESCARF x1
+[19:26:39] Encolando ítem de AP para el jugador: PINKSCARF x1
+[19:26:39] Encolando ítem de AP para el jugador: GREENSCARF x1
+[19:26:39] Encolando ítem de AP para el jugador: GREENSCARF x1
+[19:26:39] Encolando ítem de AP para el jugador: YELLOWSCARF x1
+[19:26:39] Encolando ítem de AP para el jugador: YELLOWSCARF x1
+[19:26:39] Encolando ítem de AP para el jugador: POTION x1
+[19:26:39] Encolando ítem de AP para el jugador: POTION x1
+[19:26:39] Encolando ítem de AP para el jugador: POTION x1
+[19:26:39] Encolando ítem de AP para el jugador: POTION x1
+[19:26:39] Encolando ítem de AP para el jugador: POTION x1
+[19:26:39] Encolando ítem de AP para el jugador: SUPERPOTION x1
+[19:26:39] Encolando ítem de AP para el jugador: SUPERPOTION x1
+[19:26:39] Encolando ítem de AP para el jugador: SUPERPOTION x1
+[19:26:39] Encolando ítem de AP para el jugador: SUPERPOTION x1
+[19:26:39] Encolando ítem de AP para el jugador: SUPERPOTION x1
+[19:26:39] Encolando ítem de AP para el jugador: SUPERPOTION x1
+[19:26:39] Encolando ítem de AP para el jugador: HYPERPOTION x1
+[19:26:39] Encolando ítem de AP para el jugador: HYPERPOTION x1
+[19:26:39] Encolando ítem de AP para el jugador: HYPERPOTION x1
+[19:26:39] Encolando ítem de AP para el jugador: MAXPOTION x1
+[19:26:39] Encolando ítem de AP para el jugador: FULLRESTORE x1
+[19:26:39] Encolando ítem de AP para el jugador: SACREDASH x1
+[19:26:39] Encolando ítem de AP para el jugador: AWAKENING x1
+[19:26:39] Encolando ítem de AP para el jugador: AWAKENING x1
+[19:26:39] Encolando ítem de AP para el jugador: AWAKENING x1
+[19:26:39] Encolando ítem de AP para el jugador: ANTIDOTE x1
+[19:26:39] Encolando ítem de AP para el jugador: ANTIDOTE x1
+[19:26:39] Encolando ítem de AP para el jugador: ANTIDOTE x1
+[19:26:39] Encolando ítem de AP para el jugador: ANTIDOTE x1
+[19:26:39] Encolando ítem de AP para el jugador: BURNHEAL x1
+[19:26:39] Encolando ítem de AP para el jugador: BURNHEAL x1
+[19:26:39] Encolando ítem de AP para el jugador: PARLYZHEAL x1
+[19:26:39] Encolando ítem de AP para el jugador: PARLYZHEAL x1
+[19:26:39] Encolando ítem de AP para el jugador: PARLYZHEAL x1
+[19:26:39] Encolando ítem de AP para el jugador: ICEHEAL x1
+[19:26:39] Encolando ítem de AP para el jugador: ICEHEAL x1
+[19:26:39] Encolando ítem de AP para el jugador: ICEHEAL x1
+[19:26:39] Encolando ítem de AP para el jugador: ICEHEAL x1
+[19:26:39] Encolando ítem de AP para el jugador: FULLHEAL x1
+[19:26:39] Encolando ítem de AP para el jugador: FULLHEAL x1
+[19:26:39] Encolando ítem de AP para el jugador: FULLHEAL x1
+[19:26:39] Encolando ítem de AP para el jugador: FULLHEAL x1
+[19:26:39] Encolando ítem de AP para el jugador: FULLHEAL x1
+[19:26:39] Encolando ítem de AP para el jugador: LAVACOOKIE x1
+[19:26:39] Encolando ítem de AP para el jugador: LAVACOOKIE x1
+[19:26:39] Encolando ítem de AP para el jugador: LAVACOOKIE x1
+[19:26:39] Encolando ítem de AP para el jugador: LAVACOOKIE x1
+[19:26:39] Encolando ítem de AP para el jugador: OLDGATEAU x1
+[19:26:39] Encolando ítem de AP para el jugador: CASTELIACONE x1
+[19:26:39] Encolando ítem de AP para el jugador: CASTELIACONE x1
+[19:26:39] Encolando ítem de AP para el jugador: CASTELIACONE x1
+[19:26:39] Encolando ítem de AP para el jugador: REVIVE x1
+[19:26:39] Encolando ítem de AP para el jugador: REVIVE x1
+[19:26:39] Encolando ítem de AP para el jugador: REVIVE x1
+[19:26:39] Encolando ítem de AP para el jugador: MAXREVIVE x1
+[19:26:39] Encolando ítem de AP para el jugador: BERRYJUICE x1
+[19:26:39] Encolando ítem de AP para el jugador: BERRYJUICE x1
+[19:26:39] Encolando ítem de AP para el jugador: RAGECANDYBAR x1
+[19:26:39] Encolando ítem de AP para el jugador: RAGECANDYBAR x1
+[19:26:39] Encolando ítem de AP para el jugador: SWEETHEART x1
+[19:26:39] Encolando ítem de AP para el jugador: FRESHWATER x1
+[19:26:39] Encolando ítem de AP para el jugador: FRESHWATER x1
+[19:26:39] Encolando ítem de AP para el jugador: SODAPOP x1
+[19:26:39] Encolando ítem de AP para el jugador: SODAPOP x1
+[19:26:39] Encolando ítem de AP para el jugador: SODAPOP x1
+[19:26:39] Encolando ítem de AP para el jugador: LEMONADE x1
+[19:26:39] Encolando ítem de AP para el jugador: LEMONADE x1
+[19:26:39] Encolando ítem de AP para el jugador: LEMONADE x1
+[19:26:39] Encolando ítem de AP para el jugador: LEMONADE x1
+[19:26:39] Encolando ítem de AP para el jugador: LEMONADE x1
+[19:26:39] Encolando ítem de AP para el jugador: LEMONADE x1
+[19:26:39] Encolando ítem de AP para el jugador: MOOMOOMILK x1
+[19:26:39] Encolando ítem de AP para el jugador: MOOMOOMILK x1
+[19:26:39] Encolando ítem de AP para el jugador: MOOMOOMILK x1
+[19:26:39] Encolando ítem de AP para el jugador: MOOMOOMILK x1
+[19:26:39] Encolando ítem de AP para el jugador: ENERGYPOWDER x1
+[19:26:39] Encolando ítem de AP para el jugador: ENERGYPOWDER x1
+[19:26:39] Encolando ítem de AP para el jugador: ENERGYROOT x1
+[19:26:39] Encolando ítem de AP para el jugador: ENERGYROOT x1
+[19:26:39] Encolando ítem de AP para el jugador: ENERGYROOT x1
+[19:26:39] Encolando ítem de AP para el jugador: ENERGYROOT x1
+[19:26:39] Encolando ítem de AP para el jugador: ENERGYROOT x1
+[19:26:39] Encolando ítem de AP para el jugador: HEALPOWDER x1
+[19:26:39] Encolando ítem de AP para el jugador: HEALPOWDER x1
+[19:26:39] Encolando ítem de AP para el jugador: REVIVALHERB x1
+[19:26:39] Encolando ítem de AP para el jugador: ETHER x1
+[19:26:39] Encolando ítem de AP para el jugador: MAXETHER x1
+[19:26:39] Encolando ítem de AP para el jugador: MAXETHER x1
+[19:26:39] Encolando ítem de AP para el jugador: ELIXIR x1
+[19:26:39] Encolando ítem de AP para el jugador: MAXELIXIR x1
+[19:26:39] Encolando ítem de AP para el jugador: PPUP x1
+[19:26:39] Encolando ítem de AP para el jugador: PPMAX x1
+[19:26:39] Encolando ítem de AP para el jugador: HPUP x1
+[19:26:39] Encolando ítem de AP para el jugador: PROTEIN x1
+[19:26:39] Encolando ítem de AP para el jugador: IRON x1
+[19:26:39] Encolando ítem de AP para el jugador: CALCIUM x1
+[19:26:39] Encolando ítem de AP para el jugador: ZINC x1
+[19:26:39] Encolando ítem de AP para el jugador: CARBOS x1
+[19:26:39] Encolando ítem de AP para el jugador: HEALTHWING x1
+[19:26:39] Encolando ítem de AP para el jugador: HEALTHWING x1
+[19:26:39] Encolando ítem de AP para el jugador: HEALTHWING x1
+[19:26:39] Encolando ítem de AP para el jugador: HEALTHWING x1
+[19:26:39] Encolando ítem de AP para el jugador: MUSCLEWING x1
+[19:26:39] Encolando ítem de AP para el jugador: MUSCLEWING x1
+[19:26:39] Encolando ítem de AP para el jugador: MUSCLEWING x1
+[19:26:39] Encolando ítem de AP para el jugador: MUSCLEWING x1
+[19:26:39] Encolando ítem de AP para el jugador: RESISTWING x1
+[19:26:39] Encolando ítem de AP para el jugador: RESISTWING x1
+[19:26:39] Encolando ítem de AP para el jugador: RESISTWING x1
+[19:26:39] Encolando ítem de AP para el jugador: GENIUSWING x1
+[19:26:39] Encolando ítem de AP para el jugador: GENIUSWING x1
+[19:26:39] Encolando ítem de AP para el jugador: CLEVERWING x1
+[19:26:39] Encolando ítem de AP para el jugador: CLEVERWING x1
+[19:26:39] Encolando ítem de AP para el jugador: CLEVERWING x1
+[19:26:39] Encolando ítem de AP para el jugador: SWIFTWING x1
+[19:26:39] Encolando ítem de AP para el jugador: SWIFTWING x1
+[19:26:39] Encolando ítem de AP para el jugador: RARECANDY x1
+[19:26:39] Encolando ítem de AP para el jugador: ULTRABALL x1
+[19:26:39] Encolando ítem de AP para el jugador: ULTRABALL x1
+[19:26:39] Encolando ítem de AP para el jugador: GREATBALL x1
+[19:26:39] Encolando ítem de AP para el jugador: GREATBALL x1
+[19:26:39] Encolando ítem de AP para el jugador: POKEBALL x1
+[19:26:39] Encolando ítem de AP para el jugador: POKEBALL x1
+[19:26:39] Encolando ítem de AP para el jugador: SAFARIBALL x1
+[19:26:39] Encolando ítem de AP para el jugador: SAFARIBALL x1
+[19:26:39] Encolando ítem de AP para el jugador: SAFARIBALL x1
+[19:26:39] Encolando ítem de AP para el jugador: SAFARIBALL x1
+[19:26:39] Encolando ítem de AP para el jugador: SPORTBALL x1
+[19:26:39] Encolando ítem de AP para el jugador: SPORTBALL x1
+[19:26:39] Encolando ítem de AP para el jugador: SPORTBALL x1
+[19:26:39] Encolando ítem de AP para el jugador: SPORTBALL x1
+[19:26:39] Encolando ítem de AP para el jugador: NETBALL x1
+[19:26:39] Encolando ítem de AP para el jugador: NETBALL x1
+[19:26:39] Encolando ítem de AP para el jugador: NETBALL x1
+[19:26:39] Encolando ítem de AP para el jugador: NETBALL x1
+[19:26:39] Encolando ítem de AP para el jugador: DIVEBALL x1
+[19:26:39] Encolando ítem de AP para el jugador: DIVEBALL x1
+[19:26:39] Encolando ítem de AP para el jugador: DIVEBALL x1
+[19:26:39] Encolando ítem de AP para el jugador: DIVEBALL x1
+[19:26:39] Encolando ítem de AP para el jugador: NESTBALL x1
+[19:26:39] Encolando ítem de AP para el jugador: NESTBALL x1
+[19:26:39] Encolando ítem de AP para el jugador: NESTBALL x1
+[19:26:39] Encolando ítem de AP para el jugador: REPEATBALL x1
+[19:26:39] Encolando ítem de AP para el jugador: REPEATBALL x1
+[19:26:39] Encolando ítem de AP para el jugador: REPEATBALL x1
+[19:26:39] Encolando ítem de AP para el jugador: TIMERBALL x1
+[19:26:39] Encolando ítem de AP para el jugador: TIMERBALL x1
+[19:26:39] Encolando ítem de AP para el jugador: LUXURYBALL x1
+[19:26:39] Encolando ítem de AP para el jugador: LUXURYBALL x1
+[19:26:39] Encolando ítem de AP para el jugador: LUXURYBALL x1
+[19:26:39] Encolando ítem de AP para el jugador: PREMIERBALL x1
+[19:26:39] Encolando ítem de AP para el jugador: PREMIERBALL x1
+[19:26:39] Encolando ítem de AP para el jugador: PREMIERBALL x1
+[19:26:39] Encolando ítem de AP para el jugador: DUSKBALL x1
+[19:26:39] Encolando ítem de AP para el jugador: DUSKBALL x1
+[19:26:39] Encolando ítem de AP para el jugador: HEALBALL x1
+[19:26:39] Encolando ítem de AP para el jugador: HEALBALL x1
+[19:26:39] Encolando ítem de AP para el jugador: HEALBALL x1
+[19:26:39] Encolando ítem de AP para el jugador: QUICKBALL x1
+[19:26:39] Encolando ítem de AP para el jugador: QUICKBALL x1
+[19:26:39] Encolando ítem de AP para el jugador: QUICKBALL x1
+[19:26:39] Encolando ítem de AP para el jugador: CHERISHBALL x1
+[19:26:39] Encolando ítem de AP para el jugador: FASTBALL x1
+[19:26:39] Encolando ítem de AP para el jugador: LEVELBALL x1
+[19:26:39] Encolando ítem de AP para el jugador: LEVELBALL x1
+[19:26:39] Encolando ítem de AP para el jugador: LEVELBALL x1
+[19:26:39] Encolando ítem de AP para el jugador: LUREBALL x1
+[19:26:39] Encolando ítem de AP para el jugador: LUREBALL x1
+[19:26:39] Encolando ítem de AP para el jugador: LUREBALL x1
+[19:26:39] Encolando ítem de AP para el jugador: LUREBALL x1
+[19:26:39] Encolando ítem de AP para el jugador: LUREBALL x1
+[19:26:39] Encolando ítem de AP para el jugador: HEAVYBALL x1
+[19:26:39] Encolando ítem de AP para el jugador: LOVEBALL x1
+[19:26:39] Encolando ítem de AP para el jugador: LOVEBALL x1
+[19:26:39] Encolando ítem de AP para el jugador: LOVEBALL x1
+[19:26:39] Encolando ítem de AP para el jugador: LOVEBALL x1
+[19:26:39] Encolando ítem de AP para el jugador: FRIENDBALL x1
+[19:26:39] Encolando ítem de AP para el jugador: FRIENDBALL x1
+[19:26:39] Encolando ítem de AP para el jugador: FRIENDBALL x1
+[19:26:39] Encolando ítem de AP para el jugador: FRIENDBALL x1
+[19:26:39] Encolando ítem de AP para el jugador: MOONBALL x1
+[19:26:39] Encolando ítem de AP para el jugador: MOONBALL x1
+[19:26:39] Encolando ítem de AP para el jugador: TM01 x1
+[19:26:39] Encolando ítem de AP para el jugador: TM02 x1
+[19:26:39] Encolando ítem de AP para el jugador: TM03 x1
+[19:26:39] Encolando ítem de AP para el jugador: TM04 x1
+[19:26:39] Encolando ítem de AP para el jugador: TM05 x1
+[19:26:39] Encolando ítem de AP para el jugador: TM06 x1
+[19:26:39] Encolando ítem de AP para el jugador: TM07 x1
+[19:26:39] Encolando ítem de AP para el jugador: TM08 x1
+[19:26:39] Encolando ítem de AP para el jugador: TM09 x1
+[19:26:39] Encolando ítem de AP para el jugador: TM10 x1
+[19:26:39] Encolando ítem de AP para el jugador: TM11 x1
+[19:26:39] Encolando ítem de AP para el jugador: TM12 x1
+[19:26:39] Encolando ítem de AP para el jugador: TM13 x1
+[19:26:39] Encolando ítem de AP para el jugador: TM14 x1
+[19:26:39] Encolando ítem de AP para el jugador: TM15 x1
+[19:26:39] Encolando ítem de AP para el jugador: TM16 x1
+[19:26:39] Encolando ítem de AP para el jugador: TM17 x1
+[19:26:39] Encolando ítem de AP para el jugador: TM18 x1
+[19:26:39] Encolando ítem de AP para el jugador: TM20 x1
+[19:26:39] Encolando ítem de AP para el jugador: TM21 x1
+[19:26:39] Encolando ítem de AP para el jugador: TM22 x1
+[19:26:39] Encolando ítem de AP para el jugador: TM23 x1
+[19:26:39] Encolando ítem de AP para el jugador: TM24 x1
+[19:26:39] Encolando ítem de AP para el jugador: TM25 x1
+[19:26:39] Encolando ítem de AP para el jugador: TM26 x1
+[19:26:39] Encolando ítem de AP para el jugador: TM27 x1
+[19:26:39] Encolando ítem de AP para el jugador: TM28 x1
+[19:26:39] Encolando ítem de AP para el jugador: TM29 x1
+[19:26:39] Encolando ítem de AP para el jugador: TM30 x1
+[19:26:39] Encolando ítem de AP para el jugador: TM31 x1
+[19:26:39] Encolando ítem de AP para el jugador: TM32 x1
+[19:26:39] Encolando ítem de AP para el jugador: TM33 x1
+[19:26:39] Encolando ítem de AP para el jugador: TM34 x1
+[19:26:39] Encolando ítem de AP para el jugador: TM35 x1
+[19:26:39] Encolando ítem de AP para el jugador: TM36 x1
+[19:26:39] Encolando ítem de AP para el jugador: TM37 x1
+[19:26:39] Encolando ítem de AP para el jugador: TM38 x1
+[19:26:39] Encolando ítem de AP para el jugador: TM39 x1
+[19:26:39] Encolando ítem de AP para el jugador: TM40 x1
+[19:26:39] Encolando ítem de AP para el jugador: TM41 x1
+[19:26:39] Encolando ítem de AP para el jugador: TM42 x1
+[19:26:39] Encolando ítem de AP para el jugador: TM43 x1
+[19:26:39] Encolando ítem de AP para el jugador: TM44 x1
+[19:26:39] Encolando ítem de AP para el jugador: TM45 x1
+[19:26:39] Encolando ítem de AP para el jugador: TM46 x1
+[19:26:39] Encolando ítem de AP para el jugador: TM47 x1
+[19:26:39] Encolando ítem de AP para el jugador: TM48 x1
+[19:26:39] Encolando ítem de AP para el jugador: TM49 x1
+[19:26:39] Encolando ítem de AP para el jugador: TM50 x1
+[19:26:39] Encolando ítem de AP para el jugador: TM51 x1
+[19:26:39] Encolando ítem de AP para el jugador: TM52 x1
+[19:26:39] Encolando ítem de AP para el jugador: TM53 x1
+[19:26:39] Encolando ítem de AP para el jugador: TM54 x1
+[19:26:39] Encolando ítem de AP para el jugador: TM55 x1
+[19:26:39] Encolando ítem de AP para el jugador: TM56 x1
+[19:26:39] Encolando ítem de AP para el jugador: TM57 x1
+[19:26:39] Encolando ítem de AP para el jugador: TM58 x1
+[19:26:39] Encolando ítem de AP para el jugador: TM59 x1
+[19:26:39] Encolando ítem de AP para el jugador: TM60 x1
+[19:26:39] Encolando ítem de AP para el jugador: TM61 x1
+[19:26:39] Encolando ítem de AP para el jugador: TM62 x1
+[19:26:39] Encolando ítem de AP para el jugador: TM63 x1
+[19:26:39] Encolando ítem de AP para el jugador: TM64 x1
+[19:26:39] Encolando ítem de AP para el jugador: TM65 x1
+[19:26:39] Encolando ítem de AP para el jugador: TM66 x1
+[19:26:39] Encolando ítem de AP para el jugador: TM67 x1
+[19:26:39] Encolando ítem de AP para el jugador: TM68 x1
+[19:26:39] Encolando ítem de AP para el jugador: TM69 x1
+[19:26:39] Encolando ítem de AP para el jugador: TM70 x1
+[19:26:39] Encolando ítem de AP para el jugador: TM71 x1
+[19:26:39] Encolando ítem de AP para el jugador: TM72 x1
+[19:26:39] Encolando ítem de AP para el jugador: TM73 x1
+[19:26:39] Encolando ítem de AP para el jugador: TM74 x1
+[19:26:39] Encolando ítem de AP para el jugador: TM75 x1
+[19:26:39] Encolando ítem de AP para el jugador: TM76 x1
+[19:26:39] Encolando ítem de AP para el jugador: TM77 x1
+[19:26:39] Encolando ítem de AP para el jugador: TM78 x1
+[19:26:39] Encolando ítem de AP para el jugador: TM79 x1
+[19:26:39] Encolando ítem de AP para el jugador: TM80 x1
+[19:26:39] Encolando ítem de AP para el jugador: TM81 x1
+[19:26:39] Encolando ítem de AP para el jugador: TM82 x1
+[19:26:39] Encolando ítem de AP para el jugador: TM83 x1
+[19:26:39] Encolando ítem de AP para el jugador: TM84 x1
+[19:26:39] Encolando ítem de AP para el jugador: TM85 x1
+[19:26:39] Encolando ítem de AP para el jugador: TM86 x1
+[19:26:39] Encolando ítem de AP para el jugador: TM87 x1
+[19:26:39] Encolando ítem de AP para el jugador: TM88 x1
+[19:26:39] Encolando ítem de AP para el jugador: TM89 x1
+[19:26:39] Encolando ítem de AP para el jugador: TM90 x1
+[19:26:39] Encolando ítem de AP para el jugador: TM91 x1
+[19:26:39] Encolando ítem de AP para el jugador: TM92 x1
+[19:26:39] Encolando ítem de AP para el jugador: TM93 x1
+[19:26:39] Encolando ítem de AP para el jugador: TM94 x1
+[19:26:39] Encolando ítem de AP para el jugador: TM95 x1
+[19:26:39] Encolando ítem de AP para el jugador: HM01 x1
+[19:26:39] Encolando ítem de AP para el jugador: HM02 x1
+[19:26:39] Encolando ítem de AP para el jugador: HM03 x1
+[19:26:39] Encolando ítem de AP para el jugador: HM04 x1
+[19:26:39] Encolando ítem de AP para el jugador: HM05 x1
+[19:26:39] Encolando ítem de AP para el jugador: HM06 x1
+[19:26:39] Encolando ítem de AP para el jugador: CHERIBERRY x1
+[19:26:39] Encolando ítem de AP para el jugador: CHERIBERRY x1
+[19:26:39] Encolando ítem de AP para el jugador: CHERIBERRY x1
+[19:26:39] Encolando ítem de AP para el jugador: CHESTOBERRY x1
+[19:26:39] Encolando ítem de AP para el jugador: CHESTOBERRY x1
+[19:26:39] Encolando ítem de AP para el jugador: CHESTOBERRY x1
+[19:26:39] Encolando ítem de AP para el jugador: CHESTOBERRY x1
+[19:26:39] Encolando ítem de AP para el jugador: PECHABERRY x1
+[19:26:39] Encolando ítem de AP para el jugador: PECHABERRY x1
+[19:26:39] Encolando ítem de AP para el jugador: PECHABERRY x1
+[19:26:39] Encolando ítem de AP para el jugador: RAWSTBERRY x1
+[19:26:39] Encolando ítem de AP para el jugador: ASPEARBERRY x1
+[19:26:39] Encolando ítem de AP para el jugador: ASPEARBERRY x1
+[19:26:39] Encolando ítem de AP para el jugador: ASPEARBERRY x1
+[19:26:39] Encolando ítem de AP para el jugador: ASPEARBERRY x1
+[19:26:39] Encolando ítem de AP para el jugador: ASPEARBERRY x1
+[19:26:39] Encolando ítem de AP para el jugador: LEPPABERRY x1
+[19:26:39] Encolando ítem de AP para el jugador: LEPPABERRY x1
+[19:26:39] Encolando ítem de AP para el jugador: ORANBERRY x1
+[19:26:39] Encolando ítem de AP para el jugador: ORANBERRY x1
+[19:26:39] Encolando ítem de AP para el jugador: PERSIMBERRY x1
+[19:26:39] Encolando ítem de AP para el jugador: LUMBERRY x1
+[19:26:39] Encolando ítem de AP para el jugador: LUMBERRY x1
+[19:26:39] Encolando ítem de AP para el jugador: LUMBERRY x1
+[19:26:39] Encolando ítem de AP para el jugador: SITRUSBERRY x1
+[19:26:39] Encolando ítem de AP para el jugador: SITRUSBERRY x1
+[19:26:39] Encolando ítem de AP para el jugador: SITRUSBERRY x1
+[19:26:39] Encolando ítem de AP para el jugador: FIGYBERRY x1
+[19:26:39] Encolando ítem de AP para el jugador: FIGYBERRY x1
+[19:26:39] Encolando ítem de AP para el jugador: WIKIBERRY x1
+[19:26:39] Encolando ítem de AP para el jugador: WIKIBERRY x1
+[19:26:39] Encolando ítem de AP para el jugador: WIKIBERRY x1
+[19:26:39] Encolando ítem de AP para el jugador: WIKIBERRY x1
+[19:26:39] Encolando ítem de AP para el jugador: MAGOBERRY x1
+[19:26:39] Encolando ítem de AP para el jugador: MAGOBERRY x1
+[19:26:39] Encolando ítem de AP para el jugador: MAGOBERRY x1
+[19:26:39] Encolando ítem de AP para el jugador: AGUAVBERRY x1
+[19:26:39] Encolando ítem de AP para el jugador: AGUAVBERRY x1
+[19:26:39] Encolando ítem de AP para el jugador: IAPAPABERRY x1
+[19:26:39] Encolando ítem de AP para el jugador: IAPAPABERRY x1
+[19:26:39] Encolando ítem de AP para el jugador: IAPAPABERRY x1
+[19:26:39] Encolando ítem de AP para el jugador: IAPAPABERRY x1
+[19:26:39] Encolando ítem de AP para el jugador: RAZZBERRY x1
+[19:26:39] Encolando ítem de AP para el jugador: BLUKBERRY x1
+[19:26:39] Encolando ítem de AP para el jugador: NANABBERRY x1
+[19:26:39] Encolando ítem de AP para el jugador: NANABBERRY x1
+[19:26:39] Encolando ítem de AP para el jugador: NANABBERRY x1
+[19:26:39] Encolando ítem de AP para el jugador: NANABBERRY x1
+[19:26:39] Encolando ítem de AP para el jugador: WEPEARBERRY x1
+[19:26:39] Encolando ítem de AP para el jugador: PINAPBERRY x1
+[19:26:39] Encolando ítem de AP para el jugador: PINAPBERRY x1
+[19:26:39] Encolando ítem de AP para el jugador: PINAPBERRY x1
+[19:26:39] Encolando ítem de AP para el jugador: PINAPBERRY x1
+[19:26:39] Encolando ítem de AP para el jugador: PINAPBERRY x1
+[19:26:39] Encolando ítem de AP para el jugador: POMEGBERRY x1
+[19:26:39] Encolando ítem de AP para el jugador: POMEGBERRY x1
+[19:26:39] Encolando ítem de AP para el jugador: POMEGBERRY x1
+[19:26:39] Encolando ítem de AP para el jugador: KELPSYBERRY x1
+[19:26:39] Encolando ítem de AP para el jugador: KELPSYBERRY x1
+[19:26:39] Encolando ítem de AP para el jugador: KELPSYBERRY x1
+[19:26:39] Encolando ítem de AP para el jugador: KELPSYBERRY x1
+[19:26:39] Encolando ítem de AP para el jugador: QUALOTBERRY x1
+[19:26:39] Encolando ítem de AP para el jugador: QUALOTBERRY x1
+[19:26:39] Encolando ítem de AP para el jugador: HONDEWBERRY x1
+[19:26:39] Encolando ítem de AP para el jugador: GREPABERRY x1
+[19:26:39] Encolando ítem de AP para el jugador: GREPABERRY x1
+[19:26:39] Encolando ítem de AP para el jugador: GREPABERRY x1
+[19:26:39] Encolando ítem de AP para el jugador: GREPABERRY x1
+[19:26:39] Encolando ítem de AP para el jugador: TAMATOBERRY x1
+[19:26:39] Encolando ítem de AP para el jugador: TAMATOBERRY x1
+[19:26:39] Encolando ítem de AP para el jugador: CORNNBERRY x1
+[19:26:39] Encolando ítem de AP para el jugador: CORNNBERRY x1
+[19:26:39] Encolando ítem de AP para el jugador: CORNNBERRY x1
+[19:26:39] Encolando ítem de AP para el jugador: CORNNBERRY x1
+[19:26:39] Encolando ítem de AP para el jugador: CORNNBERRY x1
+[19:26:39] Encolando ítem de AP para el jugador: MAGOSTBERRY x1
+[19:26:39] Encolando ítem de AP para el jugador: MAGOSTBERRY x1
+[19:26:39] Encolando ítem de AP para el jugador: MAGOSTBERRY x1
+[19:26:39] Encolando ítem de AP para el jugador: MAGOSTBERRY x1
+[19:26:39] Encolando ítem de AP para el jugador: RABUTABERRY x1
+[19:26:39] Encolando ítem de AP para el jugador: RABUTABERRY x1
+[19:26:39] Encolando ítem de AP para el jugador: RABUTABERRY x1
+[19:26:39] Encolando ítem de AP para el jugador: NOMELBERRY x1
+[19:26:39] Encolando ítem de AP para el jugador: NOMELBERRY x1
+[19:26:39] Encolando ítem de AP para el jugador: NOMELBERRY x1
+[19:26:39] Encolando ítem de AP para el jugador: SPELONBERRY x1
+[19:26:39] Encolando ítem de AP para el jugador: SPELONBERRY x1
+[19:26:39] Encolando ítem de AP para el jugador: SPELONBERRY x1
+[19:26:39] Encolando ítem de AP para el jugador: PAMTREBERRY x1
+[19:26:39] Encolando ítem de AP para el jugador: PAMTREBERRY x1
+[19:26:39] Encolando ítem de AP para el jugador: PAMTREBERRY x1
+[19:26:39] Encolando ítem de AP para el jugador: PAMTREBERRY x1
+[19:26:39] Encolando ítem de AP para el jugador: WATMELBERRY x1
+[19:26:39] Encolando ítem de AP para el jugador: WATMELBERRY x1
+[19:26:39] Encolando ítem de AP para el jugador: WATMELBERRY x1
+[19:26:39] Encolando ítem de AP para el jugador: DURINBERRY x1
+[19:26:39] Encolando ítem de AP para el jugador: DURINBERRY x1
+[19:26:39] Encolando ítem de AP para el jugador: DURINBERRY x1
+[19:26:39] Encolando ítem de AP para el jugador: DURINBERRY x1
+[19:26:39] Encolando ítem de AP para el jugador: DURINBERRY x1
+[19:26:39] Encolando ítem de AP para el jugador: BELUEBERRY x1
+[19:26:39] Encolando ítem de AP para el jugador: BELUEBERRY x1
+[19:26:39] Encolando ítem de AP para el jugador: BELUEBERRY x1
+[19:26:39] Encolando ítem de AP para el jugador: BELUEBERRY x1
+[19:26:39] Encolando ítem de AP para el jugador: OCCABERRY x1
+[19:26:39] Encolando ítem de AP para el jugador: OCCABERRY x1
+[19:26:39] Encolando ítem de AP para el jugador: OCCABERRY x1
+[19:26:39] Encolando ítem de AP para el jugador: PASSHOBERRY x1
+[19:26:39] Encolando ítem de AP para el jugador: PASSHOBERRY x1
+[19:26:39] Encolando ítem de AP para el jugador: PASSHOBERRY x1
+[19:26:39] Encolando ítem de AP para el jugador: PASSHOBERRY x1
+[19:26:39] Encolando ítem de AP para el jugador: PASSHOBERRY x1
+[19:26:39] Encolando ítem de AP para el jugador: PASSHOBERRY x1
+[19:26:39] Encolando ítem de AP para el jugador: WACANBERRY x1
+[19:26:39] Encolando ítem de AP para el jugador: WACANBERRY x1
+[19:26:39] Encolando ítem de AP para el jugador: RINDOBERRY x1
+[19:26:39] Encolando ítem de AP para el jugador: RINDOBERRY x1
+[19:26:39] Encolando ítem de AP para el jugador: RINDOBERRY x1
+[19:26:39] Encolando ítem de AP para el jugador: RINDOBERRY x1
+[19:26:39] Encolando ítem de AP para el jugador: YACHEBERRY x1
+[19:26:39] Encolando ítem de AP para el jugador: YACHEBERRY x1
+[19:26:39] Encolando ítem de AP para el jugador: CHOPLEBERRY x1
+[19:26:39] Encolando ítem de AP para el jugador: CHOPLEBERRY x1
+[19:26:39] Encolando ítem de AP para el jugador: CHOPLEBERRY x1
+[19:26:39] Encolando ítem de AP para el jugador: CHOPLEBERRY x1
+[19:26:39] Encolando ítem de AP para el jugador: KEBIABERRY x1
+[19:26:39] Encolando ítem de AP para el jugador: KEBIABERRY x1
+[19:26:39] Encolando ítem de AP para el jugador: KEBIABERRY x1
+[19:26:39] Encolando ítem de AP para el jugador: KEBIABERRY x1
+[19:26:39] Encolando ítem de AP para el jugador: KEBIABERRY x1
+[19:26:39] Encolando ítem de AP para el jugador: SHUCABERRY x1
+[19:26:39] Encolando ítem de AP para el jugador: SHUCABERRY x1
+[19:26:39] Encolando ítem de AP para el jugador: COBABERRY x1
+[19:26:39] Encolando ítem de AP para el jugador: COBABERRY x1
+[19:26:39] Encolando ítem de AP para el jugador: COBABERRY x1
+[19:26:39] Encolando ítem de AP para el jugador: COBABERRY x1
+[19:26:39] Encolando ítem de AP para el jugador: COBABERRY x1
+[19:26:39] Encolando ítem de AP para el jugador: COBABERRY x1
+[19:26:39] Encolando ítem de AP para el jugador: COBABERRY x1
+[19:26:39] Encolando ítem de AP para el jugador: PAYAPABERRY x1
+[19:26:39] Encolando ítem de AP para el jugador: PAYAPABERRY x1
+[19:26:39] Encolando ítem de AP para el jugador: PAYAPABERRY x1
+[19:26:39] Encolando ítem de AP para el jugador: PAYAPABERRY x1
+[19:26:39] Encolando ítem de AP para el jugador: PAYAPABERRY x1
+[19:26:39] Encolando ítem de AP para el jugador: TANGABERRY x1
+[19:26:39] Encolando ítem de AP para el jugador: CHARTIBERRY x1
+[19:26:39] Encolando ítem de AP para el jugador: CHARTIBERRY x1
+[19:26:39] Encolando ítem de AP para el jugador: KASIBBERRY x1
+[19:26:39] Encolando ítem de AP para el jugador: KASIBBERRY x1
+[19:26:39] Encolando ítem de AP para el jugador: KASIBBERRY x1
+[19:26:39] Encolando ítem de AP para el jugador: KASIBBERRY x1
+[19:26:39] Encolando ítem de AP para el jugador: HABANBERRY x1
+[19:26:39] Encolando ítem de AP para el jugador: HABANBERRY x1
+[19:26:39] Encolando ítem de AP para el jugador: HABANBERRY x1
+[19:26:39] Encolando ítem de AP para el jugador: HABANBERRY x1
+[19:26:39] Encolando ítem de AP para el jugador: HABANBERRY x1
+[19:26:39] Encolando ítem de AP para el jugador: HABANBERRY x1
+[19:26:39] Encolando ítem de AP para el jugador: HABANBERRY x1
+[19:26:39] Encolando ítem de AP para el jugador: COLBURBERRY x1
+[19:26:39] Encolando ítem de AP para el jugador: COLBURBERRY x1
+[19:26:39] Encolando ítem de AP para el jugador: COLBURBERRY x1
+[19:26:39] Encolando ítem de AP para el jugador: BABIRIBERRY x1
+[19:26:39] Encolando ítem de AP para el jugador: CHILANBERRY x1
+[19:26:39] Encolando ítem de AP para el jugador: CHILANBERRY x1
+[19:26:39] Encolando ítem de AP para el jugador: CHILANBERRY x1
+[19:26:39] Encolando ítem de AP para el jugador: CHILANBERRY x1
+[19:26:39] Encolando ítem de AP para el jugador: CHILANBERRY x1
+[19:26:39] Encolando ítem de AP para el jugador: LIECHIBERRY x1
+[19:26:39] Encolando ítem de AP para el jugador: GANLONBERRY x1
+[19:26:39] Encolando ítem de AP para el jugador: GANLONBERRY x1
+[19:26:39] Encolando ítem de AP para el jugador: GANLONBERRY x1
+[19:26:39] Encolando ítem de AP para el jugador: GANLONBERRY x1
+[19:26:39] Encolando ítem de AP para el jugador: SALACBERRY x1
+[19:26:39] Encolando ítem de AP para el jugador: SALACBERRY x1
+[19:26:39] Encolando ítem de AP para el jugador: SALACBERRY x1
+[19:26:39] Encolando ítem de AP para el jugador: SALACBERRY x1
+[19:26:39] Encolando ítem de AP para el jugador: PETAYABERRY x1
+[19:26:39] Encolando ítem de AP para el jugador: PETAYABERRY x1
+[19:26:39] Encolando ítem de AP para el jugador: PETAYABERRY x1
+[19:26:39] Encolando ítem de AP para el jugador: PETAYABERRY x1
+[19:26:39] Encolando ítem de AP para el jugador: APICOTBERRY x1
+[19:26:39] Encolando ítem de AP para el jugador: LANSATBERRY x1
+[19:26:39] Encolando ítem de AP para el jugador: LANSATBERRY x1
+[19:26:39] Encolando ítem de AP para el jugador: LANSATBERRY x1
+[19:26:39] Encolando ítem de AP para el jugador: LANSATBERRY x1
+[19:26:39] Encolando ítem de AP para el jugador: LANSATBERRY x1
+[19:26:39] Encolando ítem de AP para el jugador: STARFBERRY x1
+[19:26:39] Encolando ítem de AP para el jugador: STARFBERRY x1
+[19:26:39] Encolando ítem de AP para el jugador: STARFBERRY x1
+[19:26:39] Encolando ítem de AP para el jugador: STARFBERRY x1
+[19:26:39] Encolando ítem de AP para el jugador: ENIGMABERRY x1
+[19:26:39] Encolando ítem de AP para el jugador: ENIGMABERRY x1
+[19:26:39] Encolando ítem de AP para el jugador: ENIGMABERRY x1
+[19:26:39] Encolando ítem de AP para el jugador: MICLEBERRY x1
+[19:26:39] Encolando ítem de AP para el jugador: MICLEBERRY x1
+[19:26:39] Encolando ítem de AP para el jugador: CUSTAPBERRY x1
+[19:26:39] Encolando ítem de AP para el jugador: CUSTAPBERRY x1
+[19:26:39] Encolando ítem de AP para el jugador: JABOCABERRY x1
+[19:26:39] Encolando ítem de AP para el jugador: JABOCABERRY x1
+[19:26:39] Encolando ítem de AP para el jugador: JABOCABERRY x1
+[19:26:39] Encolando ítem de AP para el jugador: ROWAPBERRY x1
+[19:26:39] Encolando ítem de AP para el jugador: ROWAPBERRY x1
+[19:26:39] Encolando ítem de AP para el jugador: ROWAPBERRY x1
+[19:26:39] Encolando ítem de AP para el jugador: ROWAPBERRY x1
+[19:26:39] Encolando ítem de AP para el jugador: GRASSMAIL x1
+[19:26:39] Encolando ítem de AP para el jugador: GRASSMAIL x1
+[19:26:39] Encolando ítem de AP para el jugador: GRASSMAIL x1
+[19:26:39] Encolando ítem de AP para el jugador: FLAMEMAIL x1
+[19:26:39] Encolando ítem de AP para el jugador: FLAMEMAIL x1
+[19:26:39] Encolando ítem de AP para el jugador: FLAMEMAIL x1
+[19:26:39] Encolando ítem de AP para el jugador: FLAMEMAIL x1
+[19:26:39] Encolando ítem de AP para el jugador: BUBBLEMAIL x1
+[19:26:39] Encolando ítem de AP para el jugador: BUBBLEMAIL x1
+[19:26:39] Encolando ítem de AP para el jugador: BUBBLEMAIL x1
+[19:26:39] Encolando ítem de AP para el jugador: BLOOMMAIL x1
+[19:26:39] Encolando ítem de AP para el jugador: BLOOMMAIL x1
+[19:26:39] Encolando ítem de AP para el jugador: TUNNELMAIL x1
+[19:26:39] Encolando ítem de AP para el jugador: TUNNELMAIL x1
+[19:26:39] Encolando ítem de AP para el jugador: TUNNELMAIL x1
+[19:26:39] Encolando ítem de AP para el jugador: TUNNELMAIL x1
+[19:26:39] Encolando ítem de AP para el jugador: TUNNELMAIL x1
+[19:26:39] Encolando ítem de AP para el jugador: STEELMAIL x1
+[19:26:39] Encolando ítem de AP para el jugador: STEELMAIL x1
+[19:26:39] Encolando ítem de AP para el jugador: STEELMAIL x1
+[19:26:39] Encolando ítem de AP para el jugador: HEARTMAIL x1
+[19:26:39] Encolando ítem de AP para el jugador: HEARTMAIL x1
+[19:26:39] Encolando ítem de AP para el jugador: HEARTMAIL x1
+[19:26:39] Encolando ítem de AP para el jugador: HEARTMAIL x1
+[19:26:39] Encolando ítem de AP para el jugador: HEARTMAIL x1
+[19:26:39] Encolando ítem de AP para el jugador: SNOWMAIL x1
+[19:26:39] Encolando ítem de AP para el jugador: SNOWMAIL x1
+[19:26:39] Encolando ítem de AP para el jugador: SNOWMAIL x1
+[19:26:39] Encolando ítem de AP para el jugador: SPACEMAIL x1
+[19:26:39] Encolando ítem de AP para el jugador: SPACEMAIL x1
+[19:26:39] Encolando ítem de AP para el jugador: SPACEMAIL x1
+[19:26:39] Encolando ítem de AP para el jugador: SPACEMAIL x1
+[19:26:39] Encolando ítem de AP para el jugador: AIRMAIL x1
+[19:26:39] Encolando ítem de AP para el jugador: AIRMAIL x1
+[19:26:39] Encolando ítem de AP para el jugador: AIRMAIL x1
+[19:26:39] Encolando ítem de AP para el jugador: MOSAICMAIL x1
+[19:26:39] Encolando ítem de AP para el jugador: BRICKMAIL x1
+[19:26:39] Encolando ítem de AP para el jugador: BRICKMAIL x1
+[19:26:39] Encolando ítem de AP para el jugador: BRICKMAIL x1
+[19:26:39] Encolando ítem de AP para el jugador: BRICKMAIL x1
+[19:26:39] Encolando ítem de AP para el jugador: XATTACK x1
+[19:26:39] Encolando ítem de AP para el jugador: XATTACK2 x1
+[19:26:39] Encolando ítem de AP para el jugador: XATTACK2 x1
+[19:26:39] Encolando ítem de AP para el jugador: XATTACK3 x1
+[19:26:39] Encolando ítem de AP para el jugador: XATTACK3 x1
+[19:26:39] Encolando ítem de AP para el jugador: XATTACK6 x1
+[19:26:39] Encolando ítem de AP para el jugador: XATTACK6 x1
+[19:26:39] Encolando ítem de AP para el jugador: XATTACK6 x1
+[19:26:39] Encolando ítem de AP para el jugador: XATTACK6 x1
+[19:26:39] Encolando ítem de AP para el jugador: XATTACK6 x1
+[19:26:39] Encolando ítem de AP para el jugador: XATTACK6 x1
+[19:26:39] Encolando ítem de AP para el jugador: XATTACK6 x1
+[19:26:39] Encolando ítem de AP para el jugador: XATTACK6 x1
+[19:26:39] Encolando ítem de AP para el jugador: XDEFENSE x1
+[19:26:39] Encolando ítem de AP para el jugador: XDEFENSE x1
+[19:26:39] Encolando ítem de AP para el jugador: XDEFENSE2 x1
+[19:26:39] Encolando ítem de AP para el jugador: XDEFENSE2 x1
+[19:26:39] Encolando ítem de AP para el jugador: XDEFENSE2 x1
+[19:26:39] Encolando ítem de AP para el jugador: XDEFENSE2 x1
+[19:26:39] Encolando ítem de AP para el jugador: XDEFENSE3 x1
+[19:26:39] Encolando ítem de AP para el jugador: XDEFENSE3 x1
+[19:26:39] Encolando ítem de AP para el jugador: XDEFENSE3 x1
+[19:26:39] Encolando ítem de AP para el jugador: XDEFENSE3 x1
+[19:26:39] Encolando ítem de AP para el jugador: XDEFENSE6 x1
+[19:26:39] Encolando ítem de AP para el jugador: XDEFENSE6 x1
+[19:26:39] Encolando ítem de AP para el jugador: XDEFENSE6 x1
+[19:26:39] Encolando ítem de AP para el jugador: XSPATK x1
+[19:26:39] Encolando ítem de AP para el jugador: XSPATK x1
+[19:26:39] Encolando ítem de AP para el jugador: XSPATK2 x1
+[19:26:39] Encolando ítem de AP para el jugador: XSPATK2 x1
+[19:26:39] Encolando ítem de AP para el jugador: XSPATK3 x1
+[19:26:39] Encolando ítem de AP para el jugador: XSPATK6 x1
+[19:26:39] Encolando ítem de AP para el jugador: XSPATK6 x1
+[19:26:39] Encolando ítem de AP para el jugador: XSPATK6 x1
+[19:26:39] Encolando ítem de AP para el jugador: XSPDEF x1
+[19:26:39] Encolando ítem de AP para el jugador: XSPDEF x1
+[19:26:39] Encolando ítem de AP para el jugador: XSPDEF2 x1
+[19:26:39] Encolando ítem de AP para el jugador: XSPDEF2 x1
+[19:26:39] Encolando ítem de AP para el jugador: XSPDEF2 x1
+[19:26:39] Encolando ítem de AP para el jugador: XSPDEF3 x1
+[19:26:39] Encolando ítem de AP para el jugador: XSPDEF3 x1
+[19:26:39] Encolando ítem de AP para el jugador: XSPDEF3 x1
+[19:26:39] Encolando ítem de AP para el jugador: XSPDEF3 x1
+[19:26:39] Encolando ítem de AP para el jugador: XSPDEF6 x1
+[19:26:39] Encolando ítem de AP para el jugador: XSPDEF6 x1
+[19:26:39] Encolando ítem de AP para el jugador: XSPDEF6 x1
+[19:26:39] Encolando ítem de AP para el jugador: XSPEED x1
+[19:26:39] Encolando ítem de AP para el jugador: XSPEED x1
+[19:26:39] Encolando ítem de AP para el jugador: XSPEED x1
+[19:26:39] Encolando ítem de AP para el jugador: XSPEED2 x1
+[19:26:39] Encolando ítem de AP para el jugador: XSPEED2 x1
+[19:26:39] Encolando ítem de AP para el jugador: XSPEED3 x1
+[19:26:39] Encolando ítem de AP para el jugador: XSPEED3 x1
+[19:26:39] Encolando ítem de AP para el jugador: XSPEED3 x1
+[19:26:39] Encolando ítem de AP para el jugador: XSPEED3 x1
+[19:26:39] Encolando ítem de AP para el jugador: XSPEED6 x1
+[19:26:39] Encolando ítem de AP para el jugador: XSPEED6 x1
+[19:26:39] Encolando ítem de AP para el jugador: XSPEED6 x1
+[19:26:39] Encolando ítem de AP para el jugador: XSPEED6 x1
+[19:26:39] Encolando ítem de AP para el jugador: XACCURACY x1
+[19:26:39] Encolando ítem de AP para el jugador: XACCURACY x1
+[19:26:39] Encolando ítem de AP para el jugador: XACCURACY2 x1
+[19:26:39] Encolando ítem de AP para el jugador: XACCURACY2 x1
+[19:26:39] Encolando ítem de AP para el jugador: XACCURACY2 x1
+[19:26:39] Encolando ítem de AP para el jugador: XACCURACY2 x1
+[19:26:39] Encolando ítem de AP para el jugador: XACCURACY3 x1
+[19:26:39] Encolando ítem de AP para el jugador: XACCURACY3 x1
+[19:26:39] Encolando ítem de AP para el jugador: XACCURACY6 x1
+[19:26:39] Encolando ítem de AP para el jugador: XACCURACY6 x1
+[19:26:39] Encolando ítem de AP para el jugador: XACCURACY6 x1
+[19:26:39] Encolando ítem de AP para el jugador: DIREHIT x1
+[19:26:39] Encolando ítem de AP para el jugador: DIREHIT x1
+[19:26:39] Encolando ítem de AP para el jugador: DIREHIT x1
+[19:26:39] Encolando ítem de AP para el jugador: DIREHIT2 x1
+[19:26:39] Encolando ítem de AP para el jugador: DIREHIT2 x1
+[19:26:39] Encolando ítem de AP para el jugador: DIREHIT3 x1
+[19:26:39] Encolando ítem de AP para el jugador: DIREHIT3 x1
+[19:26:39] Encolando ítem de AP para el jugador: GUARDSPEC x1
+[19:26:39] Encolando ítem de AP para el jugador: RESETURGE x1
+[19:26:39] Encolando ítem de AP para el jugador: RESETURGE x1
+[19:26:39] Encolando ítem de AP para el jugador: RESETURGE x1
+[19:26:39] Encolando ítem de AP para el jugador: RESETURGE x1
+[19:26:39] Encolando ítem de AP para el jugador: RESETURGE x1
+[19:26:39] Encolando ítem de AP para el jugador: RESETURGE x1
+[19:26:39] Encolando ítem de AP para el jugador: RESETURGE x1
+[19:26:39] Encolando ítem de AP para el jugador: ABILITYURGE x1
+[19:26:39] Encolando ítem de AP para el jugador: ABILITYURGE x1
+[19:26:39] Encolando ítem de AP para el jugador: ABILITYURGE x1
+[19:26:39] Encolando ítem de AP para el jugador: ABILITYURGE x1
+[19:26:39] Encolando ítem de AP para el jugador: ITEMURGE x1
+[19:26:39] Encolando ítem de AP para el jugador: ITEMDROP x1
+[19:26:39] Encolando ítem de AP para el jugador: ITEMDROP x1
+[19:26:39] Encolando ítem de AP para el jugador: ITEMDROP x1
+[19:26:39] Encolando ítem de AP para el jugador: ITEMDROP x1
+[19:26:39] Encolando ítem de AP para el jugador: BLUEFLUTE x1
+[19:26:39] Encolando ítem de AP para el jugador: BLUEFLUTE x1
+[19:26:39] Encolando ítem de AP para el jugador: BLUEFLUTE x1
+[19:26:39] Encolando ítem de AP para el jugador: BLUEFLUTE x1
+[19:26:39] Encolando ítem de AP para el jugador: BLUEFLUTE x1
+[19:26:39] Encolando ítem de AP para el jugador: YELLOWFLUTE x1
+[19:26:39] Encolando ítem de AP para el jugador: YELLOWFLUTE x1
+[19:26:39] Encolando ítem de AP para el jugador: YELLOWFLUTE x1
+[19:26:39] Encolando ítem de AP para el jugador: REDFLUTE x1
+[19:26:39] Encolando ítem de AP para el jugador: REDFLUTE x1
+[19:26:39] Encolando ítem de AP para el jugador: REDFLUTE x1
+[19:26:39] Encolando ítem de AP para el jugador: REDFLUTE x1
+[19:26:39] Encolando ítem de AP para el jugador: POKEDOLL x1
+[19:26:39] Encolando ítem de AP para el jugador: POKEDOLL x1
+[19:26:39] Encolando ítem de AP para el jugador: POKEDOLL x1
+[19:26:39] Encolando ítem de AP para el jugador: POKEDOLL x1
+[19:26:39] Encolando ítem de AP para el jugador: FLUFFYTAIL x1
+[19:26:39] Encolando ítem de AP para el jugador: FLUFFYTAIL x1
+[19:26:39] Encolando ítem de AP para el jugador: FLUFFYTAIL x1
+[19:26:39] Encolando ítem de AP para el jugador: FLUFFYTAIL x1
+[19:26:39] Encolando ítem de AP para el jugador: POKETOY x1
+[19:26:39] Encolando ítem de AP para el jugador: POKETOY x1
+[19:26:39] Encolando ítem de AP para el jugador: POKETOY x1
+[19:26:39] Encolando ítem de AP para el jugador: BICYCLE x1
+[19:26:39] Encolando ítem de AP para el jugador: OLDROD x1
+[19:26:39] Encolando ítem de AP para el jugador: GOODROD x1
+[19:26:39] Encolando ítem de AP para el jugador: SUPERROD x1
+[19:26:39] Encolando ítem de AP para el jugador: ITEMFINDER x1
+[19:26:39] Encolando ítem de AP para el jugador: DOWSINGMACHINE x1
+[19:26:39] Encolando ítem de AP para el jugador: POKERADAR x1
+[19:26:39] Encolando ítem de AP para el jugador: TOWNMAP x1
+[19:26:39] Encolando ítem de AP para el jugador: POKEFLUTE x1
+[19:26:39] Encolando ítem de AP para el jugador: COINCASE x1
+[19:26:39] Encolando ítem de AP para el jugador: SOOTSACK x1
+[19:26:39] Encolando ítem de AP para el jugador: SILPHSCOPE x1
+[19:26:39] Encolando ítem de AP para el jugador: DEVONSCOPE x1
+[19:26:39] Encolando ítem de AP para el jugador: SQUIRTBOTTLE x1
+[19:26:39] Encolando ítem de AP para el jugador: SPRAYDUCK x1
+[19:26:39] Encolando ítem de AP para el jugador: WAILMERPAIL x1
+[19:26:39] Encolando ítem de AP para el jugador: GRACIDEA x1
+[19:26:39] Encolando ítem de AP para el jugador: AURORATICKET x1
+[19:26:39] Encolando ítem de AP para el jugador: OLDSEAMAP x1
+[19:26:39] Encolando ítem de AP para el jugador: DNASPLICERS x1
+[19:26:39] Encolando ítem de AP para el jugador: DNASPLICERS x1
+[19:26:39] Encolando ítem de AP para el jugador: DNASPLICERS x1
+[19:26:39] Encolando ítem de AP para el jugador: DNASPLICERS x1
+[19:26:39] Encolando ítem de AP para el jugador: REVEALGLASS x1
+[19:26:39] Encolando ítem de AP para el jugador: OVALCHARM x1
+[19:26:39] Encolando ítem de AP para el jugador: SHINYCHARM x1
+[19:26:39] Encolando ítem de AP para el jugador: FUSIONREPEL x1
+[19:26:39] Encolando ítem de AP para el jugador: FUSIONREPEL x1
+[19:26:39] Encolando ítem de AP para el jugador: FUSIONREPEL x1
+[19:26:39] Encolando ítem de AP para el jugador: FUSIONREPEL x1
+[19:26:39] Encolando ítem de AP para el jugador: SSTICKET x1
+[19:26:39] Encolando ítem de AP para el jugador: COFFEE x1
+[19:26:39] Encolando ítem de AP para el jugador: COFFEE x1
+[19:26:39] Encolando ítem de AP para el jugador: COFFEE x1
+[19:26:39] Encolando ítem de AP para el jugador: SKINNYLATTE x1
+[19:26:39] Encolando ítem de AP para el jugador: SKINNYLATTE x1
+[19:26:39] Encolando ítem de AP para el jugador: SKINNYLATTE x1
+[19:26:39] Encolando ítem de AP para el jugador: HM07 x1
+[19:26:39] Encolando ítem de AP para el jugador: HM08 x1
+[19:26:39] Encolando ítem de AP para el jugador: KRABBYLEGS x1
+[19:26:39] Encolando ítem de AP para el jugador: LOVELETTER x1
+[19:26:39] Encolando ítem de AP para el jugador: MASTERBALLPROTO x1
+[19:26:39] Encolando ítem de AP para el jugador: TM96 x1
+[19:26:39] Encolando ítem de AP para el jugador: MACHETE x1
+[19:26:39] Encolando ítem de AP para el jugador: PICKAXE x1
+[19:26:39] Encolando ítem de AP para el jugador: LANTERN x1
+[19:26:39] Encolando ítem de AP para el jugador: SURFBOARD x1
+[19:26:39] Encolando ítem de AP para el jugador: TELEPORTER x1
+[19:26:39] Encolando ítem de AP para el jugador: SCUBAGEAR x1
+[19:26:39] Encolando ítem de AP para el jugador: LEVER x1
+[19:26:39] Encolando ítem de AP para el jugador: DEBUGGER x1
+[19:26:39] Encolando ítem de AP para el jugador: WOODENPLANKS x1
+[19:26:39] Encolando ítem de AP para el jugador: BRICKS x1
+[19:26:39] Encolando ítem de AP para el jugador: ROCKETID x1
+[19:26:39] Encolando ítem de AP para el jugador: BEER x1
+[19:26:39] Encolando ítem de AP para el jugador: BEER x1
+[19:26:39] Encolando ítem de AP para el jugador: SHOOTER x1
+[19:26:39] Encolando ítem de AP para el jugador: SHOOTER x1
+[19:26:39] Encolando ítem de AP para el jugador: SHOOTER x1
+[19:26:39] Encolando ítem de AP para el jugador: SHOOTER x1
+[19:26:39] Encolando ítem de AP para el jugador: SUPERSPLICERS x1
+[19:26:39] Encolando ítem de AP para el jugador: SUPERSPLICERS x1
+[19:26:39] Encolando ítem de AP para el jugador: SUPERSPLICERS x1
+[19:26:39] Encolando ítem de AP para el jugador: SUPERSPLICERS x1
+[19:26:39] Encolando ítem de AP para el jugador: SUPERSPLICERS x1
+[19:26:39] Encolando ítem de AP para el jugador: SAFARISOUVENIR x1
+[19:26:39] Encolando ítem de AP para el jugador: POKEDEX x1
+[19:26:39] Encolando ítem de AP para el jugador: CARDKEY x1
+[19:26:39] Encolando ítem de AP para el jugador: PIZZA x1
+[19:26:39] Encolando ítem de AP para el jugador: PIZZA x1
+[19:26:39] Encolando ítem de AP para el jugador: PIZZA x1
+[19:26:39] Encolando ítem de AP para el jugador: CAPTAINSKEY x1
+[19:26:39] Encolando ítem de AP para el jugador: GENDERBALL x1
+[19:26:39] Encolando ítem de AP para el jugador: GENDERBALL x1
+[19:26:39] Encolando ítem de AP para el jugador: GENDERBALL x1
+[19:26:39] Encolando ítem de AP para el jugador: GENDERBALL x1
+[19:26:39] Encolando ítem de AP para el jugador: GENDERBALL x1
+[19:26:39] Encolando ítem de AP para el jugador: TRADEBALL x1
+[19:26:39] Encolando ítem de AP para el jugador: TRADEBALL x1
+[19:26:39] Encolando ítem de AP para el jugador: TRADEBALL x1
+[19:26:39] Encolando ítem de AP para el jugador: ABILITYBALL x1
+[19:26:39] Encolando ítem de AP para el jugador: ABILITYBALL x1
+[19:26:39] Encolando ítem de AP para el jugador: ABILITYBALL x1
+[19:26:39] Encolando ítem de AP para el jugador: VIRUSBALL x1
+[19:26:39] Encolando ítem de AP para el jugador: VIRUSBALL x1
+[19:26:39] Encolando ítem de AP para el jugador: SHINYBALL x1
+[19:26:39] Encolando ítem de AP para el jugador: SHINYBALL x1
+[19:26:39] Encolando ítem de AP para el jugador: SHINYBALL x1
+[19:26:39] Encolando ítem de AP para el jugador: PERFECTBALL x1
+[19:26:39] Encolando ítem de AP para el jugador: PERFECTBALL x1
+[19:26:39] Encolando ítem de AP para el jugador: OLDBOOT x1
+[19:26:39] Encolando ítem de AP para el jugador: OLDBOOT x1
+[19:26:39] Encolando ítem de AP para el jugador: OAKSPARCEL x1
+[19:26:39] Encolando ítem de AP para el jugador: POWERPLANTKEY x1
+[19:26:39] Encolando ítem de AP para el jugador: MISTSTONE x1
+[19:26:39] Encolando ítem de AP para el jugador: DEVOLUTIONSPRAY x1
+[19:26:39] Encolando ítem de AP para el jugador: TRANSGENDERSTONE x1
+[19:26:39] Encolando ítem de AP para el jugador: WHITEFLAG x1
+[19:26:39] Encolando ítem de AP para el jugador: WHITEFLAG x1
+[19:26:39] Encolando ítem de AP para el jugador: FAIRYGEM x1
+[19:26:39] Encolando ítem de AP para el jugador: FAIRYGEM x1
+[19:26:39] Encolando ítem de AP para el jugador: DREAMBALL x1
+[19:26:39] Encolando ítem de AP para el jugador: TOXICBALL x1
+[19:26:39] Encolando ítem de AP para el jugador: SPARKBALL x1
+[19:26:39] Encolando ítem de AP para el jugador: SCORCHBALL x1
+[19:26:39] Encolando ítem de AP para el jugador: FROSTBALL x1
+[19:26:39] Encolando ítem de AP para el jugador: PUREBALL x1
+[19:26:39] Encolando ítem de AP para el jugador: PUREBALL x1
+[19:26:39] Encolando ítem de AP para el jugador: STATUSBALL x1
+[19:26:39] Encolando ítem de AP para el jugador: STATUSBALL x1
+[19:26:39] Encolando ítem de AP para el jugador: CANDYBALL x1
+[19:26:39] Encolando ítem de AP para el jugador: DNAREVERSER x1
+[19:26:39] Encolando ítem de AP para el jugador: DNAREVERSER x1
+[19:26:39] Encolando ítem de AP para el jugador: DNAREVERSER x1
+[19:26:39] Encolando ítem de AP para el jugador: DNAREVERSER x1
+[19:26:39] Encolando ítem de AP para el jugador: ROCKETMEAL x1
+[19:26:39] Encolando ítem de AP para el jugador: ROCKETMEAL x1
+[19:26:39] Encolando ítem de AP para el jugador: ROCKETMEAL x1
+[19:26:39] Encolando ítem de AP para el jugador: ROCKETMEAL x1
+[19:26:39] Encolando ítem de AP para el jugador: FANCYMEAL x1
+[19:26:39] Encolando ítem de AP para el jugador: INCUBATOR x1
+[19:26:39] Encolando ítem de AP para el jugador: FIRECRACKER x1
+[19:26:39] Encolando ítem de AP para el jugador: FIRECRACKER x1
+[19:26:39] Encolando ítem de AP para el jugador: MANSIONKEY x1
+[19:26:39] Encolando ítem de AP para el jugador: POISONMUSHROOM x1
+[19:26:39] Encolando ítem de AP para el jugador: POISONMUSHROOM x1
+[19:26:39] Encolando ítem de AP para el jugador: POISONMUSHROOM x1
+[19:26:39] Encolando ítem de AP para el jugador: POISONMUSHROOM x1
+[19:26:39] Encolando ítem de AP para el jugador: EXPALLOFF x1
+[19:26:39] Encolando ítem de AP para el jugador: GASMASK x1
+[19:26:39] Encolando ítem de AP para el jugador: MANKEYPAW x1
+[19:26:39] Encolando ítem de AP para el jugador: ICEPICK x1
+[19:26:39] Encolando ítem de AP para el jugador: RACEBIKE x1
+[19:26:39] Encolando ítem de AP para el jugador: DIAMOND x1
+[19:26:39] Encolando ítem de AP para el jugador: DIAMONDNECKLACE x1
+[19:26:39] Encolando ítem de AP para el jugador: GOLDRING x1
+[19:26:39] Encolando ítem de AP para el jugador: SEADRAFIN x1
+[19:26:39] Encolando ítem de AP para el jugador: SACREDPOTION x1
+[19:26:39] Encolando ítem de AP para el jugador: ABILITYCAPSULE x1
+[19:26:39] Encolando ítem de AP para el jugador: MAGICBOOTS x1
+[19:26:39] Encolando ítem de AP para el jugador: ICESTONE x1
+[19:26:39] Encolando ítem de AP para el jugador: GSBALL x1
+[19:26:39] Encolando ítem de AP para el jugador: MAGNETPASS x1
+[19:26:39] Encolando ítem de AP para el jugador: SECRETCAPSULE x1
+[19:26:39] Encolando ítem de AP para el jugador: SECRETCAPSULE x1
+[19:26:39] Encolando ítem de AP para el jugador: SECRETCAPSULE x1
+[19:26:39] Encolando ítem de AP para el jugador: ODDKEYSTONE_FULL x1
+[19:26:39] Encolando ítem de AP para el jugador: ODDKEYSTONE_FULL x1
+[19:26:39] Encolando ítem de AP para el jugador: DYNAMITE x1
+[19:26:39] Encolando ítem de AP para el jugador: BERSERKGENE x1
+[19:26:39] Encolando ítem de AP para el jugador: AZUREFLUTE x1
+[19:26:39] Encolando ítem de AP para el jugador: MAGNETSTONE x1
+[19:26:39] Encolando ítem de AP para el jugador: PIXIEPLATE x1
+[19:26:39] Encolando ítem de AP para el jugador: PIXIEPLATE x1
+[19:26:39] Encolando ítem de AP para el jugador: PIXIEPLATE x1
+[19:26:39] Encolando ítem de AP para el jugador: PIXIEPLATE x1
+[19:26:39] Encolando ítem de AP para el jugador: PIXIEPLATE x1
+[19:26:39] Encolando ítem de AP para el jugador: OLDPENDANT x1
+[19:26:39] Encolando ítem de AP para el jugador: OLDPENDANT x1
+[19:26:39] Encolando ítem de AP para el jugador: BELLSPROUTSTATUE x1
+[19:26:39] Encolando ítem de AP para el jugador: BELLSPROUTSTATUE x1
+[19:26:39] Encolando ítem de AP para el jugador: BELLSPROUTSTATUE x1
+[19:26:39] Encolando ítem de AP para el jugador: BELLSPROUTSTATUE x1
+[19:26:39] Encolando ítem de AP para el jugador: BELLSPROUTSTATUE x1
+[19:26:39] Encolando ítem de AP para el jugador: TM97 x1
+[19:26:39] Encolando ítem de AP para el jugador: TM98 x1
+[19:26:39] Encolando ítem de AP para el jugador: TM99 x1
+[19:26:39] Encolando ítem de AP para el jugador: TM100 x1
+[19:26:39] Encolando ítem de AP para el jugador: TM101 x1
+[19:26:39] Encolando ítem de AP para el jugador: TM102 x1
+[19:26:39] Encolando ítem de AP para el jugador: TM103 x1
+[19:26:39] Encolando ítem de AP para el jugador: TM104 x1
+[19:26:39] Encolando ítem de AP para el jugador: TM105 x1
+[19:26:39] Encolando ítem de AP para el jugador: TM108 x1
+[19:26:39] Encolando ítem de AP para el jugador: ROCKETBALL x1
+[19:26:39] Encolando ítem de AP para el jugador: ROCKETBALL x1
+[19:26:39] Encolando ítem de AP para el jugador: ROCKETBALL x1
+[19:26:39] Encolando ítem de AP para el jugador: FUSIONBALL x1
+[19:26:39] Encolando ítem de AP para el jugador: FUSIONBALL x1
+[19:26:39] Encolando ítem de AP para el jugador: FUSIONBALL x1
+[19:26:39] Encolando ítem de AP para el jugador: FUSIONBALL x1
+[19:26:39] Encolando ítem de AP para el jugador: FUSIONBALL x1
+[19:26:39] Encolando ítem de AP para el jugador: FUSIONBALL x1
+[19:26:39] Encolando ítem de AP para el jugador: TM106 x1
+[19:26:39] Encolando ítem de AP para el jugador: TM107 x1
+[19:26:39] Encolando ítem de AP para el jugador: RUBY x1
+[19:26:39] Encolando ítem de AP para el jugador: SAPPHIRE x1
+[19:26:39] Encolando ítem de AP para el jugador: EMERALD x1
+[19:26:39] Encolando ítem de AP para el jugador: NETWORKCHIP x1
+[19:26:39] Encolando ítem de AP para el jugador: BANANA x1
+[19:26:39] Encolando ítem de AP para el jugador: BANANA x1
+[19:26:39] Encolando ítem de AP para el jugador: BANANA x1
+[19:26:39] Encolando ítem de AP para el jugador: BANANA x1
+[19:26:39] Encolando ítem de AP para el jugador: BANANA x1
+[19:26:39] Encolando ítem de AP para el jugador: GOLDENBANANA x1
+[19:26:39] Encolando ítem de AP para el jugador: GOLDENBANANA x1
+[19:26:39] Encolando ítem de AP para el jugador: DEMHARDMODE x1
+[19:26:39] Encolando ítem de AP para el jugador: LIGHTSTONE x1
+[19:26:39] Encolando ítem de AP para el jugador: DARKSTONE x1
+[19:26:39] Encolando ítem de AP para el jugador: BRONZEEMBLEM x1
+[19:26:39] Encolando ítem de AP para el jugador: SILVEREMBLEM x1
+[19:26:39] Encolando ítem de AP para el jugador: GOLDEMBLEM x1
+[19:26:39] Encolando ítem de AP para el jugador: HM09 x1
+[19:26:39] Encolando ítem de AP para el jugador: HM10 x1
+[19:26:39] Encolando ítem de AP para el jugador: CLIMBINGGEAR x1
+[19:26:39] Encolando ítem de AP para el jugador: INCUBATOR_NORMAL x1
+[19:26:39] Encolando ítem de AP para el jugador: JETPACK x1
+[19:26:39] Encolando ítem de AP para el jugador: INFINITEREVERSERS x1
+[19:26:39] Encolando ítem de AP para el jugador: INFINITESPLICERS2 x1
+[19:26:39] Encolando ítem de AP para el jugador: TM109 x1
+[19:26:39] Encolando ítem de AP para el jugador: TM110 x1
+[19:26:39] Encolando ítem de AP para el jugador: TM111 x1
+[19:26:39] Encolando ítem de AP para el jugador: TM112 x1
+[19:26:39] Encolando ítem de AP para el jugador: TM113 x1
+[19:26:39] Encolando ítem de AP para el jugador: TM114 x1
+[19:26:39] Encolando ítem de AP para el jugador: TM115 x1
+[19:26:39] Encolando ítem de AP para el jugador: TM116 x1
+[19:26:39] Encolando ítem de AP para el jugador: TM117 x1
+[19:26:39] Encolando ítem de AP para el jugador: TM118 x1
+[19:26:39] Encolando ítem de AP para el jugador: TM119 x1
+[19:26:39] Encolando ítem de AP para el jugador: TM120 x1
+[19:26:39] Encolando ítem de AP para el jugador: TM00 x1
+[19:26:39] Encolando ítem de AP para el jugador: TM121 x1
+[19:26:39] Encolando ítem de AP para el jugador: LINKINGCORD x1
+[19:26:39] Encolando ítem de AP para el jugador: INVISIBALL x1
+[19:26:39] Encolando ítem de AP para el jugador: INVISIBALL x1
+[19:26:39] Encolando ítem de AP para el jugador: DREAMMIRROR x1
+[19:26:39] Encolando ítem de AP para el jugador: BOXLINK x1
+[19:26:39] Encolando ítem de AP para el jugador: JAWFOSSIL x1
+[19:26:39] Encolando ítem de AP para el jugador: ASSAULTVEST x1
+[19:26:39] Encolando ítem de AP para el jugador: SAFETYGOGGLES x1
+[19:26:39] Encolando ítem de AP para el jugador: TERRAINEXTENDER x1
+[19:26:39] Encolando ítem de AP para el jugador: ELECTRICSEED x1
+[19:26:39] Encolando ítem de AP para el jugador: PSYCHICSEED x1
+[19:26:39] Encolando ítem de AP para el jugador: PSYCHICSEED x1
+[19:26:39] Encolando ítem de AP para el jugador: PSYCHICSEED x1
+[19:26:39] Encolando ítem de AP para el jugador: MISTYSEED x1
+[19:26:39] Encolando ítem de AP para el jugador: MISTYSEED x1
+[19:26:39] Encolando ítem de AP para el jugador: GRASSYSEED x1
+[19:26:39] Encolando ítem de AP para el jugador: GRASSYSEED x1
+[19:26:39] Encolando ítem de AP para el jugador: LUMINOUSMOSS x1
+[19:26:39] Encolando ítem de AP para el jugador: LUMINOUSMOSS x1
+[19:26:39] Encolando ítem de AP para el jugador: SNOWBALL x1
+[19:26:39] Encolando ítem de AP para el jugador: WEAKNESSPOLICY x1
+[19:26:39] Encolando ítem de AP para el jugador: WEAKNESSPOLICY x1
+[19:26:39] Encolando ítem de AP para el jugador: ADRENALINEORB x1
+[19:26:39] Encolando ítem de AP para el jugador: DEBUGCANDY x1
+[19:26:39] Encolando ítem de AP para el jugador: STRANGEPRISM x1
+[19:26:39] Encolando ítem de AP para el jugador: STRANGEPLANT x1
+[19:26:39] Encolando ítem de AP para el jugador: SAILFOSSIL x1
+[19:26:39] Encolando ítem de AP para el jugador: NECROZIUM x1
+[19:26:39] Encolando ítem de AP para el jugador: NECROZIUM x1
+[19:26:39] Encolando ítem de AP para el jugador: NECROZIUM x1
+[19:26:39] Encolando ítem de AP para el jugador: NECROZIUM x1
+[19:26:39] Encolando ítem de AP para el jugador: NECROZIUM x1
+[19:26:39] Encolando ítem de AP para el jugador: NECROZIUM x1
+[19:26:39] Encolando ítem de AP para el jugador: REGITABLET x1
+[19:26:39] Encolando ítem de AP para el jugador: BANDLOGO x1
+[19:26:39] Encolando ítem de AP para el jugador: SLEEPINGBAG x1
+[19:26:39] Encolando ítem de AP para el jugador: LUNARFEATHER x1
+[19:26:39] Encolando ítem de AP para el jugador: CORRUPTEDFEATHER x1
+[19:26:39] Encolando ítem de AP para el jugador: BEDROOMKEY x1
+[19:26:39] Encolando ítem de AP para el jugador: ROCKETUNIFORM x1
+[19:26:39] Encolando ítem de AP para el jugador: WHIPPEDDREAM x1
+[19:26:39] Encolando ítem de AP para el jugador: WHIPPEDDREAM x1
+[19:26:39] Encolando ítem de AP para el jugador: LIFTKEY x1
+[19:26:39] Encolando ítem de AP para el jugador: PINKANBERRY x1
+[19:26:39] Encolando ítem de AP para el jugador: EMERGENCYWHISTLE x1
+[19:26:39] Encolando ítem de AP para el jugador: FAVORITEOUTFIT x1
+[19:26:39] Encolando ítem de AP para el jugador: HATSDYEKIT x1
+[19:26:39] Encolando ítem de AP para el jugador: CLOTHESDYEKIT x1
+[19:26:39] Encolando ítem de AP para el jugador: DEVONPARTS x1
+[19:26:39] Encolando ítem de AP para el jugador: MUSHROOMSPORES x1
+[19:26:39] Encolando ítem de AP para el jugador: FIELDSLEEPINGBAG x1
+[22:37:26] Hook de pbItemBall instalado correctamente.
+[22:37:26] Hook de pbReceiveItem instalado correctamente.
+[22:37:26] Intentando conectar a http://127.0.0.1:5050...
+[22:37:26] ¡Conectado exitosamente al servidor AP!
+[22:37:26] =============================================
+[22:37:26]  Archipelago Network Module v0.3 cargado
+[22:37:26]  Modo: HTTP via HTTPLite
+[22:37:26]  Compatible con PIF v6.7
+[22:37:26] =============================================
+[22:46:55] Hook de pbItemBall instalado correctamente.
+[22:46:55] Hook de pbReceiveItem instalado correctamente.
+[22:46:55] Intentando conectar a http://127.0.0.1:5050...
+[22:46:55] ¡Conectado exitosamente al servidor AP!
+[22:46:55] =============================================
+[22:46:55]  Archipelago Network Module v0.3 cargado
+[22:46:55]  Modo: HTTP via HTTPLite
+[22:46:55]  Compatible con PIF v6.7
+[22:46:55] =============================================
+[22:48:00] Recibidos 3 eventos del servidor
+[22:48:00] Opciones recibidas desde Archipelago: {"abilities"=>0.0, "ability_blacklist"=>[], "allow_triple_fusions"=>0.0, "allowed_legendary_hunt_encounters"=>["Articuno", "Moltres", "Mewtwo", "Zapdos", "Mew"], "badges"=>2.0, "better_shops"=>0.0, "blind_trainers"=>0.0, "cerulean_cave_count"=>8.0, "cerulean_cave_requirement"=>0.0, "death_link"=>0.0, "dexsanity"=>0.0, "double_battle_chance"=>0.0, "elite_four_count"=>8.0, "elite_four_requirement"=>0.0, "enable_wonder_trading"=>1.0, "exp_modifier"=>200.0, "fanfares"=>0.0, "force_fully_evolved"=>100.0, "fusion_items"=>1.0, "fusion_randomization"=>3.0, "fusion_sprite_style"=>0.0, "goal"=>0.0, "guaranteed_catch"=>0.0, "hidden_items"=>1.0, "hm_compatibility"=>-1.0, "hms"=>2.0, "item_pool_type"=>0.0, "key_items"=>1.0, "legendary_encounters"=>3.0, "legendary_hunt_count"=>3.0, "level_up_moves"=>0.0, "match_trainer_levels"=>0.0, "match_trainer_levels_bonus"=>0.0, "min_catch_rate"=>3.0, "move_blacklist"=>[], "music"=>0.0, "npc_fusion_reveal"=>1.0, "npc_gifts"=>1.0, "overworld_items"=>1.0, "receive_item_messages"=>0.0, "remote_items"=>0.0, "require_flash"=>3.0, "require_itemfinder"=>1.0, "reusable_tms_tutors"=>0.0, "starter_blacklist"=>[], "starters"=>3.0, "tm_tutor_compatibility"=>-1.0, "tm_tutor_moves"=>0.0, "trainer_parties"=>3.0, "trainersanity"=>1.0, "turbo_a"=>0.0, "types"=>0.0, "wild_encounter_blacklist"=>[], "wild_pokemon"=>4.0}
+[22:57:05] Hook de pbItemBall instalado correctamente.
+[22:57:05] Hook de pbReceiveItem instalado correctamente.
+[22:57:05] Intentando conectar a http://127.0.0.1:5050...
+[22:57:05] ¡Conectado exitosamente al servidor AP!
+[22:57:05] =============================================
+[22:57:05]  Archipelago Network Module v0.3 cargado
+[22:57:05]  Modo: HTTP via HTTPLite
+[22:57:05]  Compatible con PIF v6.7
+[22:57:05] =============================================
+[22:57:32] Recibidos 3 eventos del servidor
+[22:57:32] Opciones recibidas desde Archipelago: {"abilities"=>0.0, "ability_blacklist"=>[], "allow_triple_fusions"=>0.0, "allowed_legendary_hunt_encounters"=>["Articuno", "Moltres", "Mewtwo", "Zapdos", "Mew"], "badges"=>2.0, "better_shops"=>0.0, "blind_trainers"=>0.0, "cerulean_cave_count"=>8.0, "cerulean_cave_requirement"=>0.0, "death_link"=>0.0, "dexsanity"=>0.0, "double_battle_chance"=>0.0, "elite_four_count"=>8.0, "elite_four_requirement"=>0.0, "enable_wonder_trading"=>1.0, "exp_modifier"=>200.0, "fanfares"=>0.0, "force_fully_evolved"=>100.0, "fusion_items"=>1.0, "fusion_randomization"=>3.0, "fusion_sprite_style"=>0.0, "goal"=>0.0, "guaranteed_catch"=>0.0, "hidden_items"=>1.0, "hm_compatibility"=>-1.0, "hms"=>2.0, "item_pool_type"=>0.0, "key_items"=>1.0, "legendary_encounters"=>3.0, "legendary_hunt_count"=>3.0, "level_up_moves"=>0.0, "match_trainer_levels"=>0.0, "match_trainer_levels_bonus"=>0.0, "min_catch_rate"=>3.0, "move_blacklist"=>[], "music"=>0.0, "npc_fusion_reveal"=>1.0, "npc_gifts"=>1.0, "overworld_items"=>1.0, "receive_item_messages"=>0.0, "remote_items"=>0.0, "require_flash"=>3.0, "require_itemfinder"=>1.0, "reusable_tms_tutors"=>0.0, "starter_blacklist"=>[], "starters"=>3.0, "tm_tutor_compatibility"=>-1.0, "tm_tutor_moves"=>0.0, "trainer_parties"=>3.0, "trainersanity"=>1.0, "turbo_a"=>0.0, "types"=>0.0, "wild_encounter_blacklist"=>[], "wild_pokemon"=>4.0}
+[22:59:19] Hook de pbItemBall instalado correctamente.
+[22:59:19] Hook de pbReceiveItem instalado correctamente.
+[22:59:19] Intentando conectar a http://127.0.0.1:5050...
+[22:59:19] ¡Conectado exitosamente al servidor AP!
+[22:59:19] =============================================
+[22:59:19]  Archipelago Network Module v0.3 cargado
+[22:59:19]  Modo: HTTP via HTTPLite
+[22:59:19]  Compatible con PIF v6.7
+[22:59:19] =============================================
+[22:59:44] Recibidos 3 eventos del servidor
+[22:59:44] Opciones recibidas desde Archipelago: {"abilities"=>0.0, "ability_blacklist"=>[], "allow_triple_fusions"=>0.0, "allowed_legendary_hunt_encounters"=>["Articuno", "Moltres", "Mewtwo", "Zapdos", "Mew"], "badges"=>2.0, "better_shops"=>0.0, "blind_trainers"=>0.0, "cerulean_cave_count"=>8.0, "cerulean_cave_requirement"=>0.0, "death_link"=>0.0, "dexsanity"=>0.0, "double_battle_chance"=>0.0, "elite_four_count"=>8.0, "elite_four_requirement"=>0.0, "enable_wonder_trading"=>1.0, "exp_modifier"=>200.0, "fanfares"=>0.0, "force_fully_evolved"=>100.0, "fusion_items"=>1.0, "fusion_randomization"=>3.0, "fusion_sprite_style"=>0.0, "goal"=>0.0, "guaranteed_catch"=>0.0, "hidden_items"=>1.0, "hm_compatibility"=>-1.0, "hms"=>2.0, "item_pool_type"=>0.0, "key_items"=>1.0, "legendary_encounters"=>3.0, "legendary_hunt_count"=>3.0, "level_up_moves"=>0.0, "match_trainer_levels"=>0.0, "match_trainer_levels_bonus"=>0.0, "min_catch_rate"=>3.0, "move_blacklist"=>[], "music"=>0.0, "npc_fusion_reveal"=>1.0, "npc_gifts"=>1.0, "overworld_items"=>1.0, "receive_item_messages"=>0.0, "remote_items"=>0.0, "require_flash"=>3.0, "require_itemfinder"=>1.0, "reusable_tms_tutors"=>0.0, "starter_blacklist"=>[], "starters"=>3.0, "tm_tutor_compatibility"=>-1.0, "tm_tutor_moves"=>0.0, "trainer_parties"=>3.0, "trainersanity"=>1.0, "turbo_a"=>0.0, "types"=>0.0, "wild_encounter_blacklist"=>[], "wild_pokemon"=>4.0}
+[23:02:55] Hook de pbItemBall instalado correctamente.
+[23:02:55] Hook de pbReceiveItem instalado correctamente.
+[23:02:55] Intentando conectar a http://127.0.0.1:5050...
+[23:02:55] ¡Conectado exitosamente al servidor AP!
+[23:02:55] =============================================
+[23:02:55]  Archipelago Network Module v0.3 cargado
+[23:02:55]  Modo: HTTP via HTTPLite
+[23:02:55]  Compatible con PIF v6.7
+[23:02:55] =============================================
+[23:03:27] Recibidos 3 eventos del servidor
+[23:03:27] Opciones recibidas desde Archipelago: {"abilities"=>0.0, "ability_blacklist"=>[], "allow_triple_fusions"=>0.0, "allowed_legendary_hunt_encounters"=>["Mewtwo", "Zapdos", "Articuno", "Moltres", "Mew"], "badges"=>2.0, "better_shops"=>0.0, "blind_trainers"=>0.0, "cerulean_cave_count"=>8.0, "cerulean_cave_requirement"=>0.0, "death_link"=>0.0, "dexsanity"=>0.0, "double_battle_chance"=>0.0, "elite_four_count"=>8.0, "elite_four_requirement"=>0.0, "enable_wonder_trading"=>1.0, "exp_modifier"=>200.0, "fanfares"=>0.0, "force_fully_evolved"=>100.0, "fusion_items"=>1.0, "fusion_randomization"=>3.0, "fusion_sprite_style"=>0.0, "goal"=>0.0, "guaranteed_catch"=>0.0, "hidden_items"=>1.0, "hm_compatibility"=>-1.0, "hms"=>2.0, "item_pool_type"=>0.0, "key_items"=>1.0, "legendary_encounters"=>3.0, "legendary_hunt_count"=>3.0, "level_up_moves"=>0.0, "match_trainer_levels"=>0.0, "match_trainer_levels_bonus"=>0.0, "min_catch_rate"=>3.0, "move_blacklist"=>[], "music"=>0.0, "npc_fusion_reveal"=>1.0, "npc_gifts"=>1.0, "overworld_items"=>1.0, "receive_item_messages"=>0.0, "remote_items"=>0.0, "require_flash"=>3.0, "require_itemfinder"=>1.0, "reusable_tms_tutors"=>0.0, "starter_blacklist"=>[], "starters"=>3.0, "tm_tutor_compatibility"=>-1.0, "tm_tutor_moves"=>0.0, "trainer_parties"=>3.0, "trainersanity"=>1.0, "turbo_a"=>0.0, "types"=>0.0, "wild_encounter_blacklist"=>[], "wild_pokemon"=>4.0}
+[23:07:46] Hook de pbItemBall instalado correctamente.
+[23:07:46] Hook de pbReceiveItem instalado correctamente.
+[23:07:46] Intentando conectar a http://127.0.0.1:5050...
+[23:07:46] ¡Conectado exitosamente al servidor AP!
+[23:07:46] =============================================
+[23:07:46]  Archipelago Network Module v0.3 cargado
+[23:07:46]  Modo: HTTP via HTTPLite
+[23:07:46]  Compatible con PIF v6.7
+[23:07:46] =============================================
+[23:08:22] Recibidos 3 eventos del servidor
+[23:08:22] Opciones recibidas desde Archipelago: {"abilities"=>0.0, "ability_blacklist"=>[], "allow_triple_fusions"=>0.0, "allowed_legendary_hunt_encounters"=>["Mew", "Zapdos", "Mewtwo", "Articuno", "Moltres"], "badges"=>2.0, "better_shops"=>0.0, "blind_trainers"=>0.0, "cerulean_cave_count"=>8.0, "cerulean_cave_requirement"=>0.0, "death_link"=>0.0, "dexsanity"=>0.0, "double_battle_chance"=>0.0, "elite_four_count"=>8.0, "elite_four_requirement"=>0.0, "enable_wonder_trading"=>1.0, "exp_modifier"=>200.0, "fanfares"=>0.0, "force_fully_evolved"=>100.0, "fusion_items"=>1.0, "fusion_randomization"=>3.0, "fusion_sprite_style"=>0.0, "goal"=>0.0, "guaranteed_catch"=>0.0, "hidden_items"=>1.0, "hm_compatibility"=>-1.0, "hms"=>2.0, "item_pool_type"=>0.0, "key_items"=>1.0, "legendary_encounters"=>3.0, "legendary_hunt_count"=>3.0, "level_up_moves"=>0.0, "match_trainer_levels"=>0.0, "match_trainer_levels_bonus"=>0.0, "min_catch_rate"=>3.0, "move_blacklist"=>[], "music"=>0.0, "npc_fusion_reveal"=>1.0, "npc_gifts"=>1.0, "overworld_items"=>1.0, "receive_item_messages"=>0.0, "remote_items"=>0.0, "require_flash"=>3.0, "require_itemfinder"=>1.0, "reusable_tms_tutors"=>0.0, "starter_blacklist"=>[], "starters"=>3.0, "tm_tutor_compatibility"=>-1.0, "tm_tutor_moves"=>0.0, "trainer_parties"=>3.0, "trainersanity"=>1.0, "turbo_a"=>0.0, "types"=>0.0, "wild_encounter_blacklist"=>[], "wild_pokemon"=>4.0}
+[23:12:58] Hook de pbItemBall instalado correctamente.
+[23:12:58] Hook de pbReceiveItem instalado correctamente.
+[23:12:58] Intentando conectar a http://127.0.0.1:5050...
+[23:12:58] ¡Conectado exitosamente al servidor AP!
+[23:12:58] =============================================
+[23:12:58]  Archipelago Network Module v0.3 cargado
+[23:12:58]  Modo: HTTP via HTTPLite
+[23:12:58]  Compatible con PIF v6.7
+[23:12:58] =============================================
+[23:12:59] Hook de pbItemBall instalado correctamente.
+[23:12:59] Hook de pbReceiveItem instalado correctamente.
+[23:12:59] Intentando conectar a http://127.0.0.1:5050...
+[23:12:59] ¡Conectado exitosamente al servidor AP!
+[23:12:59] =============================================
+[23:12:59]  Archipelago Network Module v0.3 cargado
+[23:12:59]  Modo: HTTP via HTTPLite
+[23:12:59]  Compatible con PIF v6.7
+[23:12:59] =============================================
+[23:13:34] Recibidos 3 eventos del servidor
+[23:13:34] Opciones recibidas desde Archipelago: {"abilities"=>0.0, "ability_blacklist"=>[], "allow_triple_fusions"=>0.0, "allowed_legendary_hunt_encounters"=>["Moltres", "Zapdos", "Articuno", "Mewtwo", "Mew"], "badges"=>2.0, "better_shops"=>0.0, "blind_trainers"=>0.0, "cerulean_cave_count"=>8.0, "cerulean_cave_requirement"=>0.0, "death_link"=>0.0, "dexsanity"=>0.0, "double_battle_chance"=>0.0, "elite_four_count"=>8.0, "elite_four_requirement"=>0.0, "enable_wonder_trading"=>1.0, "exp_modifier"=>200.0, "fanfares"=>0.0, "force_fully_evolved"=>100.0, "fusion_items"=>1.0, "fusion_randomization"=>3.0, "fusion_sprite_style"=>0.0, "goal"=>0.0, "guaranteed_catch"=>0.0, "hidden_items"=>1.0, "hm_compatibility"=>-1.0, "hms"=>2.0, "item_pool_type"=>0.0, "key_items"=>1.0, "legendary_encounters"=>3.0, "legendary_hunt_count"=>3.0, "level_up_moves"=>0.0, "match_trainer_levels"=>0.0, "match_trainer_levels_bonus"=>0.0, "min_catch_rate"=>3.0, "move_blacklist"=>[], "music"=>0.0, "npc_fusion_reveal"=>1.0, "npc_gifts"=>1.0, "overworld_items"=>1.0, "receive_item_messages"=>0.0, "remote_items"=>0.0, "require_flash"=>3.0, "require_itemfinder"=>1.0, "reusable_tms_tutors"=>0.0, "starter_blacklist"=>[], "starters"=>3.0, "tm_tutor_compatibility"=>-1.0, "tm_tutor_moves"=>0.0, "trainer_parties"=>3.0, "trainersanity"=>1.0, "turbo_a"=>0.0, "types"=>0.0, "wild_encounter_blacklist"=>[], "wild_pokemon"=>4.0}
+[23:23:47] Hook de pbItemBall instalado correctamente.
+[23:23:47] Hook de pbReceiveItem instalado correctamente.
+[23:23:47] Intentando conectar a http://127.0.0.1:5050...
+[23:23:47] ¡Conectado exitosamente al servidor AP!
+[23:23:47] =============================================
+[23:23:47]  Archipelago Network Module v0.3 cargado
+[23:23:47]  Modo: HTTP via HTTPLite
+[23:23:47]  Compatible con PIF v6.7
+[23:23:47] =============================================
+[23:38:11] Hook de pbItemBall instalado correctamente.
+[23:38:11] Hook de pbReceiveItem instalado correctamente.
+[23:38:11] Intentando conectar a http://127.0.0.1:5050...
+[23:38:11] ¡Conectado exitosamente al servidor AP!
+[23:38:11] =============================================
+[23:38:11]  Archipelago Network Module v0.3 cargado
+[23:38:11]  Modo: HTTP via HTTPLite
+[23:38:11]  Compatible con PIF v6.7
+[23:38:11] =============================================
+[23:38:39] Recibidos 3 eventos del servidor
+[23:38:39] Opciones recibidas desde Archipelago: {"abilities"=>0.0, "ability_blacklist"=>[], "allow_triple_fusions"=>0.0, "allowed_legendary_hunt_encounters"=>["Moltres", "Zapdos", "Articuno", "Mewtwo", "Mew"], "badges"=>2.0, "better_shops"=>0.0, "blind_trainers"=>0.0, "cerulean_cave_count"=>8.0, "cerulean_cave_requirement"=>0.0, "death_link"=>0.0, "dexsanity"=>0.0, "double_battle_chance"=>0.0, "elite_four_count"=>8.0, "elite_four_requirement"=>0.0, "enable_wonder_trading"=>1.0, "exp_modifier"=>200.0, "fanfares"=>0.0, "force_fully_evolved"=>100.0, "fusion_items"=>1.0, "fusion_randomization"=>3.0, "fusion_sprite_style"=>0.0, "goal"=>0.0, "guaranteed_catch"=>0.0, "hidden_items"=>1.0, "hm_compatibility"=>-1.0, "hms"=>2.0, "item_pool_type"=>0.0, "key_items"=>1.0, "legendary_encounters"=>3.0, "legendary_hunt_count"=>3.0, "level_up_moves"=>0.0, "match_trainer_levels"=>0.0, "match_trainer_levels_bonus"=>0.0, "min_catch_rate"=>3.0, "move_blacklist"=>[], "music"=>0.0, "npc_fusion_reveal"=>1.0, "npc_gifts"=>1.0, "overworld_items"=>1.0, "receive_item_messages"=>0.0, "remote_items"=>0.0, "require_flash"=>3.0, "require_itemfinder"=>1.0, "reusable_tms_tutors"=>0.0, "starter_blacklist"=>[], "starters"=>3.0, "tm_tutor_compatibility"=>-1.0, "tm_tutor_moves"=>0.0, "trainer_parties"=>3.0, "trainersanity"=>1.0, "turbo_a"=>0.0, "types"=>0.0, "wild_encounter_blacklist"=>[], "wild_pokemon"=>4.0}
+[23:44:03] Enviado: pokemon_caught — {"type":"pokemon_caught","species":"#<Pokemon:0x0000017b05b6d218>","map_id":77,"event_id":56}
+[23:44:59] Enviado: trainer_defeated — {"type":"trainer_defeated","trainer_id":"4_Blue","map_id":77,"event_id":21}
+[23:45:17] Enviado: item_received — {"type":"item_received","item":"POTION","quantity":1,"map_id":78,"event_id":3}
+[23:45:20] Recibidos 1 eventos del servidor
+[23:46:17] Enviado: item_found — {"type":"item_found","item":"ORANBERRY","quantity":1,"map_id":78,"event_id":1}
+[23:46:19] Recibidos 1 eventos del servidor
+[23:47:27] Error al hacer poll: MKXPError - Failed to GET http://127.0.0.1:5050/poll (2: Connection)
+[23:47:27] Desconectado.
+[23:47:59] Hook de pbItemBall instalado correctamente.
+[23:47:59] Hook de pbReceiveItem instalado correctamente.
+[23:47:59] Intentando conectar a http://127.0.0.1:5050...
+[23:47:59] ¡Conectado exitosamente al servidor AP!
+[23:47:59] =============================================
+[23:47:59]  Archipelago Network Module v0.3 cargado
+[23:47:59]  Modo: HTTP via HTTPLite
+[23:47:59]  Compatible con PIF v6.7
+[23:47:59] =============================================
+[23:48:55] Recibidos 3 eventos del servidor
+[23:48:55] Opciones recibidas desde Archipelago: {"abilities"=>0.0, "ability_blacklist"=>[], "allow_triple_fusions"=>0.0, "allowed_legendary_hunt_encounters"=>["Zapdos", "Mew", "Moltres", "Articuno", "Mewtwo"], "badges"=>2.0, "better_shops"=>0.0, "blind_trainers"=>0.0, "cerulean_cave_count"=>8.0, "cerulean_cave_requirement"=>0.0, "death_link"=>0.0, "dexsanity"=>0.0, "double_battle_chance"=>0.0, "elite_four_count"=>8.0, "elite_four_requirement"=>0.0, "enable_wonder_trading"=>1.0, "exp_modifier"=>200.0, "fanfares"=>0.0, "force_fully_evolved"=>100.0, "fusion_items"=>1.0, "fusion_randomization"=>3.0, "fusion_sprite_style"=>0.0, "goal"=>0.0, "guaranteed_catch"=>0.0, "hidden_items"=>1.0, "hm_compatibility"=>-1.0, "hms"=>2.0, "item_pool_type"=>0.0, "key_items"=>1.0, "legendary_encounters"=>3.0, "legendary_hunt_count"=>3.0, "level_up_moves"=>0.0, "match_trainer_levels"=>0.0, "match_trainer_levels_bonus"=>0.0, "min_catch_rate"=>3.0, "move_blacklist"=>[], "music"=>0.0, "npc_fusion_reveal"=>1.0, "npc_gifts"=>1.0, "overworld_items"=>1.0, "receive_item_messages"=>0.0, "remote_items"=>0.0, "require_flash"=>3.0, "require_itemfinder"=>1.0, "reusable_tms_tutors"=>0.0, "starter_blacklist"=>[], "starters"=>3.0, "tm_tutor_compatibility"=>-1.0, "tm_tutor_moves"=>0.0, "trainer_parties"=>3.0, "trainersanity"=>1.0, "turbo_a"=>0.0, "types"=>0.0, "wild_encounter_blacklist"=>[], "wild_pokemon"=>4.0}
+[23:50:41] Enviado: pokemon_caught — {"type":"pokemon_caught","species":"#<Pokemon:0x000001c3887b2c38>","map_id":77,"event_id":56}
+[23:51:35] Enviado: trainer_defeated — {"type":"trainer_defeated","trainer_id":"4_Blue","map_id":77,"event_id":21}
+[23:52:34] Enviado: item_received — {"type":"item_received","item":"POTION","quantity":1,"map_id":78,"event_id":3}
+[23:52:36] Recibidos 1 eventos del servidor
+[23:58:02] Enviado: item_found — {"type":"item_found","item":"ORANBERRY","quantity":1,"map_id":78,"event_id":1}
+[23:58:03] Recibidos 1 eventos del servidor
+[23:58:59] Enviado: item_received — {"type":"item_received","item":"OAKSPARCEL","quantity":1,"map_id":81,"event_id":2}
+[23:59:01] Enviado: item_received — {"type":"item_received","item":"DNASPLICERS","quantity":1,"map_id":81,"event_id":2}
+[23:59:01] Recibidos 2 eventos del servidor
+[16:27:54] Hook de pbItemBall instalado correctamente.
+[16:27:54] Hook de pbReceiveItem instalado correctamente.
+[16:27:54] Intentando conectar a http://127.0.0.1:5050...
+[16:27:56] Error de conexión: MKXPError - Failed to POST http://127.0.0.1:5050/event (2: Connection)
+[16:27:56] =============================================
+[16:27:56]  Archipelago Network Module v0.3 cargado
+[16:27:56]  Modo: HTTP via HTTPLite
+[16:27:56]  Compatible con PIF v6.7
+[16:27:56] =============================================
+[17:32:40] Hook de pbItemBall instalado correctamente.
+[17:32:40] Hook de pbReceiveItem instalado correctamente.
+[17:32:40] Intentando conectar a http://127.0.0.1:5050...
+[17:32:40] ¡Conectado exitosamente al servidor AP!
+[17:32:40] =============================================
+[17:32:40]  Archipelago Network Module v0.3 cargado
+[17:32:40]  Modo: HTTP via HTTPLite
+[17:32:40]  Compatible con PIF v6.7
+[17:32:40] =============================================
+[21:31:09] Hook de pbItemBall instalado correctamente.
+[21:31:09] Hook de pbReceiveItem instalado correctamente.
+[21:31:09] Intentando conectar a http://127.0.0.1:5050...
+[21:31:09] ¡Conectado exitosamente al servidor AP!
+[21:31:09] =============================================
+[21:31:09]  Archipelago Network Module v0.3 cargado
+[21:31:09]  Modo: HTTP via HTTPLite
+[21:31:09]  Compatible con PIF v6.7
+[21:31:09] =============================================
+[21:32:12] Recibidos 3 eventos del servidor
+[21:32:12] Opciones recibidas desde Archipelago: {"abilities"=>1.0, "ability_blacklist"=>[], "allow_triple_fusions"=>0.0, "allowed_legendary_hunt_encounters"=>["Mew", "Articuno", "Moltres", "Zapdos", "Mewtwo"], "badges"=>2.0, "better_shops"=>0.0, "blind_trainers"=>0.0, "cerulean_cave_count"=>8.0, "cerulean_cave_requirement"=>0.0, "death_link"=>0.0, "dexsanity"=>0.0, "double_battle_chance"=>0.0, "elite_four_count"=>8.0, "elite_four_requirement"=>0.0, "enable_wonder_trading"=>1.0, "exp_modifier"=>100.0, "fanfares"=>true, "force_fully_evolved"=>100.0, "fusion_items"=>1.0, "fusion_randomization"=>3.0, "fusion_sprite_style"=>0.0, "goal"=>0.0, "guaranteed_catch"=>0.0, "hidden_items"=>0.0, "hm_compatibility"=>-1.0, "hms"=>2.0, "item_pool_type"=>0.0, "key_items"=>1.0, "legendary_encounters"=>3.0, "legendary_hunt_count"=>3.0, "level_up_moves"=>1.0, "match_trainer_levels"=>0.0, "match_trainer_levels_bonus"=>0.0, "min_catch_rate"=>3.0, "move_blacklist"=>[], "music"=>true, "npc_fusion_reveal"=>1.0, "npc_gifts"=>0.0, "overworld_items"=>1.0, "randomize_everything"=>1.0, "receive_item_messages"=>0.0, "remote_items"=>0.0, "require_flash"=>3.0, "require_itemfinder"=>1.0, "reusable_tms_tutors"=>0.0, "starter_blacklist"=>[], "starters"=>3.0, "tm_tutor_compatibility"=>-1.0, "tm_tutor_moves"=>true, "trainer_parties"=>3.0, "trainersanity"=>0.0, "turbo_a"=>0.0, "types"=>2.0, "wild_encounter_blacklist"=>[], "wild_pokemon"=>4.0}
+[21:34:37] Recibidos 1 eventos del servidor
+[21:41:06] Enviado: pokemon_caught — {"type":"pokemon_caught","species":"#<Pokemon:0x0000013f809315f0>","map_id":77,"event_id":55}
+[21:42:28] Enviado: trainer_defeated — {"type":"trainer_defeated","trainer_id":"4_Blue","map_id":77,"event_id":21}
+[21:42:57] Enviado: item_received — {"type":"item_received","item":"TOWNMAP","quantity":1,"map_id":76,"event_id":9}
+[21:43:23] Enviado: item_received — {"type":"item_received","item":"POTION","quantity":1,"map_id":78,"event_id":3}
+[21:46:29] Enviado: item_found — {"type":"item_found","item":"ORANBERRY","quantity":1,"map_id":78,"event_id":1}
+[21:46:30] Recibidos 1 eventos del servidor
+[21:46:45] Recibidos 1 eventos del servidor
+[21:48:48] Enviado: item_received — {"type":"item_received","item":"OAKSPARCEL","quantity":1,"map_id":81,"event_id":2}
+[21:48:52] Enviado: item_received — {"type":"item_received","item":"DNASPLICERS","quantity":1,"map_id":81,"event_id":2}
+[21:49:04] Enviado: item_found — {"type":"item_found","item":"POTION","quantity":1,"map_id":171,"event_id":39}
+[21:49:07] Recibidos 1 eventos del servidor
+[21:50:38] Enviado: trainer_defeated — {"type":"trainer_defeated","trainer_id":"38_Mimi","map_id":78,"event_id":2}
+[21:50:40] Recibidos 1 eventos del servidor
+[21:50:59] Enviado: item_received — {"type":"item_received","item":"POKEBALL","quantity":5,"map_id":77,"event_id":7}
+[21:53:16] Recibidos 1 eventos del servidor
+[22:28:13] Hook de pbItemBall instalado correctamente.
+[22:28:13] Hook de pbReceiveItem instalado correctamente.
+[22:28:13] Intentando conectar a http://127.0.0.1:5050...
+[22:28:13] ¡Conectado exitosamente al servidor AP!
+[22:28:13] =============================================
+[22:28:13]  Archipelago Network Module v0.3 cargado
+[22:28:13]  Modo: HTTP via HTTPLite
+[22:28:13]  Compatible con PIF v6.7
+[22:28:13] =============================================
+[22:30:18] Hook de pbItemBall instalado correctamente.
+[22:30:18] Hook de pbReceiveItem instalado correctamente.
+[22:30:18] Intentando conectar a http://127.0.0.1:5050...
+[22:30:18] ¡Conectado exitosamente al servidor AP!
+[22:30:18] =============================================
+[22:30:18]  Archipelago Network Module v0.3 cargado
+[22:30:18]  Modo: HTTP via HTTPLite
+[22:30:18]  Compatible con PIF v6.7
+[22:30:18] =============================================
+[22:32:03] Recibidos 3 eventos del servidor
+[22:32:03] Opciones recibidas desde Archipelago: {"abilities"=>1.0, "ability_blacklist"=>[], "allow_triple_fusions"=>0.0, "allowed_legendary_hunt_encounters"=>["Moltres", "Mew", "Articuno", "Mewtwo", "Zapdos"], "badges"=>2.0, "better_shops"=>0.0, "blind_trainers"=>0.0, "cerulean_cave_count"=>8.0, "cerulean_cave_requirement"=>0.0, "death_link"=>0.0, "dexsanity"=>0.0, "double_battle_chance"=>0.0, "elite_four_count"=>8.0, "elite_four_requirement"=>0.0, "enable_wonder_trading"=>1.0, "exp_modifier"=>100.0, "fanfares"=>true, "force_fully_evolved"=>100.0, "fusion_items"=>1.0, "fusion_randomization"=>3.0, "fusion_sprite_style"=>0.0, "goal"=>0.0, "guaranteed_catch"=>0.0, "hidden_items"=>0.0, "hm_compatibility"=>-1.0, "hms"=>2.0, "item_pool_type"=>0.0, "key_items"=>1.0, "legendary_encounters"=>3.0, "legendary_hunt_count"=>3.0, "level_up_moves"=>1.0, "match_trainer_levels"=>0.0, "match_trainer_levels_bonus"=>0.0, "min_catch_rate"=>3.0, "move_blacklist"=>[], "music"=>true, "npc_fusion_reveal"=>1.0, "npc_gifts"=>0.0, "overworld_items"=>1.0, "randomize_everything"=>1.0, "receive_item_messages"=>0.0, "remote_items"=>0.0, "require_flash"=>3.0, "require_itemfinder"=>1.0, "reusable_tms_tutors"=>0.0, "starter_blacklist"=>[], "starters"=>3.0, "tm_tutor_compatibility"=>-1.0, "tm_tutor_moves"=>true, "trainer_parties"=>3.0, "trainersanity"=>0.0, "turbo_a"=>0.0, "types"=>2.0, "wild_encounter_blacklist"=>[], "wild_pokemon"=>4.0}
+[22:33:38] Enviado: pokemon_caught — {"type":"pokemon_caught","species":"#<Pokemon:0x000001d8095abe68>","map_id":77,"event_id":55}
+[22:34:44] Enviado: trainer_defeated — {"type":"trainer_defeated","trainer_id":"4_Blue","map_id":77,"event_id":21}
+[22:35:00] Enviado: item_received — {"type":"item_received","item":"TOWNMAP","quantity":1,"map_id":76,"event_id":9}
+[22:35:15] Enviado: item_received — {"type":"item_received","item":"POTION","quantity":1,"map_id":78,"event_id":3}
+[22:35:27] Enviado: item_found — {"type":"item_found","item":"ORANBERRY","quantity":1,"map_id":78,"event_id":1}
+[22:35:28] Recibidos 1 eventos del servidor
+[22:36:13] Enviado: item_found — {"type":"item_found","item":"POTION","quantity":1,"map_id":171,"event_id":39}
+[22:36:15] Recibidos 1 eventos del servidor
+[22:36:31] Enviado: item_received — {"type":"item_received","item":"OAKSPARCEL","quantity":1,"map_id":81,"event_id":2}
+[22:36:34] Enviado: item_received — {"type":"item_received","item":"DNASPLICERS","quantity":1,"map_id":81,"event_id":2}
+[22:37:43] Enviado: item_received — {"type":"item_received","item":"POKEBALL","quantity":5,"map_id":77,"event_id":7}
+[22:37:58] Enviado: item_received — {"type":"item_received","item":"POKEBALL","quantity":2,"map_id":77,"event_id":17}

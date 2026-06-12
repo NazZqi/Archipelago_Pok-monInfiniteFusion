@@ -21,14 +21,18 @@
 
 ## ⚙️ Instalación y Configuración
 
-### 1. Instalar el `.apworld`
-Puedes compilar el archivo `.apworld` usando el script incluido o descargar la versión ya empaquetada.
-1. Ejecuta `python build_apworld.py` para generar e instalar automáticamente el `pokemon_infinite_fusion.apworld` en la carpeta `custom_worlds` de tu Archipelago local.
-2. O bien, descarga el archivo precompilado y cópialo manualmente en `Archipelago/lib/custom_worlds/` (si no existe, créala).
+### 1. Preparar Archipelago (El Servidor/Generador)
+1. Descarga el archivo `pokemon_infinite_fusion.apworld` desde la pestaña de Releases.
+2. Copia este archivo en la carpeta `custom_worlds` de tu instalación de Archipelago (generalmente en `C:\ProgramData\Archipelago\custom_worlds` o `Archipelago/lib/custom_worlds/`). Si la carpeta no existe, créala.
+3. Descarga la plantilla `Pokemon Infinite Fusion.yaml`, configúrala a tu gusto y ponla en la carpeta `Players` de tu Archipelago para generar la semilla (seed).
 
-### 2. Modificar el Juego (Infinite Fusion)
-1. Copia el script de red correspondiente dentro de la carpeta `Data/Scripts/052_AddOns/` de tu juego (las instrucciones detalladas para el parche de Ruby se proporcionan en la release).
-2. La próxima vez que abras el juego, el script inyectará automáticamente un indicador visual (Círculo Verde/Rojo) en la esquina superior derecha indicando el estado de conexión local.
+### 2. Instalar el Mod en el Juego (El Cliente)
+Hemos creado un instalador automático para que conectar tu juego con Archipelago sea sumamente sencillo.
+1. Descarga el archivo **`PokemonIF_AP_ClientMod.zip`** desde la pestaña de Releases.
+2. Descomprime su contenido directamente en la carpeta raíz de tu juego Pokémon Infinite Fusion (la misma carpeta donde se encuentra el archivo `Game.exe`).
+3. Haz doble clic en el archivo **`Instalar-Archipelago.bat`**. 
+4. El script comprobará las carpetas y copiará automáticamente los archivos necesarios a `Data/Scripts/998_Experimental`.
+5. ¡Listo! Al abrir el juego verás un indicador visual (Círculo Verde/Rojo) en la esquina superior derecha que indica el estado de conexión con el cliente de Archipelago.
 
 ---
 
