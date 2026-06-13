@@ -2,8 +2,8 @@ import os
 import zipfile
 import shutil
 
-src_dir = r"C:\Users\mendo\Documents\PokemonIF_AP\apworld_dev\pokemon_infinite_fusion"
-dest_zip = r"C:\ProgramData\Archipelago\custom_worlds\pokemon_infinite_fusion.apworld"
+src_dir = os.path.join(os.path.dirname(__file__), "apworld_dev", "pokemon_infinite_fusion")
+dest_zip = os.path.join(os.path.dirname(__file__), "..", "releases", "pokemon_infinite_fusion.apworld")
 
 def build():
     # Asegurarnos de que el directorio destino existe

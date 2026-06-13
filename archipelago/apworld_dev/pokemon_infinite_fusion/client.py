@@ -301,7 +301,7 @@ def launch_game_automatically():
         # ap_settings puede contener "pokemon_i_f_settings" u otro nombre derivado de PokemonIFSettings
         saved_path = ""
         for key, group in ap_settings.items():
-            if "pokemon" in key.lower() or type(group).__name__ == "PokemonIFSettings":
+            if "pokemon_infinite_fusion" in key.lower() or type(group).__name__ == "PokemonIFSettings":
                 if isinstance(group, dict):
                     saved_path = group.get("rom_file", "")
                 elif hasattr(group, "rom_file"):
@@ -351,7 +351,7 @@ def launch_game_automatically():
                 from settings import get_settings
                 ap_settings = get_settings()
                 for key, group in ap_settings.items():
-                    if "pokemon" in key.lower() or type(group).__name__ == "PokemonIFSettings":
+                    if "pokemon_infinite_fusion" in key.lower() or type(group).__name__ == "PokemonIFSettings":
                         if isinstance(group, dict):
                             group["rom_file"] = file_path
                         elif hasattr(group, "rom_file"):
