@@ -11,8 +11,8 @@ from http.server import HTTPServer, BaseHTTPRequestHandler
 
 import colorama
 
-from NetUtils import ClientStatus
-from CommonClient import CommonContext, server_loop, gui_enabled, ClientCommandProcessor, logger, get_base_parser
+from NetUtils import ClientStatus  # type: ignore
+from CommonClient import CommonContext, server_loop, gui_enabled, ClientCommandProcessor, logger, get_base_parser  # type: ignore
 
 HTTP_HOST = "127.0.0.1"
 HTTP_PORT = 5050
@@ -144,6 +144,18 @@ class PokemonIFCommandProcessor(ClientCommandProcessor):
         self.output("El enlace del tracker no se puede obtener automáticamente del servidor.")
         self.output("Por favor, dirígete a la página de tu sala (Room) en archipelago.gg para encontrar tu enlace del tracker personal.")
 
+    def _cmd_sync(self):
+        """Fuerza la resincronización de todos los ítems de Archipelago."""
+        if hasattr(self.ctx, "last_received_index"):
+            self.ctx.last_received_index = -1
+            self.ctx.save()
+            self.output("Índice de ítems reiniciado. Sincronizando con el servidor...")
+            if self.ctx.server and not self.ctx.server.socket.closed:
+                import asyncio
+                asyncio.create_task(self.ctx.send_msgs([{"cmd": "Sync"}]))
+        else:
+            self.output("El cliente no está listo para sincronizar.")
+
 class PokemonIFContext(CommonContext):
     command_processor = PokemonIFCommandProcessor
     game = "Pokemon Infinite Fusion"
@@ -157,6 +169,27 @@ class PokemonIFContext(CommonContext):
         self.active_locations = set()
         if auto_name:
             self.auth = auto_name
+
+    def load_save(self):
+        if getattr(self, 'seed_name', None) and getattr(self, 'auth', None):
+            save_file = f"ap_save_{self.seed_name}_{self.auth}.json"
+            try:
+                if os.path.exists(save_file):
+                    with open(save_file, 'r', encoding='utf-8') as f:
+                        data = json.load(f)
+                        self.last_received_index = data.get("last_received_index", -1)
+                        logger.info(f"💾 Índice de ítems recuperado del guardado: {self.last_received_index}")
+            except Exception as e:
+                logger.error(f"Error cargando guardado local: {e}")
+
+    def save(self):
+        if getattr(self, 'seed_name', None) and getattr(self, 'auth', None):
+            save_file = f"ap_save_{self.seed_name}_{self.auth}.json"
+            try:
+                with open(save_file, 'w', encoding='utf-8') as f:
+                    json.dump({"last_received_index": self.last_received_index}, f)
+            except Exception as e:
+                logger.error(f"Error guardando localmente: {e}")
 
     async def server_auth(self, password_requested: bool = False):
         if password_requested and not self.password:
@@ -179,6 +212,7 @@ class PokemonIFContext(CommonContext):
             self.seed_name = args.get("seed_name")
             
         elif cmd == "Connected":
+            self.load_save()
             if self.server_address and "archipelago.gg" in self.server_address:
                 logger.info("💡 Recuerda que puedes encontrar tu Tracker personal en la página de la sala (Room) en archipelago.gg.")
             logger.info("¡Autenticado en Archipelago!")
@@ -193,11 +227,13 @@ class PokemonIFContext(CommonContext):
         elif cmd == "ReceivedItems":
             index = args.get("index", 0)
             items = args.get("items", [])
+            saved_index_changed = False
             for i, item_data in enumerate(items):
                 current_idx = index + i
                 if current_idx <= self.last_received_index:
                     continue
                 self.last_received_index = current_idx
+                saved_index_changed = True
                 
                 item_id = getattr(item_data, "item", None)
                 if item_id is None and isinstance(item_data, dict):
@@ -229,6 +265,10 @@ class PokemonIFContext(CommonContext):
                         })
                 else:
                     logger.warning(f"⚠️ Ítem AP desconocido (ID: {item_id}). Sin mapeo.")
+            
+            if saved_index_changed:
+                self.save()
+                    
                     
         elif cmd == "PrintJSON":
             if "data" in args:
@@ -273,7 +313,7 @@ class PokemonIFContext(CommonContext):
                     })
 
     def run_gui(self):
-        from kvui import GameManager
+        from kvui import GameManager  # type: ignore
         class PokemonIFManager(GameManager):
             logging_pairs = [
                 ("Client", "Archipelago")
@@ -295,7 +335,7 @@ def launch_game_automatically():
     
     # Intentar leer desde las configuraciones de Archipelago
     try:
-        from settings import get_settings
+        from settings import get_settings  # type: ignore
         ap_settings = get_settings()
         
         # ap_settings puede contener "pokemon_i_f_settings" u otro nombre derivado de PokemonIFSettings
@@ -348,7 +388,7 @@ def launch_game_automatically():
             
             # Intentar guardar la ruta en host.yaml
             try:
-                from settings import get_settings
+                from settings import get_settings  # type: ignore
                 ap_settings = get_settings()
                 for key, group in ap_settings.items():
                     if "pokemon_infinite_fusion" in key.lower() or type(group).__name__ == "PokemonIFSettings":

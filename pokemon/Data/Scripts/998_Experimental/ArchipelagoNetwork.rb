@@ -241,6 +241,8 @@ module ArchipelagoNetwork
     # Retorna: Hash con datos recibidos, o nil si no hay nada.
     #=========================================================================
     def poll_servidor
+      # Intentar reconectar automáticamente si no está conectado
+      conectar unless conectado?
       return nil unless conectado?
 
       # Rate limiting por frames
