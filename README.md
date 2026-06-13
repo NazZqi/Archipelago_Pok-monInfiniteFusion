@@ -1,5 +1,9 @@
 # Pokémon Infinite Fusion - Archipelago Multiworld Integration
 
+![Archipelago](https://img.shields.io/badge/Archipelago-Multiworld-blue)
+![Pokémon Infinite Fusion](https://img.shields.io/badge/Pok%C3%A9mon-Infinite%20Fusion-red)
+![Status](https://img.shields.io/badge/Estado-Beta_Estable-brightgreen)
+
 ¡Conecta Pokémon Infinite Fusion con Archipelago Multiworld! Juega de forma cooperativa con tus amigos mientras los objetos del suelo, de los NPCs y eventos están esparcidos por otros juegos.
 
 ## Estado del Proyecto
