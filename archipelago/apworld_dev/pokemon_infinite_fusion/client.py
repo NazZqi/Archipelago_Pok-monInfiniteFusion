@@ -56,10 +56,54 @@ class APRequestHandler(BaseHTTPRequestHandler):
             if not game_connected:
                 game_connected = True
                 logger.info("🎮 Juego Conectado al Cliente HTTP")
-                
             events_to_send = []
+            
+            # 1. Enviar opciones, configuraciones o metas pendientes en game_receive_queue
             while not game_receive_queue.empty():
                 events_to_send.append(game_receive_queue.get())
+                
+            # 2. Enviar ítems recibidos que aún no se han entregado al juego
+            if ctx and getattr(ctx, "items_received", None) is not None:
+                items_delivered_now = 0
+                while ctx.delivered_items_count < len(ctx.items_received):
+                    item_data = ctx.items_received[ctx.delivered_items_count]
+                    
+                    item_id = getattr(item_data, "item", None)
+                    if item_id is None and isinstance(item_data, dict):
+                        item_id = item_data.get("item")
+                        
+                    item_key = str(item_id)
+                    if item_key in ITEM_DICTIONARY:
+                        entry = ITEM_DICTIONARY[item_key]
+                        item_name = entry["name"]
+                        item_type = entry.get("type", "item")
+                        
+                        if item_type == "badge":
+                            badge_id = entry.get("badge_id", 0)
+                            logger.info(f"🎁 Entregando al juego: {item_name} (Medalla)")
+                            events_to_send.append({
+                                "action": "give_badge",
+                                "badge_id": badge_id,
+                                "name": item_name
+                            })
+                        else:
+                            game_id = entry.get("game_id", item_name.upper())
+                            logger.info(f"🎁 Entregando al juego: {item_name}")
+                            events_to_send.append({
+                                "action": "give_item",
+                                "item": game_id,
+                                "quantity": 1,
+                                "name": item_name
+                            })
+                    else:
+                        logger.warning(f"⚠️ Ítem AP desconocido (ID: {item_id}). Sin mapeo.")
+                        
+                    ctx.delivered_items_count += 1
+                    items_delivered_now += 1
+                
+                # Guardar el índice inmediatamente si entregamos ítems nuevos
+                if items_delivered_now > 0:
+                    ctx.save()
             
             self._send_json_response(200, {"status": "ok", "events": events_to_send})
         else:
@@ -98,16 +142,27 @@ class APRequestHandler(BaseHTTPRequestHandler):
                         if not isinstance(ap_ids, list):
                             ap_ids = [ap_ids]
                         
-                        # Verificar si las ubicaciones están activas en esta semilla (ej. no excluidas por yaml)
-                        valid_ids = [ap_id for ap_id in ap_ids if ap_id in ACTIVE_LOCATIONS]
+                        valid_id_to_send = None
+                        if ctx and hasattr(ctx, "server_locations"):
+                            for ap_id in ap_ids:
+                                if ap_id in ctx.server_locations:
+                                    # Verificar si ya fue enviada o completada
+                                    if ap_id not in ctx.checked_locations and ap_id not in ctx.locally_sent_locations:
+                                        valid_id_to_send = ap_id
+                                        break
+                        else:
+                            # Si el cliente aún no tiene server_locations (rara vez pasa), enviar el primero
+                            valid_id_to_send = ap_ids[0]
                         
-                        if not valid_ids:
-                            logger.info(f"⚠️ Ubicación {key} excluida por opciones del YAML. Entregando ítem nativo.")
+                        if valid_id_to_send is None:
+                            logger.info(f"⚠️ Ubicación {key} excluida por YAML o todos los ítems de este evento ya fueron revisados. Entregando ítem nativo.")
                             self._send_json_response(200, {"status": "ok", "tracked": False})
                             return
                         
-                        logger.info(f"📦 Recogido ítem en ubicación AP {key}. AP IDs: {valid_ids}")
-                        ap_send_queue.put({"cmd": "LocationChecks", "locations": valid_ids})
+                        logger.info(f"📦 Recogido ítem en ubicación AP {key}. Enviando AP ID: {valid_id_to_send}")
+                        if ctx:
+                            ctx.locally_sent_locations.add(valid_id_to_send)
+                        ap_send_queue.put({"cmd": "LocationChecks", "locations": [valid_id_to_send]})
                         self._send_json_response(200, {"status": "ok", "tracked": True})
                         return
                     else:
@@ -146,8 +201,8 @@ class PokemonIFCommandProcessor(ClientCommandProcessor):
 
     def _cmd_sync(self):
         """Fuerza la resincronización de todos los ítems de Archipelago."""
-        if hasattr(self.ctx, "last_received_index"):
-            self.ctx.last_received_index = -1
+        if hasattr(self.ctx, "delivered_items_count"):
+            self.ctx.delivered_items_count = 0
             self.ctx.save()
             self.output("Índice de ítems reiniciado. Sincronizando con el servidor...")
             if self.ctx.server and not self.ctx.server.socket.closed:
@@ -164,9 +219,9 @@ class PokemonIFContext(CommonContext):
     def __init__(self, server_address, password, auto_name=None):
         super().__init__(server_address, password)
         self.sender_task = None
-        self.last_received_index = -1
+        self.delivered_items_count = 0
         self.auto_name = auto_name
-        self.active_locations = set()
+        self.locally_sent_locations = set()
         if auto_name:
             self.auth = auto_name
 
@@ -177,8 +232,8 @@ class PokemonIFContext(CommonContext):
                 if os.path.exists(save_file):
                     with open(save_file, 'r', encoding='utf-8') as f:
                         data = json.load(f)
-                        self.last_received_index = data.get("last_received_index", -1)
-                        logger.info(f"💾 Índice de ítems recuperado del guardado: {self.last_received_index}")
+                        self.delivered_items_count = data.get("delivered_items_count", 0)
+                        logger.info(f"💾 Índice de ítems entregados recuperado del guardado: {self.delivered_items_count}")
             except Exception as e:
                 logger.error(f"Error cargando guardado local: {e}")
 
@@ -187,7 +242,7 @@ class PokemonIFContext(CommonContext):
             save_file = f"ap_save_{self.seed_name}_{self.auth}.json"
             try:
                 with open(save_file, 'w', encoding='utf-8') as f:
-                    json.dump({"last_received_index": self.last_received_index}, f)
+                    json.dump({"delivered_items_count": self.delivered_items_count}, f)
             except Exception as e:
                 logger.error(f"Error guardando localmente: {e}")
 
@@ -217,57 +272,14 @@ class PokemonIFContext(CommonContext):
                 logger.info("💡 Recuerda que puedes encontrar tu Tracker personal en la página de la sala (Room) en archipelago.gg.")
             logger.info("¡Autenticado en Archipelago!")
             
-            # Guardamos las ubicaciones activas para esta semilla
-            global ACTIVE_LOCATIONS
-            ACTIVE_LOCATIONS = set(args.get("missing_locations", [])) | set(args.get("checked_locations", []))
-            
             if "slot_data" in args:
                 game_receive_queue.put({"action": "set_options", "options": args["slot_data"]})
         
         elif cmd == "ReceivedItems":
-            index = args.get("index", 0)
-            items = args.get("items", [])
-            saved_index_changed = False
-            for i, item_data in enumerate(items):
-                current_idx = index + i
-                if current_idx <= self.last_received_index:
-                    continue
-                self.last_received_index = current_idx
-                saved_index_changed = True
-                
-                item_id = getattr(item_data, "item", None)
-                if item_id is None and isinstance(item_data, dict):
-                    item_id = item_data.get("item")
-                
-                item_key = str(item_id)
-                
-                if item_key in ITEM_DICTIONARY:
-                    entry = ITEM_DICTIONARY[item_key]
-                    item_name = entry["name"]
-                    item_type = entry.get("type", "item")
+            # La base CommonClient de Archipelago ya maneja ctx.items_received.
+            # No encolamos nada aquí para evitar pérdida de ítems si el cliente se cierra antes de que el juego haga poll.
+            pass
                     
-                    if item_type == "badge":
-                        badge_id = entry.get("badge_id", 0)
-                        logger.info(f"🎁 Recibido: {item_name} (Medalla). Enviando al juego...")
-                        game_receive_queue.put({
-                            "action": "give_badge",
-                            "badge_id": badge_id,
-                            "name": item_name
-                        })
-                    else:
-                        game_id = entry.get("game_id", item_name.upper())
-                        logger.info(f"🎁 Recibido: {item_name}. Enviando al juego...")
-                        game_receive_queue.put({
-                            "action": "give_item",
-                            "item": game_id,
-                            "quantity": 1,
-                            "name": item_name
-                        })
-                else:
-                    logger.warning(f"⚠️ Ítem AP desconocido (ID: {item_id}). Sin mapeo.")
-            
-            if saved_index_changed:
-                self.save()
                     
                     
         elif cmd == "PrintJSON":
