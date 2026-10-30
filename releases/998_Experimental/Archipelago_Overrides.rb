@@ -48,6 +48,9 @@ class Spriteset_Map
       if estado[:listo]
         @ap_sprite.bitmap.fill_rect(0, 8, 10, 10, Color.new(0, 255, 0)) # Círculo Verde
         pbDrawTextPositions(@ap_sprite.bitmap, [[ "AP: #{latencia}ms#{pendientes}", 15, -4, 0, Color.new(255,255,255), Color.new(0,0,0) ]])
+      elsif estado[:semilla_distinta]
+        @ap_sprite.bitmap.fill_rect(0, 8, 10, 10, Color.new(255, 0, 0)) # Círculo Rojo
+        pbDrawTextPositions(@ap_sprite.bitmap, [[ "AP: Otra semilla", 15, -4, 0, Color.new(255,100,100), Color.new(0,0,0) ]])
       elsif estado[:conectado]
         # Cliente abierto pero sin servidor AP: los checks quedan pendientes
         @ap_sprite.bitmap.fill_rect(0, 8, 10, 10, Color.new(255, 200, 0)) # Círculo Amarillo

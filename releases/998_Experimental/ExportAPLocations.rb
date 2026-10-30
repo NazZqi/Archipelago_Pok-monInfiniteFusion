@@ -17,7 +17,8 @@ def exportar_ubicaciones_ap
       
       map.events.values.each do |event|
         items_en_evento = 0
-        
+        registrado = false
+
         event.pages.each do |page|
           next unless page.list
           page.list.each do |cmd|
@@ -28,38 +29,27 @@ def exportar_ubicaciones_ap
               script_text = cmd.parameters[1]
             end
             
-            if script_text
-              if script_text.include?("pbItemBall")
+            if script_text && script_text =~ /pbItemBall|pbReceiveItem|pbAddPokemon|pbHiddenItem/
+              tipo = nil
+              tipo = "itemball" if script_text.include?("pbItemBall")
+              tipo ||= "npc" if script_text.include?("pbReceiveItem")
+              # Solo los hooks de ArchipelagoNetwork.rb pueden marcar un check, y las
+              # ramas al azar o por página dan un ítem por activación, no uno por llamada.
+              # shortcut: un evento que da varios ítems seguidos cuenta una sola ubicación;
+              # para más checks habría que leer las ramas del evento.
+              if tipo && !registrado
                 ubicaciones << {
                   "id" => "#{map_id}_#{event.id}_#{items_en_evento}",
                   "map_id" => map_id,
                   "event_id" => event.id,
-                  "type" => "itemball",
+                  "type" => tipo,
                   "code" => code
                 }
-                code += 1
-                items_en_evento += 1
-              elsif script_text.include?("pbReceiveItem") || script_text.include?("pbAddPokemon")
-                ubicaciones << {
-                  "id" => "#{map_id}_#{event.id}_#{items_en_evento}",
-                  "map_id" => map_id,
-                  "event_id" => event.id,
-                  "type" => "npc",
-                  "code" => code
-                }
-                code += 1
-                items_en_evento += 1
-              elsif script_text.include?("pbHiddenItem")
-                ubicaciones << {
-                  "id" => "#{map_id}_#{event.id}_#{items_en_evento}",
-                  "map_id" => map_id,
-                  "event_id" => event.id,
-                  "type" => "hidden_item",
-                  "code" => code
-                }
-                code += 1
-                items_en_evento += 1
+                registrado = true
               end
+              # Toda llamada consume código: así los IDs no cambian entre exportaciones
+              code += 1
+              items_en_evento += 1
             end
           end
         end

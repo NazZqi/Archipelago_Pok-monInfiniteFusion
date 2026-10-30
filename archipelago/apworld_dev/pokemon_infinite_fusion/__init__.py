@@ -53,6 +53,7 @@ class PokemonIFWorld(World):
 
     def create_items(self):
         fillers_in_table = []
+        useful_in_table = []
         items_added = 0
 
         for name, data in item_table.items():
@@ -65,14 +66,22 @@ class PokemonIFWorld(World):
                     
                 if data.classification == ItemClassification.filler:
                     fillers_in_table.append(name)
+                elif data.classification == ItemClassification.useful:
+                    useful_in_table.append(name)
                 else:
                     self.multiworld.itempool.append(self.create_item(name))
                     items_added += 1
-            
+
         # Rellenar ubicaciones calculando matemáticamente las ubicaciones restantes
         my_locations = [loc for loc in self.multiworld.get_locations(self.player) if loc.address is not None]
         locations_count = len(my_locations)
-        
+
+        # Con pocas ubicaciones (solo npc_gifts) los útiles entran hasta donde quepan
+        self.random.shuffle(useful_in_table)
+        for name in useful_in_table[:max(0, locations_count - items_added)]:
+            self.multiworld.itempool.append(self.create_item(name))
+            items_added += 1
+
         filler_amount = locations_count - items_added
         
         if filler_amount < 0:
@@ -117,13 +126,8 @@ class PokemonIFWorld(World):
             "cerulean_cave_count": self.options.cerulean_cave_count.value,
             "require_itemfinder": self.options.require_itemfinder.value,
             "require_flash": self.options.require_flash.value,
-            "wild_pokemon": 4 if is_random else self.options.wild_pokemon.value,
-            "starters": 3 if is_random else self.options.starters.value,
-            "trainer_parties": 3 if is_random else self.options.trainer_parties.value,
             "force_fully_evolved": self.options.force_fully_evolved.value,
-            "legendary_encounters": 3 if is_random else self.options.legendary_encounters.value,
             "fusion_randomization": 3 if is_random else self.options.fusion_randomization.value,
-            "types": 2 if is_random else self.options.types.value,
             "abilities": 1 if is_random else self.options.abilities.value,
             "level_up_moves": 1 if is_random else self.options.level_up_moves.value,
             "tm_tutor_compatibility": self.options.tm_tutor_compatibility.value,

@@ -68,7 +68,9 @@ try:
     # 1. El cliente se conecta al servidor y lo informa al juego
     poll = wait_for(lambda: (p := get("/poll?index=0&opts=1"))["ready"] and p, "ready")
     assert any(e["action"] == "set_options" for e in poll["events"]), poll
-    print("OK conectado; opciones entregadas")
+    seed = poll["seed"]
+    assert seed and seed.endswith("_1"), poll
+    print("OK conectado; opciones entregadas; sala", seed)
 
     # 1b. Peticiones de una página web (CSRF / DNS rebinding) se rechazan
     def status_of(path, body=None, headers=None):
@@ -86,7 +88,7 @@ try:
     assert status_of("/poll?index=0", headers={"Host": "evil.example:5050"}) == 403
     print("OK peticiones con Origin, Host ajeno o sin JSON -> 403")
 
-    # 2. Ubicación real (29_8 tiene la Poké Flauta en la semilla 7)
+    # 2. Ubicación real. Si su ítem es una medalla, el paso 3 falla: usa otra semilla
     r = post("/event", {"type": "item_found", "item": "X", "quantity": 1, "map_id": 29, "event_id": 8})
     assert r["tracked"] is True and isinstance(r["location"], int), r
     location = r["location"]
@@ -117,6 +119,7 @@ try:
     server = start_server("server2.log")
     wait_for(lambda: get("/poll?index=0")["ready"], "ready tras reinicio")
     assert items(get("/poll?index=0")) == [], "servidor nuevo no debería tener ítems aún"
+    assert get("/poll?index=0")["seed"] == seed, "misma sala, mismo valor"
     assert post("/resync", {"locations": [location], "goal": True}) == {"status": "ok"}
     recovered = wait_for(lambda: items(get("/poll?index=0")), "ítem tras resync")
     assert recovered[0]["index"] == 0, recovered

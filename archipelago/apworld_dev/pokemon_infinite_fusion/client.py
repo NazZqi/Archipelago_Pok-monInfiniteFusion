@@ -117,7 +117,9 @@ class APRequestHandler(BaseHTTPRequestHandler):
             for index in range(start, len(ctx.items_received)):
                 events_to_send.append(item_event(ctx.items_received[index].item, index))
 
-        self._send_json_response(200, {"status": "ok", "ready": ready, "events": events_to_send})
+        # La partida guarda este valor y rechaza una sala que no sea la suya
+        seed = f"{ctx.seed_name}_{ctx.slot}" if ready else None
+        self._send_json_response(200, {"status": "ok", "ready": ready, "seed": seed, "events": events_to_send})
 
     def do_POST(self):
         if not self._from_game(is_post=True):
@@ -240,7 +242,7 @@ def resolve_location(data: dict) -> dict:
     if not isinstance(ap_ids, list):
         ap_ids = [ap_ids]
 
-    # Un mismo evento puede dar varios ítems: se usa el primer ID aún no marcado.
+    # Cada evento tiene un ID: si vuelve a dar algo, ya no es un check y se entrega nativo.
     for ap_id in ap_ids:
         if ap_id in ctx.server_locations and ap_id not in ctx.checked_locations \
                 and ap_id not in ctx.locally_sent_locations:
@@ -334,7 +336,9 @@ class PokemonIFContext(CommonContext):
                     
                     
         elif cmd == "PrintJSON":
-            if "data" in args:
+            # El servidor avisa de cada ítem a todo el equipo, y cada aviso sería un diálogo
+            # que detiene el juego: solo pasan los ítems que recibe este jugador.
+            if "data" in args and args.get("type") in ("ItemSend", "ItemCheat") and args.get("receiving") == self.slot:
                 parts = []
                 for p in args["data"]:
                     t = p.get("type")

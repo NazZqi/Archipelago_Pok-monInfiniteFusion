@@ -1,4 +1,6 @@
 from . import PokemonIFTestBase
+from .. import client
+from ..locations import location_table
 from ..rules import KANTO_BADGES
 
 
@@ -25,3 +27,18 @@ class TestVanilla(PokemonIFTestBase):
 
 class TestRandomizeEverything(PokemonIFTestBase):
     options = {"randomize_everything": True}
+
+
+class TestOnlyNpcGifts(PokemonIFTestBase):
+    # Menos ubicaciones que ítems no-relleno: los útiles entran hasta donde quepan
+    options = {"overworld_items": False, "npc_gifts": True}
+
+
+class TestLocationTables(PokemonIFTestBase):
+    def test_each_event_has_one_location(self):
+        # Un evento con varias ubicaciones deja las últimas sin poder marcarse
+        self.assertTrue(all(len(ids) == 1 for ids in client.LOCATION_MAPPING.values()))
+
+    def test_mapping_matches_locations(self):
+        mapped = {ap_id for ids in client.LOCATION_MAPPING.values() for ap_id in ids}
+        self.assertEqual(mapped, {data.code for data in location_table.values()})

@@ -41,6 +41,9 @@ end
 class PokemonGlobalMetadata
   attr_writer :ap_items_index, :ap_checked, :ap_pendientes, :ap_meta
 
+  # Semilla y slot de la sala a la que pertenece esta partida
+  attr_accessor :ap_semilla
+
   # Índice del próximo ítem de AP por entregar
   def ap_items_index; @ap_items_index ||= 0; end
 
@@ -80,6 +83,7 @@ module ArchipelagoNetwork
   #---------------------------------------------------------------------------
   @conectado = false
   @listo = false             # el cliente está conectado al servidor de AP
+  @semilla_distinta = false  # la partida es de otra sala: no se sincroniza nada
   @ultimo_error = nil
   @ultimo_intento_conexion = 0
   @errores_consecutivos = 0
@@ -197,10 +201,11 @@ module ArchipelagoNetwork
     #=========================================================================
     # listo?
     #-------------------------------------------------------------------------
-    # Retorna true si el cliente local además está conectado al servidor AP.
+    # Retorna true si el cliente local además está conectado al servidor AP y
+    # el último poll ya comprobó la semilla de la partida cargada.
     #=========================================================================
     def listo?
-      return @conectado && @listo
+      return @conectado && @listo && @global_id == $PokemonGlobal.object_id
     end
 
     #=========================================================================
@@ -346,6 +351,7 @@ module ArchipelagoNetwork
       @pausa_items = false
 
       begin
+        estaba_listo = listo?
         url = BASE_URL + "/poll?index=#{siguiente_indice}"
         url += "&opts=1" if $ArchipelagoOptions.nil?
 
@@ -356,8 +362,9 @@ module ArchipelagoNetwork
         if response.is_a?(Hash) && response[:status] == 200
           data = HTTPLite::JSON.parse(response[:body])
 
-          estaba_listo = @listo
           @listo = (data["ready"] == true)
+          comprobar_semilla(data["seed"]) if @listo
+          return nil if @semilla_distinta
           resincronizar if @listo && !estaba_listo
 
           events = data["events"]
@@ -395,22 +402,6 @@ module ArchipelagoNetwork
         if action == "set_options"
           $ArchipelagoOptions = evento["options"]
           ArchipelagoNetwork.log_archivo "Opciones recibidas desde Archipelago: #{$ArchipelagoOptions.inspect}"
-
-          # Map options to Pokémon Infinite Fusion internal switches
-          opts = $ArchipelagoOptions
-          if $game_switches
-            $game_switches[778]  = true if opts["wild_pokemon"] && opts["wild_pokemon"] > 0
-            $game_switches[987]  = true if opts["trainer_parties"] && opts["trainer_parties"] > 0
-            $game_switches[954]  = true if opts["starters"] && opts["starters"] > 0
-            $game_switches[1031] = true if opts["legendary_encounters"] && opts["legendary_encounters"] > 0
-            $game_switches[780]  = true if opts["npc_gifts"] && opts["npc_gifts"] > 0
-            $game_switches[751]  = true if opts["overworld_items"] && opts["overworld_items"] > 0
-            $game_switches[755]  = true if opts["overworld_items"] && opts["overworld_items"] > 0
-            $game_switches[921]  = true if opts["types"] && opts["types"] > 0
-            $game_switches[855]  = true # SWITCH_RANDOMIZED_AT_LEAST_ONCE
-
-            $game_map.need_refresh = true if $game_map
-          end
 
         elsif evento.has_key?("index")
           # Ítem recibido (give_item / give_badge / unknown). Se encola en orden y
@@ -566,6 +557,7 @@ module ArchipelagoNetwork
       {
         conectado: conectado?,
         listo: listo?,
+        semilla_distinta: @semilla_distinta,
         errores_consecutivos: @errores_consecutivos,
         ultimo_error: @ultimo_error,
         mensajes_enviados: @mensajes_enviados,
@@ -589,6 +581,22 @@ module ArchipelagoNetwork
     private
 
     #=========================================================================
+    # comprobar_semilla (interno)
+    #-------------------------------------------------------------------------
+    # La partida queda atada a la primera sala que ve. En otra sala no se envía
+    # ni se recibe nada: sus checks viejos marcarían ubicaciones de la sala nueva.
+    #=========================================================================
+    def comprobar_semilla(semilla)
+      $PokemonGlobal.ap_semilla ||= semilla
+      distinta = ($PokemonGlobal.ap_semilla != semilla)
+      if distinta && !@semilla_distinta
+        log_archivo "Partida de #{$PokemonGlobal.ap_semilla}; la sala es #{semilla}. Sin sincronizar."
+      end
+      @semilla_distinta = distinta
+      @listo = false if distinta
+    end
+
+    #=========================================================================
     # resultado_check (interno)
     #-------------------------------------------------------------------------
     # Traduce la respuesta del cliente a :tracked, :nativo o :pendiente.
@@ -606,15 +614,11 @@ module ArchipelagoNetwork
     #=========================================================================
     # enviar_mensaje (interno)
     #-------------------------------------------------------------------------
-    # Envía un hash como JSON via HTTP POST al servidor.
-    # Intenta reconectar si es necesario.
+    # Envía un hash como JSON via HTTP POST al servidor. Sin sala comprobada
+    # devuelve false y el check queda pendiente: poll_servidor reconecta.
     #=========================================================================
     def enviar_mensaje(mensaje_hash)
-      # Intentar reconectar si no estamos conectados
-      if !conectado?
-        return false unless conectar
-      end
-
+      return false unless listo?
       return enviar_post("/event", mensaje_hash)
     end
 

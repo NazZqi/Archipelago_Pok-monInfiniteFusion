@@ -208,22 +208,6 @@ Pokemon Infinite Fusion:
   # Pokemon Randomization Options   #
   ###################################
 
-  wild_pokemon:
-    # Randomizes wild pokemon encounters (grass, caves, water, fishing).
-    # 
-    # Warning: Matching both base stats and type may severely limit the variety for certain pokemon.
-    # 
-    # - Vanilla: Wild encounters are unchanged
-    # - Match Base Stats: Wild pokemon are replaced with species with approximately the same bst
-    # - Match Type: Wild pokemon are replaced with species that share a type with the original
-    # - Match Base Stats and Type: Apply both Match Base Stats and Match Type
-    # - Completely Random: There are no restrictions
-    vanilla: 50
-    match_base_stats: 0
-    match_type: 0
-    match_base_stats_and_type: 0
-    completely_random: 0
-
   wild_encounter_blacklist:
     # Prevents listed species from appearing in the wild when wild encounters are randomized.
     # 
@@ -232,18 +216,6 @@ Pokemon Infinite Fusion:
     # Use "_Legendaries" as a shortcut for all legendary pokemon.
     []
 
-  starters:
-    # Randomizes the starter pokemon in Professor Oak's lab.
-    # 
-    # - Vanilla: Starters are unchanged
-    # - Match Base Stats: Starters are replaced with species with approximately the same bst
-    # - Match Type: Starters are replaced with species that share a type with the original
-    # - Completely Random: There are no restrictions
-    vanilla: 50
-    match_base_stats: 0
-    match_type: 0
-    completely_random: 0
-
   starter_blacklist:
     # Prevents listed species from appearing as starters when starters are randomized.
     # 
@@ -251,18 +223,6 @@ Pokemon Infinite Fusion:
     # 
     # Use "_Legendaries" as a shortcut for all legendary pokemon.
     []
-
-  trainer_parties:
-    # Randomizes the parties of all trainers.
-    # 
-    # - Vanilla: Parties are unchanged
-    # - Match Base Stats: Trainer pokemon are replaced with species with approximately the same bst
-    # - Match Type: Trainer pokemon are replaced with species that share a type with the original
-    # - Completely Random: There are no restrictions
-    vanilla: 50
-    match_base_stats: 0
-    match_type: 0
-    completely_random: 0
 
   force_fully_evolved:
     # When an opponent uses a pokemon of the specified level or higher, restricts the species to only fully evolved pokemon.
@@ -277,18 +237,6 @@ Pokemon Infinite Fusion:
     random-low: 0 # random value weighted towards lower values
     random-high: 0 # random value weighted towards higher values
     random-range-1-100: 0 # random value between 1 and 100
-
-  legendary_encounters:
-    # Randomizes legendary encounters (Articuno, Zapdos, Moltres, Mewtwo, etc.).
-    # 
-    # - Vanilla: Legendary encounters are unchanged
-    # - Shuffle: Legendary encounters are shuffled between each other
-    # - Match Base Stats: Legendary encounters are replaced with species with approximately the same bst
-    # - Completely Random: There are no restrictions
-    vanilla: 50
-    shuffle: 0
-    match_base_stats: 0
-    completely_random: 0
 
   fusion_randomization:
     # [INFINITE FUSION ONLY] Controls whether trainer and wild Pokemon fusions are randomized.
@@ -306,18 +254,6 @@ Pokemon Infinite Fusion:
   #############################################
   # Stats, Moves, and Abilities Options       #
   #############################################
-
-  types:
-    # Randomizes the type(s) of every pokemon. Each species will have the same number of types.
-    # 
-    # - Vanilla: Types are unchanged
-    # - Shuffle: Types are shuffled globally for all species
-    # - Completely Random: Each species has its type(s) randomized
-    # - Follow Evolutions: Types are randomized per evolution line instead of per species
-    vanilla: 50
-    shuffle: 0
-    completely_random: 0
-    follow_evolutions: 0
 
   abilities:
     # Randomizes abilities of every species. Each species will have the same number of abilities.

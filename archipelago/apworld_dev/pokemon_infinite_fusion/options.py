@@ -117,41 +117,13 @@ class RequireFlash(Choice):
     option_both = 3
     default = 3
 
-class WildPokemon(Choice):
-    """Randomizes wild pokemon encounters."""
-    display_name = "Wild Pokemon"
-    option_vanilla = 0
-    option_match_base_stats = 1
-    option_match_type = 2
-    option_match_base_stats_and_type = 3
-    option_completely_random = 4
-    default = 0
-
 class WildEncounterBlacklist(OptionSet):
     """Prevents listed species from appearing in the wild when wild encounters are randomized."""
     display_name = "Wild Encounter Blacklist"
 
-class Starters(Choice):
-    """Randomizes the starter pokemon."""
-    display_name = "Starters"
-    option_vanilla = 0
-    option_match_base_stats = 1
-    option_match_type = 2
-    option_completely_random = 3
-    default = 0
-
 class StarterBlacklist(OptionSet):
     """Prevents listed species from appearing as starters when starters are randomized."""
     display_name = "Starter Blacklist"
-
-class TrainerParties(Choice):
-    """Randomizes the parties of all trainers."""
-    display_name = "Trainer Parties"
-    option_vanilla = 0
-    option_match_base_stats = 1
-    option_match_type = 2
-    option_completely_random = 3
-    default = 0
 
 class ForceFullyEvolved(Range):
     """Restricts the species to only fully evolved pokemon at this level or higher."""
@@ -160,15 +132,6 @@ class ForceFullyEvolved(Range):
     range_end = 100
     default = 100
 
-class LegendaryEncounters(Choice):
-    """Randomizes legendary encounters."""
-    display_name = "Legendary Encounters"
-    option_vanilla = 0
-    option_shuffle = 1
-    option_match_base_stats = 2
-    option_completely_random = 3
-    default = 0
-
 class FusionRandomization(Choice):
     """Controls whether trainer and wild Pokemon fusions are randomized."""
     display_name = "Fusion Randomization"
@@ -176,15 +139,6 @@ class FusionRandomization(Choice):
     option_random_head = 1
     option_random_body = 2
     option_completely_random = 3
-    default = 0
-
-class Types(Choice):
-    """Randomizes the type(s) of every pokemon."""
-    display_name = "Types"
-    option_vanilla = 0
-    option_shuffle = 1
-    option_completely_random = 2
-    option_follow_evolutions = 3
     default = 0
 
 class Abilities(Choice):
@@ -382,15 +336,10 @@ class PokemonIFOptions(PerGameCommonOptions):
     cerulean_cave_count: CeruleanCaveCount
     require_itemfinder: RequireItemfinder
     require_flash: RequireFlash
-    wild_pokemon: WildPokemon
     wild_encounter_blacklist: WildEncounterBlacklist
-    starters: Starters
     starter_blacklist: StarterBlacklist
-    trainer_parties: TrainerParties
     force_fully_evolved: ForceFullyEvolved
-    legendary_encounters: LegendaryEncounters
     fusion_randomization: FusionRandomization
-    types: Types
     abilities: Abilities
     ability_blacklist: AbilityBlacklist
     level_up_moves: LevelUpMoves
