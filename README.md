@@ -70,6 +70,7 @@ Hemos creado un instalador automático para que conectar tu juego con Archipelag
 - **`apworld_generator.py`**: Utilidad para compilar los JSON extraídos del juego base y generar el código nativo para el apworld.
 - **Cliente Nativo (`client.py`)**: Totalmente integrado en el `.apworld`, estableciendo el puente (http local / websockets) hacia el servidor de AP.
 - **Ruby Network Hooks**: Modificación de eventos base de in-game (obtención de objetos, combate, etc.) para comunicarse sin bloquear el hilo de ejecución de RPG Maker XP.
+- **Jugadores visibles (prototipo)**: si hay varios jugadores de Pokémon Infinite Fusion en la misma sala, cada uno ve a los demás en el mapa con su nombre encima (sprite de Red o Leaf según el género, sin su atuendo). La posición viaja por `Bounce` del servidor de Archipelago unas 4 veces por segundo. Solo son visibles: no colisionan ni se interactúa con ellos. Se desactiva con `MOSTRAR_JUGADORES = false` en `ArchipelagoNetwork.rb`.
 - **Estado en la partida**: el índice de ítems recibidos, las ubicaciones marcadas, los checks hechos sin conexión y la meta se guardan en la partida (`$PokemonGlobal`). Si el juego se cierra sin guardar, los ítems se vuelven a pedir; al reconectar, el juego reenvía todo al servidor. En el HUD, el círculo amarillo indica que el cliente está abierto pero sin servidor AP, y el número entre paréntesis son los checks pendientes.
 
 ---
@@ -98,6 +99,12 @@ python -m pytest worlds/pokemon_infinite_fusion/test
 
 ```bat
 python archipelago\tools\bridge_test.py <ruta Archipelago> <semilla.zip> <archivo.apif>
+```
+
+`archipelago/tools/position_test.py` hace lo mismo con dos clientes, en una semilla de dos jugadores de PIF, y comprueba que cada uno vea la posición del otro.
+
+```bat
+python archipelago\tools\position_test.py <ruta Archipelago> <semilla.zip> <apif jugador 1> <apif jugador 2>
 ```
 
 ¡Diviértete fusionando y colaborando en Archipelago!

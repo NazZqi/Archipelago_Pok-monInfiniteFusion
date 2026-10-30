@@ -67,6 +67,10 @@ module ArchipelagoNetwork
   # Intervalo mínimo entre polls al servidor (en frames, ~40fps)
   POLL_INTERVAL_FRAMES = 120  # cada ~3 segundos
 
+  # Jugadores visibles: cada cuántos frames se comparte la posición (~5 veces/seg)
+  MOSTRAR_JUGADORES = true
+  POSICION_INTERVAL_FRAMES = 8
+
   # Errores consecutivos antes de avisar en el log (no desactiva el módulo:
   # los checks pendientes necesitan que se siga reintentando)
   MAX_ERRORES_CONSECUTIVOS = 5
@@ -89,6 +93,8 @@ module ArchipelagoNetwork
   @ultimo_encolado = -1      # índice AP del último ítem puesto en la cola
   @global_id = nil           # partida a la que pertenece la cola
   @pausa_items = false       # no reintentar entregas hasta el próximo poll
+  @frames_posicion = 0
+  @jugadores_remotos = []    # [{"slot","name","map_id","x","y","dir","gender"}]
 
   #---------------------------------------------------------------------------
   # Métodos de clase
@@ -483,6 +489,48 @@ module ArchipelagoNetwork
     end
 
     #=========================================================================
+    # actualizar_posicion
+    #-------------------------------------------------------------------------
+    # Comparte la posición propia y recibe la de los demás jugadores de este
+    # juego en la sala. Llamar cada frame; actúa cada POSICION_INTERVAL_FRAMES.
+    #=========================================================================
+    def actualizar_posicion
+      return unless MOSTRAR_JUGADORES
+      @frames_posicion += 1
+      return if @frames_posicion < POSICION_INTERVAL_FRAMES
+      @frames_posicion = 0
+
+      unless listo? && $game_player && $game_map
+        @jugadores_remotos = []
+        return
+      end
+
+      femenino = (isPlayerFemale() rescue false)
+      resp = enviar_post("/position", {
+        "type"   => "position",
+        "map_id" => $game_map.map_id,
+        "x"      => $game_player.x,
+        "y"      => $game_player.y,
+        "dir"    => $game_player.direction,
+        "gender" => femenino ? "f" : "m"
+      })
+      players = resp.is_a?(Hash) ? resp["players"] : nil
+      @jugadores_remotos = players.is_a?(Array) ? players : []
+    rescue Exception => e
+      @jugadores_remotos = []
+      log_archivo "Error compartiendo posición: #{e.message}"
+    end
+
+    #=========================================================================
+    # jugadores_en_mapa
+    #-------------------------------------------------------------------------
+    # Jugadores remotos que están en el mapa indicado.
+    #=========================================================================
+    def jugadores_en_mapa(map_id)
+      return @jugadores_remotos.select { |j| j.is_a?(Hash) && j["map_id"] == map_id }
+    end
+
+    #=========================================================================
     # revisar_medallas
     #-------------------------------------------------------------------------
     # Monitorea $Trainer.badges para enviar un evento si hay una nueva medalla.
@@ -590,7 +638,8 @@ module ArchipelagoNetwork
           @errores_consecutivos = 0
 
           tipo = mensaje_hash["type"] || ruta
-          if tipo != "heartbeat"
+          # La posición se envía ~5 veces por segundo: no llenar el log
+          if tipo != "heartbeat" && tipo != "position"
             log_archivo "Enviado: #{tipo} — #{body}"
             echoln "[Archipelago] Enviado: #{tipo}"
           end
@@ -812,6 +861,7 @@ echoln "============================================="
 Events.onMapUpdate += proc { |sender, e|
   ArchipelagoNetwork.procesar_eventos_servidor
   ArchipelagoNetwork.revisar_medallas
+  ArchipelagoNetwork.actualizar_posicion
 
   # Desencolar de forma segura (fuera de combate y sin interrumpir diálogos o movimiento).
   # Una acción por frame: checks pendientes, luego ítems recibidos, luego mensajes.

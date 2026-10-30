@@ -28,11 +28,14 @@ class Spriteset_Map
     # Limpiar el sprite
     @ap_sprite.dispose if @ap_sprite
     @ap_sprite = nil
+    ap_dispose_remotos if respond_to?(:ap_dispose_remotos)
   end
 
   alias ap_original_update update
   def update
     ap_original_update
+    # Jugadores de la misma sala (ArchipelagoRemotePlayers.rb)
+    ap_actualizar_remotos if respond_to?(:ap_actualizar_remotos)
     # Actualizar el HUD en cada frame
     if defined?(ArchipelagoNetwork) && @ap_sprite && @ap_sprite.bitmap
       @ap_sprite.bitmap.clear

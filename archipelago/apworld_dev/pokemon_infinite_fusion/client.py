@@ -17,7 +17,15 @@ from NetUtils import ClientStatus  # type: ignore
 from CommonClient import CommonContext, server_loop, gui_enabled, ClientCommandProcessor, logger, get_base_parser  # type: ignore
 
 HTTP_HOST = "127.0.0.1"
-HTTP_PORT = 5050
+# El juego siempre usa 5050; la variable solo sirve para correr dos clientes en las pruebas
+HTTP_PORT = int(os.environ.get("PIF_HTTP_PORT", "5050"))
+
+# Jugadores visibles: posiciones compartidas con Bounce entre los clientes de este juego
+POSITION_TAG = "pif_pos"
+POSITION_MIN_INTERVAL = 0.25  # segundos entre Bounce propios
+POSITION_HEARTBEAT = 2.0      # reenviar aunque no se mueva, para no "desaparecer"
+POSITION_TTL = 6.0            # ocultar a quien no envía hace más de esto
+SPRITE_GENDERS = ("m", "f")
 
 # Cola global para mensajes HTTP -> Kivy
 game_receive_queue = queue.Queue()
@@ -153,6 +161,13 @@ class APRequestHandler(BaseHTTPRequestHandler):
             logger.info(f"🔄 Resincronizado con el juego: {len(locations)} ubicaciones.")
             self._send_json_response(200, {"status": "ok"})
 
+        elif self.path == "/position":
+            if not self._server_ready():
+                self._send_json_response(200, {"status": "offline", "players": []})
+                return
+            share_position(data)
+            self._send_json_response(200, {"status": "ok", "players": visible_players()})
+
         elif self.path == "/goal":
             if not self._server_ready():
                 self._send_json_response(200, {"status": "offline"})
@@ -162,6 +177,43 @@ class APRequestHandler(BaseHTTPRequestHandler):
             self._send_json_response(200, {"status": "ok", "tracked": True})
         else:
             self._send_json_response(404, {"error": "not_found"})
+
+
+def clean_position(raw) -> Optional[dict]:
+    """Valida una posición (del juego propio o de otro jugador vía Bounce)."""
+    if not isinstance(raw, dict):
+        return None
+    try:
+        pos = {key: int(raw[key]) for key in ("map_id", "x", "y", "dir")}
+    except (KeyError, TypeError, ValueError):
+        return None
+    if pos["dir"] not in (2, 4, 6, 8) or not all(0 <= pos[k] < 10000 for k in ("map_id", "x", "y")):
+        return None
+    pos["gender"] = raw.get("gender") if raw.get("gender") in SPRITE_GENDERS else "m"
+    return pos
+
+
+def share_position(data: dict) -> None:
+    """Envía la posición propia a los demás clientes de este juego (con límite de frecuencia)."""
+    pos = clean_position(data)
+    if pos is None:
+        return
+    now = time.time()
+    last = ctx.last_position_sent
+    if last and now - ctx.last_position_time < POSITION_MIN_INTERVAL:
+        return
+    if last == pos and now - ctx.last_position_time < POSITION_HEARTBEAT:
+        return
+    ctx.last_position_sent = pos
+    ctx.last_position_time = now
+    ap_send_queue.put({"cmd": "Bounce", "games": [ctx.game], "data": {POSITION_TAG: dict(pos, slot=ctx.slot)}})
+
+
+def visible_players() -> list:
+    now = time.time()
+    return [dict(pos, slot=slot, name=ctx.player_names.get(slot, str(slot))[:16])
+            for slot, pos in list(ctx.remote_positions.items())
+            if now - pos["t"] < POSITION_TTL]
 
 
 def item_event(item_id: int, index: int) -> dict:
@@ -227,6 +279,9 @@ class PokemonIFContext(CommonContext):
         self.auto_name = auto_name
         self.locally_sent_locations = set()
         self.slot_data = {}
+        self.remote_positions = {}  # slot -> posición + "t" de recepción
+        self.last_position_sent = None
+        self.last_position_time = 0.0
         if auto_name:
             self.auth = auto_name
 
@@ -253,6 +308,8 @@ class PokemonIFContext(CommonContext):
             
         elif cmd == "Connected":
             self.slot_data = args.get("slot_data") or {}
+            self.remote_positions = {}
+            self.last_position_sent = None
             if self.server_address and "archipelago.gg" in self.server_address:
                 logger.info("💡 Recuerda que puedes encontrar tu Tracker personal en la página de la sala (Room) en archipelago.gg.")
             logger.info("¡Autenticado en Archipelago!")
@@ -260,6 +317,15 @@ class PokemonIFContext(CommonContext):
             if "slot_data" in args:
                 game_receive_queue.put({"action": "set_options", "options": args["slot_data"]})
         
+        elif cmd == "Bounced":
+            raw = (args.get("data") or {}).get(POSITION_TAG)
+            pos = clean_position(raw)
+            slot = raw.get("slot") if isinstance(raw, dict) else None
+            # El slot viene del otro cliente: solo se acepta si es un jugador de esta sala
+            if pos and isinstance(slot, int) and slot != self.slot and slot in self.player_names:
+                pos["t"] = time.time()
+                self.remote_positions[slot] = pos
+
         elif cmd == "ReceivedItems":
             # La base CommonClient de Archipelago ya maneja ctx.items_received.
             # No encolamos nada aquí para evitar pérdida de ítems si el cliente se cierra antes de que el juego haga poll.
