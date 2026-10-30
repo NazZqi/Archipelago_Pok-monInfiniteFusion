@@ -3,3 +3,6 @@ PokemonIF_Archipelago_Release.zip
 *.zip
 *.apworld
 __pycache__/
+
+# Instalación local del juego (no se versiona: copyright y ~1.6 GB)
+pokemon/

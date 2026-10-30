@@ -1,13 +1,10 @@
 import json
 import os
 
-import shutil
-
 BASE_DIR = os.path.dirname(os.path.abspath(__file__))
 DUMP_PATH = os.path.join(BASE_DIR, "..", "pokemon", "Data", "ap_locations_classified.json")
 LOCATIONS_PY = os.path.join(BASE_DIR, "apworld_dev", "pokemon_infinite_fusion", "locations.py")
 CLIENT_MAPPING = os.path.join(BASE_DIR, "apworld_dev", "pokemon_infinite_fusion", "client_mapping.json")
-ROOT_CLIENT_MAPPING = os.path.join(BASE_DIR, "client_mapping.json")
 
 def generate():
     with open(DUMP_PATH, "r", encoding="utf-8") as f:
@@ -51,12 +48,9 @@ def generate():
 
     with open(CLIENT_MAPPING, "w", encoding="utf-8") as f:
         json.dump(client_mapping, f, indent=4)
-        
-    shutil.copy(CLIENT_MAPPING, ROOT_CLIENT_MAPPING)
 
     print(f"Generado {LOCATIONS_PY} con {len(raw_locations)} ubicaciones.")
     print(f"Generado {CLIENT_MAPPING} con {len(client_mapping)} ubicaciones únicas base.")
-    print(f"Copiado a {ROOT_CLIENT_MAPPING}")
 
 if __name__ == "__main__":
     generate()

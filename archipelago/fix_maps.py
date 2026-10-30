@@ -2,7 +2,7 @@ import json
 import ast
 import os
 
-MAP_DUMP_PATH = os.path.join(os.path.dirname(__file__), 'apworld_dev', 'pokemon_infinite_fusion', 'map_dump.json')
+MAP_DUMP_PATH = os.path.join(os.path.dirname(__file__), 'map_dump.json')
 MAP_IDS_PATH = os.path.join(os.path.dirname(__file__), 'apworld_dev', 'pokemon_infinite_fusion', 'map_ids.py')
 
 with open(MAP_DUMP_PATH, 'r', encoding='utf-8') as f:

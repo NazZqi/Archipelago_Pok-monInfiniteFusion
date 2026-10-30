@@ -71,4 +71,17 @@ Hemos creado un instalador automático para que conectar tu juego con Archipelag
 - **Cliente Nativo (`client.py`)**: Totalmente integrado en el `.apworld`, estableciendo el puente (http local / websockets) hacia el servidor de AP.
 - **Ruby Network Hooks**: Modificación de eventos base de in-game (obtención de objetos, combate, etc.) para comunicarse sin bloquear el hilo de ejecución de RPG Maker XP.
 
+---
+
+## 👩‍💻 Desarrollo
+
+El repositorio **no incluye el juego**. Para desarrollar, copia tu instalación de Pokémon Infinite Fusion en la carpeta `pokemon/` de la raíz del repo (está en `.gitignore`).
+
+- `releases/998_Experimental/` es la fuente de los scripts Ruby. Para probarlos en el juego:
+  `xcopy /E /I /Y releases\998_Experimental pokemon\Data\Scripts\998_Experimental`
+- `archipelago/apworld_generator.py` regenera `items.py` y `client_items.json` desde `pokemon/ap_items_dump.json` (exportado por `ExportAPItems.rb`).
+- `archipelago/generate_locations_py.py` regenera `locations.py` y `client_mapping.json` desde `pokemon/Data/ap_locations_classified.json` (exportado por `ExportAPLocations.rb`).
+- `archipelago/fix_maps.py` reasigna mapas a regiones en `map_ids.py` usando `archipelago/map_dump.json`.
+- `archipelago/build_apworld.py` empaqueta `releases/pokemon_infinite_fusion.apworld`.
+
 ¡Diviértete fusionando y colaborando en Archipelago!
