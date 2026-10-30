@@ -4,9 +4,30 @@ from BaseClasses import Region, Location, Entrance
 if TYPE_CHECKING:
     from . import PokemonIFWorld
 
+# Con medallas/MOs vanilla el juego las entrega en su sitio original; la lógica
+# necesita saber dónde para no exigirlas antes de tiempo.
+VANILLA_BADGE_LOCATIONS = {
+    "Boulder Badge": ("Pewter Gym", "Pewter City"),
+    "Cascade Badge": ("Cerulean Gym", "Cerulean City"),
+    "Thunder Badge": ("Vermillion Gym", "Vermillion City"),
+    "Rainbow Badge": ("Celadon Gym", "Celadon City"),
+    "Soul Badge": ("Fuchsia Gym", "Fuchsia City"),
+    "Marsh Badge": ("Saffron Gym", "Saffron City"),
+    "Volcano Badge": ("Cinnabar Gym", "Cinnabar Island"),
+    "Earth Badge": ("Viridian Gym", "Viridian City"),
+}
+
+# Solo las MOs que usa la lógica (rules.py).
+VANILLA_HM_LOCATIONS = {
+    "HM01": ("S.S. Anne Captain", "Vermillion City"),
+    "HM03": ("Safari Zone Secret House", "Fuchsia City"),
+    "HM04": ("Safari Zone Warden", "Fuchsia City"),
+    "HM05": ("Route 2 Aide", "Route 2"),
+}
+
 def create_regions(world: "PokemonIFWorld"):
     from .map_ids import REGION_MAP_IDS
-    
+
     multiworld = world.multiworld
     player = world.player
 
@@ -16,48 +37,37 @@ def create_regions(world: "PokemonIFWorld"):
 
     # Diccionario para buscar rápidamente la región a la que pertenece un Map ID
     map_to_region_obj = {}
-    
-    # Kanto será nuestro fallback por defecto si un mapa no está registrado
+
+    # Mapas sin región conocida. Se conecta desde Menu en rules.py, con requisitos de fin de juego.
     kanto_fallback = Region("Kanto Fallback", player, multiworld)
     multiworld.regions.append(kanto_fallback)
-    
-    # Conectar Menu al fallback por si acaso
-    menu_to_fallback = Entrance(player, "Menu to Kanto Fallback", menu)
-    menu_to_fallback.connect(kanto_fallback)
-    menu.exits.append(menu_to_fallback)
 
     # Iterar sobre el diccionario plano
     for region_name, map_id_list in REGION_MAP_IDS.items():
         region_obj = Region(region_name, player, multiworld)
         multiworld.regions.append(region_obj)
-        
+
         # Mapear los IDs
         for map_id in map_id_list:
             map_to_region_obj[map_id] = region_obj
 
     # Conectar el Menu al inicio del juego
-    try:
-        pallet_town = multiworld.get_region("Pallet Town", player)
-        menu_to_pallet = Entrance(player, "Start Game", menu)
-        menu_to_pallet.connect(pallet_town)
-        menu.exits.append(menu_to_pallet)
-    except Exception:
-        pass
+    menu.connect(multiworld.get_region("Pallet Town", player), "Start Game")
 
     # Asignar cada ubicación a su región correspondiente
     from .locations import location_table
     import re
-    
+
+    is_random = world.options.randomize_everything.value
     for location_name, loc_data in location_table.items():
         # Filtros de opciones
-        is_random = world.options.randomize_everything.value
         if loc_data.type == "itemball" and not (is_random or world.options.overworld_items):
             continue
         if loc_data.type == "npc" and not (is_random or world.options.npc_gifts):
             continue
         if loc_data.type == "hidden_item" and not (is_random or world.options.hidden_items):
             continue
-            
+
         # Extraer el Map ID del string location_name
         # Formato: "Map X - Event Y"
         match = re.match(r"Map (\d+) -", location_name)
@@ -70,12 +80,20 @@ def create_regions(world: "PokemonIFWorld"):
         loc = Location(player, location_name, loc_data.code, target_region)
         target_region.locations.append(loc)
 
+    # Eventos vanilla (sin ID: no son checks, solo informan a la lógica)
+    vanilla = {}
+    if world.badges_vanilla:
+        vanilla.update(VANILLA_BADGE_LOCATIONS)
+    if world.hms_vanilla:
+        vanilla.update(VANILLA_HM_LOCATIONS)
+    for item_name, (location_name, region_name) in vanilla.items():
+        region = multiworld.get_region(region_name, player)
+        loc = Location(player, location_name, None, region)
+        loc.place_locked_item(world.create_event(item_name))
+        region.locations.append(loc)
+
     # Event Location for the Goal
-    try:
-        indigo_plateau = multiworld.get_region("Indigo Plateau", player)
-    except Exception:
-        indigo_plateau = kanto_fallback
-        
+    indigo_plateau = multiworld.get_region("Indigo Plateau", player)
     goal_loc = Location(player, "Defeat Champion", None, indigo_plateau)
     goal_loc.place_locked_item(world.create_event("BEAT CHAMPION"))
     indigo_plateau.locations.append(goal_loc)

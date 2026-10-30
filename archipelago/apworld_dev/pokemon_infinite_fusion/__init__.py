@@ -7,7 +7,9 @@ from NetUtils import Version
 from worlds.AutoWorld import World, WebWorld
 from .items import item_table, IFItemData
 from .locations import location_table, IFLocationData
-from .options import PokemonIFOptions
+from Options import OptionError
+from .options import PokemonIFOptions, Goal, Badges, HMs
+from .rules import KANTO_BADGES
 
 class PokemonIFWeb(WebWorld):
     theme = "ocean"
@@ -26,23 +28,39 @@ class PokemonIFWorld(World):
     item_name_to_id = {name: data.code for name, data in item_table.items() if data.code is not None}
     location_name_to_id = {name: data.code for name, data in location_table.items() if data.code is not None}
     
+    badges_vanilla: bool
+    hms_vanilla: bool
+
+    def generate_early(self):
+        name = self.player_name
+        if self.options.goal.value != Goal.option_champion:
+            raise OptionError(f"{name}: solo la meta 'champion' está implementada en el juego.")
+
+        is_random = self.options.randomize_everything.value
+        self.badges_vanilla = not is_random and self.options.badges.value == Badges.option_vanilla
+        self.hms_vanilla = not is_random and self.options.hms.value == HMs.option_vanilla
+
+        # Con npc_gifts los NPC que dan MOs se vuelven checks y dejan de darlas: con
+        # MOs vanilla (fuera del pool) nadie las entregaría.
+        if self.hms_vanilla and self.options.npc_gifts:
+            raise OptionError(f"{name}: 'hms: vanilla' no es compatible con 'npc_gifts: true'.")
+
     def get_filler_item_name(self) -> str:
         return "Potion"
     def set_rules(self):
         from .rules import set_rules
         set_rules(self)
-    
+
     def create_items(self):
         fillers_in_table = []
         items_added = 0
-        
-        # Opciones
-        skip_hms = (self.options.hms.value == 0) and not self.options.randomize_everything.value
-        
+
         for name, data in item_table.items():
             if data.code is not None:
-                # Omitir HMs si están en modo vanilla
-                if skip_hms and name.startswith("HM") and len(name) == 4 and name[2:].isdigit():
+                # Medallas y MOs vanilla las entrega el juego (eventos en regions.py)
+                if self.badges_vanilla and name in KANTO_BADGES:
+                    continue
+                if self.hms_vanilla and name.startswith("HM") and len(name) == 4 and name[2:].isdigit():
                     continue
                     
                 if data.classification == ItemClassification.filler:
@@ -61,14 +79,14 @@ class PokemonIFWorld(World):
             raise Exception(f"Not enough locations for required items! Locations: {locations_count}, Required Items: {items_added}")
         
         # Para dar variedad, intentamos añadir al menos 1 de cada filler de la tabla, y luego aleatorio
-        self.multiworld.random.shuffle(fillers_in_table)
-        
+        self.random.shuffle(fillers_in_table)
+
         if filler_amount > 0:
             for i in range(filler_amount):
                 if i < len(fillers_in_table):
                     filler_choice = fillers_in_table[i]
                 else:
-                    filler_choice = self.multiworld.random.choice(fillers_in_table) if fillers_in_table else "Potion"
+                    filler_choice = self.random.choice(fillers_in_table) if fillers_in_table else "Potion"
                 self.multiworld.itempool.append(self.create_item(filler_choice))
 
 
