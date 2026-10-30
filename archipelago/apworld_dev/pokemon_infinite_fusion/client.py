@@ -8,6 +8,8 @@ import subprocess
 import threading
 import pkgutil
 from http.server import HTTPServer, BaseHTTPRequestHandler
+from typing import Optional
+from urllib.parse import urlparse, parse_qs
 
 import colorama
 
@@ -22,10 +24,10 @@ game_receive_queue = queue.Queue()
 # Cola global para mensajes Kivy -> HTTP
 ap_send_queue = queue.Queue()
 
-# Ubicaciones activas globales para la semilla actual
-ACTIVE_LOCATIONS = set()
 game_connected = False
 last_seen = 0.0
+# Contexto activo; lo asigna launch() y lo lee el hilo HTTP
+ctx: Optional["PokemonIFContext"] = None
 
 try:
     _mapping_data = pkgutil.get_data(__name__, "client_mapping.json")
@@ -49,139 +51,127 @@ class APRequestHandler(BaseHTTPRequestHandler):
         self.end_headers()
         self.wfile.write(json.dumps(data, ensure_ascii=False).encode("utf-8"))
     
+    def _server_ready(self) -> bool:
+        return ctx is not None and ctx.slot is not None and ctx.server is not None and not ctx.server.socket.closed
+
+    def _read_json(self) -> dict:
+        content_length = int(self.headers.get("Content-Length", 0))
+        return json.loads(self.rfile.read(content_length).decode("utf-8") or "{}")
+
     def do_GET(self):
         global last_seen, game_connected
-        if self.path == "/poll":
-            last_seen = time.time()
-            if not game_connected:
-                game_connected = True
-                logger.info("🎮 Juego Conectado al Cliente HTTP")
-            events_to_send = []
-            
-            # 1. Enviar opciones, configuraciones o metas pendientes en game_receive_queue
-            while not game_receive_queue.empty():
-                events_to_send.append(game_receive_queue.get())
-                
-            # 2. Enviar ítems recibidos que aún no se han entregado al juego
-            if ctx and getattr(ctx, "items_received", None) is not None:
-                items_delivered_now = 0
-                while ctx.delivered_items_count < len(ctx.items_received):
-                    item_data = ctx.items_received[ctx.delivered_items_count]
-                    
-                    item_id = getattr(item_data, "item", None)
-                    if item_id is None and isinstance(item_data, dict):
-                        item_id = item_data.get("item")
-                        
-                    item_key = str(item_id)
-                    if item_key in ITEM_DICTIONARY:
-                        entry = ITEM_DICTIONARY[item_key]
-                        item_name = entry["name"]
-                        item_type = entry.get("type", "item")
-                        
-                        if item_type == "badge":
-                            badge_id = entry.get("badge_id", 0)
-                            logger.info(f"🎁 Entregando al juego: {item_name} (Medalla)")
-                            events_to_send.append({
-                                "action": "give_badge",
-                                "badge_id": badge_id,
-                                "name": item_name
-                            })
-                        else:
-                            game_id = entry.get("game_id", item_name.upper())
-                            logger.info(f"🎁 Entregando al juego: {item_name}")
-                            events_to_send.append({
-                                "action": "give_item",
-                                "item": game_id,
-                                "quantity": 1,
-                                "name": item_name
-                            })
-                    else:
-                        logger.warning(f"⚠️ Ítem AP desconocido (ID: {item_id}). Sin mapeo.")
-                        
-                    ctx.delivered_items_count += 1
-                    items_delivered_now += 1
-                
-                # Guardar el índice inmediatamente si entregamos ítems nuevos
-                if items_delivered_now > 0:
-                    ctx.save()
-            
-            self._send_json_response(200, {"status": "ok", "events": events_to_send})
-        else:
+        url = urlparse(self.path)
+        if url.path != "/poll":
             self._send_json_response(404, {"error": "not_found"})
-    
+            return
+
+        last_seen = time.time()
+        if not game_connected:
+            game_connected = True
+            logger.info("🎮 Juego Conectado al Cliente HTTP")
+
+        query = parse_qs(url.query)
+        ready = self._server_ready()
+        events_to_send = []
+
+        # 1. Mensajes de chat pendientes
+        while not game_receive_queue.empty():
+            events_to_send.append(game_receive_queue.get())
+
+        # 2. Opciones de la semilla, cuando el juego aún no las tiene (p. ej. tras reiniciarlo)
+        if ready and query.get("opts") == ["1"]:
+            events_to_send.append({"action": "set_options", "options": ctx.slot_data})
+
+        # 3. Ítems recibidos desde el índice que pide el juego. El índice vive en la
+        #    partida guardada: si el juego se cierra sin guardar, los vuelve a pedir.
+        if ready:
+            try:
+                start = max(0, int(query.get("index", ["0"])[0]))
+            except ValueError:
+                start = 0
+            for index in range(start, len(ctx.items_received)):
+                events_to_send.append(item_event(ctx.items_received[index].item, index))
+
+        self._send_json_response(200, {"status": "ok", "ready": ready, "events": events_to_send})
+
     def do_POST(self):
+        try:
+            data = self._read_json()
+        except Exception as e:
+            self._send_json_response(400, {"error": str(e)})
+            return
+
         if self.path == "/event":
-            try:
-                content_length = int(self.headers.get("Content-Length", 0))
-                body = self.rfile.read(content_length)
-                data = json.loads(body.decode("utf-8"))
-                msg_type = data.get("type", "")
-                
-                if msg_type in ["item_found", "item_received", "pokemon_caught", "pokemon_received", "trainer_defeated"]:
-                    map_id = str(data.get("map_id", ""))
-                    event_id = str(data.get("event_id", ""))
-                    
-                    # Para ítems y entrenadores, la llave suele ser map_id_event_id
-                    key = f"{map_id}_{event_id}"
-                    
-                    # Para Dexsanity, la llave podría ser pokemon_species_id
-                    if msg_type == "pokemon_caught":
-                        species = str(data.get("species", ""))
-                        key = f"pokemon_{species}"
-                        
-                    # Para Trainersanity, si el map_id_event_id falla, podríamos buscar por trainer_id
-                    trainer_id = str(data.get("trainer_id", ""))
-                    
-                    ap_ids = None
-                    if key in LOCATION_MAPPING:
-                        ap_ids = LOCATION_MAPPING[key]
-                    elif msg_type == "trainer_defeated" and trainer_id in LOCATION_MAPPING:
-                        ap_ids = LOCATION_MAPPING[trainer_id]
-                        
-                    if ap_ids:
-                        if not isinstance(ap_ids, list):
-                            ap_ids = [ap_ids]
-                        
-                        valid_id_to_send = None
-                        if ctx and hasattr(ctx, "server_locations"):
-                            for ap_id in ap_ids:
-                                if ap_id in ctx.server_locations:
-                                    # Verificar si ya fue enviada o completada
-                                    if ap_id not in ctx.checked_locations and ap_id not in ctx.locally_sent_locations:
-                                        valid_id_to_send = ap_id
-                                        break
-                        else:
-                            # Si el cliente aún no tiene server_locations (rara vez pasa), enviar el primero
-                            valid_id_to_send = ap_ids[0]
-                        
-                        if valid_id_to_send is None:
-                            logger.info(f"⚠️ Ubicación {key} excluida por YAML o todos los ítems de este evento ya fueron revisados. Entregando ítem nativo.")
-                            self._send_json_response(200, {"status": "ok", "tracked": False})
-                            return
-                        
-                        logger.info(f"📦 Recogido ítem en ubicación AP {key}. Enviando AP ID: {valid_id_to_send}")
-                        if ctx:
-                            ctx.locally_sent_locations.add(valid_id_to_send)
-                        ap_send_queue.put({"cmd": "LocationChecks", "locations": [valid_id_to_send]})
-                        self._send_json_response(200, {"status": "ok", "tracked": True})
-                        return
-                    else:
-                        logger.info(f"⚠️ Ubicación {key} no encontrada en Archipelago. Entregando ítem nativo.")
-                        self._send_json_response(200, {"status": "ok", "tracked": False})
-                        return
-                
-                self._send_json_response(200, {"status": "ok"})
-            except Exception as e:
-                self._send_json_response(500, {"error": str(e)})
-        elif self.path == "/goal":
-            try:
-                logger.info("🏆 ¡Juego Terminado! Informando a Archipelago...")
+            # Sin servidor AP no sabemos si es una ubicación: el juego la guarda y la reintenta.
+            if data.get("type") in ("item_found", "item_received") and not self._server_ready():
+                self._send_json_response(200, {"status": "offline"})
+                return
+            if data.get("type") in ("item_found", "item_received"):
+                self._send_json_response(200, resolve_location(data))
+                return
+            self._send_json_response(200, {"status": "ok"})
+
+        elif self.path == "/resync":
+            # El juego reenvía todo lo que ya marcó (guardado en la partida). El servidor
+            # ignora duplicados, así que reenviar es seguro.
+            if not self._server_ready():
+                self._send_json_response(200, {"status": "offline"})
+                return
+            locations = [loc for loc in data.get("locations", []) if loc in ctx.server_locations]
+            if locations:
+                ctx.locally_sent_locations.update(locations)
+                ap_send_queue.put({"cmd": "LocationChecks", "locations": locations})
+            if data.get("goal"):
                 ap_send_queue.put({"cmd": "StatusUpdate", "status": ClientStatus.CLIENT_GOAL})
-                self._send_json_response(200, {"status": "ok", "tracked": True})
-            except Exception as e:
-                self._send_json_response(500, {"error": str(e)})
+            logger.info(f"🔄 Resincronizado con el juego: {len(locations)} ubicaciones.")
+            self._send_json_response(200, {"status": "ok"})
+
+        elif self.path == "/goal":
+            if not self._server_ready():
+                self._send_json_response(200, {"status": "offline"})
+                return
+            logger.info("🏆 ¡Juego Terminado! Informando a Archipelago...")
+            ap_send_queue.put({"cmd": "StatusUpdate", "status": ClientStatus.CLIENT_GOAL})
+            self._send_json_response(200, {"status": "ok", "tracked": True})
         else:
             self._send_json_response(404, {"error": "not_found"})
+
+
+def item_event(item_id: int, index: int) -> dict:
+    """Traduce un ítem de AP a la acción que entiende el juego."""
+    entry = ITEM_DICTIONARY.get(str(item_id))
+    if entry is None:
+        logger.warning(f"⚠️ Ítem AP desconocido (ID: {item_id}). Sin mapeo.")
+        return {"action": "unknown", "index": index, "name": str(item_id)}
+    if entry.get("type") == "badge":
+        return {"action": "give_badge", "index": index, "badge_id": entry.get("badge_id", 0), "name": entry["name"]}
+    return {"action": "give_item", "index": index, "item": entry.get("game_id", entry["name"].upper()),
+            "quantity": 1, "name": entry["name"]}
+
+
+def resolve_location(data: dict) -> dict:
+    """Decide si el evento del juego es una ubicación de esta semilla.
+
+    tracked=True: el juego no entrega el ítem original. tracked=False: lo entrega."""
+    key = f"{data.get('map_id', '')}_{data.get('event_id', '')}"
+    ap_ids = LOCATION_MAPPING.get(key)
+    if not ap_ids:
+        logger.info(f"⚠️ Ubicación {key} no encontrada en Archipelago. Entregando ítem nativo.")
+        return {"status": "ok", "tracked": False}
+    if not isinstance(ap_ids, list):
+        ap_ids = [ap_ids]
+
+    # Un mismo evento puede dar varios ítems: se usa el primer ID aún no marcado.
+    for ap_id in ap_ids:
+        if ap_id in ctx.server_locations and ap_id not in ctx.checked_locations \
+                and ap_id not in ctx.locally_sent_locations:
+            logger.info(f"📦 Recogido ítem en ubicación AP {key}. Enviando AP ID: {ap_id}")
+            ctx.locally_sent_locations.add(ap_id)
+            ap_send_queue.put({"cmd": "LocationChecks", "locations": [ap_id]})
+            return {"status": "ok", "tracked": True, "location": ap_id}
+
+    logger.info(f"⚠️ Ubicación {key} excluida por YAML o ya revisada. Entregando ítem nativo.")
+    return {"status": "ok", "tracked": False}
 
 def http_server_thread():
     server = HTTPServer((HTTP_HOST, HTTP_PORT), APRequestHandler)
@@ -199,18 +189,6 @@ class PokemonIFCommandProcessor(ClientCommandProcessor):
         self.output("El enlace del tracker no se puede obtener automáticamente del servidor.")
         self.output("Por favor, dirígete a la página de tu sala (Room) en archipelago.gg para encontrar tu enlace del tracker personal.")
 
-    def _cmd_sync(self):
-        """Fuerza la resincronización de todos los ítems de Archipelago."""
-        if hasattr(self.ctx, "delivered_items_count"):
-            self.ctx.delivered_items_count = 0
-            self.ctx.save()
-            self.output("Índice de ítems reiniciado. Sincronizando con el servidor...")
-            if self.ctx.server and not self.ctx.server.socket.closed:
-                import asyncio
-                asyncio.create_task(self.ctx.send_msgs([{"cmd": "Sync"}]))
-        else:
-            self.output("El cliente no está listo para sincronizar.")
-
 class PokemonIFContext(CommonContext):
     command_processor = PokemonIFCommandProcessor
     game = "Pokemon Infinite Fusion"
@@ -219,40 +197,20 @@ class PokemonIFContext(CommonContext):
     def __init__(self, server_address, password, auto_name=None):
         super().__init__(server_address, password)
         self.sender_task = None
-        self.delivered_items_count = 0
         self.auto_name = auto_name
         self.locally_sent_locations = set()
+        self.slot_data = {}
         if auto_name:
             self.auth = auto_name
-
-    def load_save(self):
-        if getattr(self, 'seed_name', None) and getattr(self, 'auth', None):
-            save_file = f"ap_save_{self.seed_name}_{self.auth}.json"
-            try:
-                if os.path.exists(save_file):
-                    with open(save_file, 'r', encoding='utf-8') as f:
-                        data = json.load(f)
-                        self.delivered_items_count = data.get("delivered_items_count", 0)
-                        logger.info(f"💾 Índice de ítems entregados recuperado del guardado: {self.delivered_items_count}")
-            except Exception as e:
-                logger.error(f"Error cargando guardado local: {e}")
-
-    def save(self):
-        if getattr(self, 'seed_name', None) and getattr(self, 'auth', None):
-            save_file = f"ap_save_{self.seed_name}_{self.auth}.json"
-            try:
-                with open(save_file, 'w', encoding='utf-8') as f:
-                    json.dump({"delivered_items_count": self.delivered_items_count}, f)
-            except Exception as e:
-                logger.error(f"Error guardando localmente: {e}")
 
     async def server_auth(self, password_requested: bool = False):
         if password_requested and not self.password:
             await super().server_auth(password_requested)
             
         if not getattr(self, 'auth', None) or self.auth == "":
-            if getattr(self, 'auto_name', None):
-                self.auth = self.auto_name
+            # Al reconectar, CommonContext borra auth: reutilizar el último nombre válido
+            if self.username or getattr(self, 'auto_name', None):
+                self.auth = self.username or self.auto_name
                 logger.info(f"Recuperando nombre autodetectado: {self.auth}")
             else:
                 logger.info("❌ ERROR: No se encontró ningún nombre de jugador (Slot). Usa el comando /slot Nombre, y luego reconecta.")
@@ -267,7 +225,7 @@ class PokemonIFContext(CommonContext):
             self.seed_name = args.get("seed_name")
             
         elif cmd == "Connected":
-            self.load_save()
+            self.slot_data = args.get("slot_data") or {}
             if self.server_address and "archipelago.gg" in self.server_address:
                 logger.info("💡 Recuerda que puedes encontrar tu Tracker personal en la página de la sala (Room) en archipelago.gg.")
             logger.info("¡Autenticado en Archipelago!")
@@ -336,10 +294,9 @@ class PokemonIFContext(CommonContext):
 
 async def send_queue_loop(ctx: PokemonIFContext):
     while not ctx.exit_event.is_set():
-        if not ap_send_queue.empty():
-            pkt = ap_send_queue.get()
-            if ctx.server and not ctx.server.socket.closed:
-                await ctx.send_msgs([pkt])
+        # Sin conexión el paquete se queda en la cola (antes se descartaba)
+        if not ap_send_queue.empty() and ctx.server and not ctx.server.socket.closed:
+            await ctx.send_msgs([ap_send_queue.get()])
         await asyncio.sleep(0.1)
 
 def launch_game_automatically():
@@ -474,6 +431,7 @@ def launch(ap_url=None):
         except Exception as e:
             logger.warning(f"No se pudo abrir el diálogo interactivo: {e}")
     async def main():
+        global ctx
         parser = get_base_parser(description="Pokemon Infinite Fusion Client")
         args, _ = parser.parse_known_args()
 

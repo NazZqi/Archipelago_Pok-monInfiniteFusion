@@ -6,8 +6,14 @@
 # y envía notificaciones de eventos del juego vía HTTPLite.
 #
 # Protocolo: HTTP + JSON
-#   POST /event  — Enviar eventos al servidor
-#   GET  /poll   — Recibir ítems/comandos del servidor
+#   POST /event   — Enviar eventos al servidor
+#   POST /resync  — Reenviar ubicaciones ya marcadas y la meta
+#   POST /goal    — Avisar que se completó el juego
+#   GET  /poll    — Recibir ítems/comandos del servidor (?index=N&opts=1)
+#
+# El estado de Archipelago se guarda en la partida ($PokemonGlobal), no en el
+# cliente: si el juego se cierra sin guardar, los ítems se vuelven a pedir y
+# los checks hechos sin conexión se reenvían al reconectar.
 #
 # IMPORTANTE: Toda operación de red está envuelta en begin/rescue para
 # garantizar que el juego NUNCA crashee por problemas de conexión.
@@ -29,6 +35,25 @@ class AnimatedBitmap
   end
 end
 
+#=============================================================================
+# Estado de Archipelago guardado en la partida
+#=============================================================================
+class PokemonGlobalMetadata
+  attr_writer :ap_items_index, :ap_checked, :ap_pendientes, :ap_meta
+
+  # Índice del próximo ítem de AP por entregar
+  def ap_items_index; @ap_items_index ||= 0; end
+
+  # IDs de ubicaciones AP ya marcadas (se reenvían al reconectar)
+  def ap_checked; @ap_checked ||= []; end
+
+  # Checks hechos sin conexión, en orden: [{"item","quantity","map_id","event_id"}]
+  def ap_pendientes; @ap_pendientes ||= []; end
+
+  # true tras entrar al Salón de la Fama
+  def ap_meta; @ap_meta ||= false; end
+end
+
 module ArchipelagoNetwork
   #---------------------------------------------------------------------------
   # Configuración
@@ -42,24 +67,28 @@ module ArchipelagoNetwork
   # Intervalo mínimo entre polls al servidor (en frames, ~40fps)
   POLL_INTERVAL_FRAMES = 120  # cada ~3 segundos
 
-  # Máximo de errores consecutivos antes de desactivar temporalmente
+  # Errores consecutivos antes de avisar en el log (no desactiva el módulo:
+  # los checks pendientes necesitan que se siga reintentando)
   MAX_ERRORES_CONSECUTIVOS = 5
 
   #---------------------------------------------------------------------------
   # Estado interno (variables de módulo)
   #---------------------------------------------------------------------------
   @conectado = false
+  @listo = false             # el cliente está conectado al servidor de AP
   @ultimo_error = nil
   @ultimo_intento_conexion = 0
   @errores_consecutivos = 0
-  @deshabilitado = false
   @mensajes_enviados = 0
   @frames_desde_ultimo_poll = 0
   @recibiendo_de_servidor = false
   @medallas_conocidas = []
   @latencia = 0
   @mensajes_pendientes = []
-  @items_pendientes = []
+  @items_pendientes = []     # ítems recibidos aún no entregados (en memoria)
+  @ultimo_encolado = -1      # índice AP del último ítem puesto en la cola
+  @global_id = nil           # partida a la que pertenece la cola
+  @pausa_items = false       # no reintentar entregas hasta el próximo poll
 
   #---------------------------------------------------------------------------
   # Métodos de clase
@@ -91,7 +120,6 @@ module ArchipelagoNetwork
     # Retorna: true si el servidor responde, false si no.
     #=========================================================================
     def conectar
-      return false if @deshabilitado
       return true if @conectado
 
       # Cooldown entre intentos de reconexión
@@ -146,6 +174,7 @@ module ArchipelagoNetwork
     #=========================================================================
     def desconectar
       @conectado = false
+      @listo = false
       log_archivo "Desconectado."
       echoln "[Archipelago] Desconectado."
     end
@@ -153,62 +182,89 @@ module ArchipelagoNetwork
     #=========================================================================
     # conectado?
     #-------------------------------------------------------------------------
-    # Retorna true si hay una conexión activa.
+    # Retorna true si hay una conexión activa con el cliente local.
     #=========================================================================
     def conectado?
       return @conectado
     end
 
     #=========================================================================
-    # enviar_ubicacion (método principal para hooks)
+    # listo?
     #-------------------------------------------------------------------------
-    # Envía un evento de "ítem encontrado" al servidor AP.
-    #   item_name : String — nombre interno del ítem (ej: "POTION")
-    #   cantidad  : Integer — cantidad obtenida
-    #   map_id    : Integer — ID del mapa actual
+    # Retorna true si el cliente local además está conectado al servidor AP.
     #=========================================================================
-    def enviar_ubicacion(item_name, cantidad = 1, map_id = 0, event_id = 0)
-      return if @deshabilitado
-
-      mensaje = {
-        "type"     => "item_found",
-        "item"     => item_name.to_s,
-        "quantity" => cantidad,
-        "map_id"   => map_id,
-        "event_id" => event_id
-      }
-
-      return enviar_mensaje(mensaje)
+    def listo?
+      return @conectado && @listo
     end
 
     #=========================================================================
-    # enviar_evento_recibido
+    # registrar_check
     #-------------------------------------------------------------------------
-    # Envía notificación de que el jugador recibió un ítem (ej: via NPC).
+    # Avisa al cliente que el jugador obtuvo un ítem de un evento del mapa.
+    # Retorna:
+    #   :tracked   — es una ubicación AP; no entregar el ítem original
+    #   :nativo    — no es ubicación AP; entregar el ítem original
+    #   :pendiente — sin conexión; se guardó en la partida para reenviarlo
     #=========================================================================
-    def enviar_evento_recibido(item_name, cantidad = 1, map_id = 0, event_id = 0)
-      return if @deshabilitado
-
+    def registrar_check(tipo, item_name, cantidad, map_id, event_id)
       mensaje = {
-        "type"     => "item_received",
+        "type"     => tipo,
         "item"     => item_name.to_s,
         "quantity" => cantidad,
         "map_id"   => map_id,
         "event_id" => event_id
       }
 
-      return enviar_mensaje(mensaje)
+      # Respetar el orden: si ya hay pendientes, este va detrás
+      if $PokemonGlobal.ap_pendientes.empty?
+        resultado = resultado_check(enviar_mensaje(mensaje))
+        return resultado unless resultado == :pendiente
+      end
+
+      $PokemonGlobal.ap_pendientes.push(mensaje)
+      log_archivo "Check guardado sin conexión: #{map_id}_#{event_id} (#{item_name})"
+      return :pendiente
+    end
+
+    #=========================================================================
+    # procesar_un_pendiente
+    #-------------------------------------------------------------------------
+    # Reenvía el check pendiente más antiguo. Llamar fuera de diálogos.
+    # Retorna true si procesó uno.
+    #=========================================================================
+    def procesar_un_pendiente
+      return false unless listo? && $PokemonGlobal && !$PokemonGlobal.ap_pendientes.empty?
+
+      mensaje = $PokemonGlobal.ap_pendientes.first
+      resultado = resultado_check(enviar_mensaje(mensaje))
+      return false if resultado == :pendiente
+
+      $PokemonGlobal.ap_pendientes.shift
+      if resultado == :nativo
+        # No era una ubicación de esta semilla: entregar el ítem original ahora
+        item = GameData::Item.try_get(mensaje["item"])
+        if item
+          @recibiendo_de_servidor = true
+          pbReceiveItem(item.id, mensaje["quantity"] || 1)
+          @recibiendo_de_servidor = false
+        end
+      end
+      return true
+    rescue Exception => e
+      @recibiendo_de_servidor = false
+      log_archivo "Error procesando check pendiente: #{e.message}"
+      return false
     end
 
     #=========================================================================
     # enviar_meta
     #-------------------------------------------------------------------------
     # Avisa al cliente de Archipelago que el juego ha sido completado.
-    # Llama a este método en el evento de la Liga Pokémon o al final del juego.
-    # Uso en evento RPG Maker: ArchipelagoNetwork.enviar_meta
+    # La meta queda guardada en la partida y se reenvía al reconectar.
     #=========================================================================
     def enviar_meta
-      return if @deshabilitado || !conectado?
+      $PokemonGlobal.ap_meta = true if $PokemonGlobal
+      return false unless listo?
 
       begin
         log_archivo "Enviando evento de Meta (Victoria) a Archipelago..."
@@ -235,12 +291,44 @@ module ArchipelagoNetwork
     end
 
     #=========================================================================
+    # resincronizar
+    #-------------------------------------------------------------------------
+    # Reenvía al cliente las ubicaciones ya marcadas y la meta. Se llama cada
+    # vez que el cliente pasa a estar conectado al servidor AP.
+    #=========================================================================
+    def resincronizar
+      return unless $PokemonGlobal
+      ok = enviar_post("/resync", {
+        "locations" => $PokemonGlobal.ap_checked,
+        "goal"      => $PokemonGlobal.ap_meta
+      })
+      log_archivo "Resincronización: #{$PokemonGlobal.ap_checked.size} ubicaciones, meta=#{$PokemonGlobal.ap_meta} (#{ok ? 'ok' : 'falló'})"
+    end
+
+    #=========================================================================
+    # siguiente_indice
+    #-------------------------------------------------------------------------
+    # Próximo índice de ítem AP que hay que pedir al cliente.
+    #=========================================================================
+    def siguiente_indice
+      # Al cargar otra partida, la cola en memoria ya no aplica
+      if @global_id != $PokemonGlobal.object_id
+        @global_id = $PokemonGlobal.object_id
+        @items_pendientes = []
+        @ultimo_encolado = -1
+      end
+      return [$PokemonGlobal.ap_items_index, @ultimo_encolado + 1].max
+    end
+
+    #=========================================================================
     # poll_servidor
     #-------------------------------------------------------------------------
     # Lee datos del servidor via HTTP GET (no-bloqueante, con rate limiting).
     # Retorna: Hash con datos recibidos, o nil si no hay nada.
     #=========================================================================
     def poll_servidor
+      return nil unless $PokemonGlobal
+
       # Intentar reconectar automáticamente si no está conectado
       conectar unless conectado?
       return nil unless conectado?
@@ -249,18 +337,26 @@ module ArchipelagoNetwork
       @frames_desde_ultimo_poll += 1
       return nil if @frames_desde_ultimo_poll < POLL_INTERVAL_FRAMES
       @frames_desde_ultimo_poll = 0
+      @pausa_items = false
 
       begin
+        url = BASE_URL + "/poll?index=#{siguiente_indice}"
+        url += "&opts=1" if $ArchipelagoOptions.nil?
+
         start_time = Time.now
-        response = HTTPLite.get(BASE_URL + "/poll")
+        response = HTTPLite.get(url)
         @latencia = ((Time.now - start_time) * 1000).to_i
 
         if response.is_a?(Hash) && response[:status] == 200
           data = HTTPLite::JSON.parse(response[:body])
+
+          estaba_listo = @listo
+          @listo = (data["ready"] == true)
+          resincronizar if @listo && !estaba_listo
+
           events = data["events"]
           if events && events.is_a?(Array) && events.size > 0
             log_archivo "Recibidos #{events.size} eventos del servidor"
-            echoln "[Archipelago] Recibidos #{events.size} eventos del servidor"
             return data
           end
           return nil
@@ -287,15 +383,13 @@ module ArchipelagoNetwork
       datos = poll_servidor
       return unless datos && datos["events"]
 
-      @recibiendo_de_servidor = true
-      
       datos["events"].each do |evento|
         action = evento["action"]
-        
+
         if action == "set_options"
           $ArchipelagoOptions = evento["options"]
           ArchipelagoNetwork.log_archivo "Opciones recibidas desde Archipelago: #{$ArchipelagoOptions.inspect}"
-          
+
           # Map options to Pokémon Infinite Fusion internal switches
           opts = $ArchipelagoOptions
           if $game_switches
@@ -308,56 +402,84 @@ module ArchipelagoNetwork
             $game_switches[755]  = true if opts["overworld_items"] && opts["overworld_items"] > 0
             $game_switches[921]  = true if opts["types"] && opts["types"] > 0
             $game_switches[855]  = true # SWITCH_RANDOMIZED_AT_LEAST_ONCE
-            
+
             $game_map.need_refresh = true if $game_map
           end
-          
-          next
-        end
 
-        # Retrocompatibilidad o ítems
-        if action == "give_item" || evento["item"]
-          item_id = evento["item"]
-          cantidad = (evento["quantity"] || 1).to_i
-          display_name = evento["name"] || item_id
-          
-          item_obj = GameData::Item.try_get(item_id)
-          if item_obj
-            log_archivo "Encolando ítem de AP para el jugador: #{item_obj.id} x#{cantidad}"
-            @items_pendientes ||= []
-            @items_pendientes.push({item: item_obj.id, quantity: cantidad, name: display_name})
-          else
-            log_archivo "Ítem desconocido del servidor: #{item_id}"
-            @mensajes_pendientes.push("¡Recibiste un objeto misterioso de AP! (#{item_id})")
-          end
-          
-        elsif action == "give_badge"
-          badge_id = (evento["badge_id"] || 0).to_i
-          display_name = evento["name"] || "Medalla #{badge_id}"
-          if $Trainer && $Trainer.badges
-            $Trainer.badges[badge_id] = true
-            @medallas_conocidas[badge_id] = true
-            @mensajes_pendientes.push("¡Has recibido #{display_name} de Archipelago!")
-          end
-          
-        elsif action == "give_pokemon"
-          species = evento["species"]
-          if species
-            species = species.to_sym if species.is_a?(String)
-            pbAddPokemonSilent(species, 5) 
-            @mensajes_pendientes.push("¡Un Pokémon materializado por Archipelago se ha unido a tu equipo!")
-          end
-          
+        elsif evento.has_key?("index")
+          # Ítem recibido (give_item / give_badge / unknown). Se encola en orden y
+          # el índice guardado solo avanza al entregarlo de verdad.
+          index = evento["index"].to_i
+          next if index < siguiente_indice
+          @items_pendientes.push(evento)
+          @ultimo_encolado = index
+
         elsif action == "chat_message"
           msg = evento["text"] || ""
           @mensajes_pendientes.push(msg) if msg.length > 0
         end
       end
-      
-      @recibiendo_de_servidor = false
+    rescue Exception => e
+      log_archivo "Error procesando eventos: #{e.message}"
+    end
+
+    #=========================================================================
+    # entregar_siguiente_item
+    #-------------------------------------------------------------------------
+    # Entrega el próximo ítem de la cola. Llamar fuera de diálogos.
+    # Retorna true si entregó uno.
+    #=========================================================================
+    def entregar_siguiente_item
+      return false if @pausa_items || @items_pendientes.empty?
+
+      evento = @items_pendientes.first
+      index = evento["index"].to_i
+      if index != $PokemonGlobal.ap_items_index
+        # Hueco en la secuencia (no debería pasar): rehacer la cola desde el índice guardado
+        log_archivo "Índice inesperado #{index} (esperado #{$PokemonGlobal.ap_items_index}); se vuelve a pedir."
+        @items_pendientes = []
+        @ultimo_encolado = $PokemonGlobal.ap_items_index - 1
+        return false
+      end
+
+      entregado = true
+      case evento["action"]
+      when "give_item"
+        item_obj = GameData::Item.try_get(evento["item"])
+        if item_obj
+          log_archivo "Entregando ítem de AP ##{index}: #{item_obj.id}"
+          @recibiendo_de_servidor = true
+          entregado = pbReceiveItem(item_obj.id, (evento["quantity"] || 1).to_i)
+          @recibiendo_de_servidor = false
+        else
+          log_archivo "Ítem desconocido del servidor: #{evento['item']}"
+          @mensajes_pendientes.push("¡Recibiste un objeto misterioso de AP! (#{evento['item']})")
+        end
+      when "give_badge"
+        badge_id = (evento["badge_id"] || 0).to_i
+        if $Trainer && $Trainer.badges
+          $Trainer.badges[badge_id] = true
+          @medallas_conocidas[badge_id] = true
+          @mensajes_pendientes.push("¡Has recibido #{evento['name'] || "Medalla #{badge_id}"} de Archipelago!")
+        end
+      else
+        @mensajes_pendientes.push("¡Recibiste un objeto misterioso de AP! (#{evento['name']})")
+      end
+
+      if entregado == false
+        # Mochila llena u otro rechazo: reintentar tras el próximo poll
+        @pausa_items = true
+        return false
+      end
+
+      @items_pendientes.shift
+      $PokemonGlobal.ap_items_index = index + 1
+      return true
     rescue Exception => e
       @recibiendo_de_servidor = false
-      log_archivo "Error procesando eventos: #{e.message}"
+      @pausa_items = true
+      log_archivo "Error entregando ítem de AP: #{e.message}"
+      return false
     end
 
     #=========================================================================
@@ -367,7 +489,7 @@ module ArchipelagoNetwork
     #=========================================================================
     def revisar_medallas
       return if $Trainer.nil? || $Trainer.badges.nil?
-      
+
       # Inicializar el arreglo la primera vez
       if @medallas_conocidas.empty?
         @medallas_conocidas = $Trainer.badges.clone
@@ -395,20 +517,21 @@ module ArchipelagoNetwork
     def estado
       {
         conectado: conectado?,
-        deshabilitado: @deshabilitado,
+        listo: listo?,
         errores_consecutivos: @errores_consecutivos,
         ultimo_error: @ultimo_error,
-        mensajes_enviados: @mensajes_enviados
+        mensajes_enviados: @mensajes_enviados,
+        checks_pendientes: $PokemonGlobal ? $PokemonGlobal.ap_pendientes.size : 0,
+        items_en_cola: @items_pendientes.size
       }
     end
 
     #=========================================================================
     # reactivar
     #-------------------------------------------------------------------------
-    # Reactiva el módulo después de haber sido deshabilitado por errores.
+    # Fuerza un intento de reconexión inmediato.
     #=========================================================================
     def reactivar
-      @deshabilitado = false
       @errores_consecutivos = 0
       @ultimo_intento_conexion = 0
       log_archivo "Módulo reactivado. Se intentará reconectar."
@@ -416,6 +539,21 @@ module ArchipelagoNetwork
     end
 
     private
+
+    #=========================================================================
+    # resultado_check (interno)
+    #-------------------------------------------------------------------------
+    # Traduce la respuesta del cliente a :tracked, :nativo o :pendiente.
+    #=========================================================================
+    def resultado_check(resp)
+      return :pendiente unless resp.is_a?(Hash) && resp.has_key?("tracked")
+      if resp["tracked"] == true
+        location = resp["location"]
+        $PokemonGlobal.ap_checked.push(location) if location && !$PokemonGlobal.ap_checked.include?(location)
+        return :tracked
+      end
+      return :nativo
+    end
 
     #=========================================================================
     # enviar_mensaje (interno)
@@ -429,20 +567,20 @@ module ArchipelagoNetwork
         return false unless conectar
       end
 
-      return enviar_raw(mensaje_hash)
+      return enviar_post("/event", mensaje_hash)
     end
 
     #=========================================================================
-    # enviar_raw (interno)
+    # enviar_post (interno)
     #-------------------------------------------------------------------------
-    # Envía datos al servidor via HTTP POST.
+    # Envía datos al servidor via HTTP POST. Retorna el JSON de respuesta o false.
     #=========================================================================
-    def enviar_raw(mensaje_hash)
+    def enviar_post(ruta, mensaje_hash)
       begin
         body = hash_to_json(mensaje_hash)
 
         response = HTTPLite.post_body(
-          BASE_URL + "/event",
+          BASE_URL + ruta,
           body,
           "application/json"
         )
@@ -451,13 +589,15 @@ module ArchipelagoNetwork
           @mensajes_enviados += 1
           @errores_consecutivos = 0
 
-          tipo = mensaje_hash["type"] || "???"
+          tipo = mensaje_hash["type"] || ruta
           if tipo != "heartbeat"
             log_archivo "Enviado: #{tipo} — #{body}"
             echoln "[Archipelago] Enviado: #{tipo}"
           end
-          
+
           parsed = HTTPLite::JSON.parse(response[:body]) rescue {}
+          # El cliente perdió el servidor AP: dejar de considerarlo listo
+          @listo = false if parsed.is_a?(Hash) && parsed["status"] == "offline"
           return parsed
         else
           status = response.is_a?(Hash) ? response[:status] : "???"
@@ -480,15 +620,13 @@ module ArchipelagoNetwork
     #=========================================================================
     # registrar_error (interno)
     #-------------------------------------------------------------------------
-    # Incrementa el contador de errores y desactiva si excede el máximo.
+    # Incrementa el contador de errores y avisa en el log al llegar al máximo.
     #=========================================================================
     def registrar_error
       @errores_consecutivos += 1
-      if @errores_consecutivos >= MAX_ERRORES_CONSECUTIVOS
-        @deshabilitado = true
-        log_archivo "Demasiados errores consecutivos (#{MAX_ERRORES_CONSECUTIVOS}). Módulo DESHABILITADO."
-        echoln "[Archipelago] Demasiados errores consecutivos (#{MAX_ERRORES_CONSECUTIVOS})."
-        echoln "[Archipelago] Módulo DESHABILITADO. Usa ArchipelagoNetwork.reactivar para reintentar."
+      if @errores_consecutivos == MAX_ERRORES_CONSECUTIVOS
+        log_archivo "#{MAX_ERRORES_CONSECUTIVOS} errores consecutivos. ¿Está abierto el cliente de Archipelago?"
+        echoln "[Archipelago] #{MAX_ERRORES_CONSECUTIVOS} errores consecutivos. ¿Está abierto el cliente?"
       end
     end
 
@@ -500,24 +638,30 @@ module ArchipelagoNetwork
     #=========================================================================
     def hash_to_json(hash)
       pairs = hash.map do |key, value|
-        k = "\"#{escape_json_string(key.to_s)}\""
-        v = case value
-            when String
-              "\"#{escape_json_string(value)}\""
-            when Integer, Float
-              value.to_s
-            when TrueClass
-              "true"
-            when FalseClass
-              "false"
-            when NilClass
-              "null"
-            else
-              "\"#{escape_json_string(value.to_s)}\""
-            end
-        "#{k}:#{v}"
+        "\"#{escape_json_string(key.to_s)}\":#{valor_json(value)}"
       end
       "{#{pairs.join(",")}}"
+    end
+
+    def valor_json(value)
+      case value
+      when String
+        "\"#{escape_json_string(value)}\""
+      when Integer, Float
+        value.to_s
+      when TrueClass
+        "true"
+      when FalseClass
+        "false"
+      when NilClass
+        "null"
+      when Array
+        "[#{value.map { |v| valor_json(v) }.join(",")}]"
+      when Hash
+        hash_to_json(value)
+      else
+        "\"#{escape_json_string(value.to_s)}\""
+      end
     end
 
     #=========================================================================
@@ -536,6 +680,18 @@ module ArchipelagoNetwork
 end
 
 #=============================================================================
+# Helpers de los hooks
+#=============================================================================
+def ap_evento_actual
+  current_map = $game_map ? $game_map.map_id : 0
+  event_id = 0
+  if $game_system && $game_system.map_interpreter
+    event_id = $game_system.map_interpreter.instance_variable_get(:@event_id) || 0
+  end
+  return current_map, event_id
+end
+
+#=============================================================================
 # ** Hook de pbItemBall — Intercepta la obtención de ítems del suelo
 #=============================================================================
 # Usamos alias para envolver la función original sin modificar el archivo
@@ -551,46 +707,32 @@ def pbItemBall(item, quantity = 1, item_name = "", canRandom = true)
     return pbItemBall_sin_archipelago(item, quantity, item_name, canRandom)
   end
 
-  # Si Archipelago está conectado, bloqueamos el ítem original
-  if ArchipelagoNetwork.conectado?
-    begin
-      current_map = $game_map ? $game_map.map_id : 0
-      event_id = 0
-      if $game_system && $game_system.map_interpreter
-        event_id = $game_system.map_interpreter.instance_variable_get(:@event_id) || 0
-      end
+  begin
+    current_map, event_id = ap_evento_actual
 
-      # Resolver el nombre real del ítem para el log
-      item_data = GameData::Item.try_get(item)
-      item_id = item_data ? item_data.id.to_s : item.to_s
+    # Resolver el nombre real del ítem para el log
+    item_data = GameData::Item.try_get(item)
+    item_id = item_data ? item_data.id.to_s : item.to_s
 
-      # Notificar a AP sobre esta ubicación
-      resp = ArchipelagoNetwork.enviar_ubicacion(item_id, quantity, current_map, event_id)
+    resultado = ArchipelagoNetwork.registrar_check("item_found", item_id, quantity, current_map, event_id)
+    return pbItemBall_sin_archipelago(item, quantity, item_name, canRandom) if resultado == :nativo
 
-      if resp && resp["tracked"] == true
-        # Reproducir sonido de obtención y desaparecer la Pokéball
-        pbSEPlay("Pokemon get")
-        Kernel.pbMessage(_INTL("\\se[Pokemon get]¡Encontraste un objeto para Archipelago!"))
-
-        # Desaparecer el evento del mapa (la Pokéball visual)
-        if $game_system && $game_system.map_interpreter
-          evid = $game_system.map_interpreter.instance_variable_get(:@event_id)
-          if evid && evid > 0
-            $game_self_switches[[$game_map.map_id, evid, "A"]] = true
-            $game_map.need_refresh = true
-          end
-        end
-        return true
-      else
-        return pbItemBall_sin_archipelago(item, quantity, item_name, canRandom)
-      end
-    rescue Exception => e
-      ArchipelagoNetwork.log_archivo "Error en hook pbItemBall AP: #{e.message}"
-      # Fallback: dar el ítem normal si algo falla
-      return pbItemBall_sin_archipelago(item, quantity, item_name, canRandom)
+    if resultado == :tracked
+      pbSEPlay("Pokemon get")
+      Kernel.pbMessage(_INTL("\\se[Pokemon get]¡Encontraste un objeto para Archipelago!"))
+    else
+      Kernel.pbMessage(_INTL("Sin conexión con Archipelago. El objeto se enviará al reconectar."))
     end
-  else
-    # Si AP NO está conectado, dar el ítem normalmente
+
+    # Desaparecer el evento del mapa (la Pokéball visual)
+    if event_id > 0
+      $game_self_switches[[current_map, event_id, "A"]] = true
+      $game_map.need_refresh = true
+    end
+    return true
+  rescue Exception => e
+    ArchipelagoNetwork.log_archivo "Error en hook pbItemBall AP: #{e.message}"
+    # Fallback: dar el ítem normal si algo falla
     return pbItemBall_sin_archipelago(item, quantity, item_name, canRandom)
   end
 end
@@ -614,30 +756,24 @@ def pbReceiveItem(item, quantity = 1, item_name = "", music = nil, canRandom = t
     return pbReceiveItem_sin_archipelago(item, quantity, item_name, music, canRandom)
   end
 
-  # Si AP está conectado, bloqueamos el ítem original de NPC
-  if ArchipelagoNetwork.conectado?
-    begin
-      item_data = GameData::Item.try_get(item)
-      item_id = item_data ? item_data.id.to_s : item.to_s
-      current_map = $game_map ? $game_map.map_id : 0
-      event_id = 0
-      if $game_system && $game_system.map_interpreter
-        event_id = $game_system.map_interpreter.instance_variable_get(:@event_id) || 0
-      end
+  begin
+    item_data = GameData::Item.try_get(item)
+    item_id = item_data ? item_data.id.to_s : item.to_s
+    current_map, event_id = ap_evento_actual
 
-      resp = ArchipelagoNetwork.enviar_evento_recibido(item_id, quantity, current_map, event_id)
-      
-      if resp && resp["tracked"] == true
-        Kernel.pbMessage(_INTL("¡Objeto enviado a Archipelago!"))
-        return true
-      else
-        return pbReceiveItem_sin_archipelago(item, quantity, item_name, music, canRandom)
-      end
-    rescue Exception => e
-      ArchipelagoNetwork.log_archivo "Error en hook pbReceiveItem AP: #{e.message}"
+    resultado = ArchipelagoNetwork.registrar_check("item_received", item_id, quantity, current_map, event_id)
+    case resultado
+    when :tracked
+      Kernel.pbMessage(_INTL("¡Objeto enviado a Archipelago!"))
+      return true
+    when :pendiente
+      Kernel.pbMessage(_INTL("Sin conexión con Archipelago. El objeto se enviará al reconectar."))
+      return true
+    else
       return pbReceiveItem_sin_archipelago(item, quantity, item_name, music, canRandom)
     end
-  else
+  rescue Exception => e
+    ArchipelagoNetwork.log_archivo "Error en hook pbReceiveItem AP: #{e.message}"
     return pbReceiveItem_sin_archipelago(item, quantity, item_name, music, canRandom)
   end
 end
@@ -659,13 +795,13 @@ end
 # Log de inicialización
 #=============================================================================
 ArchipelagoNetwork.log_archivo "============================================="
-ArchipelagoNetwork.log_archivo " Archipelago Network Module v0.3 cargado"
+ArchipelagoNetwork.log_archivo " Archipelago Network Module v0.4 cargado"
 ArchipelagoNetwork.log_archivo " Modo: HTTP via HTTPLite"
 ArchipelagoNetwork.log_archivo " Compatible con PIF v6.7"
 ArchipelagoNetwork.log_archivo "============================================="
 
 echoln "============================================="
-echoln " Archipelago Network Module v0.3 cargado"
+echoln " Archipelago Network Module v0.4 cargado"
 echoln " Modo: HTTP via HTTPLite"
 echoln " Compatible con PIF v6.7"
 echoln "============================================="
@@ -676,14 +812,14 @@ echoln "============================================="
 Events.onMapUpdate += proc { |sender, e|
   ArchipelagoNetwork.procesar_eventos_servidor
   ArchipelagoNetwork.revisar_medallas
-  
-  # Desencolar de forma segura (fuera de combate y sin interrumpir diálogos o movimiento)
+
+  # Desencolar de forma segura (fuera de combate y sin interrumpir diálogos o movimiento).
+  # Una acción por frame: checks pendientes, luego ítems recibidos, luego mensajes.
   if $game_temp && !$game_temp.message_window_showing && $game_player && !$game_player.moving?
-    if ArchipelagoNetwork.items_pendientes && ArchipelagoNetwork.items_pendientes.length > 0
-      item_data = ArchipelagoNetwork.items_pendientes.shift
-      ArchipelagoNetwork.recibiendo_de_servidor = true
-      pbReceiveItem(item_data[:item], item_data[:quantity], item_data[:name])
-      ArchipelagoNetwork.recibiendo_de_servidor = false
+    if ArchipelagoNetwork.procesar_un_pendiente
+      # nada más este frame
+    elsif ArchipelagoNetwork.entregar_siguiente_item
+      # nada más este frame
     elsif ArchipelagoNetwork.mensajes_pendientes && ArchipelagoNetwork.mensajes_pendientes.length > 0
       msg = ArchipelagoNetwork.mensajes_pendientes.shift
       Kernel.pbMessage(_INTL(msg))
@@ -692,122 +828,12 @@ Events.onMapUpdate += proc { |sender, e|
 }
 
 #=============================================================================
-# Interceptar Pokémon de Regalo (Gift Pokémon)
-#=============================================================================
-alias original_pbAddPokemon pbAddPokemon unless defined?(original_pbAddPokemon)
-
-def pbAddPokemon(pkmn, level = 1, see_form = true, dontRandomize = false, variableToSave = nil)
-  if ArchipelagoNetwork.recibiendo_de_servidor
-    return original_pbAddPokemon(pkmn, level, see_form, dontRandomize, variableToSave)
-  end
-
-  poke_id = pkmn.is_a?(PokeBattle_Pokemon) ? pkmn.species : pkmn
-  map_id = $game_map ? $game_map.map_id : 0
-  
-  ArchipelagoNetwork.enviar_mensaje({
-    "type" => "pokemon_received",
-    "species" => poke_id.to_s,
-    "map_id" => map_id
-  })
-  
-  Kernel.pbMessage(_INTL("¡Encontraste un Pokémon que ha sido enviado a Archipelago!"))
-  return true 
-end
-
-#=============================================================================
-# Interceptar Intercambios (Trades)
-#=============================================================================
-alias original_pbStartTrade pbStartTrade unless defined?(original_pbStartTrade)
-
-def pbStartTrade(pokemonIndex, newpoke, nickname, trainerName, trainerGender=0, savegame=false)
-  if ArchipelagoNetwork.recibiendo_de_servidor
-    original_pbStartTrade(pokemonIndex, newpoke, nickname, trainerName, trainerGender, savegame)
-    return
-  end
-
-  $Trainer.party[pokemonIndex] = nil
-  $Trainer.party.compact!
-  
-  map_id = $game_map ? $game_map.map_id : 0
-  trade_poke_id = newpoke.is_a?(PokeBattle_Pokemon) ? newpoke.species : newpoke
-  
-  ArchipelagoNetwork.enviar_mensaje({
-    "type" => "trade_completed",
-    "species" => trade_poke_id.to_s,
-    "map_id" => map_id
-  })
-  
-  Kernel.pbMessage(_INTL("¡El Pokémon del intercambio fue enviado a la red de Archipelago!"))
-end
-
-#=============================================================================
-# ** Hook de Dexsanity (Captura de Pokémon)
-#=============================================================================
-alias original_pbStorePokemon pbStorePokemon unless defined?(original_pbStorePokemon)
-
-def pbStorePokemon(pkmn)
-  # Si estamos recibiendo de AP, simplemente almacenarlo
-  if ArchipelagoNetwork.recibiendo_de_servidor
-    return original_pbStorePokemon(pkmn)
-  end
-
-  # Si Archipelago está conectado, enviamos notificación de captura
-  if ArchipelagoNetwork.conectado?
-    poke_id = pkmn.is_a?(PokeBattle_Pokemon) ? pkmn.species : pkmn
-    map_id = $game_map ? $game_map.map_id : 0
-    event_id = 0
-    if $game_system && $game_system.map_interpreter
-      event_id = $game_system.map_interpreter.instance_variable_get(:@event_id) || 0
-    end
-
-    ArchipelagoNetwork.enviar_mensaje({
-      "type" => "pokemon_caught",
-      "species" => poke_id.to_s,
-      "map_id" => map_id,
-      "event_id" => event_id
-    })
-  end
-
-  return original_pbStorePokemon(pkmn)
-end
-
-#=============================================================================
-# ** Hook de Trainersanity (Derrotar Entrenadores)
-#=============================================================================
-alias original_pbTrainerBattle pbTrainerBattle unless defined?(original_pbTrainerBattle)
-
-def pbTrainerBattle(trainerID, trainerName, endSpeech=nil, doubleBattle=false, trainerPartyID=0, canLose=false, variable=nil)
-  # Llamar a la batalla original
-  result = original_pbTrainerBattle(trainerID, trainerName, endSpeech, doubleBattle, trainerPartyID, canLose, variable)
-  
-  # Si el resultado es true, ganamos la batalla
-  if result == true && ArchipelagoNetwork.conectado?
-    map_id = $game_map ? $game_map.map_id : 0
-    event_id = 0
-    if $game_system && $game_system.map_interpreter
-      event_id = $game_system.map_interpreter.instance_variable_get(:@event_id) || 0
-    end
-    
-    ArchipelagoNetwork.enviar_mensaje({
-      "type" => "trainer_defeated",
-      "trainer_id" => "#{trainerID}_#{trainerName}",
-      "map_id" => map_id,
-      "event_id" => event_id
-    })
-  end
-  
-  return result
-end
-
-#=============================================================================
 # ** Hook del Goal (Victoria - Hall of Fame)
 #=============================================================================
 alias original_pbHallOfFameEntry pbHallOfFameEntry unless defined?(original_pbHallOfFameEntry)
 
 def pbHallOfFameEntry(*args)
-  if ArchipelagoNetwork.conectado?
-    ArchipelagoNetwork.enviar_meta
-  end
+  # Guarda la meta en la partida aunque no haya conexión; se reenvía al reconectar
+  ArchipelagoNetwork.enviar_meta
   return original_pbHallOfFameEntry(*args)
 end
-

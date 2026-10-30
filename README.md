@@ -70,6 +70,7 @@ Hemos creado un instalador automático para que conectar tu juego con Archipelag
 - **`apworld_generator.py`**: Utilidad para compilar los JSON extraídos del juego base y generar el código nativo para el apworld.
 - **Cliente Nativo (`client.py`)**: Totalmente integrado en el `.apworld`, estableciendo el puente (http local / websockets) hacia el servidor de AP.
 - **Ruby Network Hooks**: Modificación de eventos base de in-game (obtención de objetos, combate, etc.) para comunicarse sin bloquear el hilo de ejecución de RPG Maker XP.
+- **Estado en la partida**: el índice de ítems recibidos, las ubicaciones marcadas, los checks hechos sin conexión y la meta se guardan en la partida (`$PokemonGlobal`). Si el juego se cierra sin guardar, los ítems se vuelven a pedir; al reconectar, el juego reenvía todo al servidor. En el HUD, el círculo amarillo indica que el cliente está abierto pero sin servidor AP, y el número entre paréntesis son los checks pendientes.
 
 ---
 
@@ -91,6 +92,12 @@ Con un clon del código fuente de [Archipelago](https://github.com/ArchipelagoMW
 mklink /J worlds\pokemon_infinite_fusion <repo>\archipelago\apworld_dev\pokemon_infinite_fusion
 set SKIP_REQUIREMENTS_UPDATE=1
 python -m pytest worlds/pokemon_infinite_fusion/test
+```
+
+`archipelago/tools/bridge_test.py` prueba el puente juego-cliente-servidor sin abrir el juego: levanta un `MultiServer` real y el cliente, simula al juego por HTTP y comprueba la entrega de ítems por índice, el modo sin conexión y la resincronización.
+
+```bat
+python archipelago\tools\bridge_test.py <ruta Archipelago> <semilla.zip> <archivo.apif>
 ```
 
 ¡Diviértete fusionando y colaborando en Archipelago!

@@ -7,93 +7,7 @@
 # ==============================================================================
 
 # ------------------------------------------------------------------------------
-# 1. Overrides para Bayas (012_Overworld/006_Overworld_BerryPlants.rb)
-# ------------------------------------------------------------------------------
-
-alias ap_original_pbPickBerry pbPickBerry
-def pbPickBerry(berry, qty = 1)
-  if Object.const_defined?(:ArchipelagoNetwork) && ArchipelagoNetwork.conectado?
-    interp = pbMapInterpreter
-    thisEvent = interp.get_character(0)
-    berryData = interp.getVariable
-    item = GameData::Item.get(berry)
-    itemname = (qty > 1) ? item.name_plural : item.name
-    message = (qty > 1) ? _INTL("There are {1} \\c[1]{2}\\c[0]!\nWant to pick them?", qty, itemname) : _INTL("There is 1 \\c[1]{1}\\c[0]!\nWant to pick it?", itemname)
-    
-    if pbConfirmMessage(message)
-      ArchipelagoNetwork.enviar_ubicacion("BERRY", qty, $game_map.map_id, interp.instance_variable_get(:@event_id))
-      pbMEPlay("Berry Obtained")
-      pbMessage(_INTL("¡Encontraste un objeto para Archipelago!"))
-      if Settings::NEW_BERRY_PLANTS
-        pbMessage(_INTL("The soil returned to its soft and earthy state."))
-        berryData = [0, nil, 0, 0, 0, 0, 0, 0]
-      else
-        pbMessage(_INTL("The soil returned to its soft and loamy state."))
-        berryData = [0, nil, false, 0, 0, 0]
-      end
-      interp.setVariable(berryData)
-      pbSetSelfSwitch(thisEvent.id, "A", true)
-    end
-    return
-  end
-  # Si no está conectado a AP, ejecuta el comportamiento original
-  ap_original_pbPickBerry(berry, qty)
-end
-
-alias ap_original_pbBerryPlant pbBerryPlant
-def pbBerryPlant
-  interp = pbMapInterpreter
-  berryData = interp.getVariable
-  
-  # Si la baya está en la fase final (lista para recoger) y AP está conectado, interceptamos.
-  if berryData && berryData[0] == 5 && Object.const_defined?(:ArchipelagoNetwork) && ArchipelagoNetwork.conectado?
-    thisEvent = interp.get_character(0)
-    berry = berryData[1]
-    berryvalues = GameData::BerryPlant.get(berry)
-    
-    # Calcular cantidad (lógica original)
-    berrycount = 1
-    if berryData.length > 6
-      berrycount = [berryvalues.maximum_yield - berryData[6], berryvalues.minimum_yield].max
-    else
-      if berryData[4] > 0
-        berrycount = (berryvalues.maximum_yield - berryvalues.minimum_yield) * (berryData[4] - 1)
-        berrycount += rand(1 + berryvalues.maximum_yield - berryvalues.minimum_yield)
-        berrycount = (berrycount / 4) + berryvalues.minimum_yield
-      else
-        berrycount = berryvalues.minimum_yield
-      end
-    end
-    
-    item = GameData::Item.get(berry)
-    itemname = (berrycount > 1) ? item.name_plural : item.name
-    message = (berrycount > 1) ? _INTL("There are {1} \\c[1]{2}\\c[0]!\nWant to pick them?", berrycount, itemname) : _INTL("There is 1 \\c[1]{1}\\c[0]!\nWant to pick it?", itemname)
-    
-    # Detener animación del evento temporalmente
-    thisEvent.turn_up
-    
-    if pbConfirmMessage(message)
-      ArchipelagoNetwork.enviar_ubicacion("BERRY", berrycount, $game_map.map_id, interp.instance_variable_get(:@event_id))
-      pbMEPlay("Berry Obtained")
-      pbMessage(_INTL("¡Encontraste un objeto para Archipelago!"))
-      if Settings::NEW_BERRY_PLANTS
-        pbMessage(_INTL("The soil returned to its soft and earthy state."))
-        berryData = [0, nil, 0, 0, 0, 0, 0, 0]
-      else
-        pbMessage(_INTL("The soil returned to its soft and loamy state."))
-        berryData = [0, nil, false, 0, 0, 0]
-      end
-      interp.setVariable(berryData)
-    end
-    return
-  end
-  
-  # Si no aplica, ejecuta el comportamiento original para regar, plantar, etc.
-  ap_original_pbBerryPlant
-end
-
-# ------------------------------------------------------------------------------
-# 2. Overrides para el HUD (005_Sprites/007_Spriteset_Map.rb)
+# 1. Overrides para el HUD (005_Sprites/007_Spriteset_Map.rb)
 # ------------------------------------------------------------------------------
 
 class Spriteset_Map
@@ -127,9 +41,14 @@ class Spriteset_Map
       
       pbSetSystemFont(@ap_sprite.bitmap)
       
-      if estado[:conectado]
+      pendientes = estado[:checks_pendientes] > 0 ? " (#{estado[:checks_pendientes]})" : ""
+      if estado[:listo]
         @ap_sprite.bitmap.fill_rect(0, 8, 10, 10, Color.new(0, 255, 0)) # Círculo Verde
-        pbDrawTextPositions(@ap_sprite.bitmap, [[ "AP: #{latencia}ms", 15, -4, 0, Color.new(255,255,255), Color.new(0,0,0) ]])
+        pbDrawTextPositions(@ap_sprite.bitmap, [[ "AP: #{latencia}ms#{pendientes}", 15, -4, 0, Color.new(255,255,255), Color.new(0,0,0) ]])
+      elsif estado[:conectado]
+        # Cliente abierto pero sin servidor AP: los checks quedan pendientes
+        @ap_sprite.bitmap.fill_rect(0, 8, 10, 10, Color.new(255, 200, 0)) # Círculo Amarillo
+        pbDrawTextPositions(@ap_sprite.bitmap, [[ "AP: Sin servidor#{pendientes}", 15, -4, 0, Color.new(255,220,100), Color.new(0,0,0) ]])
       else
         @ap_sprite.bitmap.fill_rect(0, 8, 10, 10, Color.new(255, 0, 0)) # Círculo Rojo
         pbDrawTextPositions(@ap_sprite.bitmap, [[ "AP: Desc", 15, -4, 0, Color.new(255,100,100), Color.new(0,0,0) ]])
