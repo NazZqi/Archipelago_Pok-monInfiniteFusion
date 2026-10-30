@@ -47,10 +47,24 @@ class APRequestHandler(BaseHTTPRequestHandler):
     def _send_json_response(self, status_code, data):
         self.send_response(status_code)
         self.send_header("Content-Type", "application/json")
-        self.send_header("Access-Control-Allow-Origin", "*")
         self.end_headers()
         self.wfile.write(json.dumps(data, ensure_ascii=False).encode("utf-8"))
-    
+
+    def _from_game(self, is_post: bool) -> bool:
+        """Rechaza peticiones de páginas web abiertas en el navegador.
+
+        El juego (HTTPLite) no envía Origin; un navegador sí, en toda petición
+        cross-origin. El Host bloquea DNS rebinding, y exigir JSON en POST obliga
+        al navegador a un preflight que este servidor nunca aprueba (sin CORS)."""
+        if self.headers.get("Origin") is not None:
+            return False
+        host = self.headers.get("Host")
+        if host is not None and host not in (f"{HTTP_HOST}:{HTTP_PORT}", f"localhost:{HTTP_PORT}"):
+            return False
+        if is_post and not (self.headers.get("Content-Type") or "").startswith("application/json"):
+            return False
+        return True
+
     def _server_ready(self) -> bool:
         return ctx is not None and ctx.slot is not None and ctx.server is not None and not ctx.server.socket.closed
 
@@ -60,6 +74,9 @@ class APRequestHandler(BaseHTTPRequestHandler):
 
     def do_GET(self):
         global last_seen, game_connected
+        if not self._from_game(is_post=False):
+            self._send_json_response(403, {"error": "forbidden"})
+            return
         url = urlparse(self.path)
         if url.path != "/poll":
             self._send_json_response(404, {"error": "not_found"})
@@ -95,8 +112,13 @@ class APRequestHandler(BaseHTTPRequestHandler):
         self._send_json_response(200, {"status": "ok", "ready": ready, "events": events_to_send})
 
     def do_POST(self):
+        if not self._from_game(is_post=True):
+            self._send_json_response(403, {"error": "forbidden"})
+            return
         try:
             data = self._read_json()
+            if not isinstance(data, dict):
+                raise ValueError("se esperaba un objeto JSON")
         except Exception as e:
             self._send_json_response(400, {"error": str(e)})
             return
@@ -117,7 +139,12 @@ class APRequestHandler(BaseHTTPRequestHandler):
             if not self._server_ready():
                 self._send_json_response(200, {"status": "offline"})
                 return
-            locations = [loc for loc in data.get("locations", []) if loc in ctx.server_locations]
+            raw = data.get("locations", [])
+            if not isinstance(raw, list):
+                self._send_json_response(400, {"error": "locations debe ser una lista"})
+                return
+            # server_locations acota la lista a las ubicaciones reales del slot
+            locations = [loc for loc in raw if isinstance(loc, int) and loc in ctx.server_locations]
             if locations:
                 ctx.locally_sent_locations.update(locations)
                 ap_send_queue.put({"cmd": "LocationChecks", "locations": locations})

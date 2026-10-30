@@ -11,6 +11,7 @@ import os
 import subprocess
 import sys
 import time
+import urllib.error
 import urllib.request
 from pathlib import Path
 
@@ -68,6 +69,22 @@ try:
     poll = wait_for(lambda: (p := get("/poll?index=0&opts=1"))["ready"] and p, "ready")
     assert any(e["action"] == "set_options" for e in poll["events"]), poll
     print("OK conectado; opciones entregadas")
+
+    # 1b. Peticiones de una página web (CSRF / DNS rebinding) se rechazan
+    def status_of(path, body=None, headers=None):
+        req = urllib.request.Request(BRIDGE + path, body, headers or {})
+        try:
+            with urllib.request.urlopen(req, timeout=5) as r:
+                return r.status
+        except urllib.error.HTTPError as e:
+            return e.code
+
+    resync = json.dumps({"goal": True}).encode()
+    assert status_of("/poll?index=0", headers={"Origin": "https://evil.example"}) == 403
+    assert status_of("/resync", resync, {"Content-Type": "text/plain"}) == 403
+    assert status_of("/resync", resync, {"Content-Type": "application/json", "Origin": "https://evil.example"}) == 403
+    assert status_of("/poll?index=0", headers={"Host": "evil.example:5050"}) == 403
+    print("OK peticiones con Origin, Host ajeno o sin JSON -> 403")
 
     # 2. Ubicación real (29_8 tiene la Poké Flauta en la semilla 7)
     r = post("/event", {"type": "item_found", "item": "X", "quantity": 1, "map_id": 29, "event_id": 8})
