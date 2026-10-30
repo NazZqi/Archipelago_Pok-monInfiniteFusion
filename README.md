@@ -84,4 +84,13 @@ El repositorio **no incluye el juego**. Para desarrollar, copia tu instalación 
 - `archipelago/fix_maps.py` reasigna mapas a regiones en `map_ids.py` usando `archipelago/map_dump.json`.
 - `archipelago/build_apworld.py` empaqueta `releases/pokemon_infinite_fusion.apworld`.
 
+### Tests
+Con un clon del código fuente de [Archipelago](https://github.com/ArchipelagoMW/Archipelago), enlaza el mundo en `worlds/` y corre los tests desde la raíz de Archipelago:
+
+```bat
+mklink /J worlds\pokemon_infinite_fusion <repo>\archipelago\apworld_dev\pokemon_infinite_fusion
+set SKIP_REQUIREMENTS_UPDATE=1
+python -m pytest worlds/pokemon_infinite_fusion/test
+```
+
 ¡Diviértete fusionando y colaborando en Archipelago!
