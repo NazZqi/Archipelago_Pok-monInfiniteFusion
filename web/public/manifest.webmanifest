@@ -1,0 +1,13 @@
+{
+  "name": "Cinderlink · Juego",
+  "short_name": "Juego",
+  "start_url": "/",
+  "scope": "/",
+  "display": "fullscreen",
+  "orientation": "landscape",
+  "background_color": "#1d2433",
+  "theme_color": "#1d2433",
+  "icons": [
+    { "src": "/icono.svg", "sizes": "any", "type": "image/svg+xml", "purpose": "any" }
+  ]
+}

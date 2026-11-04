@@ -10,11 +10,15 @@ hacía un blob.slice() asíncrono: 70 s para montar el paquete. Un búfer de 1 M
 Tras un salto solo lee 16 KB: al abrir un archivo, PhysFS salta por la cabecera de cada entrada
 de la carpeta, y traer 1 MB por cada una costaba 3 ms por entrada.
 
+Paquete remoto: el launcher deja en OPFS un marcador JSON en vez del paquete, y el core lo
+lee por bloques con Range (web/scripts/bloques.js).
+
 Uso: parchear_core.py <carpeta del core original> <sitio>
 """
 import sys
 from pathlib import Path
 
+BLOQUES = Path(__file__).parent.parent / "scripts" / "bloques.js"
 CAPACIDAD = 0x48000000  # 1,125 GiB; el resto del core usa unos 430 MB
 ANTES = bytes.fromhex("80 80 80 30")  # LEB128 de 96 MiB, WASM_MIN_PAGES * 64 KiB
 FUNCION = 10789
@@ -58,7 +62,8 @@ def parchear_js(origen, destino):
     js = origen.read_text(encoding="utf-8")
     lectura = ("let slice=blob.slice(pos,pos+len);let nread=0;try{let buf=await slice.arrayBuffer();"
                "let data=new Uint8Array(buf);GROWABLE_HEAP_U8().set(data,bufPtr);nread+=data.length}catch(e)")
-    con_bufer = ("let nread=0;try{if(len<=4096&&blob.size>1e8){let c=__lecturas.get(blob);"
+    con_bufer = ("let nread=0;try{if(blob.leer){let d=await blob.leer(pos,len);GROWABLE_HEAP_U8().set(d,bufPtr);"
+                 "nread+=d.length}else if(len<=4096&&blob.size>1e8){let c=__lecturas.get(blob);"
                  "if(c===undefined){c={b:new Uint8Array(0),p:0};__lecturas.set(blob,c)}"
                  "if(pos<c.p||pos+len>c.p+c.b.length){let n=pos>=c.p&&pos<=c.p+c.b.length?1048576:16384;"
                  "c.b=new Uint8Array(await blob.slice(pos,pos+n).arrayBuffer());c.p=pos}"
@@ -66,9 +71,18 @@ def parchear_js(origen, destino):
                  "else{let buf=await blob.slice(pos,pos+len).arrayBuffer();let data=new Uint8Array(buf);"
                  "GROWABLE_HEAP_U8().set(data,bufPtr);nread+=data.length}}catch(e)")
     funcion = "async function __wasmfs_opfs_read_blob("
+    # El paquete en OPFS es un marcador JSON: se lee como paquete remoto por bloques
+    remoto = ('async function __remoto(a){if(!a.name.endsWith(".mkxpz")||a.size>16<<20'
+              '||await a.slice(0,1).text()!=="{")return a;let p=await __paqueteRemoto.abrir('
+              '{...JSON.parse(await a.text()),url:__paqueteRemoto.urlDe(a.name)});p.rellenar();return p}')
+    abrir = ("let blob=await fileHandle.getFile();blobID=", "let blob=await __remoto(await fileHandle.getFile());blobID=")
+    tamano = ("size=(await fileHandle.getFile()).size", "size=(await __remoto(await fileHandle.getFile())).size")
+    for antes, _ in (abrir, tamano):
+        assert js.count(antes) == 1, antes
     assert js.count(lectura) == 1 and js.count(funcion) == 1
-    destino.write_text(js.replace(lectura, con_bufer).replace(funcion, "var __lecturas=new WeakMap;" + funcion),
-                       encoding="utf-8")
+    js = js.replace(lectura, con_bufer).replace(*abrir).replace(*tamano)
+    previo = BLOQUES.read_text(encoding="utf-8") + remoto + "var __lecturas=new WeakMap;"
+    destino.write_text(js.replace(funcion, previo + funcion), encoding="utf-8")
 
 
 core, sitio = Path(sys.argv[1]), Path(sys.argv[2])

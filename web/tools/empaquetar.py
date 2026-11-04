@@ -3,10 +3,15 @@
 El paquete no entra al repo: lleva los archivos del juego.
 
 Uso: empaquetar.py <carpeta del juego> <sitio> --sprites <hojas base> --cache <reducidos>
-     [--diagnostico]
+     [--arranque web/arranque.txt] [--diagnostico]
 <sitio> es la carpeta con el launcher y el core ya parcheado (parchear_core.py).
+
+Junto al paquete deja pif-<hash>.json, el marcador que el launcher guarda en lugar del
+paquete: con él, el core lee el paquete por bloques (web/scripts/bloques.js). --arranque
+lista los archivos que el juego lee al iniciar (arranque.py): van primero y se bajan antes.
 """
 import argparse
+import base64
 import hashlib
 import io
 import json
@@ -21,6 +26,7 @@ import oxipng
 from PIL import Image
 
 SCRIPTS = Path(__file__).resolve().parent.parent / "scripts"
+REMOTOS = SCRIPTS.parent.parent / "pokemon/Data/Scripts/998_Experimental/ArchipelagoRemotePlayers.rb"
 SKIP_DIR = {".git", "REQUIRED_BY_INSTALLER_UPDATER"}
 SKIP_EXT = {".exe", ".dll", ".bat", ".sh", ".lnk"}
 # Ningún script ni evento los lee
@@ -30,6 +36,7 @@ HOJAS_BASE = "Graphics/CustomBattlers/spritesheets/spritesheets_base/"
 HOJAS_AUTOGEN = "Graphics/Battlers/spritesheets_autogen/"
 ALTO_TIRA = 5 * 96  # web_final.rb lee estas tiras: FILAS_TIRA
 KBPS_BGM = 96
+BLOQUE = 1 << 18     # bloques.js: BLOQUE
 CLAVE_DAT = bytes.fromhex("4a8f2ce173b5960d5ea23fc781146bd9")  # Encryption::ENCRYPTION_KEY
 MENSAJES = "Data/messages.dat"
 STRING_VACIO = b'I"\x00\x06;\x07T'  # "" en Marshal; \x07 es el enlace al símbolo de encoding
@@ -121,7 +128,7 @@ def fijo(nombre):
     return zipfile.ZipInfo(nombre, (1980, 1, 1, 0, 0, 0))
 
 
-def crear_paquete(juego, sprites, cache, salida, diagnostico):
+def crear_paquete(juego, sprites, cache, salida, arranque, diagnostico):
     bgm = juego / "Audio/BGM"
     audio = {p: cache / p.relative_to(juego) for p in [*bgm.rglob("*.mp3"), *(juego / "Audio/ME").rglob("*.mp3")]}
     audio |= {p: (cache / p.relative_to(juego)).with_suffix(".ogg") for p in bgm.rglob("*.wav")}
@@ -138,9 +145,16 @@ def crear_paquete(juego, sprites, cache, salida, diagnostico):
     compat = (SCRIPTS / "web_compat.rb").read_bytes()
     if diagnostico:
         compat += (SCRIPTS / "web_diag.rb").read_bytes()
+    # Los archivos de arranque van juntos al principio: se bajan en menos bloques. Se comparan
+    # sin extensión porque el audio reducido cambia de extensión; una hoja autogenerada entra
+    # si alguna de sus tiras está en la lista.
+    claves = {Path(nombre).with_suffix("").as_posix() for nombre in arranque}
+    claves |= {Path(clave).parent.as_posix() for clave in claves}
+    orden = sorted(juego.rglob("*"),
+                   key=lambda r: (r.relative_to(juego).with_suffix("").as_posix() not in claves, r))
     n = 0
     with zipfile.ZipFile(salida, "w", zipfile.ZIP_STORED, allowZip64=True) as z:
-        for ruta in sorted(juego.rglob("*")):
+        for ruta in orden:
             rel = ruta.relative_to(juego)
             if (not ruta.is_file() or rel.parts[0] in SKIP_DIR or ruta.suffix.lower() in SKIP_EXT
                     or rel.as_posix() in SKIP_ARCHIVOS):
@@ -167,7 +181,10 @@ def crear_paquete(juego, sprites, cache, salida, diagnostico):
                     z.write(ruta, rel.as_posix())
             n += 1
         z.write(SCRIPTS / "web_final.rb", "Data/Scripts/998_Web/web_final.rb")
-        n += 1
+        # Jugadores visibles: el dibujo es el del mod de Archipelago, el puente es web_red.rb
+        z.write(REMOTOS, "Data/Scripts/998_Web/red_jugadores.rb")
+        z.write(SCRIPTS / "web_red.rb", "Data/Scripts/998_Web/red_puente.rb")
+        n += 3
         for hoja in sorted(sprites.glob("*.png")):
             z.write(reducidos[hoja], HOJAS_BASE + hoja.name)
             n += 1
@@ -176,13 +193,37 @@ def crear_paquete(juego, sprites, cache, salida, diagnostico):
     return n
 
 
+def crear_marcador(paquete, arranque, diagnostico):
+    # El core lee la cabecera local de cada archivo de una carpeta al abrir uno: el marcador las
+    # trae completas (con nombre y extra), y abrir un archivo no baja un bloque por cada vecino
+    with zipfile.ZipFile(paquete) as z, paquete.open("rb") as f:
+        infos = sorted(z.infolist(), key=lambda i: i.header_offset)
+        central = z.start_dir
+        cabeceras = bytearray()
+        for info in infos:
+            f.seek(info.header_offset)
+            cabecera = f.read(30)
+            assert cabecera.startswith(b"PK\x03\x04"), info.filename
+            largo = int.from_bytes(cabecera[26:28], "little") + int.from_bytes(cabecera[28:30], "little")
+            cabeceras += cabecera + f.read(largo)
+    fines = [i.header_offset for i in infos[1:]] + [central]
+    bloques = set()
+    for info, fin in zip(infos, fines):
+        if info.filename in arranque:
+            bloques.update(range(info.header_offset // BLOQUE, (fin - 1) // BLOQUE + 1))
+    return json.dumps({"nombre": paquete.name, "size": paquete.stat().st_size, "central": central,
+                       "arranque": sorted(bloques), "posiciones": [i.header_offset for i in infos],
+                       "cabeceras": base64.b64encode(cabeceras).decode(), "diag": diagnostico},
+                      separators=(",", ":")).encode()
+
+
 def sustituir(js, patron, nuevo):
     js, n = re.subn(patron, lambda _: nuevo, js)
     assert n == 1, (patron, n)
     return js
 
 
-def adaptar_launcher(sitio, paquete, diagnostico):
+def adaptar_launcher(sitio, paquete, marcador, diagnostico):
     # El launcher trae fijos la URL, el tamaño y el hash de su juego de ejemplo, y guarda
     # el core en IndexedDB por hash: sin actualizarlos seguiría usando el anterior.
     launcher = next((sitio / "assets").glob("index-*.js"))
@@ -193,8 +234,9 @@ def adaptar_launcher(sitio, paquete, diagnostico):
 
     core, wasm = sitio / "mkxp-z_libretro.js", sitio / "mkxp-z_libretro.wasm"
     js = sustituir(js, r"\./knight-blade-howling-of-kerberos\.mkxpz", f"./{paquete.name}")
-    js = sustituir(js, r"\bwn=22882414\b", f"wn={paquete.stat().st_size}")
-    js = sustituir(js, r"\bDn=`[0-9a-f]{64}`", f"Dn=`{sha256(paquete)}`")
+    # En OPFS queda el marcador, no el paquete: el launcher compara contra su tamaño
+    js = sustituir(js, r"\bwn=22882414\b", f"wn={marcador.stat().st_size}")
+    js = sustituir(js, r"\bDn=`[0-9a-f]{64}`", f"Dn=`{sha256(marcador)}`")
     js = sustituir(js, r"\bSn=\d+,Cn=\d+", f"Sn={core.stat().st_size},Cn={wasm.stat().st_size}")
     js = sustituir(js, r"\bTn=`[0-9a-f]{64}`", f"Tn=`{sha256(core)}`")
     js = sustituir(js, r"\bEn=`[0-9a-f]{64}`", f"En=`{sha256(wasm)}`")
@@ -220,19 +262,23 @@ def adaptar_launcher(sitio, paquete, diagnostico):
 
     copia = "await r.write(i),await r.close(),i=await n.getFile()"
     assert js.count(copia) == 1
-    js = js.replace(copia, copia + ",await window.__borrarTrozos?.()")
+    js = js.replace(copia, copia + ",await window.__borrarViejos?.()")
 
+    # juego.js guarda la consola del core para los reportes de fallos
+    imprimir = "printErr(...e){console.error(...e)}"
+    assert js.count(imprimir) == 1
+    registro = "printErr(...e){console.error(...e);var t=e.join(` `);window.__registrarConsola?.(t);"
     if diagnostico:
         # Con #auto arranca sin gesto, y los registros del core llegan a /log
         gesto = "!navigator.userActivation.hasBeenActive"
         assert js.count(gesto) == 1
         js = js.replace(gesto, "(!location.hash.startsWith(`#auto`)&&" + gesto + ")")
-        imprimir = "printErr(...e){console.error(...e)}"
-        assert js.count(imprimir) == 1
-        js = js.replace(imprimir, "printErr(...e){console.error(...e);var t=e.join(` `);"
-                        "/web-|Fatal|Aborted|Sandbox|mkxp-z|rror/.test(t)&&"
-                        "fetch(`/log`,{method:`POST`,body:(window.__tag||``)+t,keepalive:!0})}")
-    launcher.write_text((SCRIPTS / "bajar_juego.js").read_text(encoding="utf-8") + js, encoding="utf-8")
+        registro += ("/web-|Fatal|Aborted|Sandbox|mkxp-z|rror/.test(t)&&"
+                     "fetch(`/log`,{method:`POST`,body:(window.__tag||``)+t,keepalive:!0});")
+    js = js.replace(imprimir, registro + "}")
+    previo = "".join((SCRIPTS / nombre).read_text(encoding="utf-8")
+                     for nombre in ("bloques.js", "bajar_juego.js", "juego.js"))
+    launcher.write_text(previo + js, encoding="utf-8")
 
 
 def main():
@@ -241,17 +287,22 @@ def main():
     args.add_argument("sitio", type=Path)
     args.add_argument("--sprites", type=Path, required=True)
     args.add_argument("--cache", type=Path, required=True)
+    args.add_argument("--arranque", type=Path)
     args.add_argument("--diagnostico", action="store_true")
     a = args.parse_args()
 
+    arranque = set(a.arranque.read_text(encoding="utf-8").splitlines()) if a.arranque else set()
     temporal = a.sitio / "pif.mkxpz.tmp"
-    n = crear_paquete(a.juego, a.sprites, a.cache, temporal, a.diagnostico)
+    n = crear_paquete(a.juego, a.sprites, a.cache, temporal, arranque, a.diagnostico)
     paquete = a.sitio / f"pif-{sha256(temporal)[:12]}.mkxpz"
-    for viejo in a.sitio.glob("pif-*.mkxpz"):
+    for viejo in [*a.sitio.glob("pif-*.mkxpz"), *a.sitio.glob("pif-*.json")]:
         viejo.unlink()
     temporal.replace(paquete)
-    adaptar_launcher(a.sitio, paquete, a.diagnostico)
-    print(f"{paquete.name}: {n} archivos, {paquete.stat().st_size / 1e6:.0f} MB")
+    marcador = paquete.with_suffix(".json")
+    marcador.write_bytes(crear_marcador(paquete, arranque, a.diagnostico))
+    adaptar_launcher(a.sitio, paquete, marcador, a.diagnostico)
+    bloques = len(json.loads(marcador.read_bytes())["arranque"])
+    print(f"{paquete.name}: {n} archivos, {paquete.stat().st_size / 1e6:.0f} MB; arranque {bloques * BLOQUE / 2**20:.0f} MiB")
 
 
 if __name__ == "__main__":

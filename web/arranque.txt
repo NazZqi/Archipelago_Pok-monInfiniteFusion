@@ -1,0 +1,938 @@
+Data/.idea/Data.iml
+Data/.idea/modules.xml
+Data/.idea/vcs.xml
+Data/abilities.dat
+Data/Actors.rxdata
+Data/Animations.rxdata
+Data/Armors.rxdata
+Data/berry_data.dat
+Data/berry_dexes.dat
+Data/berry_plants.dat
+Data/chinese.dat
+Data/Classes.rxdata
+Data/CommonEvents.rxdata
+Data/compiler.rb
+Data/encounters.dat
+Data/encounters_randomized.dat
+Data/encounters_remix.dat
+Data/Enemies.rxdata
+Data/evolutions.dat
+Data/generated_entries.json
+Data/items.dat
+Data/Items.rxdata
+Data/keybindings.mkxp1
+Data/Map001.rxdata
+Data/map_connections.dat
+Data/map_metadata.dat
+Data/MapInfos.rxdata
+Data/messages.dat
+Data/metadata.dat
+Data/metrics.dat
+Data/move2anim.dat
+Data/moves.backup.dat
+Data/moves.dat
+Data/outfits/clothes_data.json
+Data/phone.dat
+Data/PkmnAnimations.rxdata
+Data/PluginScripts.rxdata
+Data/pokedex/all_entries.json
+Data/ribbons.dat
+Data/Scripts/001_Settings.rb
+Data/Scripts/001_Technical/000_Encryption.rb
+Data/Scripts/001_Technical/001_Debugging/001_PBDebug.rb
+Data/Scripts/001_Technical/001_Debugging/002_DebugConsole.rb
+Data/Scripts/001_Technical/001_Debugging/003_Errors.rb
+Data/Scripts/001_Technical/001_Debugging/004_Validation.rb
+Data/Scripts/001_Technical/001_Debugging/005_Deprecation.rb
+Data/Scripts/001_Technical/001_MKXP_Compatibility.rb
+Data/Scripts/001_Technical/002_Files/001_FileTests.rb
+Data/Scripts/001_Technical/002_Files/002_FileMixins.rb
+Data/Scripts/001_Technical/002_Files/003_HTTP_Utilities.rb
+Data/Scripts/001_Technical/002_RubyUtilities.rb
+Data/Scripts/001_Technical/003_Intl_Messages.rb
+Data/Scripts/001_Technical/004_Input.rb
+Data/Scripts/001_Technical/005_PluginManager.rb
+Data/Scripts/001_Technical/006_RPG_Sprite.rb
+Data/Scripts/002_BattleSettings.rb
+Data/Scripts/002_Save data/001_SaveData.rb
+Data/Scripts/002_Save data/002_SaveData_Value.rb
+Data/Scripts/002_Save data/003_SaveData_Conversion.rb
+Data/Scripts/002_Save data/004_Game_SaveValues.rb
+Data/Scripts/002_Save data/005_Game_SaveConversions.rb
+Data/Scripts/003_Game processing/001_StartGame.rb
+Data/Scripts/003_Game processing/002_Scene_Map.rb
+Data/Scripts/003_Game processing/003_Interpreter.rb
+Data/Scripts/003_Game processing/004_Interpreter_Commands.rb
+Data/Scripts/003_Game processing/005_Event_Handlers.rb
+Data/Scripts/003_Game processing/006_Event_OverworldEvents.rb
+Data/Scripts/004_Game classes/001_Game_Screen.rb
+Data/Scripts/004_Game classes/001_Switches and Variables/001_Game_Temp.rb
+Data/Scripts/004_Game classes/001_Switches and Variables/002_Game_Switches.rb
+Data/Scripts/004_Game classes/001_Switches and Variables/003_Game_Variables.rb
+Data/Scripts/004_Game classes/001_Switches and Variables/004_Game_SelfSwitches.rb
+Data/Scripts/004_Game classes/002_Game_System.rb
+Data/Scripts/004_Game classes/003_Game_Picture.rb
+Data/Scripts/004_Game classes/004_Game_Map.rb
+Data/Scripts/004_Game classes/005_Game_Map_Autoscroll.rb
+Data/Scripts/004_Game classes/006_Game_MapFactory.rb
+Data/Scripts/004_Game classes/007_Game_Character.rb
+Data/Scripts/004_Game classes/008_Game_Event.rb
+Data/Scripts/004_Game classes/009_Game_Player.rb
+Data/Scripts/004_Game classes/010_Game_Player_Visuals.rb
+Data/Scripts/004_Game classes/011_Game_CommonEvent.rb
+Data/Scripts/004_Game classes/012_Game_DependentEvents.rb
+Data/Scripts/005_Map renderer/001_Tilemap_XP.rb
+Data/Scripts/005_Sprites/001_Sprite_Picture.rb
+Data/Scripts/005_Sprites/002_Sprite_Timer.rb
+Data/Scripts/005_Sprites/003_Sprite_Character.rb
+Data/Scripts/005_Sprites/004_Sprite_Reflection.rb
+Data/Scripts/005_Sprites/005_Sprite_SurfBase.rb
+Data/Scripts/005_Sprites/006_Spriteset_Global.rb
+Data/Scripts/005_Sprites/007_Spriteset_Map.rb
+Data/Scripts/005_Sprites/008_Sprite_AnimationSprite.rb
+Data/Scripts/005_Sprites/009_Sprite_DynamicShadows.rb
+Data/Scripts/005_Sprites/010_ParticleEngine.rb
+Data/Scripts/005_Sprites/011_PictureEx.rb
+Data/Scripts/005_Sprites/012_Interpolators.rb
+Data/Scripts/005_Sprites/013_ScreenPosHelper.rb
+Data/Scripts/005_Sprites/013_Sprite_Player_Offsets.rb
+Data/Scripts/005_Sprites/013_Sprite_Wearable.rb
+Data/Scripts/005_Sprites/014_Sprite_Bicycle.rb
+Data/Scripts/005_Sprites/014_Sprite_Hair.rb
+Data/Scripts/005_Sprites/014_Sprite_Hat.rb
+Data/Scripts/005_Sprites/016_Sprite_Player.rb
+Data/Scripts/006_Map renderer/001_TilemapRenderer.rb
+Data/Scripts/006_Map renderer/002_TilesetWrapper.rb
+Data/Scripts/006_Map renderer/003_AutotileExpander.rb
+Data/Scripts/006_Map renderer/004_TileDrawingHelper.rb
+Data/Scripts/007_Objects and windows/001_RPG_Cache.rb
+Data/Scripts/007_Objects and windows/002_MessageConfig.rb
+Data/Scripts/007_Objects and windows/003_Window.rb
+Data/Scripts/007_Objects and windows/004_SpriteWindow.rb
+Data/Scripts/007_Objects and windows/005_SpriteWindow_text.rb
+Data/Scripts/007_Objects and windows/006_SpriteWindow_pictures.rb
+Data/Scripts/007_Objects and windows/007_SpriteWrapper.rb
+Data/Scripts/007_Objects and windows/008_AnimatedBitmap.rb
+Data/Scripts/007_Objects and windows/009_Planes.rb
+Data/Scripts/007_Objects and windows/010_DrawText.rb
+Data/Scripts/007_Objects and windows/011_Messages.rb
+Data/Scripts/007_Objects and windows/012_TextEntry.rb
+Data/Scripts/008_Audio/001_Audio.rb
+Data/Scripts/008_Audio/002_Audio_Play.rb
+Data/Scripts/009_Scenes/001_Transitions.rb
+Data/Scripts/009_Scenes/002_EventScene.rb
+Data/Scripts/010_Data/001_GameData.rb
+Data/Scripts/010_Data/001_Hardcoded data/001_GrowthRate.rb
+Data/Scripts/010_Data/001_Hardcoded data/002_GenderRatio.rb
+Data/Scripts/010_Data/001_Hardcoded data/003_EggGroup.rb
+Data/Scripts/010_Data/001_Hardcoded data/004_BodyShape.rb
+Data/Scripts/010_Data/001_Hardcoded data/005_BodyColor.rb
+Data/Scripts/010_Data/001_Hardcoded data/006_Habitat.rb
+Data/Scripts/010_Data/001_Hardcoded data/007_Evolution.rb
+Data/Scripts/010_Data/001_Hardcoded data/008_Stat.rb
+Data/Scripts/010_Data/001_Hardcoded data/009_Nature.rb
+Data/Scripts/010_Data/001_Hardcoded data/010_Status.rb
+Data/Scripts/010_Data/001_Hardcoded data/011_TerrainTag.rb
+Data/Scripts/010_Data/001_Hardcoded data/012_Weather.rb
+Data/Scripts/010_Data/001_Hardcoded data/013_EncounterType.rb
+Data/Scripts/010_Data/001_Hardcoded data/014_Environment.rb
+Data/Scripts/010_Data/001_Hardcoded data/015_BattleWeather.rb
+Data/Scripts/010_Data/001_Hardcoded data/016_BattleTerrain.rb
+Data/Scripts/010_Data/001_Hardcoded data/017_Target.rb
+Data/Scripts/010_Data/002_PBS data/001_MiscPBSData.rb
+Data/Scripts/010_Data/002_PBS data/002_PhoneDatabase.rb
+Data/Scripts/010_Data/002_PBS data/003_Type.rb
+Data/Scripts/010_Data/002_PBS data/004_Ability.rb
+Data/Scripts/010_Data/002_PBS data/005_Move.rb
+Data/Scripts/010_Data/002_PBS data/006_Item.rb
+Data/Scripts/010_Data/002_PBS data/007_BerryPlant.rb
+Data/Scripts/010_Data/002_PBS data/008_Species.rb
+Data/Scripts/010_Data/002_PBS data/009_Species_Files.rb
+Data/Scripts/010_Data/002_PBS data/010_Ribbon.rb
+Data/Scripts/010_Data/002_PBS data/011_Encounter.rb
+Data/Scripts/010_Data/002_PBS data/011_Encounter_random.rb
+Data/Scripts/010_Data/002_PBS data/011_EncounterModern.rb
+Data/Scripts/010_Data/002_PBS data/012_TrainerType.rb
+Data/Scripts/010_Data/002_PBS data/013_Trainer.rb
+Data/Scripts/010_Data/002_PBS data/013_TrainerExpert.rb
+Data/Scripts/010_Data/002_PBS data/013_TrainerModern.rb
+Data/Scripts/010_Data/002_PBS data/014_Metadata.rb
+Data/Scripts/010_Data/002_PBS data/015_MapMetadata.rb
+Data/Scripts/011_Battle/001_Battler/001_PokeBattle_Battler.rb
+Data/Scripts/011_Battle/001_Battler/002_Battler_Initialize.rb
+Data/Scripts/011_Battle/001_Battler/003_Battler_ChangeSelf.rb
+Data/Scripts/011_Battle/001_Battler/004_Battler_Statuses.rb
+Data/Scripts/011_Battle/001_Battler/005_Battler_StatStages.rb
+Data/Scripts/011_Battle/001_Battler/006_Battler_AbilityAndItem.rb
+Data/Scripts/011_Battle/001_Battler/007_Battler_UseMove.rb
+Data/Scripts/011_Battle/001_Battler/008_Battler_UseMove_Targeting.rb
+Data/Scripts/011_Battle/001_Battler/009_Battler_UseMove_SuccessChecks.rb
+Data/Scripts/011_Battle/001_Battler/010_Battler_UseMove_TriggerEffects.rb
+Data/Scripts/011_Battle/001_PBEffects.rb
+Data/Scripts/011_Battle/002_BattleHandlers.rb
+Data/Scripts/011_Battle/002_Move/001_PokeBattle_Move.rb
+Data/Scripts/011_Battle/002_Move/002_Move_Usage.rb
+Data/Scripts/011_Battle/002_Move/003_Move_Usage_Calculations.rb
+Data/Scripts/011_Battle/002_Move/004_Move_Effects_Generic.rb
+Data/Scripts/011_Battle/002_Move/005_Move_Effects_000-07F.rb
+Data/Scripts/011_Battle/002_Move/006_Move_Effects_080-0FF.rb
+Data/Scripts/011_Battle/002_Move/007_Move_Effects_100-17F.rb
+Data/Scripts/011_Battle/003_Battle/001_PokeBattle_BattleCommon.rb
+Data/Scripts/011_Battle/003_Battle/002_PokeBattle_Battle.rb
+Data/Scripts/011_Battle/003_Battle/003_Battle_StartAndEnd.rb
+Data/Scripts/011_Battle/003_Battle/004_Battle_ExpAndMoveLearning.rb
+Data/Scripts/011_Battle/003_Battle/005_Battle_Action_AttacksPriority.rb
+Data/Scripts/011_Battle/003_Battle/006_Battle_Action_Switching.rb
+Data/Scripts/011_Battle/003_Battle/007_Battle_Action_UseItem.rb
+Data/Scripts/011_Battle/003_Battle/008_Battle_Action_Running.rb
+Data/Scripts/011_Battle/003_Battle/009_Battle_Action_Other.rb
+Data/Scripts/011_Battle/003_Battle/010_Battle_Phase_Command.rb
+Data/Scripts/011_Battle/003_Battle/011_Battle_Phase_Attack.rb
+Data/Scripts/011_Battle/003_Battle/012_Battle_Phase_EndOfRound.rb
+Data/Scripts/011_Battle/003_BattleHandlers_Abilities.rb
+Data/Scripts/011_Battle/004_AI/001_PokeBattle_AI.rb
+Data/Scripts/011_Battle/004_AI/002_AI_Item.rb
+Data/Scripts/011_Battle/004_AI/003_AI_Switch.rb
+Data/Scripts/011_Battle/004_AI/004_AI_Move.rb
+Data/Scripts/011_Battle/004_AI/005_AI_Move_EffectScores.rb
+Data/Scripts/011_Battle/004_AI/006_AI_Move_Utilities.rb
+Data/Scripts/011_Battle/004_BattleHandlers_Items.rb
+Data/Scripts/011_Battle/005_BallHandlers_PokeBallEffects.rb
+Data/Scripts/011_Battle/005_Battle scene/001_PokeBattle_Animation.rb
+Data/Scripts/011_Battle/005_Battle scene/002_PokeBattle_SceneAnimations.rb
+Data/Scripts/011_Battle/005_Battle scene/003_PokeBattle_SceneConstants.rb
+Data/Scripts/011_Battle/005_Battle scene/004_PokeBattle_SceneElements.rb
+Data/Scripts/011_Battle/005_Battle scene/005_PokeBattle_SceneMenus.rb
+Data/Scripts/011_Battle/005_Battle scene/006_PokeBattle_Scene.rb
+Data/Scripts/011_Battle/005_Battle scene/007_Scene_Initialize.rb
+Data/Scripts/011_Battle/005_Battle scene/008_Scene_Commands.rb
+Data/Scripts/011_Battle/005_Battle scene/009_Scene_Animations.rb
+Data/Scripts/011_Battle/006_Other battle types/001_PokeBattle_AnimationPlayer.rb
+Data/Scripts/011_Battle/006_Other battle types/002_PokeBattle_SafariZone.rb
+Data/Scripts/011_Battle/006_Other battle types/003_PokeBattle_BugContest.rb
+Data/Scripts/011_Battle/006_Other battle types/004_PokeBattle_BattlePalace.rb
+Data/Scripts/011_Battle/006_Other battle types/005_PokeBattle_BattleArena.rb
+Data/Scripts/011_Battle/006_Other battle types/006_PokeBattle_BattleRecord.rb
+Data/Scripts/011_Battle/006_Other battle types/007_PokeBattle_DebugScene.rb
+Data/Scripts/011_Battle/006_Other battle types/008_PokeBattle_BattlePeer.rb
+Data/Scripts/011_Battle/006_Other battle types/009_PokeBattle_Clauses.rb
+Data/Scripts/011_Battle/006_PokeBattle_ActiveField.rb
+Data/Scripts/011_Battle/007_PokeBattle_DamageState.rb
+Data/Scripts/012_Overworld/001_Overworld visuals/001_Overworld_Weather.rb
+Data/Scripts/012_Overworld/001_Overworld visuals/002_Overworld_Overlays.rb
+Data/Scripts/012_Overworld/001_Overworld visuals/003_Overworld_MapTransitionAnims.rb
+Data/Scripts/012_Overworld/001_Overworld visuals/Overworld_Fog.rb
+Data/Scripts/012_Overworld/001_Overworld.rb
+Data/Scripts/012_Overworld/002_Battle triggering/001_Overworld_BattleStarting.rb
+Data/Scripts/012_Overworld/002_Battle triggering/002_Overworld_BattleIntroAnim.rb
+Data/Scripts/012_Overworld/002_Battle triggering/003_Overworld_WildEncounters.rb
+Data/Scripts/012_Overworld/002_Battle triggering/004_Overworld_EncounterModifiers.rb
+Data/Scripts/012_Overworld/002_Battle triggering/005_Overworld_RoamingPokemon.rb
+Data/Scripts/012_Overworld/002_Overworld_Metadata.rb
+Data/Scripts/012_Overworld/003_Overworld_Time.rb
+Data/Scripts/012_Overworld/004_Overworld_FieldMoves.rb
+Data/Scripts/012_Overworld/005_Overworld_Fishing.rb
+Data/Scripts/012_Overworld/006_Overworld_BerryPlants.rb
+Data/Scripts/012_Overworld/007_Overworld_DayCare.rb
+Data/Scripts/012_Overworld/008_Overworld_RandomDungeons.rb
+Data/Scripts/013_Items/001_Item_Utilities.rb
+Data/Scripts/013_Items/002_Item_Effects.rb
+Data/Scripts/013_Items/003_Item_BattleEffects.rb
+Data/Scripts/013_Items/004_1_PokeradarUI.rb
+Data/Scripts/013_Items/004_Item_Phone.rb
+Data/Scripts/013_Items/005_Item_PokeRadar.rb
+Data/Scripts/013_Items/006_Item_Mail.rb
+Data/Scripts/013_Items/007_Item_Sprites.rb
+Data/Scripts/013_Items/008_PokemonBag.rb
+Data/Scripts/014_Pokemon/001_Pokemon-related/001_FormHandlers.rb
+Data/Scripts/014_Pokemon/001_Pokemon-related/002_ShadowPokemon_Other.rb
+Data/Scripts/014_Pokemon/001_Pokemon-related/003_Pokemon_Sprites.rb
+Data/Scripts/014_Pokemon/001_Pokemon-related/004_PokemonStorage.rb
+Data/Scripts/014_Pokemon/001_Pokemon.rb
+Data/Scripts/014_Pokemon/002_Pokemon_MegaEvolution.rb
+Data/Scripts/014_Pokemon/003_Pokemon_ShadowPokemon.rb
+Data/Scripts/014_Pokemon/004_Pokemon_Move.rb
+Data/Scripts/014_Pokemon/005_Pokemon_Owner.rb
+Data/Scripts/014_Pokemon/006_Pokemon_Deprecated.rb
+Data/Scripts/015_Trainers and player/001_Trainer.rb
+Data/Scripts/015_Trainers and player/002_Trainer_LoadAndNew.rb
+Data/Scripts/015_Trainers and player/003_Trainer_Sprites.rb
+Data/Scripts/015_Trainers and player/004_Player.rb
+Data/Scripts/015_Trainers and player/005_Player_Pokedex.rb
+Data/Scripts/015_Trainers and player/006_Player_Deprecated.rb
+Data/Scripts/016_UI/001_Non-interactive UI/001_UI_SplashesAndTitleScreen.rb
+Data/Scripts/016_UI/001_Non-interactive UI/002_UI_Controls.rb
+Data/Scripts/016_UI/001_Non-interactive UI/003_UI_EggHatching.rb
+Data/Scripts/016_UI/001_Non-interactive UI/004_UI_Evolution.rb
+Data/Scripts/016_UI/001_Non-interactive UI/005_UI_Trading.rb
+Data/Scripts/016_UI/001_Non-interactive UI/006_UI_HallOfFame.rb
+Data/Scripts/016_UI/001_Non-interactive UI/007_UI_HallOfFameSimple.rb
+Data/Scripts/016_UI/001_Non-interactive UI/Credits/007_UI_Credits.rb
+Data/Scripts/016_UI/001_Non-interactive UI/Credits/CREDITS_HOENN.rb
+Data/Scripts/016_UI/001_Non-interactive UI/Credits/CREDITS_KANTO.rb
+Data/Scripts/016_UI/001_UI_PauseMenu.rb
+Data/Scripts/016_UI/005_UI_Party.rb
+Data/Scripts/016_UI/006_UI_Summary.rb
+Data/Scripts/016_UI/007_UI_Bag.rb
+Data/Scripts/016_UI/009_UI_RegionMap.rb
+Data/Scripts/016_UI/010_UI_Phone.rb
+Data/Scripts/016_UI/011_UI_Jukebox.rb
+Data/Scripts/016_UI/012_UI_TrainerCard.rb
+Data/Scripts/016_UI/013_UI_Load.rb
+Data/Scripts/016_UI/014_UI_Save.rb
+Data/Scripts/016_UI/015_UI_Options.rb
+Data/Scripts/016_UI/016_UI_ReadyMenu.rb
+Data/Scripts/016_UI/018_UI_ItemStorage.rb
+Data/Scripts/016_UI/019_UI_PC.rb
+Data/Scripts/016_UI/020_UI_PokeMart.rb
+Data/Scripts/016_UI/021_UI_MoveRelearner.rb
+Data/Scripts/016_UI/022_UI_PurifyChamber.rb
+Data/Scripts/016_UI/023_UI_MysteryGift.rb
+Data/Scripts/016_UI/024_UI_TextEntry.rb
+Data/Scripts/016_UI/Pokedex/002_UI_Pokedex_Menu.rb
+Data/Scripts/016_UI/Pokedex/002_UI_PokedexSearch.rb
+Data/Scripts/016_UI/Pokedex/003_UI_Pokedex_Main.rb
+Data/Scripts/016_UI/Pokedex/004_UI_Pokedex_Entry.rb
+Data/Scripts/016_UI/Pokedex/PokedexTextEntry.rb
+Data/Scripts/016_UI/PokemonStorage/PokemonStorageScene.rb
+Data/Scripts/016_UI/PokemonStorage/PokemonStorageScreen.rb
+Data/Scripts/016_UI/PokemonStorage/PokemonStorageScreen_Fusing.rb
+Data/Scripts/016_UI/PokemonStorage/UI/PokemonBoxArrow.rb
+Data/Scripts/016_UI/PokemonStorage/UI/PokemonBoxIcon.rb
+Data/Scripts/016_UI/PokemonStorage/UI/PokemonBoxPartySprite.rb
+Data/Scripts/016_UI/PokemonStorage/UI/PokemonBoxSprite.rb
+Data/Scripts/016_UI/PokemonStorage/UI/PokemonStorage_MosaicPokemonSprite.rb
+Data/Scripts/016_UI/PokeNav/008_UI_Pokegear.rb
+Data/Scripts/017_Minigames/001_Minigame_Duel.rb
+Data/Scripts/017_Minigames/002_Minigame_TripleTriad.rb
+Data/Scripts/017_Minigames/003_Minigame_SlotMachine.rb
+Data/Scripts/017_Minigames/004_Minigame_VoltorbFlip.rb
+Data/Scripts/017_Minigames/005_Minigame_Lottery.rb
+Data/Scripts/017_Minigames/006_Minigame_Mining.rb
+Data/Scripts/017_Minigames/007_Minigame_TilePuzzles.rb
+Data/Scripts/018_Alternate battle modes/001_Battle Frontier/001_Challenge_BattleChallenge.rb
+Data/Scripts/018_Alternate battle modes/001_Battle Frontier/002_Challenge_Data.rb
+Data/Scripts/018_Alternate battle modes/001_Battle Frontier/003_Challenge_ChooseFoes.rb
+Data/Scripts/018_Alternate battle modes/001_Battle Frontier/004_Challenge_Battles.rb
+Data/Scripts/018_Alternate battle modes/001_Battle Frontier/005_UI_BattleSwap.rb
+Data/Scripts/018_Alternate battle modes/001_SafariZone.rb
+Data/Scripts/018_Alternate battle modes/002_Battle Frontier rules/001_Challenge_ChallengeRules.rb
+Data/Scripts/018_Alternate battle modes/002_Battle Frontier rules/002_Challenge_Rulesets.rb
+Data/Scripts/018_Alternate battle modes/002_Battle Frontier rules/003_Challenge_EntryRestrictions.rb
+Data/Scripts/018_Alternate battle modes/002_Battle Frontier rules/004_Challenge_LevelAdjustment.rb
+Data/Scripts/018_Alternate battle modes/002_Battle Frontier rules/005_Challenge_BattleRules.rb
+Data/Scripts/018_Alternate battle modes/002_BugContest.rb
+Data/Scripts/018_Alternate battle modes/003_Battle Frontier generator/001_ChallengeGenerator_Data.rb
+Data/Scripts/018_Alternate battle modes/003_Battle Frontier generator/002_ChallengeGenerator_Pokemon.rb
+Data/Scripts/018_Alternate battle modes/003_Battle Frontier generator/003_ChallengeGenerator_Trainers.rb
+Data/Scripts/018_Alternate battle modes/003_Battle Frontier generator/004_ChallengeGenerator_BattleSim.rb
+Data/Scripts/019_Utilities/001_Utilities.rb
+Data/Scripts/019_Utilities/002_Utilities_Pokemon.rb
+Data/Scripts/019_Utilities/003_Utilities_BattleAudio.rb
+Data/Scripts/020_Debug/001_Editor screens/001_EditorScreens.rb
+Data/Scripts/020_Debug/001_Editor screens/002_EditorScreens_TerrainTags.rb
+Data/Scripts/020_Debug/001_Editor screens/003_EditorScreens_MapConnections.rb
+Data/Scripts/020_Debug/001_Editor screens/004_EditorScreens_SpritePositioning.rb
+Data/Scripts/020_Debug/001_Editor_Utilities.rb
+Data/Scripts/020_Debug/002_Animation editor/001_AnimEditor_SceneElements.rb
+Data/Scripts/020_Debug/002_Animation editor/002_AnimEditor_ControlsButtons.rb
+Data/Scripts/020_Debug/002_Animation editor/003_AnimEditor_Interpolation.rb
+Data/Scripts/020_Debug/002_Animation editor/004_AnimEditor_ExportImport.rb
+Data/Scripts/020_Debug/002_Animation editor/005_AnimEditor_Functions.rb
+Data/Scripts/020_Debug/002_Editor_DataTypes.rb
+Data/Scripts/020_Debug/003_Debug menus/001_Debug_Menus.rb
+Data/Scripts/020_Debug/003_Debug menus/002_Debug_MenuCommands.rb
+Data/Scripts/020_Debug/003_Debug menus/003_Debug_MenuExtraCode.rb
+Data/Scripts/020_Debug/003_Debug menus/004_Debug_MenuSpriteRenamer.rb
+Data/Scripts/020_Debug/003_Debug menus/005_Debug_PokemonCommands.rb
+Data/Scripts/020_Debug/003_Editor_Listers.rb
+Data/Scripts/021_Compiler/001_Compiler.rb
+Data/Scripts/021_Compiler/002_Compiler_CompilePBS.rb
+Data/Scripts/021_Compiler/003_Compiler_WritePBS.rb
+Data/Scripts/021_Compiler/004_Compiler_MapsAndEvents.rb
+Data/Scripts/025-Randomizer/Random Pokemon.rb
+Data/Scripts/025-Randomizer/randomizer - encounters.rb
+Data/Scripts/025-Randomizer/randomizer gym leader edit.rb
+Data/Scripts/025-Randomizer/randomizer.rb
+Data/Scripts/025-Randomizer/RandomizerSettings.rb
+Data/Scripts/025-Randomizer/RandomizerUtils.rb
+Data/Scripts/049_Compatibility/DeprecatedClasses.rb
+Data/Scripts/049_Compatibility/MarinUtilities.rb
+Data/Scripts/049_Compatibility/pb_types.rb
+Data/Scripts/049_Compatibility/PBItems.rb
+Data/Scripts/049_Compatibility/PBMoves.rb
+Data/Scripts/049_Compatibility/PBSpecies.rb
+Data/Scripts/049_Compatibility/PBTrainers.rb
+Data/Scripts/049_Compatibility/UtilityMethods.rb
+Data/Scripts/050_Outfits/001_OutfitsMain/LayeredClothes.rb
+Data/Scripts/050_Outfits/001_OutfitsMain/OutfitSelector.rb
+Data/Scripts/050_Outfits/001_OutfitsMain/OutfitsGlobal.rb
+Data/Scripts/050_Outfits/001_OutfitsMain/OutfitsSearch.rb
+Data/Scripts/050_Outfits/ItemSets.rb
+Data/Scripts/050_Outfits/OutfitIds.rb
+Data/Scripts/050_Outfits/UI/CharacterSelectMenu.rb
+Data/Scripts/050_Outfits/UI/CharacterSelectMenuPresenter.rb
+Data/Scripts/050_Outfits/UI/clothesShop/0_OutfitsMartAdapter.rb
+Data/Scripts/050_Outfits/UI/clothesShop/ClothesMartAdapter.rb
+Data/Scripts/050_Outfits/UI/clothesShop/ClothesShop.rb
+Data/Scripts/050_Outfits/UI/clothesShop/ClothesShopPresenter.rb
+Data/Scripts/050_Outfits/UI/clothesShop/ClothesShopPresenter_HatsMenu.rb
+Data/Scripts/050_Outfits/UI/clothesShop/ClothesShopView.rb
+Data/Scripts/050_Outfits/UI/clothesShop/HairMartAdapter.rb
+Data/Scripts/050_Outfits/UI/clothesShop/HairShopPresenter.rb
+Data/Scripts/050_Outfits/UI/clothesShop/HatShopView.rb
+Data/Scripts/050_Outfits/UI/clothesShop/HatsMartAdapter.rb
+Data/Scripts/050_Outfits/UI/hairMenu/HairstyleSelectionMenuPresenter.rb
+Data/Scripts/050_Outfits/UI/hairMenu/HairStyleSelectionMenuView.rb
+Data/Scripts/050_Outfits/UI/LayeredClothes_Menus.rb
+Data/Scripts/050_Outfits/UI/PokemonHatScreenPresenter.rb
+Data/Scripts/050_Outfits/UI/PokemonHatScreenView.rb
+Data/Scripts/050_Outfits/UI/TrainerClothesPreview.rb
+Data/Scripts/050_Outfits/utils/OutfitFilenameUtils.rb
+Data/Scripts/050_Outfits/utils/OutfitsGameplayUtils.rb
+Data/Scripts/050_Outfits/wrappers/001_Outfit.rb
+Data/Scripts/050_Outfits/wrappers/Clothes.rb
+Data/Scripts/050_Outfits/wrappers/Hairstyle.rb
+Data/Scripts/050_Outfits/wrappers/Hat.rb
+Data/Scripts/051_Wrappers/quest_reward.rb
+Data/Scripts/051_Wrappers/type_expert.rb
+Data/Scripts/052_InfiniteFusion/01_GlobalVariables/PIF_GameTemp.rb
+Data/Scripts/052_InfiniteFusion/Constants/CONSTANTS_Animations.rb
+Data/Scripts/052_InfiniteFusion/Constants/CONSTANTS_Audio.rb
+Data/Scripts/052_InfiniteFusion/Constants/CONSTANTS_GameVariables.rb
+Data/Scripts/052_InfiniteFusion/Constants/CONSTANTS_General.rb
+Data/Scripts/052_InfiniteFusion/Constants/CONSTANTS_Maps.rb
+Data/Scripts/052_InfiniteFusion/Constants/CONSTANTS_Paths.rb
+Data/Scripts/052_InfiniteFusion/Constants/CONSTANTS_Switches.rb
+Data/Scripts/052_InfiniteFusion/Constants/COSNTANTS_CommonEvents.rb
+Data/Scripts/052_InfiniteFusion/Debug/DebugUtils.rb
+Data/Scripts/052_InfiniteFusion/DevTools/DevUtils.rb
+Data/Scripts/052_InfiniteFusion/DevTools/ExportScripts.rb
+Data/Scripts/052_InfiniteFusion/DevTools/k_scriptsUtils.rb
+Data/Scripts/052_InfiniteFusion/DevTools/MapExporter.rb
+Data/Scripts/052_InfiniteFusion/DevTools/mapExporter2.rb
+Data/Scripts/052_InfiniteFusion/DevTools/mapExporter2_ui.rb
+Data/Scripts/052_InfiniteFusion/Fusion/Credits/SpriteCreditsUtils.rb
+Data/Scripts/052_InfiniteFusion/Fusion/Data/FusedSpecies.rb
+Data/Scripts/052_InfiniteFusion/Fusion/Data/PokemonFusion.rb
+Data/Scripts/052_InfiniteFusion/Fusion/Data/SplitNames.rb
+Data/Scripts/052_InfiniteFusion/Fusion/Data/TripleFusion.rb
+Data/Scripts/052_InfiniteFusion/Fusion/Fusing_Unfusing/Unfusing.rb
+Data/Scripts/052_InfiniteFusion/Fusion/FusionUtils.rb
+Data/Scripts/052_InfiniteFusion/Fusion/Menus/DoublePreviewScreen.rb
+Data/Scripts/052_InfiniteFusion/Fusion/Menus/FusionAnim.rb
+Data/Scripts/052_InfiniteFusion/Fusion/Menus/FusionMenu.rb
+Data/Scripts/052_InfiniteFusion/Fusion/Menus/FusionMovesMenu.rb
+Data/Scripts/052_InfiniteFusion/Fusion/Menus/FusionPreviewScreen.rb
+Data/Scripts/052_InfiniteFusion/Fusion/Sprites/001_PifSpriteBitmapCache.rb
+Data/Scripts/052_InfiniteFusion/Fusion/Sprites/002_PIFSpriteExtracter.rb
+Data/Scripts/052_InfiniteFusion/Fusion/Sprites/AutogenExtracter.rb
+Data/Scripts/052_InfiniteFusion/Fusion/Sprites/BaseSpriteExtracter.rb
+Data/Scripts/052_InfiniteFusion/Fusion/Sprites/BattleSpriteLoader.rb
+Data/Scripts/052_InfiniteFusion/Fusion/Sprites/CustomSpriteExtracter.rb
+Data/Scripts/052_InfiniteFusion/Fusion/Sprites/FusionSprites.rb
+Data/Scripts/052_InfiniteFusion/Fusion/Sprites/PIFSprite.rb
+Data/Scripts/052_InfiniteFusion/Fusion/Sprites/SpritesSubstitutions.rb
+Data/Scripts/052_InfiniteFusion/Gameplay/0_Utilities/BattleUtils.rb
+Data/Scripts/052_InfiniteFusion/Gameplay/0_Utilities/FusionUtils.rb
+Data/Scripts/052_InfiniteFusion/Gameplay/0_Utilities/GraphicsUtils.rb
+Data/Scripts/052_InfiniteFusion/Gameplay/0_Utilities/ItemUtils.rb
+Data/Scripts/052_InfiniteFusion/Gameplay/0_Utilities/MenuUtils.rb
+Data/Scripts/052_InfiniteFusion/Gameplay/0_Utilities/OutfitUtils.rb
+Data/Scripts/052_InfiniteFusion/Gameplay/0_Utilities/PokemonUtils.rb
+Data/Scripts/052_InfiniteFusion/Gameplay/0_Utilities/RepairUtils.rb
+Data/Scripts/052_InfiniteFusion/Gameplay/0_Utilities/SpriteUtils.rb
+Data/Scripts/052_InfiniteFusion/Gameplay/0_Utilities/SystemUtils.rb
+Data/Scripts/052_InfiniteFusion/Gameplay/Battles/BattleLounge.rb
+Data/Scripts/052_InfiniteFusion/Gameplay/Battles/CustomTrainers/CustomTrainers.rb
+Data/Scripts/052_InfiniteFusion/Gameplay/Battles/CustomTrainers/TrainerGeneratorUtils.rb
+Data/Scripts/052_InfiniteFusion/Gameplay/Battles/CustomTrainers/Trainers Rebattle.rb
+Data/Scripts/052_InfiniteFusion/Gameplay/Features/EXPExtraction.rb
+Data/Scripts/052_InfiniteFusion/Gameplay/Features/TrainerCardBackgrounds.rb
+Data/Scripts/052_InfiniteFusion/Gameplay/Features/WallpaperLottery.rb
+Data/Scripts/052_InfiniteFusion/Gameplay/GameplayUtils.rb
+Data/Scripts/052_InfiniteFusion/Gameplay/HiddenAbilityRoutes/HiddenAbilityMaps.rb
+Data/Scripts/052_InfiniteFusion/Gameplay/Items/New Balls.rb
+Data/Scripts/052_InfiniteFusion/Gameplay/Items/New HMs.rb
+Data/Scripts/052_InfiniteFusion/Gameplay/Items/New Items effects.rb
+Data/Scripts/052_InfiniteFusion/Gameplay/Items/NonMoneyShop.rb
+Data/Scripts/052_InfiniteFusion/Gameplay/NPCs/CatchingContest.rb
+Data/Scripts/052_InfiniteFusion/Gameplay/NPCs/EggMoveTutor.rb
+Data/Scripts/052_InfiniteFusion/Gameplay/NPCs/FossilManiac.rb
+Data/Scripts/052_InfiniteFusion/Gameplay/NPCs/FusionMoveTutor.rb
+Data/Scripts/052_InfiniteFusion/Gameplay/NPCs/GuessPokemonQuiz.rb
+Data/Scripts/052_InfiniteFusion/Gameplay/Overworld/Events/BerryContest.rb
+Data/Scripts/052_InfiniteFusion/Gameplay/Overworld/Events/EventCharacterAddons.rb
+Data/Scripts/052_InfiniteFusion/Gameplay/Overworld/Events/OverworldEventUtils.rb
+Data/Scripts/052_InfiniteFusion/Gameplay/Overworld/Events/Silhouette.rb
+Data/Scripts/052_InfiniteFusion/Gameplay/Overworld/Graphics/dynamic_waterfall.rb
+Data/Scripts/052_InfiniteFusion/Gameplay/Overworld/Graphics/OverworldGraphicsUtils.rb
+Data/Scripts/052_InfiniteFusion/Gameplay/Overworld/OverworldEncounters.rb
+Data/Scripts/052_InfiniteFusion/Gameplay/Overworld/OverworldMapUtils.rb
+Data/Scripts/052_InfiniteFusion/Gameplay/Overworld/PokeMart.rb
+Data/Scripts/052_InfiniteFusion/Gameplay/Player/PlayerGraphicsAlterations.rb
+Data/Scripts/052_InfiniteFusion/Gameplay/Player/PlayerUtils.rb
+Data/Scripts/052_InfiniteFusion/Gameplay/Player/Starters.rb
+Data/Scripts/052_InfiniteFusion/Gameplay/Pokedex/Overrides.rb
+Data/Scripts/052_InfiniteFusion/Gameplay/Pokedex/PokedexUtils.rb
+Data/Scripts/052_InfiniteFusion/Gameplay/Pokedex/UI_Pokedex_SpritesPage.rb
+Data/Scripts/052_InfiniteFusion/Gameplay/Quests/Constellations/Constellations.rb
+Data/Scripts/052_InfiniteFusion/Gameplay/Quests/DarkraiQuest/DarkraiQuest.rb
+Data/Scripts/052_InfiniteFusion/Gameplay/Quests/EeveeStepCounter.rb
+Data/Scripts/052_InfiniteFusion/Gameplay/Quests/Meloetta/MeloettaQuest.rb
+Data/Scripts/052_InfiniteFusion/Gameplay/Quests/PoliceQuest.rb
+Data/Scripts/052_InfiniteFusion/Gameplay/Quests/QuestIcons.rb
+Data/Scripts/052_InfiniteFusion/Gameplay/Quests/QuestLogScript.rb
+Data/Scripts/052_InfiniteFusion/Gameplay/Quests/QuestRewards.rb
+Data/Scripts/052_InfiniteFusion/Gameplay/Quests/Quests.rb
+Data/Scripts/052_InfiniteFusion/Gameplay/Quests/QuestsLogUI.rb
+Data/Scripts/052_InfiniteFusion/Gameplay/Quests/QuestUtils.rb
+Data/Scripts/052_InfiniteFusion/Gameplay/Quests/RegiPuzzles/RegiPuzzles.rb
+Data/Scripts/052_InfiniteFusion/Gameplay/Quests/TRQuests.rb
+Data/Scripts/052_InfiniteFusion/Gameplay/WonderTrade/Wondertrade.rb
+Data/Scripts/052_InfiniteFusion/Gameplay/WonderTrade/WonderTrade_names.rb
+Data/Scripts/052_InfiniteFusion/Graphics/Overworld/CommonMaps.rb
+Data/Scripts/052_InfiniteFusion/Graphics/Overworld/Footprints.rb
+Data/Scripts/052_InfiniteFusion/Graphics/Overworld/OverworldShadows.rb
+Data/Scripts/052_InfiniteFusion/Graphics/Overworld/WaterCaustics.rb
+Data/Scripts/052_InfiniteFusion/Graphics/Overworld/WaterEffect.rb
+Data/Scripts/052_InfiniteFusion/Graphics/Sprites/SpriteDownloadUtils.rb
+Data/Scripts/052_InfiniteFusion/ImprovedShinies/000_Shinies_Credits.rb
+Data/Scripts/052_InfiniteFusion/ImprovedShinies/Shinies_AltSprites.rb
+Data/Scripts/052_InfiniteFusion/ImprovedShinies/Shinies_AnimatedBitmap.rb
+Data/Scripts/052_InfiniteFusion/ImprovedShinies/Shinies_Bitmap.rb
+Data/Scripts/052_InfiniteFusion/ImprovedShinies/Shinies_Pokedex.rb
+Data/Scripts/052_InfiniteFusion/ImprovedShinies/Shinies_PokemonIcons.rb
+Data/Scripts/052_InfiniteFusion/ImprovedShinies/Shinies_PokemonStorage.rb
+Data/Scripts/052_InfiniteFusion/ImprovedShinies/Shinies_Species.rb
+Data/Scripts/052_InfiniteFusion/ImprovedShinies/SHINY_COLOR_OFFSETS.rb
+Data/Scripts/052_InfiniteFusion/Localization/LanguageUtils.rb
+Data/Scripts/052_InfiniteFusion/Localization/SPLIT_NAMES_CHINESE.rb
+Data/Scripts/052_InfiniteFusion/Localization/SPLIT_NAMES_FRENCH.rb
+Data/Scripts/052_InfiniteFusion/Menus/AdvancedOptions/SpriteOptionsMenu.rb
+Data/Scripts/052_InfiniteFusion/Menus/BetterRegionMap.rb
+Data/Scripts/052_InfiniteFusion/Menus/ExperimentalOptions.rb
+Data/Scripts/052_InfiniteFusion/Menus/GameModeMenu.rb
+Data/Scripts/052_InfiniteFusion/Menus/IntroScreen.rb
+Data/Scripts/052_InfiniteFusion/Menus/Movie.rb
+Data/Scripts/052_InfiniteFusion/Menus/PC/Multiselect/MultiSelect_Cursor.rb
+Data/Scripts/052_InfiniteFusion/Menus/PC/Multiselect/MultiSelect_Helpers.rb
+Data/Scripts/052_InfiniteFusion/Menus/PC/Multiselect/MultiSelect_PokemonBoxIcon.rb
+Data/Scripts/052_InfiniteFusion/Menus/PC/Multiselect/MultiSelect_PokemonBoxPartySprite.rb
+Data/Scripts/052_InfiniteFusion/Menus/PC/Multiselect/MultiSelect_PokemonBoxSprite.rb
+Data/Scripts/052_InfiniteFusion/Menus/PC/Multiselect/MultiSelect_PokemonStorage.rb
+Data/Scripts/052_InfiniteFusion/Menus/PC/Multiselect/MultiSelect_PokemonStorageScene.rb
+Data/Scripts/052_InfiniteFusion/Menus/PC/Multiselect/MultiSelect_PokemonStorageScreen.rb
+Data/Scripts/052_InfiniteFusion/Menus/PC/Multiselect/MultiSelect_StorageScreen_Sort.rb
+Data/Scripts/052_InfiniteFusion/Menus/PC/PokemonBoxIconFilter.rb
+Data/Scripts/052_InfiniteFusion/Menus/PokemonSelection.rb
+Data/Scripts/052_InfiniteFusion/Showdown/ShowdownDataExport.rb
+Data/Scripts/052_InfiniteFusion/System/Autosave.rb
+Data/Scripts/052_InfiniteFusion/System/DisplayText.rb
+Data/Scripts/052_InfiniteFusion/System/Game Options/ChallengeOptions.rb
+Data/Scripts/052_InfiniteFusion/System/Game Options/GameOptions.rb
+Data/Scripts/052_InfiniteFusion/System/Game Options/GameplayOptions.rb
+Data/Scripts/052_InfiniteFusion/System/Game Options/SpriteOptions.rb
+Data/Scripts/052_InfiniteFusion/System/Game Options/SystemOptions.rb
+Data/Scripts/052_InfiniteFusion/System/GameModes/GameDifficulty.rb
+Data/Scripts/052_InfiniteFusion/System/GameModes/GameModeUtils.rb
+Data/Scripts/052_InfiniteFusion/System/GameModes/LegendaryMode.rb
+Data/Scripts/052_InfiniteFusion/System/HttpCalls.rb
+Data/Scripts/052_InfiniteFusion/System/MultiSaves.rb
+Data/Scripts/052_InfiniteFusion/System/Pathfinding.rb
+Data/Scripts/052_InfiniteFusion/System/platform.rb
+Data/Scripts/052_InfiniteFusion/System/SpeechBubbles.rb
+Data/Scripts/052_InfiniteFusion/System/Spped Up.rb
+Data/Scripts/052_InfiniteFusion/System/TempEvents.rb
+Data/Scripts/052_InfiniteFusion/System/UnrealTime.rb
+Data/Scripts/052_Tests/FusionUtilsTests.rb
+Data/Scripts/053_PIF_Hoenn/AcroBike.rb
+Data/Scripts/053_PIF_Hoenn/Contests/Pokeblocks/000_Pokeblock_Settings.rb
+Data/Scripts/053_PIF_Hoenn/Contests/Pokeblocks/001_BopModule.rb
+Data/Scripts/053_PIF_Hoenn/Contests/Pokeblocks/002_BerryBlender_Scenes.rb
+Data/Scripts/053_PIF_Hoenn/Contests/Pokeblocks/003_Pokeblock_Scenes.rb
+Data/Scripts/053_PIF_Hoenn/Contests/Pokeblocks/004_Berry_Data.rb
+Data/Scripts/053_PIF_Hoenn/Contests/Pokeblocks/005_Pokeblock_Data.rb
+Data/Scripts/053_PIF_Hoenn/Contests/Pokeblocks/006_BerryColor_Data.rb
+Data/Scripts/053_PIF_Hoenn/Contests/Pokeblocks/007_Pokeblock_Items_and_Commands.rb
+Data/Scripts/053_PIF_Hoenn/Contests/Pokeblocks/998_More Better Bitmaps.rb
+Data/Scripts/053_PIF_Hoenn/Contests/Pokemon Contests/000_CONTEST_POKEMON_LISTS.rb
+Data/Scripts/053_PIF_Hoenn/Contests/Pokemon Contests/000_CONTEST_SETTINGS.rb
+Data/Scripts/053_PIF_Hoenn/Contests/Pokemon Contests/001_CONTEST_MAPS_SETTINGS.rb
+Data/Scripts/053_PIF_Hoenn/Contests/Pokemon Contests/002_CONTEST_TRAINERS_SETTINGS.rb
+Data/Scripts/053_PIF_Hoenn/Contests/Pokemon Contests/003_Contest_Data.rb
+Data/Scripts/053_PIF_Hoenn/Contests/Pokemon Contests/004_CONTEST_TRAINERS_DATA.rb
+Data/Scripts/053_PIF_Hoenn/Contests/Pokemon Contests/005_BopModule.rb
+Data/Scripts/053_PIF_Hoenn/Contests/Pokemon Contests/006_ContestMoves.rb
+Data/Scripts/053_PIF_Hoenn/Contests/Pokemon Contests/007_ContestMovesCompiler.rb
+Data/Scripts/053_PIF_Hoenn/Contests/Pokemon Contests/007_Preparations.rb
+Data/Scripts/053_PIF_Hoenn/Contests/Pokemon Contests/008_Contest_Core.rb
+Data/Scripts/053_PIF_Hoenn/Contests/Pokemon Contests/009_Results.rb
+Data/Scripts/053_PIF_Hoenn/Contests/Pokemon Contests/010_Move_Functions.rb
+Data/Scripts/053_PIF_Hoenn/Contests/Pokemon Contests/011_Animations.rb
+Data/Scripts/053_PIF_Hoenn/Contests/Pokemon Contests/012_AI.rb
+Data/Scripts/053_PIF_Hoenn/Contests/Pokemon Contests/013_Messages.rb
+Data/Scripts/053_PIF_Hoenn/Contests/Pokemon Contests/014_Summary.rb
+Data/Scripts/053_PIF_Hoenn/Contests/Pokemon Contests/015_Fans.rb
+Data/Scripts/053_PIF_Hoenn/Contests/TDW Berry Core and Dex/000_Settings.rb
+Data/Scripts/053_PIF_Hoenn/Contests/TDW Berry Core and Dex/001_BerryData.rb
+Data/Scripts/053_PIF_Hoenn/Contests/TDW Berry Core and Dex/002_BerryColorData.rb
+Data/Scripts/053_PIF_Hoenn/Contests/TDW Berry Core and Dex/003_BerryDex.rb
+Data/Scripts/053_PIF_Hoenn/Contests/TDW Berry Core and Dex/004_BerryDexUI.rb
+Data/Scripts/053_PIF_Hoenn/Contests/TDW Berry Core and Dex/BerriesCompiler.rb
+Data/Scripts/053_PIF_Hoenn/DiveGraphics.rb
+Data/Scripts/053_PIF_Hoenn/DynamicWeather/DynamicWeather_Encounters.rb
+Data/Scripts/053_PIF_Hoenn/DynamicWeather/DynamicWeather_EncountersMethods.rb
+Data/Scripts/053_PIF_Hoenn/DynamicWeather/DynamicWeather_MapLayout.rb
+Data/Scripts/053_PIF_Hoenn/DynamicWeather/DynamicWeather_Overworld.rb
+Data/Scripts/053_PIF_Hoenn/DynamicWeather/DynamicWeather_Utils.rb
+Data/Scripts/053_PIF_Hoenn/DynamicWeather/DynamicWeather_Weather.rb
+Data/Scripts/053_PIF_Hoenn/DynamicWeather/UI/DynamicWeather_TownMap.rb
+Data/Scripts/053_PIF_Hoenn/DynamicWeather/UI/Overworld_WeatherIcon.rb
+Data/Scripts/053_PIF_Hoenn/Floating.rb
+Data/Scripts/053_PIF_Hoenn/Gameplay/Puzzles/ColorCodeDoor.rb
+Data/Scripts/053_PIF_Hoenn/Gameplay/Quests/MagmaAquaQuests.rb
+Data/Scripts/053_PIF_Hoenn/Gameplay/Quests/QuestMapPopup.rb
+Data/Scripts/053_PIF_Hoenn/Gameplay/Quests/QuestsMap.rb
+Data/Scripts/053_PIF_Hoenn/HoennGameplayUtils.rb
+Data/Scripts/053_PIF_Hoenn/OverworldPokemon/data/OWBehaviorMoveRoutes.rb
+Data/Scripts/053_PIF_Hoenn/OverworldPokemon/data/OWPokemonBehaviorTypes.rb
+Data/Scripts/053_PIF_Hoenn/OverworldPokemon/overworld_pokemon_utils.rb
+Data/Scripts/053_PIF_Hoenn/OverworldPokemon/OverworldPokemonBehavior.rb
+Data/Scripts/053_PIF_Hoenn/OverworldPokemon/OverworldPokemonEvent.rb
+Data/Scripts/053_PIF_Hoenn/OverworldPokemon/OverworldPokemonEventWrappers.rb
+Data/Scripts/053_PIF_Hoenn/OverworldPokemon/OverworldPokemonSpawning.rb
+Data/Scripts/053_PIF_Hoenn/OverworldPokemon/OWPokemonMovement.rb
+Data/Scripts/053_PIF_Hoenn/OverworldPokemon/StaticOverworldPokemon.rb
+Data/Scripts/053_PIF_Hoenn/PokemartMapTransfers.rb
+Data/Scripts/053_PIF_Hoenn/PokeNav/Challenges/000_PokeNav_UI/PokeNavAppScene.rb
+Data/Scripts/053_PIF_Hoenn/PokeNav/Challenges/000_PokeNav_UI/PokeNavButton.rb
+Data/Scripts/053_PIF_Hoenn/PokeNav/Challenges/ChallengeHooks/ChallengeHooks_Battle.rb
+Data/Scripts/053_PIF_Hoenn/PokeNav/Challenges/ChallengeHooks/ChallengeHooks_Capture.rb
+Data/Scripts/053_PIF_Hoenn/PokeNav/Challenges/ChallengeHooks/ChallengeHooks_Encounters.rb
+Data/Scripts/053_PIF_Hoenn/PokeNav/Challenges/ChallengeHooks/ChallengeHooks_Fusion.rb
+Data/Scripts/053_PIF_Hoenn/PokeNav/Challenges/Challenges.rb
+Data/Scripts/053_PIF_Hoenn/PokeNav/Challenges/ChallengesList.rb
+Data/Scripts/053_PIF_Hoenn/PokeNav/Challenges/ChallengesUI/ChallengeAppScene.rb
+Data/Scripts/053_PIF_Hoenn/PokeNav/Challenges/ChallengesUI/ChallengeAppScreen.rb
+Data/Scripts/053_PIF_Hoenn/PokeNav/Challenges/ChallengesUI/ChallengeButton.rb
+Data/Scripts/053_PIF_Hoenn/PokeNav/Contacts/contacts_app_location_button.rb
+Data/Scripts/053_PIF_Hoenn/PokeNav/Contacts/contacts_app_trainer_button.rb
+Data/Scripts/053_PIF_Hoenn/PokeNav/Contacts/ContactsAppScene.rb
+Data/Scripts/053_PIF_Hoenn/PokeNav/Contacts/ContactsAppScreen.rb
+Data/Scripts/053_PIF_Hoenn/PokeNav/Contacts/InfoPage/ContactsAppInfoPageScene.rb
+Data/Scripts/053_PIF_Hoenn/PokeNav/Contacts/InfoPage/ContactsAppInfoPageScreen.rb
+Data/Scripts/053_PIF_Hoenn/PokeNav/FusionQuiz/FusionQuizAppScene.rb
+Data/Scripts/053_PIF_Hoenn/PokeNav/FusionQuiz/FusionQuizAppScreen.rb
+Data/Scripts/053_PIF_Hoenn/PokeNav/FusionQuiz/FusionQuizMenuButton.rb
+Data/Scripts/053_PIF_Hoenn/PokeNav/PokeNav.rb
+Data/Scripts/053_PIF_Hoenn/PokeNav/PokeRadarHoenn/PokeRadarAppScene.rb
+Data/Scripts/053_PIF_Hoenn/PokeNav/PokeRadarHoenn/PokeRadarAppScreen.rb
+Data/Scripts/053_PIF_Hoenn/PokeNav/Statistics/TrainerStatistics.rb
+Data/Scripts/053_PIF_Hoenn/Rivals/AquaMagma_Admins.rb
+Data/Scripts/053_PIF_Hoenn/Rivals/Hoenn_Rival.rb
+Data/Scripts/053_PIF_Hoenn/Rivals/Hoenn_Wally.rb
+Data/Scripts/053_PIF_Hoenn/SecretBases/000_entities/0_SecretBase.rb
+Data/Scripts/053_PIF_Hoenn/SecretBases/000_entities/0_SecretBaseItemInstance.rb
+Data/Scripts/053_PIF_Hoenn/SecretBases/000_entities/0_SecretBaseItemTemplate.rb
+Data/Scripts/053_PIF_Hoenn/SecretBases/000_entities/0_SecretBaseLayout.rb
+Data/Scripts/053_PIF_Hoenn/SecretBases/000_entities/9_SecretBaseTrainer.rb
+Data/Scripts/053_PIF_Hoenn/SecretBases/000_entities/9_VisitorSecretBase.rb
+Data/Scripts/053_PIF_Hoenn/SecretBases/000_entities/SecretBaseItemCollisionMap.rb
+Data/Scripts/053_PIF_Hoenn/SecretBases/data/SecretBaseEntrances.rb
+Data/Scripts/053_PIF_Hoenn/SecretBases/data/SecretBaseItems.rb
+Data/Scripts/053_PIF_Hoenn/SecretBases/graphics/SecretBaseTilesets.rb
+Data/Scripts/053_PIF_Hoenn/SecretBases/items/SecretBaseItemBehaviors.rb
+Data/Scripts/053_PIF_Hoenn/SecretBases/multiplayer/communication/SecretBaseFetcher.rb
+Data/Scripts/053_PIF_Hoenn/SecretBases/multiplayer/communication/SecretBasePublisher.rb
+Data/Scripts/053_PIF_Hoenn/SecretBases/multiplayer/SecretBaseLoader.rb
+Data/Scripts/053_PIF_Hoenn/SecretBases/multiplayer/serialization/SecretBaseExporter.rb
+Data/Scripts/053_PIF_Hoenn/SecretBases/multiplayer/serialization/SecretBaseImporter.rb
+Data/Scripts/053_PIF_Hoenn/SecretBases/SecretBasesController.rb
+Data/Scripts/053_PIF_Hoenn/SecretBases/Utils/SecretBaseUtils.rb
+Data/Scripts/053_PIF_Hoenn/StartersSelectionScene.rb
+Data/Scripts/053_PIF_Hoenn/StartersSelectionSingle.rb
+Data/Scripts/053_PIF_Hoenn/SurfingSplashes.rb
+Data/Scripts/053_PIF_Hoenn/Television/Television.rb
+Data/Scripts/053_PIF_Hoenn/Television/TVAnnouncements.rb
+Data/Scripts/053_PIF_Hoenn/TrainerRematches/01_battled_trainer_random_event.rb
+Data/Scripts/053_PIF_Hoenn/TrainerRematches/02_battled_trainer.rb
+Data/Scripts/053_PIF_Hoenn/TrainerRematches/03_TrainerRematch_System.rb
+Data/Scripts/053_PIF_Hoenn/TrainerRematches/04_TrainerRematch_Battle.rb
+Data/Scripts/053_PIF_Hoenn/TrainerRematches/TrainerRematch_FAVORITE_TYPES.rb
+Data/Scripts/053_PIF_Hoenn/TrainerRematches/TrainerRematch_FRIENDSHIP.rb
+Data/Scripts/053_PIF_Hoenn/TrainerRematches/TrainerRematch_Gifts.rb
+Data/Scripts/053_PIF_Hoenn/TrainerRematches/TrainerRematch_Menus.rb
+Data/Scripts/053_PIF_Hoenn/TrainerRematches/TrainerRematch_Partner.rb
+Data/Scripts/053_PIF_Hoenn/TrainerRematches/TrainerRematch_RandomEvents.rb
+Data/Scripts/053_PIF_Hoenn/TrainerRematches/TrainerRematch_Trade.rb
+Data/Scripts/053_PIF_Hoenn/TransferBox.rb
+Data/Scripts/053_PIF_Hoenn/UI/ControlsScreen.rb
+Data/Scripts/053_PIF_Hoenn/UI/hoenn_intro_screen.rb
+Data/Scripts/053_PIF_Hoenn/WeatherSystem/Configuration.rb
+Data/Scripts/054_PIF_Kanto/EliteFourRematches/E4TrainersData.rb
+Data/Scripts/054_PIF_Kanto/EliteFourRematches/EliteFourRematches.rb
+Data/Scripts/998_Experimental/OnlineWondertrade.rb
+Data/Scripts/998_Experimental/RemoteBattleClient.rb
+Data/Scripts/998_Experimental/RemoteNPCDialogs/communication.rb
+Data/Scripts/998_Experimental/RemoteNPCDialogs/EventDialogIntercepter.rb
+Data/Scripts/999_Main/999_Main.rb
+Data/Scripts/DownloadedSettings.rb
+Data/Scripts.rxdata
+Data/shadow_movesets.dat
+Data/shadowmoves.dat
+Data/Skills.rxdata
+Data/species.dat
+Data/sprites/BASE_SPRITES
+Data/sprites/Sprite_Credits.csv
+Data/sprites/sprites_rate_limit.log
+Data/sprites/updated_spritesheets_cache
+Data/sprites/updated_spritesheets_cache_full
+Data/States.rxdata
+Data/System.rxdata
+Data/Tilesets.rxdata
+Data/TilesetsTemp.rxdata
+Data/trainer_types.dat
+Data/trainerlists.dat
+Data/trainers.dat
+Data/trainers_expert.dat
+Data/trainers_remix.dat
+Data/trainertypes.dat
+Data/Troops.rxdata
+Data/types.dat
+Data/VERSION
+Data/Weapons.rxdata
+Fonts/fusion-pixel-10px-monospaced-zh_hans.ttf
+Fonts/fusion-pixel-12px-monospaced-zh_hans.ttf
+Fonts/fusion-poke-pixel-licenses/ark-pixel/OFL.txt
+Fonts/fusion-poke-pixel-licenses/boutique-bitmap-9x9/OFL.txt
+Fonts/fusion-poke-pixel-licenses/cubic-11/OFL.txt
+Fonts/fusion-poke-pixel-licenses/galmuri/LICENSE.txt
+Fonts/fusion-poke-pixel-licenses/OFL.txt
+Fonts/fusion-poke-pixel-narrow-zh_hans.ttf
+Fonts/fusion-poke-pixel-normal-zh_hans.ttf
+Fonts/fusion-poke-pixel-small-zh_hans.ttf
+Fonts/power clear bold.ttf
+Fonts/power clear.ttf
+Fonts/power green narrow.ttf
+Fonts/power green small.ttf
+Fonts/power green.ttf
+Fonts/power red and blue intl.ttf
+Fonts/power red and blue.ttf
+Fonts/power red and green.ttf
+Game.ini
+Graphics/Animations/!.png
+Graphics/Animations/003-Attack01.png
+Graphics/Pictures/DNAbg.png
+Graphics/Pictures/downarrow.PNG
+Graphics/Pictures/EQI/quest_arrow.png
+Graphics/Pictures/EQI/quest_button.png
+Graphics/Pictures/EQI/quest_button_complete.png
+Graphics/Pictures/EQI/quest_button_side.png
+Graphics/Pictures/EQI/quest_page1.png
+Graphics/Pictures/EQI/quest_pager.png
+Graphics/Pictures/evolutionbg.png
+Graphics/Pictures/exparea.png
+Graphics/Pictures/exparea_opp.png
+Graphics/Pictures/expbar.png
+Graphics/Pictures/fire_r.png
+Graphics/Pictures/footset.png
+Graphics/Pictures/footsetbike.png
+Graphics/Pictures/Fusion/cursor.png
+Graphics/Pictures/Fusion/evoCustom.png
+Graphics/Pictures/Fusion/evoCustom_blue.png
+Graphics/Pictures/Fusion/evoCustom_full.png
+Graphics/Pictures/Fusion/evoCustom_selected.png
+Graphics/Pictures/Fusion/evoNoCustom.png
+Graphics/Pictures/Fusion/evoNoCustom_selected.png
+Graphics/Pictures/Fusion/movesOverlay.png
+Graphics/Pictures/Fusion/movesOverlay_dark.png
+Graphics/Pictures/Ready Menu/icon_itembutton.png
+Graphics/Pictures/Ready Menu/icon_movebutton.png
+Graphics/Pictures/reminderbg.png
+Graphics/Pictures/reminderButtons.png
+Graphics/Pictures/reminderSel.png
+Graphics/Pictures/ribbons.png
+Graphics/Pictures/rightarrow.png
+Graphics/Pictures/Roulette/ball.png
+Graphics/Pictures/Roulette/ballicon.png
+Graphics/Pictures/Roulette/creditbox.png
+Graphics/Pictures/Roulette/multiplierbox.png
+Graphics/Pictures/Roulette/Roulette.png
+Graphics/Pictures/Roulette/selectedcolor.png
+Graphics/Pictures/Roulette/selectedsingle.png
+Graphics/Pictures/Roulette/selectedspecies.png
+Graphics/Pictures/Roulette/table.png
+Graphics/Pictures/selarr.png
+Graphics/Pictures/selarrow.png
+Graphics/Pictures/selarrow_white.png
+Graphics/Pictures/selarrowwhite.png
+Graphics/Pictures/Selection-confirm.png
+Graphics/Pictures/selHand.png
+Graphics/Pictures/shadeFull_.png
+Graphics/Pictures/shadeRest.png
+Graphics/Pictures/shiny.png
+Graphics/Pictures/shiny_black.png
+Graphics/Pictures/silph_logo.jpg
+Graphics/Pictures/Trainer Card/backgrounds/VOLCANOBADGE.png
+Graphics/Pictures/Trainer Card/backgrounds/WEATHER_WAR.png
+Graphics/Pictures/Trainer Card/backgrounds/WINGULL_FLAG.png
+Graphics/Pictures/Trainer Card/backgrounds/ZEKROM.png
+Graphics/Pictures/Trainer Card/backgrounds/ZEPHYRBADGE.png
+Graphics/Pictures/Trainer Card/backgrounds/ZYGARDE_PATTERN.png
+Graphics/Pictures/Trainer Card/bg.png
+Graphics/Pictures/Trainer Card/bg_f.png
+Graphics/Pictures/Trainer Card/card.PNG
+Graphics/Pictures/Trainer Card/card_f.PNG
+Graphics/Pictures/Trainer Card/card_f_postgame.PNG
+Graphics/Pictures/Trainer Card/card_postgame.PNG
+Graphics/Pictures/Trainer Card/icon_badges.png
+Graphics/Pictures/Trainer Card/overlay.png
+Graphics/Pictures/Trainer Card/overlay_postgame.png
+Graphics/Pictures/Trainer Card/test.png
+Graphics/Pictures/trainer_application_form.png
+Graphics/Pictures/trainercard.PNG
+Graphics/Pictures/trainercardbg.png
+Graphics/Pictures/trainercardbgf.png
+Graphics/Pictures/trainercardf.PNG
+Graphics/Pictures/trainerNearby.png
+Graphics/Pictures/triad_bg.png
+Graphics/Pictures/triad_card_opponent.png
+Graphics/Pictures/triad_card_player.png
+Graphics/Pictures/triad_numbers.png
+Graphics/Pictures/triadbg.png
+Graphics/Pictures/tv.png
+Graphics/Pictures/types.png
+Graphics/Pictures/types2.png
+Graphics/Pictures/types_old.png
+Graphics/Pictures/Universal/black_bg.png
+Graphics/Pictures/Universal/box.PNG
+Graphics/Pictures/Universal/box_check.png
+Graphics/Pictures/Universal/down_bg.png
+Graphics/Pictures/Universal/empty.png
+Graphics/Pictures/Universal/exit.png
+Graphics/Pictures/Universal/exit2.png
+Graphics/Pictures/Universal/female.png
+Graphics/Pictures/Universal/male.png
+Graphics/Pictures/Universal/moving_bg.png
+Graphics/Pictures/Universal/namingEntryFemale.png
+Graphics/Pictures/Universal/namingEntryMale.png
+Graphics/Pictures/Universal/return.png
+Graphics/Pictures/Universal/return2.png
+Graphics/Pictures/Universal/select.png
+Graphics/Pictures/Universal/updown.png
+Graphics/Pictures/Universal/updown_2.png
+Graphics/Pictures/Universal/updown_3.png
+Graphics/Pictures/Universal/white_bg.png
+Graphics/Pictures/uparrow.png
+Graphics/Pictures/Voltorb Flip/boardbg.png
+Graphics/Pictures/Voltorb Flip/cursor.png
+Graphics/Pictures/Voltorb Flip/explosion.png
+Graphics/Titles/Archive/splash.png
+Graphics/Titles/Archive/start.png
+Graphics/Titles/credits1.png
+Graphics/Titles/default_loading_screen.png
+Graphics/Titles/gen1_bars.png
+Graphics/Titles/gen1_bg.png
+Graphics/Titles/no_ai_logo.png
+Graphics/Titles/pokelogo.png
+Graphics/Titles/PokemonInfiniteFusionLogo_Back_25.png
+Graphics/Titles/PokemonInfiniteFusionLogo_Main_25.png
+Graphics/Weather/windleaf1.png
+Graphics/Weather/windleaf2.png
+Graphics/Weather/windleaf_tile.png
+Graphics/Windowskins/001-Blue01.png
+Graphics/Windowskins/choice 1.png
+Graphics/Windowskins/default_opaque.png
+Graphics/Windowskins/default_transparent.png
+Graphics/Windowskins/frlgtextskin.png
+Graphics/Windowskins/invisible.png
+Graphics/Windowskins/no_frame.png
+Graphics/Windowskins/sign hgss 1.png
+Graphics/Windowskins/sign hgss 2.png
+Graphics/Windowskins/sign hgss dir.png
+Graphics/Windowskins/sign hgss loc.png
+Graphics/Windowskins/sign hgss town.png
+Graphics/Windowskins/sign hgss tt.png
+Graphics/Windowskins/SignShow2To.png
+Graphics/Windowskins/signskin.png
+Graphics/Windowskins/speech dp 1.png
+Graphics/Windowskins/speech dp 10.png
+Graphics/Windowskins/speech dp 11.png
+Graphics/Windowskins/speech dp 12.png
+Graphics/Windowskins/speech dp 13.png
+Graphics/Windowskins/speech dp 14.png
+Graphics/Windowskins/speech dp 15.png
+Graphics/Windowskins/speech dp 16.png
+Graphics/Windowskins/speech dp 17.png
+Graphics/Windowskins/speech dp 18.png
+Graphics/Windowskins/speech dp 19.png
+Graphics/Windowskins/speech dp 2.png
+Graphics/Windowskins/speech dp 20.png
+Graphics/Windowskins/speech dp 3.png
+Graphics/Windowskins/speech dp 4.png
+Graphics/Windowskins/speech dp 5.png
+Graphics/Windowskins/speech dp 6.png
+Graphics/Windowskins/speech dp 7.png
+Graphics/Windowskins/speech dp 8.png
+Graphics/Windowskins/speech dp 9.png
+Graphics/Windowskins/speech em.png
+Graphics/Windowskins/speech frlg.png
+Graphics/Windowskins/speech hgss 1.png
+Graphics/Windowskins/speech hgss 10.png
+Graphics/Windowskins/speech hgss 11.png
+Graphics/Windowskins/speech hgss 12.png
+Graphics/Windowskins/speech hgss 13.png
+Graphics/Windowskins/speech hgss 14.png
+Graphics/Windowskins/speech hgss 15.png
+Graphics/Windowskins/speech hgss 16.png
+Graphics/Windowskins/speech hgss 17.png
+Graphics/Windowskins/speech hgss 18.png
+Graphics/Windowskins/speech hgss 19.png
+Graphics/Windowskins/speech hgss 2.png
+Graphics/Windowskins/speech hgss 20.png
+Graphics/Windowskins/speech hgss 3.png
+Graphics/Windowskins/speech hgss 4.png
+Graphics/Windowskins/speech hgss 5.png
+Graphics/Windowskins/speech hgss 6.png
+Graphics/Windowskins/speech hgss 7.png
+Graphics/Windowskins/speech hgss 8.png
+Graphics/Windowskins/speech hgss 9.png
+Graphics/Windowskins/speech pl 1.png
+Graphics/Windowskins/speech pl 10.png
+Graphics/Windowskins/speech pl 11.png
+Graphics/Windowskins/speech pl 12.png
+Graphics/Windowskins/speech pl 13.png
+Graphics/Windowskins/speech pl 14.png
+Graphics/Windowskins/speech pl 15.png
+Graphics/Windowskins/speech pl 16.png
+Graphics/Windowskins/speech pl 17.png
+Graphics/Windowskins/speech pl 18.png
+Graphics/Windowskins/speech pl 19.png
+Graphics/Windowskins/speech pl 2.png
+Graphics/Windowskins/speech pl 20.png
+Graphics/Windowskins/speech pl 3.png
+Graphics/Windowskins/speech pl 4.png
+Graphics/Windowskins/speech pl 5.png
+Graphics/Windowskins/speech pl 6.png
+Graphics/Windowskins/speech pl 7.png
+Graphics/Windowskins/speech pl 8.png
+Graphics/Windowskins/speech pl 9.png
+Graphics/Windowskins/speech rs.png
+Graphics/Windowskins/speech ug 1.png
+Graphics/Windowskins/speech ug 2.png
+Graphics/Windowskins/SpeechShow.png
+Graphics/Windowskins/Window.png
+Graphics/Windowskins/Windowskin.PNG
+README.md
+Data/Scripts/998_Web/web_final.rb
+Data/Scripts/998_Web/red_jugadores.rb
+Data/Scripts/998_Web/red_puente.rb
+Graphics/CustomBattlers/spritesheets/spritesheets_base/1.png
+Graphics/CustomBattlers/spritesheets/spritesheets_base/10.png
+Graphics/CustomBattlers/spritesheets/spritesheets_base/100.png
+Graphics/CustomBattlers/spritesheets/spritesheets_base/101.png
+Graphics/CustomBattlers/spritesheets/spritesheets_base/98.png
+Graphics/CustomBattlers/spritesheets/spritesheets_base/99.png
+mkxp.json
+Data/web_rutas.txt

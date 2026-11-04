@@ -15,10 +15,49 @@ Corre el juego real con el core web de mkxp-z (WebAssembly). Solo para escritori
 ```bat
 python web\tools\parchear_core.py core sitio
 python web\tools\bajar_sprites.py sprites-base
-python web\tools\empaquetar.py InfiniteFusion sitio --sprites sprites-base --cache reducidos
+python web\tools\empaquetar.py InfiniteFusion sitio --sprites sprites-base --cache reducidos --arranque web\arranque.txt
 ```
 
-La primera vez tarda unos 40 minutos: `reducidos/` guarda el audio y los PNG procesados, y las siguientes los reutilizan. El resultado queda en `sitio/pif-<hash>.mkxpz`. El servidor debe enviar COOP/COEP y aceptar `Range`. Con `--diagnostico` el paquete incluye `web_diag.rb` (medidor de FPS y un canal `eval`) y el launcher admite `#auto`: **nunca lo publiques así**.
+La primera vez tarda unos 40 minutos: `reducidos/` guarda el audio y los PNG procesados, y las siguientes los reutilizan. El resultado queda en `sitio/`: el paquete `pif-<hash>.mkxpz` y su marcador `pif-<hash>.json`. Con `--diagnostico` el paquete incluye `web_diag.rb` (medidor de FPS y un canal `eval`) y el launcher admite `#auto`: **nunca lo publiques así**.
+
+### Descarga por partes
+
+Como Last Havens, el juego no baja entero antes de arrancar:
+
+1. El launcher guarda en OPFS el marcador en lugar del paquete. El marcador trae las cabeceras locales del zip: al abrir un archivo, el core lee la de cada vecino de su carpeta.
+2. La página baja con `Range` los bloques de arranque, unos 76 MiB.
+3. El core lee el resto del paquete por bloques de 256 KiB a medida que los necesita (`web/scripts/bloques.js`). Los guarda en OPFS.
+4. Mientras se juega, el resto llega en segundo plano. La segunda visita no usa la red.
+
+`web/arranque.txt` lista los archivos que el juego lee al iniciar; van primero en el paquete. Si cambia el juego, se vuelve a grabar:
+
+1. Genera el paquete con `--diagnostico` y sin `--arranque`.
+2. Abre el juego en un perfil limpio, hasta el título.
+3. Corre `python web\tools\arranque.py sitio\pif-<hash>.mkxpz corridas.log > web\arranque.txt`.
+
+Medido con 60 ms y 20 Mbps simulados por pedido:
+- La primera visita llega al primer frame en unos 40 s (antes bajaba 1 GB).
+- Un archivo que falta tarda unos 0,2 s.
+- El resto queda completo en unos 5 minutos de juego.
+
+## Servidor
+
+`web/server.mjs` (Node 22, sin dependencias):
+- Valida la cuenta con Nextcloud y entrega el juego solo con sesión.
+- Guarda por cuenta las partidas y las teclas, con 10 versiones.
+- Recibe los reportes de fallos y retransmite las posiciones de los jugadores visibles.
+
+```bash
+NEXTCLOUD_URL=https://nube.cinderlink.cl PIF_JUEGO=sitio PIF_DATOS=/mnt/datos/pif ORIGEN=https://juego.cinderlink.cl node web/server.mjs
+```
+
+`web/public/` es la página de entrada: login, botón Jugar, PWA y `offline.html`. El launcher queda en `/juego/`. `web/scripts/juego.js` se antepone al launcher y hace cuatro cosas:
+- Antes de arrancar, baja los archivos del jugador. Si una partida local cambió sin subirse y el servidor también, guarda aparte la copia local.
+- Sube lo que el juego guarda.
+- Avisa los fallos.
+- Hace de puente entre `/api/red` y `web_red.rb`.
+
+Pruebas: `node --test web/test/`.
 
 ## Qué cambia respecto al juego nativo
 
@@ -34,9 +73,10 @@ La primera vez tarda unos 40 minutos: `reducidos/` guarda el audio y los PNG pro
 | `Data/sprites/CUSTOM_SPRITES` y `Data/pokedex/dex.json` vacíos | Lista y entradas de sprites custom, que no están en el paquete. La intro usa fusiones autogeneradas (`web_final.rb`). |
 | Sin `messages_fr.dat`, `attacksRS.dat` ni `Sprite Credits.csv` | Ningún script ni evento los lee. |
 | `bajar_sprites.py` | El juego no trae los sprites base; los pide a infinitefusion.net al usarlos. |
-| `bajar_juego.js` | Baja por trozos de 64 MB con `Range`, y sigue donde iba si se corta. |
+| `bloques.js` y `bajar_juego.js` | El paquete se lee por bloques con `Range` y queda en OPFS: ver "Descarga por partes". |
+| `web_red.rb` | Jugadores visibles. Dibuja con `ArchipelagoRemotePlayers.rb` del mod de Archipelago; `juego.js` lleva las posiciones por archivos. |
 | Audio reducido | BGM y ME en MP3 a 96 kbps, y los WAV de BGM a Vorbis. Los sprites custom no se incluyen: las fusiones usan los autogenerados. |
 
 ## Fuera por ahora
 
-Archipelago y los jugadores visibles no funcionan aquí: `client.py` necesita Python y el juego no tiene red. Tampoco hay Wonder Trade ni bases secretas.
+Archipelago no funciona aquí: `client.py` necesita Python y el juego no tiene red. Tampoco hay Wonder Trade ni bases secretas.

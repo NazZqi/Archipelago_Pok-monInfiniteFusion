@@ -1,0 +1,88 @@
+<!doctype html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Cinderlink · Juego</title>
+<link rel="manifest" href="/manifest.webmanifest">
+<link rel="icon" href="/icono.svg" type="image/svg+xml">
+<meta name="theme-color" content="#1d2433">
+<style>
+  :root { color-scheme: dark; font: 16px/1.5 system-ui, sans-serif; }
+  body { margin: 0; min-height: 100vh; display: grid; place-items: center; background: #1d2433; color: #e8ecf4; }
+  main { width: min(22rem, 90vw); }
+  h1 { font-size: 1.4rem; margin: 0 0 1rem; }
+  label { display: block; margin: .75rem 0 .25rem; }
+  input { box-sizing: border-box; width: 100%; padding: .55rem .7rem; border: 1px solid #4a5675; border-radius: 6px;
+          background: #11161f; color: inherit; font: inherit; }
+  button { width: 100%; margin-top: 1.25rem; padding: .65rem; border: 0; border-radius: 6px; background: #e0723a;
+           color: #fff; font: inherit; font-weight: 600; cursor: pointer; }
+  button:disabled { opacity: .6; cursor: wait; }
+  .nota { font-size: .85rem; color: #aab3c5; }
+  .error { color: #ff9b8a; min-height: 1.5em; }
+  a { color: #8fb8ff; }
+  footer { margin-top: 2rem; font-size: .75rem; color: #8a93a6; }
+</style>
+</head>
+<body>
+<main>
+  <h1>Cinderlink · Juego</h1>
+
+  <form id="entrar" hidden>
+    <p class="nota">Entra con tu cuenta de <a href="https://nube.cinderlink.cl">nube.cinderlink.cl</a>.
+      ¿No tienes? <a href="https://nube.cinderlink.cl/apps/registration/">Regístrate</a> y espera la aprobación.
+      Si usas verificación en dos pasos, crea una contraseña de aplicación en tu nube.</p>
+    <label for="usuario">Usuario</label>
+    <input id="usuario" name="usuario" autocomplete="username" required>
+    <label for="clave">Contraseña</label>
+    <input id="clave" name="clave" type="password" autocomplete="current-password" required>
+    <button>Entrar</button>
+    <p class="error" id="error" role="alert"></p>
+  </form>
+
+  <section id="listo" hidden>
+    <p>Tu partida se guarda en el servidor: puedes seguir desde cualquier computador.</p>
+    <p class="nota" id="memoria" hidden>Este equipo tiene poca memoria. El juego necesita unos 1,5 GB libres y
+      puede cerrarse solo.</p>
+    <p class="nota">Solo escritorio, en Chrome, Edge o Firefox recientes. La primera vez baja unos 85 MB; el
+      resto llega mientras juegas.</p>
+    <button id="jugar" type="button">Jugar</button>
+  </section>
+
+  <footer>Corre con <a href="https://github.com/white-axe/mkxp-z-libretro-emscripten">mkxp-z para la web</a>
+    (código fuente, GPL-2.0).</footer>
+</main>
+<script type="module">
+  const $ = (id) => document.getElementById(id);
+  const mostrar = (conSesion) => { $('entrar').hidden = conSesion; $('listo').hidden = !conSesion; };
+  if (navigator.deviceMemory && navigator.deviceMemory < 4) $('memoria').hidden = false;
+  $('jugar').onclick = () => { location.href = '/juego/'; };
+
+  $('entrar').onsubmit = async (e) => {
+    e.preventDefault();
+    const boton = e.target.querySelector('button');
+    boton.disabled = true;
+    $('error').textContent = '';
+    try {
+      const r = await fetch('/api/login', {
+        method: 'POST', headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ usuario: $('usuario').value.trim(), clave: $('clave').value }),
+      });
+      const d = await r.json().catch(() => ({}));
+      if (!r.ok) throw new Error(d.error || `Error ${r.status}`);
+      localStorage.setItem('pif-uid', d.uid);  // juego.js separa las partidas locales por cuenta
+      $('clave').value = '';
+      mostrar(true);
+    } catch (err) {
+      $('error').textContent = err.message === 'Failed to fetch' ? 'Sin conexión con el servidor' : err.message;
+    } finally {
+      boton.disabled = false;
+    }
+  };
+
+  const r = await fetch('/api/archivos', { cache: 'no-store' }).catch(() => null);
+  mostrar(Boolean(r?.ok));
+  if ('serviceWorker' in navigator) navigator.serviceWorker.register('/sw.js').catch(() => {});
+</script>
+</body>
+</html>
