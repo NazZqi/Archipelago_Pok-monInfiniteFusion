@@ -11,6 +11,15 @@ module Encryption
   end
 end
 
+# En el navegador, la página escala la imagen a la ventana. Graphics.scale y fullscreen hacen que
+# RetroArch reinicie el video, y tras varios cambios el core cae con "memory access out of bounds".
+# La opción "Screen Size" queda sin efecto.
+def pbSetResizeFactor(_factor)
+  return if $ResizeInitialized
+  Graphics.resize_screen(Settings::SCREEN_WIDTH, Settings::SCREEN_HEIGHT)
+  $ResizeInitialized = true
+end
+
 # La intro elige una fusión de la lista de sprites custom, que no va en el paquete
 def getRandomFusionForIntro
   return PIFSprite.new(:AUTOGEN, rand(NB_POKEMON) + 1, rand(NB_POKEMON) + 1, "")

@@ -260,6 +260,14 @@ def adaptar_launcher(sitio, paquete, marcador, diagnostico):
     assert js.count(bajada) == 1
     js = js.replace(bajada, "i=n===bn?await window.__bajarJuego(n,t=>{Bn+=t,Hn(),Rn!==null&&(In.stop(),Rn.style.display=`initial`)}):" + bajada[2:])
 
+    # El búfer del canvas se fija una vez al arrancar: sin esto, al cambiar la ventana la imagen
+    # se estira. Se espera a que el usuario termine de arrastrar.
+    inicio = "postRun(){this.resize(this.canvasInitialSize);"
+    assert js.count(inicio) == 1
+    js = js.replace(inicio, "postRun(){let t;addEventListener(`resize`,()=>{clearTimeout(t);"
+                            "t=setTimeout(()=>this.resize(this.getElementSize()),200)});"
+                            "this.resize(this.canvasInitialSize);")
+
     copia = "await r.write(i),await r.close(),i=await n.getFile()"
     assert js.count(copia) == 1
     js = js.replace(copia, copia + ",await window.__borrarViejos?.()")
@@ -275,6 +283,11 @@ def adaptar_launcher(sitio, paquete, marcador, diagnostico):
         js = js.replace(gesto, "(!location.hash.startsWith(`#auto`)&&" + gesto + ")")
         registro += ("/web-|Fatal|Aborted|Sandbox|mkxp-z|rror/.test(t)&&"
                      "fetch(`/log`,{method:`POST`,body:(window.__tag||``)+t,keepalive:!0});")
+    else:
+        # Lo que se publica lleva título neutro: el sitio se sirve tras login, pero queda en el historial
+        pagina = sitio / "index.html"
+        html = sustituir(pagina.read_text(encoding="utf-8"), r"<title>[^<]*</title>", "<title>Cinderlink · Juego</title>")
+        pagina.write_text(html, encoding="utf-8")
     js = js.replace(imprimir, registro + "}")
     previo = "".join((SCRIPTS / nombre).read_text(encoding="utf-8")
                      for nombre in ("bloques.js", "bajar_juego.js", "juego.js"))
