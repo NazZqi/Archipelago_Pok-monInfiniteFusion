@@ -1,0 +1,27 @@
+# Quadlet de PIF web en Cinderlink: copiar a ~/.config/containers/systemd/ y
+#   systemctl --user daemon-reload && systemctl --user start pif-web
+# Caddy le manda juego.cinderlink.cl (ruta @juego, fuera de Authelia: login propio con Nextcloud).
+[Unit]
+Description=PIF en el navegador (juego.cinderlink.cl)
+RequiresMountsFor=/mnt/datos
+
+[Container]
+ContainerName=pif-web
+Image=docker.io/library/node:22-alpine
+# Red del host: escucha solo en 127.0.0.1 y llega a nube.cinderlink.cl por el Caddy de la LAN
+Network=host
+Environment=HOST=127.0.0.1 PORT=3301
+Environment=NEXTCLOUD_URL=https://nube.cinderlink.cl
+Environment=PIF_JUEGO=/juego PIF_DATOS=/datos
+Environment=ORIGEN=https://juego.cinderlink.cl CABECERA_IP=cf-connecting-ip
+WorkingDir=/app/web
+Exec=node server.mjs
+Volume=/mnt/datos/pif/src:/app:ro,Z
+Volume=/mnt/datos/pif/juego:/juego:ro,Z
+Volume=/mnt/datos/pif/datos:/datos:Z
+
+[Service]
+Restart=always
+
+[Install]
+WantedBy=default.target
