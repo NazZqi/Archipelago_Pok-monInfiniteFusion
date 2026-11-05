@@ -69,7 +69,7 @@ export function limpiarPokemon(linea) {
     && /^[0-2]$/.test(habilidad) && (naturaleza === '' || SIMBOLO.test(naturaleza))
     && (objeto === '' || SIMBOLO.test(objeto)) && enteros(ivs, 6, 31) && evsV
     && evsV.reduce((a, b) => a + b, 0) <= 510 && /^[01]$/.test(shiny) && /^[0-2]$/.test(genero)
-    && [...apodo].length <= 20 && !/[\\\u0000-\u001f\u007f]/.test(apodo) && /^\d{1,10}$/.test(pid);
+    && [...apodo].length <= 20 && !/[\\<>\u0000-\u001f\u007f]/.test(apodo) && /^\d{1,10}$/.test(pid);
   return ok ? linea : null;
 }
 
@@ -184,8 +184,9 @@ export function crearServidor({
     if (!d || d.enabled === false) throw fallo(403, 'Cuenta desactivada o sin aprobar');
     if (!uidValido(d.id)) throw fallo(403, 'Usuario no admitido');
     const token = randomBytes(32).toString('base64url');
-    // Sin "\" ni controles: el nombre llega a mensajes del juego (códigos \c[n], \PN) y a órdenes separadas por tab
-    const nombre = String(d.displayname || d['display-name'] || d.id).replace(/[\\|\u0000-\u001f\u007f]/g, '').slice(0, 32) || d.id;
+    // Sin "\", "<", ">" ni controles: el nombre llega a mensajes del juego (códigos \c[n], etiquetas <c2=…>)
+    // y a órdenes separadas por tab
+    const nombre = String(d.displayname || d['display-name'] || d.id).replace(/[\\|<>\u0000-\u001f\u007f]/g, '').slice(0, 32) || d.id;
     sesiones.set(token, { uid: d.id, nombre, expira: Date.now() + DURACION_SESION });
     json(res, 200, { uid: d.id, nombre }, {
       'Set-Cookie': `${COOKIE}=${token}; Path=/; Max-Age=${DURACION_SESION / 1000}; HttpOnly; Secure; SameSite=Strict`,

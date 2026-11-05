@@ -237,6 +237,7 @@ test('el chat llega a todos con el nombre de la sesión y tiene límite', async 
 
 test('un Pokémon no entra en dos intercambios abiertos ni lleva códigos de control', async () => {
   assert.equal(limpiarPokemon(PK('PIKACHU', 9).replace('Apodo', String.raw`a\c[2]b`)), null);
+  assert.equal(limpiarPokemon(PK('PIKACHU', 9).replace('Apodo', '<ac>hola')), null);
   const ofrecer = () => pedir('/api/intercambio', { usuario: 'ana', ...json({ para: 'beto', pokemon: PK('MEW', 77) }) });
   assert.equal((await ofrecer()).status, 201);
   assert.equal((await ofrecer()).status, 409); // el mismo personalID ya está ofrecido

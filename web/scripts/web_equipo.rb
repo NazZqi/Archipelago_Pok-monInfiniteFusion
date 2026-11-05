@@ -10,9 +10,9 @@ module WebEquipo
   TIPOS = { "m" => :POKEMONTRAINER_Red, "f" => :POKEMONTRAINER_Leaf }
 
   class << self
-    # Sin "\" ni controles: en pbMessage serían códigos de control (\c[n], \PN...)
+    # Sin "\", "<", ">" ni controles: en pbMessage serían códigos (\c[n], \PN) o etiquetas (<c2=…>, <ac>)
     def limpio(texto)
-      texto.to_s.gsub(/[\\|\x00-\x1f\x7f]/, "")
+      texto.to_s.gsub(/[\\|<>\x00-\x1f\x7f]/, "")
     end
 
     def linea(pk)
