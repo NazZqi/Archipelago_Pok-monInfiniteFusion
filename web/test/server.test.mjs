@@ -5,7 +5,7 @@ import http from 'node:http';
 import { mkdtemp, mkdir, writeFile, readFile, readdir, rm } from 'node:fs/promises';
 import os from 'node:os';
 import path from 'node:path';
-import { crearServidor } from '../server.mjs';
+import { crearServidor, limpiarPokemon } from '../server.mjs';
 
 const ORIGEN = 'https://juego.test';
 // Cuentas del Nextcloud simulado. Como el real, no incluye `enabled` al consultar el propio usuario.
@@ -233,4 +233,15 @@ test('el chat llega a todos con el nombre de la sesión y tiene límite', async 
   const chat = texto.split('\n').filter((l) => l.startsWith('data: ')).map((l) => JSON.parse(l.slice(6))).find((e) => e.tipo === 'chat');
   assert.equal(chat.nombre, 'Ana');
   assert.equal(chat.texto, 'hola beto');
+});
+
+test('un Pokémon no entra en dos intercambios abiertos ni lleva códigos de control', async () => {
+  assert.equal(limpiarPokemon(PK('PIKACHU', 9).replace('Apodo', String.raw`a\c[2]b`)), null);
+  const ofrecer = () => pedir('/api/intercambio', { usuario: 'ana', ...json({ para: 'beto', pokemon: PK('MEW', 77) }) });
+  assert.equal((await ofrecer()).status, 201);
+  assert.equal((await ofrecer()).status, 409); // el mismo personalID ya está ofrecido
+  const { intercambios } = await (await pedir('/api/intercambio', { usuario: 'beto' })).json();
+  const { id } = intercambios.find((t) => t.pokemonDe === PK('MEW', 77));
+  assert.equal((await pedir(`/api/intercambio/${id}/rechazar`, { method: 'POST', usuario: 'beto' })).status, 200);
+  assert.equal((await ofrecer()).status, 201); // rechazado: vuelve a estar libre
 });

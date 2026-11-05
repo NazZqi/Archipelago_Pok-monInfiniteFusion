@@ -10,8 +10,13 @@ module WebEquipo
   TIPOS = { "m" => :POKEMONTRAINER_Red, "f" => :POKEMONTRAINER_Leaf }
 
   class << self
+    # Sin "\" ni controles: en pbMessage serían códigos de control (\c[n], \PN...)
+    def limpio(texto)
+      texto.to_s.gsub(/[\\|\x00-\x1f\x7f]/, "")
+    end
+
     def linea(pk)
-      apodo = pk.name.to_s.gsub(/[|\t\r\n]/, " ")[0, 20]
+      apodo = limpio(pk.name)[0, 20]
       [pk.species, pk.level, pk.moves.map(&:id).join(","), pk.ability_index.to_i.clamp(0, 2),
        pk.nature_id, pk.item_id, STATS.map { |s| pk.iv[s].to_i.clamp(0, 31) }.join(","),
        STATS.map { |s| pk.ev[s].to_i.clamp(0, 252) }.join(","), pk.shiny? ? 1 : 0, pk.gender.to_i,
@@ -41,7 +46,8 @@ module WebEquipo
       end
       pk.shiny = (c[8] == "1")
       pk.gender = c[9].to_i
-      pk.name = c[10] if !c[10].empty? && c[10] != pk.speciesName
+      apodo = limpio(c[10])[0, 20]
+      pk.name = apodo if !apodo.empty? && apodo != pk.speciesName
       pk.calc_stats
       pk.heal
       return pk
@@ -86,6 +92,7 @@ module WebEquipo
     end
 
     def combatir(nombre, genero, *lineas)
+      nombre = limpio(nombre)
       equipo = lineas.map { |l| pokemon(l, nil) }.compact
       if equipo.empty?
         pbMessage(_INTL("El equipo de {1} no se pudo cargar.", nombre))
@@ -114,12 +121,14 @@ module WebEquipo
     end
 
     def ofrecer(para, nombre)
+      nombre = limpio(nombre)
       pk = elegir(_INTL("¿Qué Pokémon le ofreces a {1}?", nombre))
       return "cancelado" unless pk
       return "oferta\t#{para}\t#{linea(pk)}"
     end
 
     def aceptar(id, nombre, texto)
+      nombre = limpio(nombre)
       suyo = pokemon(texto, nil)
       unless suyo
         pbMessage(_INTL("El Pokémon que ofrece {1} no existe en este juego.", nombre))

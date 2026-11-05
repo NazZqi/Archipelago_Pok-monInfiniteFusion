@@ -69,7 +69,7 @@ export function limpiarPokemon(linea) {
     && /^[0-2]$/.test(habilidad) && (naturaleza === '' || SIMBOLO.test(naturaleza))
     && (objeto === '' || SIMBOLO.test(objeto)) && enteros(ivs, 6, 31) && evsV
     && evsV.reduce((a, b) => a + b, 0) <= 510 && /^[01]$/.test(shiny) && /^[0-2]$/.test(genero)
-    && [...apodo].length <= 20 && /^\d{1,10}$/.test(pid);
+    && [...apodo].length <= 20 && !/[\\\u0000-\u001f\u007f]/.test(apodo) && /^\d{1,10}$/.test(pid);
   return ok ? linea : null;
 }
 
@@ -184,7 +184,8 @@ export function crearServidor({
     if (!d || d.enabled === false) throw fallo(403, 'Cuenta desactivada o sin aprobar');
     if (!uidValido(d.id)) throw fallo(403, 'Usuario no admitido');
     const token = randomBytes(32).toString('base64url');
-    const nombre = String(d.displayname || d['display-name'] || d.id).slice(0, 32);
+    // Sin "\" ni controles: el nombre llega a mensajes del juego (códigos \c[n], \PN) y a órdenes separadas por tab
+    const nombre = String(d.displayname || d['display-name'] || d.id).replace(/[\\|\u0000-\u001f\u007f]/g, '').slice(0, 32) || d.id;
     sesiones.set(token, { uid: d.id, nombre, expira: Date.now() + DURACION_SESION });
     json(res, 200, { uid: d.id, nombre }, {
       'Set-Cookie': `${COOKIE}=${token}; Path=/; Max-Age=${DURACION_SESION / 1000}; HttpOnly; Secure; SameSite=Strict`,
@@ -315,6 +316,12 @@ export function crearServidor({
     return lista;
   };
 
+  // Un Pokémon (personalID) solo puede estar en un intercambio abierto: ofrecido a dos amigos
+  // que aceptan, ambos lo recibirían
+  const pidDe = (linea) => linea?.split('|')[11];
+  const ocupado = (lista, uid, pid) => lista.some((t) => (t.de === uid && pidDe(t.pokemonDe) === pid && !t.entregado.de)
+    || (t.para === uid && pidDe(t.pokemonPara) === pid && !t.entregado.para));
+
   async function intercambios(req, res, s, id, accion) {
     if (id === undefined) {
       if (req.method === 'GET') {
@@ -332,8 +339,9 @@ export function crearServidor({
       const t = { id: randomUUID(), de: s.uid, nombreDe: s.nombre, para: b.para, pokemonDe: pokemon,
                   pokemonPara: null, estado: 'ofrecido', entregado: { de: false, para: false }, creado: Date.now() };
       await enCola('intercambios', async () => {
-        const abiertos = (await listarIntercambios()).filter((x) => x.de === s.uid && x.estado === 'ofrecido');
-        if (abiertos.length >= 5) throw fallo(429, 'Ya tienes 5 ofertas sin responder');
+        const lista = await listarIntercambios();
+        if (lista.filter((x) => x.de === s.uid && x.estado === 'ofrecido').length >= 5) throw fallo(429, 'Ya tienes 5 ofertas sin responder');
+        if (ocupado(lista, s.uid, pidDe(pokemon))) throw fallo(409, 'Ese Pokémon ya está en otro intercambio');
         await escribirAtomico(archivoIntercambio(t.id), JSON.stringify(t));
       });
       avisarA(b.para, { tipo: 'intercambio' });
@@ -348,8 +356,10 @@ export function crearServidor({
       const rol = t.de === s.uid ? 'de' : 'para';
       if (accion === 'aceptar') {
         if (rol !== 'para' || t.estado !== 'ofrecido') throw fallo(409, 'Ya no está disponible');
-        t.pokemonPara = limpiarPokemon(cuerpo.pokemon);
-        if (!t.pokemonPara) throw fallo(400, 'Pokémon inválido');
+        const pokemon = limpiarPokemon(cuerpo.pokemon);
+        if (!pokemon) throw fallo(400, 'Pokémon inválido');
+        if (ocupado(await listarIntercambios(), s.uid, pidDe(pokemon))) throw fallo(409, 'Ese Pokémon ya está en otro intercambio');
+        t.pokemonPara = pokemon;
         t.estado = 'aceptado';
       } else if (accion === 'rechazar') {
         if (t.estado !== 'ofrecido') throw fallo(409, 'Ya no está disponible');

@@ -179,7 +179,8 @@ await (async () => {
   // Órdenes al juego (web_equipo.rb), una a la vez: la siguiente sale cuando Ruby responde
   const ordenes = [];
   const enCurso = new Set();  // ids de intercambio que ya están en la cola
-  const ordenar = (...campos) => ordenes.push(campos.join('\t'));
+  // Los campos van separados por tab: ninguno puede traer uno, ni saltos de línea
+  const ordenar = (...campos) => ordenes.push(campos.map((c) => String(c).replace(/[\t\r\n]/g, ' ')).join('\t'));
   let esperando = false;
   alCambiar('red_respuesta.txt', async (texto) => {
     esperando = false;
