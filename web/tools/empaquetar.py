@@ -3,12 +3,13 @@
 El paquete no entra al repo: lleva los archivos del juego.
 
 Uso: empaquetar.py <carpeta del juego> <sitio> --sprites <hojas base> --cache <reducidos>
-     [--arranque web/arranque.txt] [--diagnostico]
+     [--arranque web/arranque.txt] [--extras <carpeta>] [--diagnostico]
 <sitio> es la carpeta con el launcher y el core ya parcheado (parchear_core.py).
 
 Junto al paquete deja pif-<hash>.json, el marcador que el launcher guarda en lugar del
 paquete: con él, el core lee el paquete por bloques (web/scripts/bloques.js). --arranque
 lista los archivos que el juego lee al iniciar (arranque.py): van primero y se bajan antes.
+--extras agrega archivos generados fuera del juego, con su ruta relativa (p. ej. Data/spanish.dat).
 """
 import argparse
 import base64
@@ -128,7 +129,7 @@ def fijo(nombre):
     return zipfile.ZipInfo(nombre, (1980, 1, 1, 0, 0, 0))
 
 
-def crear_paquete(juego, sprites, cache, salida, arranque, diagnostico):
+def crear_paquete(juego, sprites, cache, salida, arranque, extras, diagnostico):
     bgm = juego / "Audio/BGM"
     audio = {p: cache / p.relative_to(juego) for p in [*bgm.rglob("*.mp3"), *(juego / "Audio/ME").rglob("*.mp3")]}
     audio |= {p: (cache / p.relative_to(juego)).with_suffix(".ogg") for p in bgm.rglob("*.wav")}
@@ -189,6 +190,10 @@ def crear_paquete(juego, sprites, cache, salida, arranque, diagnostico):
         for hoja in sorted(sprites.glob("*.png")):
             z.write(reducidos[hoja], HOJAS_BASE + hoja.name)
             n += 1
+        for archivo in sorted(extras.rglob("*")) if extras else []:
+            if archivo.is_file():
+                z.write(archivo, archivo.relative_to(extras).as_posix())
+                n += 1
         z.writestr(fijo("mkxp.json"), MKXP_JSON)
         z.writestr(fijo("Data/web_rutas.txt"), "\n".join(z.namelist()))
     return n
@@ -302,12 +307,13 @@ def main():
     args.add_argument("--sprites", type=Path, required=True)
     args.add_argument("--cache", type=Path, required=True)
     args.add_argument("--arranque", type=Path)
+    args.add_argument("--extras", type=Path)
     args.add_argument("--diagnostico", action="store_true")
     a = args.parse_args()
 
     arranque = set(a.arranque.read_text(encoding="utf-8").splitlines()) if a.arranque else set()
     temporal = a.sitio / "pif.mkxpz.tmp"
-    n = crear_paquete(a.juego, a.sprites, a.cache, temporal, arranque, a.diagnostico)
+    n = crear_paquete(a.juego, a.sprites, a.cache, temporal, arranque, a.extras, a.diagnostico)
     paquete = a.sitio / f"pif-{sha256(temporal)[:12]}.mkxpz"
     for viejo in [*a.sitio.glob("pif-*.mkxpz"), *a.sitio.glob("pif-*.json")]:
         viejo.unlink()

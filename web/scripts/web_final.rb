@@ -20,6 +20,12 @@ def pbSetResizeFactor(_factor)
   $ResizeInitialized = true
 end
 
+# Traducción al español (web/tools/traducir.py y armar_spanish.rb): spanish.dat va en el paquete
+Settings::LANGUAGES.each_value do |idiomas|
+  # Al final: la partida guarda el índice del idioma, y moverlo cambiaría el de francés o chino
+  idiomas << ["Español", "spanish.dat"] unless idiomas.any? { |i| i[1] == "spanish.dat" }
+end
+
 # La intro elige una fusión de la lista de sprites custom, que no va en el paquete
 def getRandomFusionForIntro
   return PIFSprite.new(:AUTOGEN, rand(NB_POKEMON) + 1, rand(NB_POKEMON) + 1, "")
