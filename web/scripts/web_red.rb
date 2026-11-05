@@ -24,6 +24,7 @@ module ArchipelagoNetwork
       return if @frames % CADA_FRAMES != 0
       leer_entrada
       escribir_salida if $game_player && $game_map
+      WebEquipo.atender
     rescue StandardError => e
       log_archivo("#{e.class}: #{e.message}")
     end

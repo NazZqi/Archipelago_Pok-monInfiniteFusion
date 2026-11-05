@@ -184,7 +184,8 @@ def crear_paquete(juego, sprites, cache, salida, arranque, diagnostico):
         # Jugadores visibles: el dibujo es el del mod de Archipelago, el puente es web_red.rb
         z.write(REMOTOS, "Data/Scripts/998_Web/red_jugadores.rb")
         z.write(SCRIPTS / "web_red.rb", "Data/Scripts/998_Web/red_puente.rb")
-        n += 3
+        z.write(SCRIPTS / "web_equipo.rb", "Data/Scripts/998_Web/red_equipo.rb")
+        n += 4
         for hoja in sorted(sprites.glob("*.png")):
             z.write(reducidos[hoja], HOJAS_BASE + hoja.name)
             n += 1

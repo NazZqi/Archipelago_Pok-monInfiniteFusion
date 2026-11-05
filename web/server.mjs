@@ -49,6 +49,30 @@ export function limpiarPosicion(b) {
   return pos;
 }
 
+// Un Pokémon viaja como una línea de texto (web_equipo.rb), nunca como Marshal: el juego que la
+// recibe la vuelve a validar contra GameData. Aquí solo se revisa la forma.
+// especie|nivel|movs|habilidad|naturaleza|objeto|ivs|evs|shiny|género|apodo|personalID
+const SIMBOLO = /^[A-Z0-9_]{1,40}$/;
+const enteros = (t, n, max) => {
+  const v = t.split(',').map(Number);
+  return v.length === n && v.every((x) => Number.isInteger(x) && x >= 0 && x <= max) ? v : null;
+};
+export function limpiarPokemon(linea) {
+  if (typeof linea !== 'string' || linea.length > 300 || /[\t\r\n]/.test(linea)) return null;
+  const c = linea.split('|');
+  if (c.length !== 12) return null;
+  const [especie, nivel, movs, habilidad, naturaleza, objeto, ivs, evs, shiny, genero, apodo, pid] = c;
+  const movimientos = movs ? movs.split(',') : [];
+  const evsV = enteros(evs, 6, 252);
+  const ok = SIMBOLO.test(especie) && /^(100|[1-9]\d?)$/.test(nivel)
+    && movimientos.length <= 4 && movimientos.every((m) => SIMBOLO.test(m))
+    && /^[0-2]$/.test(habilidad) && (naturaleza === '' || SIMBOLO.test(naturaleza))
+    && (objeto === '' || SIMBOLO.test(objeto)) && enteros(ivs, 6, 31) && evsV
+    && evsV.reduce((a, b) => a + b, 0) <= 510 && /^[01]$/.test(shiny) && /^[0-2]$/.test(genero)
+    && [...apodo].length <= 20 && /^\d{1,10}$/.test(pid);
+  return ok ? linea : null;
+}
+
 const fallo = (estado, mensaje, extra) => Object.assign(new Error(mensaje), { estado, extra });
 
 export function crearServidor({
@@ -68,8 +92,10 @@ export function crearServidor({
   const sesiones = new Map(); // token → { uid, nombre, expira }
   const posiciones = new Map(); // uid → { id, nombre, map_id, x, y, dir, gender, t }
   const streams = new Map(); // uid → Set de respuestas SSE
-  const intentosLogin = new Map(), envioFallos = new Map(), envioRed = new Map();
-  const limites = [[intentosLogin, 15 * 60e3], [envioFallos, 3600e3], [envioRed, 1000]];
+  const intentosLogin = new Map(), envioFallos = new Map(), envioRed = new Map(), envioChat = new Map();
+  const limites = [[intentosLogin, 15 * 60e3], [envioFallos, 3600e3], [envioRed, 1000], [envioChat, 1000]];
+  // Un uid no puede empezar con punto: esta carpeta no choca con ningún usuario
+  const carpetaIntercambios = path.join(datos, '.intercambios');
   const colas = new Map(); // serializa escrituras por clave
 
   const enCola = (clave, fn) => {
@@ -123,6 +149,16 @@ export function crearServidor({
   const emitir = (obj, excepto) => {
     const linea = `data: ${JSON.stringify(obj)}\n\n`;
     for (const [uid, set] of streams) if (uid !== excepto) for (const r of set) r.write(linea);
+  };
+  const avisarA = (uid, obj) => { for (const r of streams.get(uid) || []) r.write(`data: ${JSON.stringify(obj)}\n\n`); };
+  const escribirAtomico = async (archivo, contenido) => {
+    await mkdir(path.dirname(archivo), { recursive: true });
+    const tmp = path.join(path.dirname(archivo), `.tmp-${randomUUID()}`);
+    await writeFile(tmp, contenido);
+    await rename(tmp, archivo);
+  };
+  const leerJsonArchivo = async (archivo) => {
+    try { return JSON.parse(await readFile(archivo, 'utf8')); } catch (e) { if (e.code === 'ENOENT') return null; throw e; }
   };
 
   async function login(req, res) {
@@ -235,6 +271,115 @@ export function crearServidor({
     res.writeHead(204); res.end();
   }
 
+  // Equipo propio, para que los amigos peleen contra él (combate amistoso con la IA del juego)
+  async function equipo(req, res, s, crudo) {
+    if (crudo === undefined) {
+      if (req.method !== 'PUT') throw fallo(405, 'Método no permitido');
+      const lineas = (await leerCuerpo(req, 4096)).toString('utf8').split('\n').filter(Boolean);
+      if (!lineas.length || lineas.length > 6 || !lineas.every(limpiarPokemon)) throw fallo(400, 'Equipo inválido');
+      await enCola(s.uid, () => escribirAtomico(path.join(datos, s.uid, 'equipo.json'), JSON.stringify({ nombre: s.nombre, lineas })));
+      res.writeHead(204);
+      return res.end();
+    }
+    if (req.method !== 'GET') throw fallo(405, 'Método no permitido');
+    let uid;
+    try { uid = decodeURIComponent(crudo); } catch { throw fallo(400, 'Usuario inválido'); }
+    if (!uidValido(uid)) throw fallo(400, 'Usuario inválido');
+    const e = await leerJsonArchivo(path.join(datos, uid, 'equipo.json'));
+    if (!e) throw fallo(404, 'Ese jugador no tiene equipo guardado');
+    json(res, 200, { uid, ...e });
+  }
+
+  async function amigos(req, res, s) {
+    let nombres = [];
+    try { nombres = await readdir(datos); } catch (e) { if (e.code !== 'ENOENT') throw e; }
+    const lista = [];
+    for (const uid of nombres.filter((n) => uidValido(n) && n !== s.uid)) {
+      const e = await leerJsonArchivo(path.join(datos, uid, 'equipo.json'));
+      if (e) lista.push({ uid, nombre: e.nombre, conectado: posiciones.has(uid) });
+    }
+    json(res, 200, { amigos: lista });
+  }
+
+  // Intercambio en dos pasos: uno ofrece, el otro acepta con el suyo. Cada juego aplica el cambio
+  // y avisa "recibido"; el registro se borra cuando ambos lo aplicaron.
+  const archivoIntercambio = (id) => path.join(carpetaIntercambios, `${id}.json`);
+  const listarIntercambios = async () => {
+    let nombres = [];
+    try { nombres = await readdir(carpetaIntercambios); } catch (e) { if (e.code !== 'ENOENT') throw e; }
+    const lista = [];
+    for (const n of nombres.filter((x) => /^[0-9a-f-]{36}\.json$/.test(x))) {
+      const t = await leerJsonArchivo(path.join(carpetaIntercambios, n));
+      if (t) lista.push(t);
+    }
+    return lista;
+  };
+
+  async function intercambios(req, res, s, id, accion) {
+    if (id === undefined) {
+      if (req.method === 'GET') {
+        const mios = (await listarIntercambios()).filter((t) => {
+          const rol = t.de === s.uid ? 'de' : t.para === s.uid ? 'para' : null;
+          return rol && !(t.estado === 'aceptado' && t.entregado[rol]);
+        });
+        return json(res, 200, { intercambios: mios.map((t) => ({ ...t, rol: t.de === s.uid ? 'de' : 'para' })) });
+      }
+      if (req.method !== 'POST') throw fallo(405, 'Método no permitido');
+      const b = await leerJson(req, 2048);
+      if (!uidValido(b.para) || b.para === s.uid) throw fallo(400, 'Destinatario inválido');
+      const pokemon = limpiarPokemon(b.pokemon);
+      if (!pokemon) throw fallo(400, 'Pokémon inválido');
+      const t = { id: randomUUID(), de: s.uid, nombreDe: s.nombre, para: b.para, pokemonDe: pokemon,
+                  pokemonPara: null, estado: 'ofrecido', entregado: { de: false, para: false }, creado: Date.now() };
+      await enCola('intercambios', async () => {
+        const abiertos = (await listarIntercambios()).filter((x) => x.de === s.uid && x.estado === 'ofrecido');
+        if (abiertos.length >= 5) throw fallo(429, 'Ya tienes 5 ofertas sin responder');
+        await escribirAtomico(archivoIntercambio(t.id), JSON.stringify(t));
+      });
+      avisarA(b.para, { tipo: 'intercambio' });
+      return json(res, 201, { id: t.id });
+    }
+    if (!/^[0-9a-f-]{36}$/.test(id)) throw fallo(404, 'No existe');
+    if (req.method !== 'POST') throw fallo(405, 'Método no permitido');
+    const cuerpo = accion === 'aceptar' ? await leerJson(req, 2048) : null;
+    const t = await enCola('intercambios', async () => {
+      const t = await leerJsonArchivo(archivoIntercambio(id));
+      if (!t || (t.de !== s.uid && t.para !== s.uid)) throw fallo(404, 'No existe');
+      const rol = t.de === s.uid ? 'de' : 'para';
+      if (accion === 'aceptar') {
+        if (rol !== 'para' || t.estado !== 'ofrecido') throw fallo(409, 'Ya no está disponible');
+        t.pokemonPara = limpiarPokemon(cuerpo.pokemon);
+        if (!t.pokemonPara) throw fallo(400, 'Pokémon inválido');
+        t.estado = 'aceptado';
+      } else if (accion === 'rechazar') {
+        if (t.estado !== 'ofrecido') throw fallo(409, 'Ya no está disponible');
+        await rm(archivoIntercambio(id));
+        return { ...t, estado: 'rechazado' };
+      } else if (accion === 'recibido') {
+        if (t.estado !== 'aceptado') throw fallo(409, 'Todavía no se acepta');
+        t.entregado[rol] = true;
+        if (t.entregado.de && t.entregado.para) {
+          await rm(archivoIntercambio(id));
+          return t;
+        }
+      } else throw fallo(404, 'No encontrado');
+      await escribirAtomico(archivoIntercambio(id), JSON.stringify(t));
+      return t;
+    });
+    avisarA(t.de === s.uid ? t.para : t.de, { tipo: 'intercambio' });
+    json(res, 200, { estado: t.estado });
+  }
+
+  async function chat(req, res, s) {
+    if (excede(envioChat, s.uid, 1, 1000)) throw fallo(429, 'Espera un segundo entre mensajes');
+    const b = await leerJson(req, 2048);
+    const texto = typeof b.texto === 'string' ? b.texto.replace(/[\u0000-\u001f\u007f]/g, ' ').trim().slice(0, 500) : '';
+    if (!texto) throw fallo(400, 'Mensaje vacío');
+    emitir({ tipo: 'chat', id: s.uid, nombre: s.nombre, texto, hora: Date.now() }); // el nombre sale de la sesión
+    res.writeHead(204);
+    res.end();
+  }
+
   async function api(req, res, url) {
     const p = url.pathname;
     if (p === '/api/login' && req.method === 'POST') return login(req, res);
@@ -246,6 +391,14 @@ export function crearServidor({
     if (p === '/api/fallo' && req.method === 'POST') return reportarFallo(req, res, s);
     if (p === '/api/red' && req.method === 'GET') return abrirRed(req, res, s);
     if (p === '/api/red' && req.method === 'POST') return enviarPosicion(req, res, s);
+    if (p === '/api/equipo') return equipo(req, res, s);
+    const e = /^\/api\/equipo\/([^/]+)$/.exec(p);
+    if (e) return equipo(req, res, s, e[1]);
+    if (p === '/api/amigos' && req.method === 'GET') return amigos(req, res, s);
+    if (p === '/api/intercambio') return intercambios(req, res, s);
+    const t = /^\/api\/intercambio\/([^/]+)\/(aceptar|rechazar|recibido)$/.exec(p);
+    if (t) return intercambios(req, res, s, t[1], t[2]);
+    if (p === '/api/chat' && req.method === 'POST') return chat(req, res, s);
     throw fallo(404, 'No encontrado');
   }
 

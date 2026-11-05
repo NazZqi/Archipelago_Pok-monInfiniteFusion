@@ -149,18 +149,155 @@ await (async () => {
   };
   new EventSource('/api/red').onmessage = (e) => {
     const p = JSON.parse(e.data);
+    if (p.tipo === 'chat') return panel.chat(p);
+    if (p.tipo === 'intercambio') return panel.intercambios();
     if (p.fuera) otros.delete(p.id); else otros.set(p.id, p);
     escribirEntrada();
   };
-  let salida = 0;
+  // Archivos que escribe Ruby: la página los lee pero nunca los borra (ver web_equipo.rb)
+  const alCambiar = async (nombre, accion, ignorarActual = false) => {
+    let visto = ignorarActual ? (await archivoDe(nombre).catch(() => null))?.lastModified : 0;
+    setInterval(async () => {
+      const archivo = await archivoDe(nombre).catch(() => null);
+      if (!archivo || archivo.lastModified === visto) return;
+      visto = archivo.lastModified;
+      accion(await archivo.text());
+    }, 300);
+  };
+  const enviar = (ruta, cuerpo, metodo = 'POST') => fetch(ruta, {
+    method: metodo, headers: { 'Content-Type': 'application/json' }, body: JSON.stringify(cuerpo),
+  });
+  alCambiar('red_salida.txt', (texto) => {
+    const [map_id, x, y, dir, gender] = texto.split(' ');
+    enviar('/api/red', { map_id: +map_id, x: +x, y: +y, dir: +dir, gender }).catch(() => {});
+  });
+  // web_equipo.rb lo escribe al guardar: es lo que ven los amigos en un combate amistoso
+  alCambiar('red_equipo.txt', (texto) => {
+    if (texto) fetch('/api/equipo', { method: 'PUT', body: texto }).catch(() => {});
+  });
+
+  // Órdenes al juego (web_equipo.rb), una a la vez: la siguiente sale cuando Ruby responde
+  const ordenes = [];
+  const enCurso = new Set();  // ids de intercambio que ya están en la cola
+  const ordenar = (...campos) => ordenes.push(campos.join('\t'));
+  let esperando = false;
+  alCambiar('red_respuesta.txt', async (texto) => {
+    esperando = false;
+    const [tipo, a, b] = texto.split('\t');
+    const r = await (tipo === 'oferta' ? enviar('/api/intercambio', { para: a, pokemon: b })
+      : tipo === 'aceptacion' ? enviar(`/api/intercambio/${a}/aceptar`, { pokemon: b })
+        : tipo === 'recibido' ? fetch(`/api/intercambio/${a}/recibido`, { method: 'POST' }) : null)?.catch(() => null);
+    if (r && !r.ok && r.status !== 404) panel.aviso((await r.json().catch(() => ({}))).error || `Error ${r.status}`);
+    if (tipo === 'error') panel.aviso(`El juego no pudo hacerlo: ${a}`);
+    if (tipo === 'recibido') enCurso.delete(a);
+    panel.intercambios();
+  }, true);
   setInterval(async () => {
-    const archivo = await archivoDe('red_salida.txt').catch(() => null);
-    if (!archivo || archivo.lastModified === salida) return;
-    salida = archivo.lastModified;
-    const [map_id, x, y, dir, gender] = (await archivo.text()).split(' ');
-    fetch('/api/red', { method: 'POST', headers: { 'Content-Type': 'application/json' },
-                        body: JSON.stringify({ map_id: +map_id, x: +x, y: +y, dir: +dir, gender }) }).catch(() => {});
-  }, 300);
+    if (esperando || !ordenes.length) return;
+    esperando = true;
+    await escribir('red_ordenes.txt', ordenes.shift());
+  }, 500);
+
+  const panel = (() => {
+    const raiz = document.createElement('div');
+    raiz.style.cssText = 'position:fixed;left:8px;bottom:8px;z-index:9;font:13px system-ui,sans-serif;color:#fff';
+    raiz.innerHTML = `<button data-abrir style="padding:4px 10px;border:0;border-radius:4px;background:#0009;color:#fff;cursor:pointer">Amigos</button>
+      <div data-caja hidden style="width:300px;max-height:70vh;overflow:auto;margin-top:6px;padding:8px;border-radius:6px;background:#000c">
+        <p data-aviso style="color:#ffb38a;margin:0 0 6px"></p>
+        <b>Amigos</b><div data-amigos style="margin:4px 0 8px"></div>
+        <b>Intercambios</b><div data-ofertas style="margin:4px 0 8px"></div>
+        <b>Chat</b><div data-chat style="height:120px;overflow:auto;margin:4px 0;background:#fff1;padding:4px"></div>
+        <input data-texto maxlength="500" placeholder="Escribe y pulsa Enter" style="box-sizing:border-box;width:100%">
+      </div>`;
+    const $ = (n) => raiz.querySelector(`[data-${n}]`);
+    const boton = (texto, accion) => {
+      const b = document.createElement('button');
+      b.textContent = texto;
+      b.style.marginLeft = '4px';
+      b.onclick = accion;
+      return b;
+    };
+    const fila = (texto, ...botones) => {
+      const d = document.createElement('div');
+      d.textContent = texto;
+      d.append(...botones);
+      return d;
+    };
+    const describir = (linea) => { const c = linea.split('|'); return `${c[10] || c[0]} Nv. ${c[1]}`; };
+    // Las teclas del panel no llegan al juego: este listener se registra antes que el del core.
+    // Cortar aquí también impide que lleguen al input, así que el Enter del chat se atiende aquí;
+    // el texto se escribe igual, porque eso es la acción por defecto.
+    for (const tipo of ['keydown', 'keyup', 'keypress']) {
+      window.addEventListener(tipo, (e) => {
+        if (!raiz.contains(document.activeElement)) return;
+        e.stopImmediatePropagation();
+        if (tipo === 'keydown' && e.key === 'Enter' && document.activeElement === $('texto')) mandarChat();
+      }, true);
+    }
+
+    const amigos = async () => {
+      const r = await fetch('/api/amigos', { cache: 'no-store' }).catch(() => null);
+      if (!r?.ok) return;
+      const lista = (await r.json()).amigos;
+      $('amigos').replaceChildren(...(lista.length ? lista.map((a) => fila(`${a.conectado ? '● ' : ''}${a.nombre}`,
+        boton('Combatir', async () => {
+          const e = await (await fetch(`/api/equipo/${encodeURIComponent(a.uid)}`, { cache: 'no-store' })).json();
+          const genero = otros.get(a.uid)?.gender || 'm';
+          ordenar('combate', e.nombre, genero, ...e.lineas);
+          aviso(`Combate contra ${e.nombre}: empieza cuando estés en el mapa.`);
+        }),
+        boton('Intercambiar', () => { ordenar('ofrecer', a.uid, a.nombre); aviso('Elige el Pokémon en el juego.'); })))
+        : [fila('Aún no hay amigos con equipo guardado. Aparecen al guardar la partida.')]));
+    };
+    const intercambios = async () => {
+      const r = await fetch('/api/intercambio', { cache: 'no-store' }).catch(() => null);
+      if (!r?.ok) return;
+      const filas = [];
+      for (const t of (await r.json()).intercambios) {
+        if (t.estado === 'aceptado') {
+          if (!enCurso.has(t.id)) {
+            enCurso.add(t.id);
+            const [sale, llega] = t.rol === 'de' ? [t.pokemonDe, t.pokemonPara] : [t.pokemonPara, t.pokemonDe];
+            ordenar('recibir', t.id, sale.split('|')[11], llega);
+          }
+          filas.push(fila(`Recibiendo ${describir(t.rol === 'de' ? t.pokemonPara : t.pokemonDe)}…`));
+        } else if (t.rol === 'para') {
+          filas.push(fila(`${t.nombreDe} ofrece ${describir(t.pokemonDe)}`,
+            boton('Aceptar', () => ordenar('aceptar', t.id, t.nombreDe, t.pokemonDe)),
+            boton('Rechazar', () => fetch(`/api/intercambio/${t.id}/rechazar`, { method: 'POST' }).then(intercambios))));
+        } else {
+          filas.push(fila(`Ofreciste ${describir(t.pokemonDe)}: esperando respuesta`,
+            boton('Cancelar', () => fetch(`/api/intercambio/${t.id}/rechazar`, { method: 'POST' }).then(intercambios))));
+        }
+      }
+      $('ofertas').replaceChildren(...(filas.length ? filas : [fila('Ninguno.')]));
+    };
+    const aviso = (texto) => { $('aviso').textContent = texto; };
+    $('abrir').onclick = () => {
+      $('caja').hidden = !$('caja').hidden;
+      if (!$('caja').hidden) { amigos(); intercambios(); }
+    };
+    async function mandarChat() {
+      const campo = $('texto');
+      if (!campo.value.trim()) return;
+      const r = await enviar('/api/chat', { texto: campo.value }).catch(() => null);
+      if (r?.ok) campo.value = ''; else aviso((await r?.json().catch(() => ({})))?.error || 'Sin conexión');
+    }
+    document.body.append(raiz);
+    setInterval(() => { if (!$('caja').hidden) amigos(); }, 30000);
+    intercambios();  // un intercambio aceptado mientras no jugabas se aplica al entrar
+    return {
+      aviso, intercambios,
+      chat: (m) => {
+        const linea = document.createElement('div');
+        linea.textContent = `${m.nombre}: ${m.texto}`;
+        $('chat').append(linea);
+        while ($('chat').children.length > 50) $('chat').firstChild.remove();
+        $('chat').scrollTop = 1e9;
+        if ($('caja').hidden) $('abrir').textContent = 'Amigos •';
+      },
+    };
+  })();
 })().catch((e) => {
   document.body.textContent = `No se pudo preparar tu partida (${e.message}). Recarga la página.`;
   throw e;

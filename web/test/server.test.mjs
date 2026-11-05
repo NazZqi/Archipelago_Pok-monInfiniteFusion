@@ -175,3 +175,62 @@ test('el SSE recibe la posición de otro; la inválida se descarta y el nombre s
   const eventos = texto.split('\n').filter((l) => l.startsWith('data: ')).map((l) => JSON.parse(l.slice(6)));
   assert.deepEqual(eventos[0], { id: 'ana', nombre: 'Ana', map_id: 5, x: 7, y: 3, dir: 4, gender: 'f' });
 });
+
+const PK = (especie, pid) => `${especie}|25|TACKLE,GROWL||HARDY||31,31,31,31,31,31|0,0,0,0,0,0|0|0|Apodo|${pid}`.replace('||HARDY', '|0|HARDY');
+const json = (cuerpo) => ({ method: 'POST', headers: { 'Content-Type': 'application/json' }, body: JSON.stringify(cuerpo) });
+
+test('el equipo se guarda solo si cada línea es válida y otro jugador lo puede leer', async () => {
+  const subirEquipo = (cuerpo) => pedir('/api/equipo', { method: 'PUT', usuario: 'ana', body: cuerpo });
+  assert.equal((await subirEquipo(PK('B1H4', 1) + '\n' + PK('PIKACHU', 2).replace('|25|', '|101|'))).status, 400);
+  assert.equal((await subirEquipo(PK('PIKACHU', 2).replace('Apodo', 'a|b'))).status, 400);
+  assert.equal((await subirEquipo('x'.repeat(5000))).status, 413);
+  assert.equal((await subirEquipo([PK('B1H4', 1), PK('PIKACHU', 2)].join('\n'))).status, 204);
+  const r = await pedir('/api/equipo/ana', { usuario: 'beto' });
+  assert.deepEqual(await r.json(), { uid: 'ana', nombre: 'Ana', lineas: [PK('B1H4', 1), PK('PIKACHU', 2)] });
+  assert.equal((await pedir('/api/equipo/..%2Fana', { usuario: 'beto' })).status, 400);
+  const amigos = await (await pedir('/api/amigos', { usuario: 'beto' })).json();
+  assert.deepEqual(amigos.amigos.map((a) => a.uid), ['ana']);
+});
+
+test('intercambio: no con uno mismo, aceptar una vez y se borra cuando ambos lo reciben', async () => {
+  assert.equal((await pedir('/api/intercambio', { usuario: 'ana', ...json({ para: 'ana', pokemon: PK('PIKACHU', 2) }) })).status, 400);
+  assert.equal((await pedir('/api/intercambio', { usuario: 'ana', ...json({ para: 'beto', pokemon: 'malo' }) })).status, 400);
+  const { id } = await (await pedir('/api/intercambio', { usuario: 'ana', ...json({ para: 'beto', pokemon: PK('PIKACHU', 2) }) })).json();
+  const deBeto = await (await pedir('/api/intercambio', { usuario: 'beto' })).json();
+  assert.equal(deBeto.intercambios[0].rol, 'para');
+  assert.equal(deBeto.intercambios[0].pokemonDe, PK('PIKACHU', 2));
+
+  const aceptar = (usuario) => pedir(`/api/intercambio/${id}/aceptar`, { usuario, ...json({ pokemon: PK('EEVEE', 3) }) });
+  assert.equal((await aceptar('ana')).status, 409); // quien ofrece no acepta
+  assert.equal((await aceptar('beto')).status, 200);
+  assert.equal((await aceptar('beto')).status, 409); // aceptar dos veces no duplica
+  const recibido = (usuario) => pedir(`/api/intercambio/${id}/recibido`, { usuario, method: 'POST' });
+  assert.equal((await recibido('ana')).status, 200);
+  assert.equal((await recibido('ana')).status, 200);
+  const deAna = await (await pedir('/api/intercambio', { usuario: 'ana' })).json();
+  assert.equal(deAna.intercambios.length, 0); // ana ya lo aplicó
+  assert.equal((await recibido('beto')).status, 200);
+  assert.equal((await recibido('beto')).status, 404); // borrado: ambos lo aplicaron
+});
+
+test('el chat llega a todos con el nombre de la sesión y tiene límite', async () => {
+  const corte = new AbortController();
+  const stream = await pedir('/api/red', { usuario: 'beto', signal: corte.signal });
+  assert.equal((await pedir('/api/chat', { usuario: 'ana', ...json({ texto: '' }) })).status, 400);
+  await new Promise((ok) => setTimeout(ok, 1100));
+  assert.equal((await pedir('/api/chat', { usuario: 'ana', ...json({ texto: 'hola\nbeto', nombre: 'Falso' }) })).status, 204);
+  assert.equal((await pedir('/api/chat', { usuario: 'ana', ...json({ texto: 'otra' }) })).status, 429);
+  const lector = stream.body.getReader();
+  let texto = '';
+  const limite = setTimeout(() => corte.abort(), 3000);
+  while (!/"tipo":"chat"[^\n]*\n\n/.test(texto)) {
+    const { value, done } = await lector.read();
+    if (done) break;
+    texto += new TextDecoder().decode(value);
+  }
+  clearTimeout(limite);
+  corte.abort();
+  const chat = texto.split('\n').filter((l) => l.startsWith('data: ')).map((l) => JSON.parse(l.slice(6))).find((e) => e.tipo === 'chat');
+  assert.equal(chat.nombre, 'Ana');
+  assert.equal(chat.texto, 'hola beto');
+});
