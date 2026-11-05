@@ -2,7 +2,7 @@
 // reportes de fallos y posiciones de los demás jugadores. Sin dependencias (Node 22).
 import http from 'node:http';
 import { readFile, writeFile, appendFile, rename, rm, mkdir, readdir, stat } from 'node:fs/promises';
-import { createReadStream } from 'node:fs';
+import { createReadStream, readFileSync } from 'node:fs';
 import { pipeline } from 'node:stream/promises';
 import { randomBytes, randomUUID } from 'node:crypto';
 import path from 'node:path';
@@ -88,8 +88,12 @@ export function crearServidor({
   const urlUsuario = nextcloud.replace(/\/+$/, '') + '/ocs/v2.php/cloud/user?format=json';
   const archivoFallos = path.join(datos, 'fallos.jsonl');
 
-  // shortcut: sesiones en memoria, reiniciar el servidor obliga a entrar de nuevo; pasar a disco si molesta.
+  // Sesiones en disco: un reinicio no saca a nadie. El archivo guarda tokens, así que va con permisos 600.
+  const archivoSesiones = path.join(datos, '.sesiones.json');
   const sesiones = new Map(); // token → { uid, nombre, expira }
+  try {
+    for (const [t, s] of Object.entries(JSON.parse(readFileSync(archivoSesiones, 'utf8')))) sesiones.set(t, s);
+  } catch { /* sin archivo: no hay sesiones guardadas */ }
   const posiciones = new Map(); // uid → { id, nombre, map_id, x, y, dir, gender, t }
   const streams = new Map(); // uid → Set de respuestas SSE
   const intentosLogin = new Map(), envioFallos = new Map(), envioRed = new Map(), envioChat = new Map();
@@ -151,12 +155,15 @@ export function crearServidor({
     for (const [uid, set] of streams) if (uid !== excepto) for (const r of set) r.write(linea);
   };
   const avisarA = (uid, obj) => { for (const r of streams.get(uid) || []) r.write(`data: ${JSON.stringify(obj)}\n\n`); };
-  const escribirAtomico = async (archivo, contenido) => {
+  const escribirAtomico = async (archivo, contenido, modo = 0o644) => {
     await mkdir(path.dirname(archivo), { recursive: true });
     const tmp = path.join(path.dirname(archivo), `.tmp-${randomUUID()}`);
-    await writeFile(tmp, contenido);
+    await writeFile(tmp, contenido, { mode: modo });
     await rename(tmp, archivo);
   };
+  // Se serializa con enCola: cada escritura toma la foto de sesiones al ejecutarse, no al pedirse
+  const guardarSesiones = () => enCola('sesiones', () =>
+    escribirAtomico(archivoSesiones, JSON.stringify(Object.fromEntries(sesiones)), 0o600));
   const leerJsonArchivo = async (archivo) => {
     try { return JSON.parse(await readFile(archivo, 'utf8')); } catch (e) { if (e.code === 'ENOENT') return null; throw e; }
   };
@@ -188,6 +195,7 @@ export function crearServidor({
     // y a órdenes separadas por tab
     const nombre = String(d.displayname || d['display-name'] || d.id).replace(/[\\|<>\u0000-\u001f\u007f]/g, '').slice(0, 32) || d.id;
     sesiones.set(token, { uid: d.id, nombre, expira: Date.now() + DURACION_SESION });
+    await guardarSesiones();
     json(res, 200, { uid: d.id, nombre }, {
       'Set-Cookie': `${COOKIE}=${token}; Path=/; Max-Age=${DURACION_SESION / 1000}; HttpOnly; Secure; SameSite=Strict`,
     });
@@ -456,7 +464,8 @@ export function crearServidor({
       if (req.method !== 'GET' && req.method !== 'HEAD' && !origenValido(req)) throw fallo(403, 'Origen no permitido');
       if (url.pathname.startsWith('/api/')) await api(req, res, url);
       else if (url.pathname.startsWith('/juego/')) {
-        if (!sesionDe(req)) throw fallo(401, 'Sin sesión');
+        // Un enlace directo a /juego/ sin sesión vuelve a la entrada, no a un JSON de error
+        if (!sesionDe(req)) { res.writeHead(302, { Location: '/' }).end(); return; }
         // private y no-cache: Cloudflare no lo guarda y el navegador no usa un launcher viejo.
         await estatico(req, res, juego, url.pathname.slice('/juego'.length), 'private, no-cache');
       } else await estatico(req, res, publico, url.pathname, 'no-cache');
@@ -471,7 +480,9 @@ export function crearServidor({
   const barrido = setInterval(() => {
     const ahora = Date.now();
     for (const [uid, p] of posiciones) if (ahora - p.t >= VIGENCIA_POSICION) { posiciones.delete(uid); emitir({ id: uid, fuera: true }); }
-    for (const [t, s] of sesiones) if (s.expira <= ahora) sesiones.delete(t);
+    let vencidas = false;
+    for (const [t, s] of sesiones) if (s.expira <= ahora) { sesiones.delete(t); vencidas = true; }
+    if (vencidas) guardarSesiones().catch((e) => console.error('[sesiones]', e));
     for (const [mapa, ms] of limites) for (const [k, usos] of mapa) if (!usos.some((t) => t > ahora - ms)) mapa.delete(k);
   }, 5e3).unref();
   const latido = setInterval(() => { for (const set of streams.values()) for (const r of set) r.write(': latido\n\n'); }, LATIDO).unref();

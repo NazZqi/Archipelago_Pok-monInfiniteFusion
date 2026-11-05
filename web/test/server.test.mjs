@@ -2,7 +2,7 @@
 import { test, before, after } from 'node:test';
 import assert from 'node:assert/strict';
 import http from 'node:http';
-import { mkdtemp, mkdir, writeFile, readFile, readdir, rm } from 'node:fs/promises';
+import { mkdtemp, mkdir, writeFile, readFile, readdir, rm, stat } from 'node:fs/promises';
 import os from 'node:os';
 import path from 'node:path';
 import { crearServidor, limpiarPokemon } from '../server.mjs';
@@ -15,7 +15,7 @@ const CUENTAS = {
   nuevo: { clave: 'clave-nuevo', data: { id: 'nuevo', displayname: 'Nuevo', enabled: false } },
 };
 
-let nube, servidor, base, datos, juego;
+let nube, servidor, base, datos, juego, urlNubeFalsa;
 const sesiones = {};
 
 const escuchar = (srv) => new Promise((ok) => srv.listen(0, '127.0.0.1', () => ok(`http://127.0.0.1:${srv.address().port}`)));
@@ -41,14 +41,14 @@ before(async () => {
     res.writeHead(200, { 'Content-Type': 'application/json' });
     res.end(JSON.stringify({ ocs: { meta: { status: 'ok', statuscode: 200 }, data: cuenta.data } }));
   });
-  const urlNube = await escuchar(nube);
+  urlNubeFalsa = await escuchar(nube);
   const tmp = await mkdtemp(path.join(os.tmpdir(), 'pif-server-'));
   datos = path.join(tmp, 'datos');
   juego = path.join(tmp, 'juego');
   await mkdir(juego);
   await writeFile(path.join(juego, 'pif-x.mkxpz'), Buffer.from(Array.from({ length: 256 }, (_, i) => i)));
   await writeFile(path.join(tmp, 'secreto.txt'), 'no');
-  servidor = crearServidor({ nextcloud: urlNube, datos, juego, publico: path.join(tmp, 'public'), origen: ORIGEN });
+  servidor = crearServidor({ nextcloud: urlNubeFalsa, datos, juego, publico: path.join(tmp, 'public'), origen: ORIGEN });
   base = await escuchar(servidor);
   for (const u of ['ana', 'beto']) {
     const r = await entrar(u, CUENTAS[u].clave);
@@ -86,7 +86,9 @@ test('escrituras sin Origin propio se rechazan', async () => {
 });
 
 test('/juego/ pide sesión, acepta Range y manda cabeceras privadas y COOP/COEP', async () => {
-  assert.equal((await pedir('/juego/pif-x.mkxpz')).status, 401);
+  const sinSesion = await pedir('/juego/pif-x.mkxpz', { redirect: 'manual' });
+  assert.equal(sinSesion.status, 302);
+  assert.equal(sinSesion.headers.get('location'), '/');
   const r = await pedir('/juego/pif-x.mkxpz', { usuario: 'ana', headers: { Range: 'bytes=10-19' } });
   assert.equal(r.status, 206);
   assert.equal(r.headers.get('content-range'), 'bytes 10-19/256');
@@ -245,4 +247,15 @@ test('un Pokémon no entra en dos intercambios abiertos ni lleva códigos de con
   const { id } = intercambios.find((t) => t.pokemonDe === PK('MEW', 77));
   assert.equal((await pedir(`/api/intercambio/${id}/rechazar`, { method: 'POST', usuario: 'beto' })).status, 200);
   assert.equal((await ofrecer()).status, 201); // rechazado: vuelve a estar libre
+});
+
+test('la sesión sobrevive a un reinicio del servidor (en Linux, con permisos 600)', async () => {
+  // Windows no tiene permisos POSIX: la comprobación solo corre donde se aplican (el servidor es Linux)
+  if (process.platform !== 'win32') assert.equal((await stat(path.join(datos, '.sesiones.json'))).mode & 0o777, 0o600);
+  const nuevo = crearServidor({ nextcloud: urlNubeFalsa, datos, juego, publico: path.join(path.dirname(datos), 'public'), origen: ORIGEN });
+  const url = await escuchar(nuevo);
+  const r = await fetch(url + '/api/archivos', { headers: { Origin: ORIGEN, Cookie: sesiones.ana } });
+  assert.equal(r.status, 200);
+  nuevo.closeAllConnections();
+  await new Promise((ok) => nuevo.close(ok));
 });
